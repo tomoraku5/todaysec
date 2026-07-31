@@ -1,0 +1,116 @@
+name: Update feeds & Deploy
+
+on:
+  schedule:
+    - cron: "0 */6 * * *" # 6時間ごと
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write # feed.json のコミット用
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # ── データの保管先 ──────────────────────────────────────────────
+      # リポジトリ変数 `vars.GCS_BUCKET` が設定されていれば GCS モード
+      # （feed.json は GCS が正本＝git にコミットしない）、空ならローカルモード
+      # （従来どおり src/data/feed.json をコミット）。後方互換のため全ステップを
+      # `vars.GCS_BUCKET` でゲートする＝バケット未設定なら現状の挙動のまま。
+      # GCS の認証は GCS への**アップロード**（後段の gcloud cp）に必要。読み込み（build）は public URL。
+      - name: Authenticate to Google Cloud
+        if: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && vars.GCS_BUCKET != '' }}
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+
+      # gcloud を WIF 認証で使えるよう設定。アップロードは @google-cloud/storage SDK ではなく
+      # gcloud で行う＝SDK の WIF→STS トークン交換が CI の node-fetch 経路で
+      # ERR_STREAM_PREMATURE_CLOSE する問題を回避（gcloud は ADC を native 解決）。
+      - name: Set up Cloud SDK
+        if: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && vars.GCS_BUCKET != '' }}
+        uses: google-github-actions/setup-gcloud@v2
+
+      # 取得は cron / 手動実行時のみ（push 時は既存データでビルドしてループ回避）
+      # X: 自分のブックマークは basecamp 公開JSON（トークン不要）、外部アカウントのポストは
+      # X API App-only Bearer（X_BEARER_TOKEN）。Feedly/はてブは公開RSSを直接取得（トークン不要）。
+      - name: Aggregate feeds
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: npm run aggregate
+        env:
+          GCS_BUCKET: ${{ vars.GCS_BUCKET }} # 空ならローカルファイルへ書く（従来挙動）
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          # LayerX AI・LLM Newsletter を Gmail から取得（任意。未設定ならそのソースをスキップ）
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+          # 機械翻訳（原文→日本語）。任意。未設定なら翻訳をスキップして原文のまま表示する
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      # GCS モードのみ: aggregate がローカルに書いた feed.json を GCS へアップロード（正本化）。
+      # SDK ではなく gcloud（runner プリインストール＋WIF 認証）で行うので STS の node-fetch 問題を回避。
+      # build はこの直後に GCS から ?t=$GITHUB_RUN_ID で読む。Cache-Control は readFeed と整合。
+      - name: Upload feed.json to GCS
+        if: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && vars.GCS_BUCKET != '' }}
+        run: |
+          gcloud storage cp src/data/feed.json "gs://${{ vars.GCS_BUCKET }}/feed.json" \
+            --cache-control="public, max-age=300, stale-while-revalidate=3600"
+
+      # ローカルモード（GCS_BUCKET 未設定）のときだけ feed.json を git にコミット。
+      # GCS モードでは正本が GCS なのでコミットしない（git コミットループが消える）。
+      - name: Commit feed.json if changed
+        if: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && vars.GCS_BUCKET == '' }}
+        run: |
+          git config user.name "feed-bot"
+          git config user.email "feed-bot@users.noreply.github.com"
+          git add src/data/feed.json
+          if git diff --staged --quiet; then
+            echo "変更なし"
+          else
+            git commit -m "chore: update feed $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
+
+      # ビルドは GCS から（GCS_BUCKET 設定時）/ローカル feed.json から（未設定時）読む。
+      # 読みは public URL なので認証不要。GITHUB_RUN_ID は自動で env に入り、書き込み直後の
+      # 取得で古いエッジキャッシュを避けるバスターになる（feedStore.readFeed）。
+      - name: Build site
+        run: npm run build
+        env:
+          GCS_BUCKET: ${{ vars.GCS_BUCKET }}
+          GH_USER: ${{ github.repository_owner }}
+          # Cloudflare Web Analytics のビーコン token（公開値なので secret ではなくリポジトリ「変数」）。
+          # 未設定なら空文字 → Layout.astro がビーコンを出力しない（graceful）。
+          PUBLIC_CF_BEACON_TOKEN: ${{ vars.PUBLIC_CF_BEACON_TOKEN }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

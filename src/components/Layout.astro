@@ -1,0 +1,139 @@
+---
+import "@/styles/globals.css";
+import { siteLink, absUrl } from "@/lib/url";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "today.ai — AI情報フィード",
+  description = "特定のXアカウント・Zenn/Qiita・はてなブックマーク（テクノロジー）からAI関連情報を集約する個人フィード。",
+} = Astro.props;
+
+const ogImage = absUrl("/og-default.png");
+
+// canonical / og:url。Astro.url.pathname は既に base（/todayai）込みなので absUrl() に
+// 渡すと base が二重付与になる → Astro.site を基点に new URL で組む。
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Cloudflare Web Analytics — Cookie 不要のプライバシー配慮解析（バナー不要）。
+// PUBLIC_CF_BEACON_TOKEN（.env / リポジトリ変数）が入っていればビーコンを出力し、
+// 未設定なら何も出さない＝ビルドは壊れない（graceful）。トークンはページソースに出る
+// 公開値なので secret ではなくリポジトリ「変数」で渡す。
+const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href={siteLink("/favicon.svg")} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="today.ai"
+      href={siteLink("/rss.xml")}
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    {
+      cfBeaconToken && (
+        <script
+          is:inline
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: cfBeaconToken })}
+        />
+      )
+    }
+  </head>
+  <body>
+    <div class="mx-auto flex min-h-screen max-w-[46rem] flex-col px-4 pb-12 sm:px-6 lg:max-w-[58rem]">
+      <header
+        id="app-header"
+        class="sticky-surface sticky top-0 z-20 -mx-4 mb-2 border-b border-[var(--color-border)] px-4 py-3 sm:-mx-6 sm:px-6"
+      >
+        <div class="flex items-center justify-between gap-3">
+          <a href={siteLink("/")} class="group flex items-center gap-2.5">
+            <span
+              class="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-accent)] font-mono text-sm font-bold text-white shadow-[0_2px_10px_var(--color-accent-glow)]"
+              >ai</span
+            >
+            <span class="font-display text-[16px] font-bold tracking-tight">
+              today<span class="text-[var(--color-accent)]">.ai</span>
+            </span>
+          </a>
+          <nav class="flex items-center gap-1 font-mono text-[12px] text-[var(--color-text-muted)]">
+            <a
+              href={siteLink("/")}
+              class="rounded-md px-2.5 py-1.5 transition-colors hover:bg-[var(--color-card-hover)] hover:text-[var(--color-text)]"
+              >FEED</a
+            >
+            <a
+              href={siteLink("/about")}
+              class="rounded-md px-2.5 py-1.5 transition-colors hover:bg-[var(--color-card-hover)] hover:text-[var(--color-text)]"
+              >ABOUT</a
+            >
+            <a
+              href={siteLink("/rss.xml")}
+              class="rounded-md px-2.5 py-1.5 transition-colors hover:bg-[var(--color-card-hover)] hover:text-[var(--color-text)]"
+              aria-label="RSS"
+              >RSS</a
+            >
+          </nav>
+        </div>
+      </header>
+
+      <main class="flex-1 pb-16">
+        <slot />
+      </main>
+
+      <footer
+        class="border-t border-[var(--color-border)] py-6 text-center text-[12px] text-[var(--color-text-subtle)]"
+      >
+        <p>
+          today.ai — AI情報を1つのフィードに。X / Zenn / Qiita / はてブ / Workspace / LayerX / GCP
+          から自動集約。
+        </p>
+      </footer>
+
+      <!-- サイト間ナビ: 画面下端に常駐する控えめな逆リンクバー（→ satory074.com/apps）。
+           フィードが長大で通常フッターは実質スクロール到達不能なため、tenji と同じく fixed で常時表示する -->
+      <nav
+        aria-label="サイト間ナビゲーション"
+        class="fixed inset-x-0 bottom-0 z-30 border-t border-[var(--color-border)] bg-[var(--color-bg)]"
+        style="padding-bottom: env(safe-area-inset-bottom)"
+      >
+        <div
+          class="mx-auto flex h-9 max-w-[46rem] items-center justify-center px-4 sm:px-6 lg:max-w-[58rem]"
+        >
+          <a
+            href="https://satory074.com/apps/"
+            target="_blank"
+            rel="noopener"
+            aria-label="satory074 のほかのアプリ一覧を新しいタブで開く"
+            class="inline-flex items-center gap-1 font-mono text-[12px] text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-accent)]"
+          >
+            satory074 のほかのアプリ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>
