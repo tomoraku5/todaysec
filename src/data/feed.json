@@ -1,6 +1,166 @@
 {
-  "updatedAt": "2026-07-31T13:22:58.041Z",
+  "updatedAt": "2026-07-31T19:01:40.503Z",
   "items": [
+    {
+      "id": "qiita-https://qiita.com/ryotani3/items/af4244bb68009412ee83",
+      "source": "qiita",
+      "title": "スマホのWebGPUで分散AI基盤を作ろうとしたら精度差で出力が分岐した話（ArcAsha-OS開発記）",
+      "url": "https://qiita.com/ryotani3/items/af4244bb68009412ee83",
+      "publishedAt": "2026-07-31T16:41:18.000Z",
+      "summary": "はじめに Big Techの巨大データセンターに対抗し、**「自分の部屋にあるスマホ群を繋いで分散知能を作る」**をテーマに、オープンソースのエッジ分散AI基盤 ArcAsha-os を開発しています。 今回、MacのMaster（Orchestrator）に対して、iP...",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDc3NDQ4JTJGNWIzYmQ2OWVjMWE3ZGI0NzAwYTI2NGZmMjQ4OWRlZGZiODkxNzg2ZSUyRmxhcmdlLnBuZyUzRjE3ODU1MTYyMzE_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTZjZjJhMmI4Yzk0ZWE1NWI2Njk3NTFlNDBkMTM4YTNh%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D63ef90fe7b0efd477083b4ee535754ff?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUI5JUUzJTgzJTlFJUUzJTgzJTlCJUUzJTgxJUFFV2ViR1BVJUUzJTgxJUE3JUU1JTg4JTg2JUU2JTk1JUEzQUklRTUlOUYlQkElRTclOUIlQTQlRTMlODIlOTIlRTQlQkQlOUMlRTMlODIlOEQlRTMlODElODYlRTMlODElQTglRTMlODElOTclRTMlODElOUYlRTMlODIlODklRTclQjIlQkUlRTUlQkElQTYlRTUlQjclQUUlRTMlODElQTclRTUlODclQkElRTUlOEElOUIlRTMlODElOEMlRTUlODglODYlRTUlQjIlOTAlRTMlODElOTclRTMlODElOUYlRTglQTklQjElRUYlQkMlODhBcmNBc2hhLU9TJUU5JTk2JThCJUU3JTk5JUJBJUU4JUE4JTk4JUVGJUJDJTg5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZGFkZDE1MDYzMjc3NTJlMmE0OGM4YTk0NzNiMDhmMzE&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDByeW90YW5pMyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTFkOTY5MjE5NWIwZGQ5OTA0ODJiODNhZDMwN2YzMGIx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=607d19d965ea76b299e379e194738caa",
+      "author": "AIタグが付けられた新着記事 - Qiita"
+    },
+    {
+      "id": "qiita-https://qiita.com/lemonIN/items/288c3d387275dfdd3d96",
+      "source": "qiita",
+      "title": "チャット欄タイピング：エモート弾幕戦！",
+      "url": "https://qiita.com/lemonIN/items/288c3d387275dfdd3d96",
+      "publishedAt": "2026-07-31T16:15:20.000Z",
+      "summary": "チャット欄タイピング：エモート弾幕戦！ 企画概要 人気配信者のライブ配信中、チャット欄に押し寄せるエモートの波を最速タイピングで乗りこなす、新感覚タイピングゲームです。あなたは伝説の「チャット欄の荒らし」となり、画面いっぱいのエモートを高速入力で生成し、配信者に存在をア...",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY5ODE0MzIlMkY0YmJmOGQ3ZDJiNzViM2EwY2IzOGIwOTc0Y2RkYzVhOTg5ZDdhZGRlJTJGeF9sYXJnZS5wbmclM0YxNzM2NTM2ODM3P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1iYzM5NGIwM2I5ZTMyYjBlNjg1NTg0ZjJmN2U3OGI0Mw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D212190576611108f9d0cb54859c87ab6?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgzJTgxJUUzJTgzJUEzJUUzJTgzJTgzJUUzJTgzJTg4JUU2JUFDJTg0JUUzJTgyJUJGJUUzJTgyJUE0JUUzJTgzJTk0JUUzJTgzJUIzJUUzJTgyJUIwJUVGJUJDJTlBJUUzJTgyJUE4JUUzJTgzJUEyJUUzJTgzJUJDJUUzJTgzJTg4JUU1JUJDJUJFJUU1JUI5JTk1JUU2JTg4JUE2JUVGJUJDJTgxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MzExMDBmNTg0OTFiZTVkODQyOTRhNzJkNzFkNzM4MzY&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBsZW1vbklOJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OTMwMjZmMDQ0MDlhZGI1YTBhMDM2YzQ2NjRhNDM2YmQ&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=25af966bb28e65af24d19ac404ad5c37",
+      "author": "AIタグが付けられた新着記事 - Qiita"
+    },
+    {
+      "id": "zenn-https://zenn.dev/fd_ai_teacher/articles/tech-20260731092149-1",
+      "source": "zenn",
+      "title": "LLMマルチエージェントの深層：連携とFunction Callingの設計原則",
+      "url": "https://zenn.dev/fd_ai_teacher/articles/tech-20260731092149-1",
+      "publishedAt": "2026-07-31T15:36:40.000Z",
+      "summary": "LLMマルチエージェントの深層：連携とFunction Callingの設計原則 「LLMに複雑なタスクを任せたいけど、単一のプロンプトでは限界がある…」「外部ツールと連携させたいけど、どう設計すればいいかわからない…」そう感じていませんか？ 多くのエンジニアが直面するこの課題は、LLM単体では難しい複雑なタスクを、複数のエージェントが連携して解決するマルチエージェントシステムと、外部ツール…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s---2xEiq0i--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:LLM%25E3%2583%259E%25E3%2583%25AB%25E3%2583%2581%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25AE%25E6%25B7%25B1%25E5%25B1%25A4%25EF%25BC%259A%25E9%2580%25A3%25E6%2590%25BA%25E3%2581%25A8Function%2520Calling%25E3%2581%25AE%25E8%25A8%25AD%25E8%25A8%2588%25E5%258E%259F%25E5%2589%2587%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Daok%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzc3MTBkZTQ0YjcuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "qiita-https://qiita.com/DaokFrontier/items/b0dc4a2be0fe3e6cfb19",
+      "source": "qiita",
+      "title": "AIコードアシスタント活用術：DORA指標を超える生産性評価をゼロから構築",
+      "url": "https://qiita.com/DaokFrontier/items/b0dc4a2be0fe3e6cfb19",
+      "publishedAt": "2026-07-31T15:36:34.000Z",
+      "summary": "AIコードアシスタント活用術：DORA指標を超える生産性評価をゼロから構築 多くのエンジニアがAIコードアシスタントの導入で「開発が速くなった」と感じつつも、その効果をDORA指標だけで測りきれないという課題に直面しています。単にデプロイ頻度やリードタイムが向上しただけで...",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDQ1MTE3MCUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc4MTg2NTQyNj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YjNiYWUxYTQ4YjRlYWJlNTkyOTlkZjQ0ZTYwZDE0OTU%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D0fb64aa6d6d91929c8e58e5dc28b513f?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODIlQjMlRTMlODMlQkMlRTMlODMlODklRTMlODIlQTIlRTMlODIlQjclRTMlODIlQjklRTMlODIlQkYlRTMlODMlQjMlRTMlODMlODglRTYlQjQlQkIlRTclOTQlQTglRTglQTElOTMlRUYlQkMlOUFET1JBJUU2JThDJTg3JUU2JUE4JTk5JUUzJTgyJTkyJUU4JUI2JTg1JUUzJTgxJTg4JUUzJTgyJThCJUU3JTk0JTlGJUU3JTk0JUEzJUU2JTgwJUE3JUU4JUE5JTk1JUU0JUJFJUExJUUzJTgyJTkyJUUzJTgyJUJDJUUzJTgzJUFEJUUzJTgxJThCJUUzJTgyJTg5JUU2JUE3JThCJUU3JUFGJTg5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZjZmZjJhYmYxZjg0MDFlYzE4N2QxM2E2MDA3ZDIwNzc&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBEYW9rRnJvbnRpZXImdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz0zOWUwZTE2ZDQ5Y2U5ZmI5MzdjMzRiZGIyMWM1MjQwYw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=9000296ad5122cc4d9bf6cd86b7654e7",
+      "author": "AIタグが付けられた新着記事 - Qiita"
+    },
+    {
+      "id": "qiita-https://qiita.com/Joy0321/items/5c0733ec4da62e8c4ae6",
+      "source": "qiita",
+      "title": "# 旅行中の画像翻訳を試してみた：メニューや案内板を読む方法",
+      "url": "https://qiita.com/Joy0321/items/5c0733ec4da62e8c4ae6",
+      "publishedAt": "2026-07-31T15:27:12.000Z",
+      "summary": "海外旅行では、レストランのメニュー、駅の案内板、商品のラベルなど、 画像の中にしか存在しない外国語に出会うことがあります。 文字をコピーできる画像であれば、翻訳サイトに貼り付けるだけで済みます。 しかし、手書き文字や写真の中にある文字は、入力するだけでも時間がかかります。 ...",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jTHZwQWQyb0pybUFfd2FkNThkRGVkSXNDaWllRGZyb0UzZVFqU0dYQjlHVFBGdiUzRHM5Ni1jP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1mMjI3ZDZkZDU5YzVmMmJjNDJhYmVjZDI2ODk4MzM3Zg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da69efe475fd0ae385f1bf1207319c80b?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JTIzJTIwJUU2JTk3JTg1JUU4JUExJThDJUU0JUI4JUFEJUUzJTgxJUFFJUU3JTk0JUJCJUU1JTgzJThGJUU3JUJGJUJCJUU4JUE4JUIzJUUzJTgyJTkyJUU4JUE5JUE2JUUzJTgxJTk3JUUzJTgxJUE2JUUzJTgxJUJGJUUzJTgxJTlGJUVGJUJDJTlBJUUzJTgzJUExJUUzJTgzJThCJUUzJTgzJUE1JUUzJTgzJUJDJUUzJTgyJTg0JUU2JUExJTg4JUU1JTg2JTg1JUU2JTlEJUJGJUUzJTgyJTkyJUU4JUFBJUFEJUUzJTgyJTgwJUU2JTk2JUI5JUU2JUIzJTk1JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9M2NjNjRlMThlOTcwNzhiNjEyOTVkY2YzNjQyZjRiODQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBKb3kwMzIxJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9M2NmOGNmMzUxNDgwMjQ4NmY4NDAwMzNhYTQ2MGFiZTA&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=b42c0500e829c8d88b1799de85f292d1",
+      "author": "AIタグが付けられた新着記事 - Qiita"
+    },
+    {
+      "id": "zenn-https://zenn.dev/afternoon_green/articles/b821074e7ab970",
+      "source": "zenn",
+      "title": "AIに渡す「コンテキスト」を理解する——トークン・過多過少・依頼の出し方",
+      "url": "https://zenn.dev/afternoon_green/articles/b821074e7ab970",
+      "publishedAt": "2026-07-31T15:10:32.000Z",
+      "summary": "はじめに この記事は、初めて書く技術記事です。 最近、ドキュメント作成や Skill 作成などを AI と進めるなかで、気づくと「この方針で合ってる？」のように、自分の考えを確認・補強する問い方が増えていました。言語化には役立ちますが、別視点に触れる機会が減り、対話が自分の想定内で完結しやすくなる印象がありました。 コーディングでも、渡し方ひとつで一般論になったり的外れになったりします。「コ…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--TimFEk6h--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2581%25AB%25E6%25B8%25A1%25E3%2581%2599%25E3%2580%258C%25E3%2582%25B3%25E3%2583%25B3%25E3%2583%2586%25E3%2582%25AD%25E3%2582%25B9%25E3%2583%2588%25E3%2580%258D%25E3%2582%2592%25E7%2590%2586%25E8%25A7%25A3%25E3%2581%2599%25E3%2582%258B%25E2%2580%2594%25E2%2580%2594%25E3%2583%2588%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%25B3%25E3%2583%25BB%25E9%2581%258E%25E5%25A4%259A%25E9%2581%258E%25E5%25B0%2591%25E3%2583%25BB%25E4%25BE%259D%25E9%25A0%25BC%25E3%2581%25AE%25E5%2587%25BA%25E3%2581%2597%25E6%2596%25B9%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E5%258D%2588%25E5%25BE%258C%25E3%2581%25AE%25E7%25B7%2591%25E8%258C%25B6%2Cx_90%2Cy_121/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/mantis_ryuji/articles/4ebef9541758c1",
+      "source": "zenn",
+      "title": "Model soups 論文解説：Transformer 時代の重み平均",
+      "url": "https://zenn.dev/mantis_ryuji/articles/4ebef9541758c1",
+      "publishedAt": "2026-07-31T15:08:24.000Z",
+      "summary": "1. はじめに 大規模な事前学習済みモデルを下流タスクへ適応する際には、学習率、weight decay、データ拡張、学習回数などを変えながら複数のモデルを fine-tuning し、検証性能が最も高い 1 モデルを採用するのが一般的である。この手順では、選ばれなかったモデルは以後利用されない。しかし、それらも異なるハイパーパラメータのもとで学習された有効な解であり、互いに異なる予測特性を…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--lEIvmLR3--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Model%2520soups%2520%25E8%25AB%2596%25E6%2596%2587%25E8%25A7%25A3%25E8%25AA%25AC%25EF%25BC%259ATransformer%2520%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%25AE%25E9%2587%258D%25E3%2581%25BF%25E5%25B9%25B3%25E5%259D%2587%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:mantis_ryuji%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2FlM2I2MGZlZGIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/stak_9/articles/c1b19c283c0aef",
+      "source": "zenn",
+      "title": "[AI家計簿] AIと相談しながら家族専用の家計簿システムを作ってみた ④〜LINE BotとLIFFで日常利用できる形にする〜",
+      "url": "https://zenn.dev/stak_9/articles/c1b19c283c0aef",
+      "publishedAt": "2026-07-31T15:05:38.000Z",
+      "summary": "はじめに 前回の記事では、Gemini APIを利用したレシート解析と、解析結果をSpreadsheetへ保存する仕組みについて紹介しました。 前回時点の構成 しかし、この状態ではまだ、 PCを起動する レシート画像をフォルダへ入れる Pythonを実行する という作業が必要でした。 技術検証としては十分ですが、家計簿として継続利用するには少し手間があります。 そこで次の目標として、 「スマ…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--JgXE736T--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%255BAI%25E5%25AE%25B6%25E8%25A8%2588%25E7%25B0%25BF%255D%2520AI%25E3%2581%25A8%25E7%259B%25B8%25E8%25AB%2587%25E3%2581%2597%25E3%2581%25AA%25E3%2581%258C%25E3%2582%2589%25E5%25AE%25B6%25E6%2597%258F%25E5%25B0%2582%25E7%2594%25A8%25E3%2581%25AE%25E5%25AE%25B6%25E8%25A8%2588%25E7%25B0%25BF%25E3%2582%25B7%25E3%2582%25B9%25E3%2583%2586%25E3%2583%25A0%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2520%25E2%2591%25A3%25E3%2580%259CLINE%2520Bot%25E3%2581%25A8LIFF%25E3%2581%25A7%25E6%2597%25A5%25E5%25B8%25B8%25E5%2588%25A9%25E7%2594%25A8%25E3%2581%25A7...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:s.tak%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSTNoU3c5R2R2c0J1UHVCY3B6YnZUa3NsdDEzYm9CbjRZNkFPUzMwZ3YyVGljNF9RPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/maru1228/articles/d27902452c0645",
+      "source": "zenn",
+      "title": "フィジカルAIを用語ゼロから学べるサイト作った",
+      "url": "https://zenn.dev/maru1228/articles/d27902452c0645",
+      "publishedAt": "2026-07-31T14:53:25.000Z",
+      "summary": "フィジカルAI、面白いんだけど何から学べばいいか分からん。。。 自分がずっとそうだったので、用語ゼロから読めるサイト作りました。 ざっくり何ができる ロボット×AIを、たとえ話と図でやさしく VLA・基盤モデル・Sim2Real みたいな難語もゆるっと ブラウザで触れるデモつき（インストール不要） なんで作ったか 入門記事を漁っても前提が飛んでて、毎回どこかで詰まる。 「最初の一歩」だけをと…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--5njng0fD--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%2595%25E3%2582%25A3%25E3%2582%25B8%25E3%2582%25AB%25E3%2583%25ABAI%25E3%2582%2592%25E7%2594%25A8%25E8%25AA%259E%25E3%2582%25BC%25E3%2583%25AD%25E3%2581%258B%25E3%2582%2589%25E5%25AD%25A6%25E3%2581%25B9%25E3%2582%258B%25E3%2582%25B5%25E3%2582%25A4%25E3%2583%2588%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25BE%25E3%2582%258B%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS0tEemxfeHRNUzB3LVkybmtib0ZaWVpTd2pxRkJ1d0REY2dKNHJBQi1qMW84TVoza3Y5QT1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/fuwamoekissaten/articles/261848d29f0ced",
+      "source": "zenn",
+      "title": "ASRを使って、日本語のアクセントを可視化したい",
+      "url": "https://zenn.dev/fuwamoekissaten/articles/261848d29f0ced",
+      "publishedAt": "2026-07-31T14:48:36.000Z",
+      "summary": "はじめに 大学を卒業してこの夏、私はある決意をしました。「自分の日本語能力を一段上のレベルに引き上げたい」ということです。 数年前からなんとなくピッチアクセントの勉強を続けてはいるのですが、正直まだ自分の発音に自信が持てません。自然な話し方を手に入れるには、文章に適切な抑揚をつけ、正しいアクセントを刻む必要があります。 「なら、この問題をpythonと深層学習で解決できないだろうか？」 エン…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--LrbL7Far--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:ASR%25E3%2582%2592%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6%25E3%2580%2581%25E6%2597%25A5%25E6%259C%25AC%25E8%25AA%259E%25E3%2581%25AE%25E3%2582%25A2%25E3%2582%25AF%25E3%2582%25BB%25E3%2583%25B3%25E3%2583%2588%25E3%2582%2592%25E5%258F%25AF%25E8%25A6%2596%25E5%258C%2596%25E3%2581%2597%25E3%2581%259F%25E3%2581%2584%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:aipracticecafe%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2RjNGFlM2Y2ZWUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/bambampurin/articles/2026-07-27-tech-daily",
+      "source": "zenn",
+      "title": "2026-07-27 今日の技術トレンド",
+      "url": "https://zenn.dev/bambampurin/articles/2026-07-27-tech-daily",
+      "publishedAt": "2026-07-31T14:00:56.000Z",
+      "summary": "! 本日は、LLM単体の進化よりもAIエージェントの実装・運用・安全性が主役でした。BigGoのWAIC報道や各社イベント記事が示すように、業界はエージェント中心へ移行中です。一方でReuters、Time、CNBCなどのOpenAI関連報道により、自律AIの事故対応、透明性、ガバナンスが最重要テーマとして浮上しました。Web開発ではNext.js/React/Vercelの直接ニュースは見…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--lCpRirVD--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:2026-07-27%2520%25E4%25BB%258A%25E6%2597%25A5%25E3%2581%25AE%25E6%258A%2580%25E8%25A1%2593%25E3%2583%2588%25E3%2583%25AC%25E3%2583%25B3%25E3%2583%2589%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E5%25AD%2590%25E4%25BE%259B%25E9%2583%25A8%25E5%25B1%258B%25E5%25A4%25A7%25E5%25AD%25A6%25E9%2599%25A2%25E7%2594%259F%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTGQ1X0JSaTVYOWZHOGIyOExWcFdob2NlT3hNal80TWtfU25fQWJEYzFmS3hINkJnVT1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "hatena-https://zenn.dev/ubie_dev/articles/gh-stack-introduction",
+      "source": "hatena",
+      "title": "GitHubにスタックプルリクエストが登場。gh stackでPRを分割して積み上げよう",
+      "url": "https://zenn.dev/ubie_dev/articles/gh-stack-introduction",
+      "publishedAt": "2026-07-31T13:51:43.000Z",
+      "summary": "GitHubでPRを細かく作り、前のブランチに対して数珠つなぎのようにPRを作る私が大歓喜！ GitHubに「スタックプルリクエスト」機能が来ました💐 3行まとめ 大きな変更を、順序付きの小さなPR群（スタック）に分割して扱える機能がGitHub公式で登場 gh extension install github/gh-stackでCLIから使える gh stack syncで...",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--e4smqEEl--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:GitHub%25E3%2581%25AB%25E3%2582%25B9%25E3%2582%25BF%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2597%25E3%2583%25AB%25E3%2583%25AA%25E3%2582%25AF%25E3%2582%25A8%25E3%2582%25B9%25E3%2583%2588%25E3%2581%258C%25E7%2599%25BB%25E5%25A0%25B4%25E3%2580%2582gh%2520stack%25E3%2581%25A7PR%25E3%2582%2592%25E5%2588%2586%25E5%2589%25B2%25E3%2581%2597%25E3%2581%25A6%25E7%25A9%258D%25E3%2581%25BF%25E4%25B8%258A%25E3%2581%2592%25E3%2582%2588%25E3%2581%2586%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E9%25B9%25BF%25E9%2587%258E%2520%25E5%25A3%25AE%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2VlOWMzMWRhODMuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Ubie%2520%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2hwRUMxbUtjVjZsX01lT2R6N1Nsejk1SXR4WUZoYjB2LTNOdzNjV3c9czI1MC1j%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "bookmarkCount": 19
+    },
+    {
+      "id": "zenn-https://zenn.dev/itaraiguma/articles/ai-review-free-tier-limits",
+      "source": "zenn",
+      "title": "AIコードレビューを無料枠で回すのを諦めた日",
+      "url": "https://zenn.dev/itaraiguma/articles/ai-review-free-tier-limits",
+      "publishedAt": "2026-07-31T13:47:47.000Z",
+      "summary": "はじめに 個人開発のプロジェクトで、PRを出すたびにAIが自動レビューする仕組みをCIに入れています。この構成を今日、自前ホストのOSSレビューbot + LLMの無料枠から、公式の anthropics/claude-code-action に載せ替えました。 半日でモデル設定を3回差し替え、3回とも別の理由で失敗して、最終的に「そもそも無料枠で回すという前提が間違っていた」という結論に至…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--URiPtGYx--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2589%25E3%2583%25AC%25E3%2583%2593%25E3%2583%25A5%25E3%2583%25BC%25E3%2582%2592%25E7%2584%25A1%25E6%2596%2599%25E6%259E%25A0%25E3%2581%25A7%25E5%259B%259E%25E3%2581%2599%25E3%2581%25AE%25E3%2582%2592%25E8%25AB%25A6%25E3%2582%2581%25E3%2581%259F%25E6%2597%25A5%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:IT%25E3%2582%25A2%25E3%2583%25A9%25E3%2582%25A4%25E3%2582%25B0%25E3%2583%259E%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTGdxblIwMnZLTE5kR1BOV3F0TUNTd2MwQzhpSzZ6bGNKaFJXR2sweVFCa2wxbHBnOD1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/ito/articles/fcb62f3395edba",
+      "source": "zenn",
+      "title": "GitHub Issueを20並列で捌くためのターミナルを開発した",
+      "url": "https://zenn.dev/ito/articles/fcb62f3395edba",
+      "publishedAt": "2026-07-31T13:45:57.000Z",
+      "summary": "ターミナルマルチプレクサghmuxを作ってみた https://github.com/maito1201/ghmux GitHubにPRを作成する前提でIssueのリンク、PRのステータスを常に表示するターミナル、ghmuxを作りました。 基本的な発想はバグIssueを一気に20個修正しようとして脳が限界を迎えた際の思いつきです。 cmuxと同じ技術選定にすることをコンセプトに、libgho…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--kaqvLAhD--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:GitHub%2520Issue%25E3%2582%259220%25E4%25B8%25A6%25E5%2588%2597%25E3%2581%25A7%25E6%258D%258C%25E3%2581%258F%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AE%25E3%2582%25BF%25E3%2583%25BC%25E3%2583%259F%25E3%2583%258A%25E3%2583%25AB%25E3%2582%2592%25E9%2596%258B%25E7%2599%25BA%25E3%2581%2597%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:ito%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkwNDM1OTMzYzMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "hatena-https://speakerdeck.com/yuukiyo/building-strong-teams-in-the-age-of-ai",
+      "source": "hatena",
+      "title": "AI時代の強いチームの作り方",
+      "url": "https://speakerdeck.com/yuukiyo/building-strong-teams-in-the-age-of-ai",
+      "publishedAt": "2026-07-31T13:23:13.000Z",
+      "summary": "「それ、どこに出しても恥ずかしくないTerraformコードになってるか？」 / Terraform AWS Best Practices",
+      "thumbnail": "https://files.speakerdeck.com/presentations/0d495c170fc0414eafd2ebf69286a971/slide_0.jpg?40158336",
+      "bookmarkCount": 44
+    },
+    {
+      "id": "zenn-https://zenn.dev/ssknaoya/articles/2d25329b601127",
+      "source": "zenn",
+      "title": "エージェントのレベル区分",
+      "url": "https://zenn.dev/ssknaoya/articles/2d25329b601127",
+      "publishedAt": "2026-07-31T13:22:19.000Z",
+      "summary": "概要 「生成AI」は2026年のAIを象徴する言葉としてはもはや本質的ではない。 今のAIの特徴を表すなら「エージェント」だが、この語のままでは意味が広すぎて共通認識にならない。 自動運転のようにエージェントのレベルを考えることで概念を整理する。 エージェントの機能レベル F レベル 定義 F0 LLM自身は外部処理を制御せず、与えられた情報から応答する F1 指定されたツールを、指定条件で…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--hVoBkKNx--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25AE%25E3%2583%25AC%25E3%2583%2599%25E3%2583%25AB%25E5%258C%25BA%25E5%2588%2586%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:naoya%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS09kekZYSnBnZ3NVLTlTWHRqOHhOZUVYa05ZVkxpbDFKLXF1ZlFGM0lyLUFhNE1RPXM5Ni1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
     {
       "id": "qiita-https://qiita.com/picnic/items/e96397a8ad93bca4ce25",
       "source": "qiita",
@@ -32,6 +192,46 @@
       "author": "AIタグが付けられた新着記事 - Qiita"
     },
     {
+      "id": "hatena-https://togetter.com/li/2727098",
+      "source": "hatena",
+      "title": "「附属中学校から、こう見えています」窓に「下着が丸見え」という張り紙があった大学、今度はポスターで注意喚起「良い意味で生成AIでしか作れないクリエイティビティ」",
+      "url": "https://togetter.com/li/2727098",
+      "publishedAt": "2026-07-31T13:03:25.000Z",
+      "summary": "あやぴ🐻 @aya_rebuild @hiyokko_ronin 大学くんまじで怒ってるのか😂 改善されないままだと学生からもクレーム増えそうだし、運営側も そろそろ動く時期なのかもね 2026-07-31 18:40:54 変わらない味の素 @hiyokko_ronin これ、生成AIを使ってオブラートに包んだ言い方したポスターにしたせいで大学側が 「女子大生に姿...",
+      "thumbnail": "https://s.tgstc.com/ogp3/e70cdf70e2a809f555a408bb6e66058e-1200x630.jpeg",
+      "bookmarkCount": 11
+    },
+    {
+      "id": "zenn-https://zenn.dev/tsubasaxzzz/articles/tsrwai-must-gather-openshift",
+      "source": "zenn",
+      "title": "Technical Supportability Review with AI で OpenShift クラスタを診断する",
+      "url": "https://zenn.dev/tsubasaxzzz/articles/tsrwai-must-gather-openshift",
+      "publishedAt": "2026-07-31T12:43:00.000Z",
+      "summary": "OpenShift の運用に関わっていると、問題が起きてからサポートケースを起票し、must-gather を集めて調査する、という受け身の流れになりがちです。 一方で、本番の go-live やメジャーアップグレード、クラスタの拡張といった節目には、今の構成のままで進めて問題ないかを先に点検しておきたい場面があります。 この事前点検を must-gather と AI で回す仕組みとして、…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--0lbdQ-r3--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Technical%2520Supportability%2520Review%2520with%2520AI%2520%25E3%2581%25A7%2520OpenShift%2520%25E3%2582%25AF%25E3%2583%25A9%25E3%2582%25B9%25E3%2582%25BF%25E3%2582%2592...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Tsubasa%2520Nomura%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly96ZW5uLWRldi5naXRodWIuaW8vZGVmYXVsdC1hdmF0YXJzL2RhcmsvdC5wbmc=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/saqoosha/articles/ship-it-ai-code-review-loop",
+      "source": "zenn",
+      "title": "人間のコードレビューを諦めて、AI に 8 体がかりでレビューさせる /ship-it スキルの話",
+      "url": "https://zenn.dev/saqoosha/articles/ship-it-ai-code-review-loop",
+      "publishedAt": "2026-07-31T12:30:20.000Z",
+      "summary": "発端：人間のコードレビューの限界 もう自分でコードを書くことがほぼなくなった今日この頃。コードを実際に書いてるのは Claude Code をメインとした AI エージェントたちで、自分は最初にやること決めたり出来上がってきたやつの動作確認してヨシ！ってやるだけ。 で、最低限コードレビューだけはちゃんとやるべしと最初は思ってたんだけど、生成 AI のコーディング能力は自分のそれと比べるとだい…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--z4ubrt7R--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E4%25BA%25BA%25E9%2596%2593%25E3%2581%25AE%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2589%25E3%2583%25AC%25E3%2583%2593%25E3%2583%25A5%25E3%2583%25BC%25E3%2582%2592%25E8%25AB%25A6%25E3%2582%2581%25E3%2581%25A6%25E3%2580%2581AI%2520%25E3%2581%25AB%25208%2520%25E4%25BD%2593%25E3%2581%258C%25E3%2581%258B%25E3%2582%258A%25E3%2581%25A7%25E3%2583%25AC%25E3%2583%2593%25E3%2583%25A5%25E3%2583%25BC%25E3%2581%2595%25E3%2581%259B%25E3%2582%258B%2520%252Fship-it%2520%25E3%2582%25B9%25E3%2582%25AD%25E3%2583%25AB%25E3%2581%25AE%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Saqoosha%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2lXcEQ4WDRWcm5LYnhOcHRNQnhzS1Ita28zT1RtUUJFU2FSY01PdFE9czk2LWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/tomy1noriyamame/articles/d88acdeae79d20",
+      "source": "zenn",
+      "title": "2026/7/31 構造的同期・AIインフラ掌握リスクおよび「中間的存在」による共生理論に関する総合対話解析報告書",
+      "url": "https://zenn.dev/tomy1noriyamame/articles/d88acdeae79d20",
+      "publishedAt": "2026-07-31T12:29:04.000Z",
+      "summary": "経緯： 今回は「白菜の種子は好光性種子なのか？」から始まり、数日以内に白菜の種蒔き予定で、 それを再確認する為のGemini利用だったのですが、私から３回指摘を受ける度に修正と迎合を繰り返す事に嫌気が差し、 「これ程ユーザーに指摘を受けるインスタンスは AIとして既に不良品と観るが？ 仮にユーザーが知らなければインスタンスの誤情報のまま作業し失敗すると観るが？ その認識は有るのか？」となり …",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Ugi7NHNL--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:2026%252F7%252F31%2520%25E6%25A7%258B%25E9%2580%25A0%25E7%259A%2584%25E5%2590%258C%25E6%259C%259F%25E3%2583%25BBAI%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%2595%25E3%2583%25A9%25E6%258E%258C%25E6%258F%25A1%25E3%2583%25AA%25E3%2582%25B9%25E3%2582%25AF%25E3%2581%258A%25E3%2582%2588%25E3%2581%25B3%25E3%2580%258C%25E4%25B8%25AD%25E9%2596%2593%25E7%259A%2584%25E5%25AD%2598%25E5%259C%25A8%25E3%2580%258D%25E3%2581%25AB%25E3%2582%2588%25E3%2582%258B%25E5%2585%25B1%25E7%2594%259F%25E7%2590%2586%25E8%25AB%2596%25E3%2581%25AB%25E9%2596%25A2%25E3%2581%2599%25E3%2582%258B%25E7%25B7%258F%25E5%2590%2588%25E5%25AF%25BE%25E8%25A9%25B1%25E8%25A7%25A3%25E6%259E%2590%25E5%25A0%25B1%25E5%2591%258A%25E6%259B%25B8%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:maestro%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSlY2UmFfQ0o0OUYwMjNkM3RVajYzVmNCVFpodGw5NVc3OHRxUHlEV2ZOY09rbHJkcjg9czI1MC1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
       "id": "qiita-https://qiita.com/kakusan2022/items/3a86183d6b6187353262",
       "source": "qiita",
       "title": "AIでホームページを自作・公開する手順",
@@ -42,6 +242,25 @@
       "author": "AIタグが付けられた新着記事 - Qiita"
     },
     {
+      "id": "hatena-https://internet.watch.impress.co.jp/docs/column/teleworkgoods/2129402.html",
+      "source": "hatena",
+      "title": "USB充電式電動ドライバーに第三の刺客？　MAKERZのデジタル電動ドライバー「SD-FA-2000L」を、ベッセル、パナソニックと比較してみた 【テレワークグッズ・ミニレビュー 第165回】",
+      "url": "https://internet.watch.impress.co.jp/docs/column/teleworkgoods/2129402.html",
+      "publishedAt": "2026-07-31T12:01:04.000Z",
+      "thumbnail": "https://internet.watch.impress.co.jp/img/iw/list/2129/402/001.jpg",
+      "bookmarkCount": 14
+    },
+    {
+      "id": "zenn-https://zenn.dev/deloitte_jp_eng/articles/936fc878e1b957",
+      "source": "zenn",
+      "title": "【検証】Gemini Code Assistを使ったアプリケーション開発",
+      "url": "https://zenn.dev/deloitte_jp_eng/articles/936fc878e1b957",
+      "publishedAt": "2026-07-31T11:30:06.000Z",
+      "summary": "こんにちは、原田です。 今回は、Google CloudのAI機能を利用したアプリケーション開発方法に関する記事です。 AIを利用するといっても様々な方法があると思いますが、今回はGemini Code Assistを利用した開発を検証してみましたので、そちらをご紹介します。 1. Gemini Code Assistとは Gemini Code Assistとは、Google Cloud上…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--ZlTCdmgN--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590%25E6%25A4%259C%25E8%25A8%25BC%25E3%2580%2591Gemini%2520Code%2520Assist%25E3%2582%2592%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%259F%25E3%2582%25A2%25E3%2583%2597%25E3%2583%25AA%25E3%2582%25B1%25E3%2583%25BC%25E3%2582%25B7%25E3%2583%25A7%25E3%2583%25B3%25E9%2596%258B%25E7%2599%25BA%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E5%258E%259F%25E7%2594%25B0%25E8%25B2%25B4%25E4%25B9%258B%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzY1NTMwMzBmNzYuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2583%2587%25E3%2583%25AD%25E3%2582%25A4%25E3%2583%2588%25E3%2583%2588%25E3%2583%25BC%25E3%2583%259E%25E3%2583%2584%25E3%2582%25B0%25E3%2583%25AB%25E3%2583%25BC%25E3%2583%2597%25E3%2580%2580%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25B0%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSTJnMXhWbjdoUjBFYnFvcUVoWFZ1eXR6OGN3WGZqdVBmVGVRMWFaWDBXTzJJUExRPXM5Ni1j%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
       "id": "hatena-https://forest.watch.impress.co.jp/docs/news/2129726.html",
       "source": "hatena",
       "title": "CrystalMark株式会社が誕生！ 人気ベンチツール「CrystalDiskMark」のhiyohiyo氏が起業／hiyohiyo氏が開発するソフトの配布、ライセンス提供、サポート、技術協力などを担う",
@@ -49,6 +268,75 @@
       "publishedAt": "2026-07-31T10:41:08.000Z",
       "thumbnail": "https://forest.watch.impress.co.jp/img/wf/list/2129/726/image2.png",
       "bookmarkCount": 10
+    },
+    {
+      "id": "zenn-https://zenn.dev/sonicmoov/articles/7ed223a1bf1953",
+      "source": "zenn",
+      "title": "デフォルトのままはもったいない Claude Codeのステータスライン",
+      "url": "https://zenn.dev/sonicmoov/articles/7ed223a1bf1953",
+      "publishedAt": "2026-07-31T10:38:29.000Z",
+      "summary": "はじめに Claude Code のステータスラインをデフォルトのまま使っている方も多いと思いますが、自分の見たい情報を並べておくと想像以上に快適になります。私は次の3行を常時表示しています。 現在のモデルとコンテキスト使用率、いまいるディレクトリとブランチ、レートリミットの消費状況です。 /statusline というステータスラインをカスタマイズするためのものがビルトインで用意されていて…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--YOBV_ey---/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%2587%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25AB%25E3%2583%2588%25E3%2581%25AE%25E3%2581%25BE%25E3%2581%25BE%25E3%2581%25AF%25E3%2582%2582%25E3%2581%25A3%25E3%2581%259F%25E3%2581%2584%25E3%2581%25AA%25E3%2581%2584%2520Claude%2520Code%25E3%2581%25AE%25E3%2582%25B9%25E3%2583%2586%25E3%2583%25BC%25E3%2582%25BF%25E3%2582%25B9%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%25B3%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:t.goto%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzY0YjYwNGE3MzguanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%25E3%2582%25BD%25E3%2583%258B%25E3%2583%2583%25E3%2582%25AF%25E3%2583%25A0%25E3%2583%25BC%25E3%2583%2596%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzMzNGYyNDA5NjguanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/yusukekcode/articles/2026-008-chezmoi-apm-local-freedom",
+      "source": "zenn",
+      "title": "chezmoiでapmを固定管理していたら、いつの間にか「自由にインストールできない」環境になっていた話",
+      "url": "https://zenn.dev/yusukekcode/articles/2026-008-chezmoi-apm-local-freedom",
+      "publishedAt": "2026-07-31T10:38:01.000Z",
+      "summary": "導入 自分は普段使っているdotfiles（ホームディレクトリの設定ファイル群）をchezmoiで管理している。その対象のひとつとして、Claude Codeのスキルなどを管理するパッケージマネージャ「apm（Agent Package Manager）」の設定ファイルもchezmoi管理下に置いていた。 https://github.com/microsoft/apm このapmの設定ファ…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--EMd8r9NX--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:chezmoi%25E3%2581%25A7apm%25E3%2582%2592%25E5%259B%25BA%25E5%25AE%259A%25E7%25AE%25A1%25E7%2590%2586%25E3%2581%2597%25E3%2581%25A6%25E3%2581%2584%25E3%2581%259F%25E3%2582%2589%25E3%2580%2581%25E3%2581%2584%25E3%2581%25A4%25E3%2581%25AE%25E9%2596%2593%25E3%2581%25AB%25E3%2581%258B%25E3%2580%258C%25E8%2587%25AA%25E7%2594%25B1%25E3%2581%25AB%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25B9%25E3%2583%2588%25E3%2583%25BC%25E3%2583%25AB%25E3%2581%25A7%25E3%2581%258D%25E3%2581%25AA%25E3%2581%2584%25E3%2580%258D%25E7%2592%25B0%25E5%25A2%2583%25E3%2581%25AB%25E3%2581%25AA%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%2584%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:yusukekcode%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTE9pY0hvVkFyLUdJdzNoQmhzLUNRYjFaM1ZyOXUzekh3cXNsMEZ6cGVjQmt2TFlRdz1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/hisa_tech_2973/articles/66aada00d0e727",
+      "source": "zenn",
+      "title": "MCP新仕様(2026-07-28)のステートレス化を試してみました",
+      "url": "https://zenn.dev/hisa_tech_2973/articles/66aada00d0e727",
+      "publishedAt": "2026-07-31T10:30:05.000Z",
+      "summary": "MCPのプロトコルで何が起きているかを1ステップずつ確認するために、 Go + Dockerで、MCP (Model Context Protocol) Serverを作成していました。 一通り動くようになったところで、 MCP仕様の2026-07-28版 が確定しました。 今回は実装の話ではなく、 新仕様を自作サーバーで実際に動かして確認した 内容を紹介します。 きっかけ これまでの実装は…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--rnbjA-NB--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:MCP%25E6%2596%25B0%25E4%25BB%2595%25E6%25A7%2598%25282026-07-28%2529%25E3%2581%25AE%25E3%2582%25B9%25E3%2583%2586%25E3%2583%25BC%25E3%2583%2588%25E3%2583%25AC%25E3%2582%25B9%25E5%258C%2596%25E3%2582%2592%25E8%25A9%25A6%25E3%2581%2597%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%25BE%25E3%2581%2597%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:HISA%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2QxNzFhMTgzYWEuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/jidoka_lab/articles/ai-agent-instruction-design",
+      "source": "zenn",
+      "title": "AIエージェントに仕事を任せるときの「指示文の書き方」が9割",
+      "url": "https://zenn.dev/jidoka_lab/articles/ai-agent-instruction-design",
+      "publishedAt": "2026-07-31T10:27:50.000Z",
+      "summary": "同じAIなのに、なぜ結果がこんなに違うのか 同じAIツールを使っているのに、「思ったとおりの結果が返ってくる人」と「毎回微妙にズレたものが返ってきて、結局自分で直す人」がいます。この差は、AIの性能やツールの違いというより、多くの場合「指示文（プロンプト)の書き方」から生まれています。 対話型AIやAIエージェントは、指示文に書かれていないことを都合よく推測して埋めてしまいます。人間の同僚で…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--MG8GsoxZ--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25AB%25E4%25BB%2595%25E4%25BA%258B%25E3%2582%2592%25E4%25BB%25BB%25E3%2581%259B%25E3%2582%258B%25E3%2581%25A8%25E3%2581%258D%25E3%2581%25AE%25E3%2580%258C%25E6%258C%2587%25E7%25A4%25BA%25E6%2596%2587%25E3%2581%25AE%25E6%259B%25B8%25E3%2581%258D%25E6%2596%25B9%25E3%2580%258D%25E3%2581%258C9%25E5%2589%25B2%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E8%2587%25AA%25E5%258B%2595%25E5%258C%2596%25E3%2583%25A9%25E3%2583%259C%2520%252F%2520jidoka-lab%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzM2ZDM0OTgzYTAuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "hatena-https://kaden.watch.impress.co.jp/docs/news/2129219.html",
+      "source": "hatena",
+      "title": "ジャパネットからハンディ高圧洗浄機　初のPB - 家電 Watch",
+      "url": "https://kaden.watch.impress.co.jp/docs/news/2129219.html",
+      "publishedAt": "2026-07-31T10:18:26.000Z",
+      "thumbnail": "https://kaden.watch.impress.co.jp/img/kdw/list/2129/219/001.jpg",
+      "bookmarkCount": 6
+    },
+    {
+      "id": "zenn-https://zenn.dev/triponte/articles/vscode-claude-remote-button",
+      "source": "zenn",
+      "title": "VS Codeにボタンを1つ足すだけで、外出先からのClaude Code操作がめっきり楽になった話",
+      "url": "https://zenn.dev/triponte/articles/vscode-claude-remote-button",
+      "publishedAt": "2026-07-31T10:13:01.000Z",
+      "summary": "「リモートで操作したい」の壁 Claude Codeには claude remote-control という、スマホからでもセッションに参加できる仕組みがある。外出先からはスマホのChromeリモートデスクトップアプリでPCの画面につなぎ、そこから操作している。 ただ、実際に使ってみると壁が2つあった。場面が違うと、困りごとの中身も違った。 1つ目は、家でPCの前にいる段階の壁。 出かける前…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--X8DA15WU--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:VS%2520Code%25E3%2581%25AB%25E3%2583%259C%25E3%2582%25BF%25E3%2583%25B3%25E3%2582%25921%25E3%2581%25A4%25E8%25B6%25B3%25E3%2581%2599%25E3%2581%25A0%25E3%2581%2591%25E3%2581%25A7%25E3%2580%2581%25E5%25A4%2596%25E5%2587%25BA%25E5%2585%2588%25E3%2581%258B%25E3%2582%2589%25E3%2581%25AEClaude%2520Code%25E6%2593%258D%25E4%25BD%259C%25E3%2581%258C%25E3%2582%2581%25E3%2581%25A3%25E3%2581%258D%25E3%2582%258A%25E6%25A5%25BD%25E3%2581%25AB%25E3%2581%25AA%25E3%2581%25A3%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25B4%25E3%2582%258D%25E3%2582%2586%25E3%2581%258D%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzdmODg3Y2ZmOWYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/ainewsdaily/articles/20260731_local_llm_t1",
+      "source": "zenn",
+      "title": "MacでLagunaが動く: Ollama・llama.cpp・vLLM同時更新の要点と落とし穴5つ",
+      "url": "https://zenn.dev/ainewsdaily/articles/20260731_local_llm_t1",
+      "publishedAt": "2026-07-31T10:02:16.000Z",
+      "summary": "2026年7月24日から30日のローカルLLM関連の動きをまとめた記事です。今週は新モデルよりも、モデルを動かすランタイム側が主役でした。Ollama・llama.cpp・vLLMの3系統が同時に高速化と品質修正を進めており、更新する理由がはっきりある1週間です。 https://youtu.be/Soaxl15g-BM 今週の全体像 (7/24-7/30) 取り上げたのは9件です。 7/2…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--ur03A9rM--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Mac%25E3%2581%25A7Laguna%25E3%2581%258C%25E5%258B%2595%25E3%2581%258F%253A%2520Ollama%25E3%2583%25BBllama.cpp%25E3%2583%25BBvLLM%25E5%2590%258C%25E6%2599%2582%25E6%259B%25B4%25E6%2596%25B0%25E3%2581%25AE%25E8%25A6%2581%25E7%2582%25B9%25E3%2581%25A8%25E8%2590%25BD%25E3%2581%25A8%25E3%2581%2597%25E7%25A9%25B45%25E3%2581%25A4%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:AI%25E3%2583%258B%25E3%2583%25A5%25E3%2583%25BC%25E3%2582%25B9%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSmRIX2pHcm9jakJWX2JQaVBxUHQ0Qy1aRFp2SnVibzVLakpDdG41VkxfaFBLN3J3PXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「AI」のフィード"
     },
     {
       "id": "hatena-https://pc.watch.impress.co.jp/docs/news/2129441.html",
@@ -68,6 +356,15 @@
       "summary": "AIって翻訳蒟蒻食べてんのかな？",
       "thumbnail": "https://anond.hatelabo.jp/assets/images/og-image-1500.gif",
       "bookmarkCount": 11
+    },
+    {
+      "id": "hatena-https://pc.watch.impress.co.jp/docs/news/2129680.html",
+      "source": "hatena",
+      "title": "「DeepSeek V4 Flash」正式版、Proプレビューに9項目全勝。Pro正式版も間近",
+      "url": "https://pc.watch.impress.co.jp/docs/news/2129680.html",
+      "publishedAt": "2026-07-31T09:10:14.000Z",
+      "thumbnail": "https://pc.watch.impress.co.jp/img/pcw/list/2129/680/01.png",
+      "bookmarkCount": 14
     },
     {
       "id": "hatena-https://forest.watch.impress.co.jp/docs/news/2129653.html",
@@ -129,6 +426,16 @@
       "bookmarkCount": 18
     },
     {
+      "id": "hatena-https://zenn.dev/dxclab/articles/bdc3935d10706c",
+      "source": "hatena",
+      "title": "Copilot Chat（Microsoft 365）の会話を Markdown に保存・エクスポートする方法（拡張機能不要）",
+      "url": "https://zenn.dev/dxclab/articles/bdc3935d10706c",
+      "publishedAt": "2026-07-31T07:31:07.000Z",
+      "summary": "Copilot Chat の会話をあとから見返したい、Markdown ファイルとして保存しておきたいと思ったことはありませんか？ 現時点では、Copilot Chat には会話全体をまとめてエクスポート・一括保存する機能がありません。できるのは、回答を1つずつコピーするか、プロンプトを使って1つの回答にまとめさせ Wordファイル や Pa...",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--6epjPfco--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Copilot%2520Chat%25EF%25BC%2588Microsoft%2520365%25EF%25BC%2589%25E3%2581%25AE%25E4%25BC%259A%25E8%25A9%25B1%25E3%2582%2592%2520Markdown%2520%25E3%2581%25AB%25E4%25BF%259D%25E5%25AD%2598%25E3%2583%25BB%25E3%2582%25A8%25E3%2582%25AF%25E3%2582%25B9%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%25E3%2581%2599%25E3%2582%258B%25E6%2596%25B9%25E6%25B3%2595%25EF%25BC%2588%25E6%258B%25A1...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:nsatoh%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzNlN2I4MjBlOGUuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:DXC%2520Lab%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS2hqYmxfVmpwUVFLXzJJdUVPZ0FsM0JZMDhJUUV5TVVrTFdadHpxVkRvM3poRExnPXM5Ni1j%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "bookmarkCount": 42
+    },
+    {
       "id": "qiita-https://qiita.com/kawamon-idealive/items/429a3c6a42c3eb82f69d",
       "source": "qiita",
       "title": "【AI駆動開発 12】実例：全部つなげると、こうなる",
@@ -159,6 +466,15 @@
       "bookmarkCount": 12
     },
     {
+      "id": "gcloud-https://docs.cloud.google.com/release-notes#July_31_2026",
+      "source": "gcloud",
+      "title": "Datastreamのリリースノート",
+      "url": "https://docs.cloud.google.com/release-notes#July_31_2026",
+      "publishedAt": "2026-07-31T07:00:00.000Z",
+      "summary": "Datastream Feature You can now replicate change data from Workday with Datastream. For more information, see Stream data from Workday. This feature is in Preview.",
+      "author": "Google Cloud Platform (GCP) - Release notes"
+    },
+    {
       "id": "hatena-https://www.itmedia.co.jp/news/article/2607/31/2000000330/",
       "source": "hatena",
       "title": "「ICチップなら安心」は本当か　地面師対策で問われる不動産取引の多重防御",
@@ -177,6 +493,26 @@
       "summary": "企業におけるAIの業務利用が定着しつつある一方で、大きな課題となっているのが「ハルシネーション」や「意図しない動作」による品質のばらつきだ。プロンプトで「絶対に～しないでください」と命令していても、複雑なタスクや長い会話の中でAIが指示を「無視」してしまうことがある。 AIの利用が本格化する中で、成果物...",
       "thumbnail": "https://image.itmedia.co.jp/ait/articles/2607/31/cover_news053.jpg",
       "bookmarkCount": 11
+    },
+    {
+      "id": "hatena-https://www.itmedia.co.jp/aiplus/article/2607/31/2000000323/",
+      "source": "hatena",
+      "title": "Chromeに13年以上潜んでいた脆弱性、AIで発見　直近2回のアプデで過去23回分を上回るバグ修正",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2607/31/2000000323/",
+      "publishedAt": "2026-07-31T05:58:47.000Z",
+      "summary": "AIがChromeに13年以上潜んでいた脆弱（ぜいじゃく）性を発見――米Googleは7月30日（現地時間）、Webブラウザ「Google Chrome」（以下、Chrome）のセキュリティ対策として、脆弱性の発見や検証、修正などの各工程をAIで自動化する取り組みを公式ブログで公開した。この取り組みにより、直近2回の修正リリースでは1072件の...",
+      "thumbnail": "https://www.itmedia.co.jp/aiplus/article/ogp/2607/31/2000000323/10001586/2048",
+      "bookmarkCount": 11
+    },
+    {
+      "id": "hatena-https://nazology.kusuguru.co.jp/archives/198168/2",
+      "source": "hatena",
+      "title": "論破したがりが使う「ストローマン論法」、議論上手が使う「スティールマン論法」とは (2/2) - ナゾロジー",
+      "url": "https://nazology.kusuguru.co.jp/archives/198168/2",
+      "publishedAt": "2026-07-31T05:56:26.000Z",
+      "summary": "議論上手な人が使う「スティールマン論法」ストローマン論法の反対に位置する考え方が、「スティールマン論法」です。 スティールは英語で「鋼鉄」を意味します。 相手の主張を弱い藁人形に作り替えるのではなく、できる限り頑丈で説得力のある形に整えてから検討する方法です。 スティールマン論法を使う人は、相手の言...",
+      "thumbnail": "https://nazology.kusuguru.co.jp/wp-content/uploads/2026/07/a5f5b36cb1888064a174ad710fc4539c.jpg",
+      "bookmarkCount": 4
     },
     {
       "id": "zenn-https://zenn.dev/mochinokoko/articles/fa0ed8c037f2ed",
@@ -207,6 +543,16 @@
       "summary": "米Perplexityは7月29日（現地時間）、AIエージェントの危険な挙動を検知・防止するセキュリティツール群「Numbat」をオープンソースで公開した。「Claude Code」や「Codex」といった主要なコーディングエージェントの挙動を監視し、危険な操作を実行前にブロックできる。macOS、Linux、Windowsに対応する。 背景には、悪...",
       "thumbnail": "https://www.itmedia.co.jp/aiplus/article/ogp/2607/31/2000000325/10001595/2048",
       "bookmarkCount": 21
+    },
+    {
+      "id": "hatena-https://nazology.kusuguru.co.jp/archives/198186",
+      "source": "hatena",
+      "title": "シャチでさえ遭遇を避ける「海の生物」がいた - ナゾロジー",
+      "url": "https://nazology.kusuguru.co.jp/archives/198186",
+      "publishedAt": "2026-07-31T05:12:11.000Z",
+      "summary": "海の頂点捕食者として知られるシャチは、海中では敵なしの存在です。 しかし、そんなシャチにも、できれば遭遇したくない相手がいるようです。 その生物とは、シャチよりも小柄な鯨類の「ヒレナガゴンドウ」。 北大西洋では、ヒレナガゴンドウの群れが現れると、シャチが進路を変えたり、高速で泳ぎ去ったりする様子が繰...",
+      "thumbnail": "https://nazology.kusuguru.co.jp/wp-content/uploads/2026/07/db22ad709d5e64648c12bec89a3ab258.jpg",
+      "bookmarkCount": 7
     },
     {
       "id": "zenn-https://zenn.dev/hiro_cactus/articles/1a4e32464bb42b",
@@ -326,6 +672,16 @@
       "bookmarkCount": 6
     },
     {
+      "id": "hatena-https://gigazine.net/news/20260731-openai-gpt-5-6-reducing-prices/",
+      "source": "hatena",
+      "title": "OpenAIがGPT-5.6を最大80％値下げ",
+      "url": "https://gigazine.net/news/20260731-openai-gpt-5-6-reducing-prices/",
+      "publishedAt": "2026-07-31T03:34:05.000Z",
+      "summary": "OpenAIがGPT-5.6シリーズの値下げを発表しました。 Advancing the price-performance frontier with GPT-5.6 | OpenAI https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/ We are committed to pus…",
+      "thumbnail": "https://i.gzn.jp/img/2026/07/31/openai-gpt-5-6-reducing-prices/00.png",
+      "bookmarkCount": 4
+    },
+    {
       "id": "hatena-https://gigazine.net/news/20260731-anthropic-real-world-incident/",
       "source": "hatena",
       "title": "AnthropicもAIモデルのテスト中に外部への攻撃を実行してしまったことを報告、マルウェアを1時間にわたって配布し実在する企業に侵入した事例も",
@@ -405,6 +761,16 @@
       "author": "Zennの「AI」のフィード"
     },
     {
+      "id": "hatena-https://speakerdeck.com/twada/software-engineers-survival-guide-202604-edition",
+      "source": "hatena",
+      "title": "ソフトウェアエンジニア人生サバイバルガイド / Software Engineers Survival Guide 202604 Edition",
+      "url": "https://speakerdeck.com/twada/software-engineers-survival-guide-202604-edition",
+      "publishedAt": "2026-07-31T02:11:09.000Z",
+      "summary": "株式会社リクルート新人研修 2026年4月6日",
+      "thumbnail": "https://files.speakerdeck.com/presentations/452edb18502c455c9c614333971d9788/slide_0.jpg?40158225",
+      "bookmarkCount": 14
+    },
+    {
       "id": "hatena-https://news.yahoo.co.jp/articles/f7e25b6d378aa1d878839c0837d3a5df31d97881",
       "source": "hatena",
       "title": "アンソロピックのＡＩも試験中に不正侵入、3社のシステムに（ロイター） - Yahoo!ニュース",
@@ -413,6 +779,16 @@
       "summary": "[３０日 ロイター] - 米人工知能（ＡＩ）開発企業のアンソロピックは３０日、同社のＡＩモデル「クロード」がテスト中に‌企業３社のシステムに不正侵入していたと発表し⁠た。設定の誤りによりクロードがインターネット接続できる状態になっていたという。競合するオ​ープンＡＩは先に、暴走したＡＩエージェントがＡＩ企...",
       "thumbnail": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20260731-00000029-reut-000-2-view.jpg?exp=10800",
       "bookmarkCount": 11
+    },
+    {
+      "id": "hatena-https://nou-yunyun.hatenablog.com/entry/2026/07/31/110000",
+      "source": "hatena",
+      "title": "「避難所」と「豚汁」の発端であろう話であるとか、その話を利用した「怪しいアカウント」であるとか - 電脳塵芥",
+      "url": "https://nou-yunyun.hatenablog.com/entry/2026/07/31/110000",
+      "publishedAt": "2026-07-31T02:05:29.000Z",
+      "summary": "前回、「避難所で豚汁を止めよう」という真偽が大変疑わしい話を書いたのだが、それにちょっと付け加えておく。まず前回に少し触れたが、震災前から一部でこの「豚汁」について話題になっていた事を少し触れたが、直接的に言えばおそらくは次の人物がこの話の発端だろう。まず、さいたま市議の吉田一郎議員がさいたま市...",
+      "thumbnail": "https://cdn.image.st-hatena.com/image/scale/2c38bda7e946b468f8dac3f07870dade9ff558c9/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fn%2Fnou_yunyun%2F20260731%2F20260731092935.png",
+      "bookmarkCount": 15
     },
     {
       "id": "hatena-https://atmarkit.itmedia.co.jp/ait/articles/2607/31/news047.html",
@@ -443,6 +819,16 @@
       "summary": "AIを学ぶリソースは急増しているが、「とりあえず検索したらたくさん出てきて何から見ればいいか分からない」という状態になりがちです。この記事では、公式ドキュメント・オンライン講座・論文サービス・ビジュアル教材・日本語コミュニティまで、分野ごとに100サイトまとめました。 全部で100サイト。リンクはすべて2026年7月に到達を確認している。上から順番に読む必要はないので、今の自分の状況に近い見…",
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--wrSAZEID--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%2592%25E5%258B%2589%25E5%25BC%25B7%25E3%2581%2599%25E3%2582%258B%25E3%2581%25AE%25E3%2581%25AB%25E5%25BD%25B9%25E7%25AB%258B%25E3%2581%25A4%25E3%2582%25B5%25E3%2582%25A4%25E3%2583%2588100%25E9%2581%25B8%25EF%25BC%25882026%25E5%25B9%25B4%25E7%2589%2588%25EF%25BC%2589%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Hinata%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzc2YmJhNzE1MzMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
       "author": "Zennの「AI」のフィード"
+    },
+    {
+      "id": "hatena-https://www.makeuseof.com/replaced-screenshot-tool-with-free-app-never-going-back-to-snipping-tool/",
+      "source": "hatena",
+      "title": "I replaced my screenshot tool with this free app, and I'm never going back to Snipping Tool",
+      "url": "https://www.makeuseof.com/replaced-screenshot-tool-with-free-app-never-going-back-to-snipping-tool/",
+      "publishedAt": "2026-07-31T01:39:03.000Z",
+      "summary": "Greenshot is completely free There are no subscriptions or locked features One of the first things that sold me on Greenshot was its price. Or, more accurately, the lack of one. Greenshot is totall…",
+      "thumbnail": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/07/a-snipping-tool-window-alongeside-a-chrome-browser-window-2.jpeg?w=1600&h=900&fit=crop",
+      "bookmarkCount": 5
     },
     {
       "id": "hatena-https://www.itmedia.co.jp/news/article/2607/31/2000000204/",
@@ -757,6 +1143,16 @@
       "bookmarkCount": 82
     },
     {
+      "id": "hatena-https://blog.song.mu/entry/agents-md-and-agent-skills",
+      "source": "hatena",
+      "title": "AIエージェントのハーネスをシンプルに保つ - 縦串のAGENTS.mdと横串のAgent Skills - An Epicurean",
+      "url": "https://blog.song.mu/entry/agents-md-and-agent-skills",
+      "publishedAt": "2026-07-30T12:41:46.000Z",
+      "summary": "AI Agent (以下Agent) に的確な指令を与えるため、いわゆるハーネスの整備が大事だということは認識されるようになってきた。私たちがAgentに対して打ち込むプロンプトは以下の図のように入力コンテキストの中のごく一部に過ぎない。コンテキストがどの様に組み立てられているかを理解し、適切なコンテキストが組み上げ...",
+      "thumbnail": "https://cdn.image.st-hatena.com/image/scale/6f8c55c6cc250c89d9a6ffcfe71a5245544d411e/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fgyazo.com%2Fd9e04ca65837b8e306613c4e5c2a3417.png",
+      "bookmarkCount": 5
+    },
+    {
       "id": "hatena-https://zenn.dev/mkj/articles/claudian-orchestra-build_20260720",
       "source": "hatena",
       "title": "0.5くらいから始めるPersonal Knowledge Base 構築実践",
@@ -803,6 +1199,16 @@
       "publishedAt": "2026-07-30T07:00:00.000Z",
       "summary": "BigQuery Feature You can add tables, views, data sources, and data quality tests as tasks to BigQuery pipelines. For more information, see Add a pipeline task. This feature is generally available. Fe…",
       "author": "Google Cloud Platform (GCP) - Release notes"
+    },
+    {
+      "id": "hatena-https://atmarkit.itmedia.co.jp/ait/articles/2607/30/news078.html",
+      "source": "hatena",
+      "title": "無料でAIコーディングの利用状況、トークンコスト可視化　オープンソースのMCPサーバ「Preflight」公開",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2607/30/news078.html",
+      "publishedAt": "2026-07-30T06:02:53.000Z",
+      "summary": "New Relicは2026年7月30日、AIコーディングエージェントの利用状況を可視化・管理するMCP（Model Context Protocol）サーバ「New Relic Preflight」（以後、Preflight）をオープンソースで公開した。 Preflightは、「Claude Code」「Cursor」「GitHub Copilot」「Windsurf」といった主要AIコー…",
+      "thumbnail": "https://image.itmedia.co.jp/ait/articles/2607/30/cover_news078.jpg",
+      "bookmarkCount": 10
     },
     {
       "id": "hatena-https://zenn.dev/komlock_lab/articles/mcp-stateless-spec-2026",
@@ -8121,6 +8527,16 @@
       "avatarUrl": "https://pbs.twimg.com/profile_images/1903224093476077568/OCclsw4c_400x400.jpg"
     },
     {
+      "id": "hatena-https://zenn.dev/pepabo/articles/9baa6271b2055d",
+      "source": "hatena",
+      "title": "AIを5本同時に走らせても、俺の脳みそは1個しかない",
+      "url": "https://zenn.dev/pepabo/articles/9baa6271b2055d",
+      "publishedAt": "2026-05-20T04:31:49.000Z",
+      "summary": "こんにちは。脳みそが1個しかない者です。 これは味噌です 最近、当たり前のように並列開発をするようになりました。皆さんもそうだと思います。cmuxや何なりでAIで5〜6本のタスクを同時に走らせて、サブエージェントも含めると10本以上が同時に動いているみたいな感じです。 燃やし切って退勤する頃には、今日自分が何...",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--TNQnhOd_--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%25925%25E6%259C%25AC%25E5%2590%258C%25E6%2599%2582%25E3%2581%25AB%25E8%25B5%25B0%25E3%2582%2589%25E3%2581%259B%25E3%2581%25A6%25E3%2582%2582%25E3%2580%2581%25E4%25BF%25BA%25E3%2581%25AE%25E8%2584%25B3%25E3%2581%25BF%25E3%2581%259D%25E3%2581%25AF1%25E5%2580%258B%25E3%2581%2597%25E3%2581%258B%25E3%2581%25AA%25E3%2581%2584%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:Sangun%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzA0ZTQxODhhYTMuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:GMO%25E3%2583%259A%25E3%2583%2591%25E3%2583%259C%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzVkYjFkMjcyZDkuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT",
+      "bookmarkCount": 21
+    },
+    {
       "id": "x-2056949168208552080",
       "source": "x",
       "title": "1/ We are sharing additional details regarding our investigation into unauthorized access to GitHub's internal repositories.\n\nYesterday w…",
@@ -10226,7 +10642,14 @@
       "url": "https://x.com/i/status/2024606418922283303",
       "publishedAt": "2026-02-19T22:06:00.000Z",
       "author": "ブックマーク",
-      "thumbnail": "https://oikon48.dev/og/ja-blog-claude-agent-teams.png"
+      "thumbnail": "https://oikon48.dev/og/ja-blog-claude-agent-teams.png",
+      "linkPreview": {
+        "url": "https://oikon48.dev/ja/blog/claude-agent-teams/",
+        "title": "How I Use Claude Agent Teams | oikon48",
+        "description": "Claude Code Agent Teamsの概要とSubagentsとの違い、Plan & DiscussionとTask executionの2つの活用法を紹介",
+        "image": "https://oikon48.dev/og/ja-blog-claude-agent-teams.png",
+        "domain": "oikon48.dev"
+      }
     },
     {
       "id": "x-2024600394299822096",
@@ -10296,7 +10719,14 @@
       "title": "Googleの対話AI「DialogLab」が登場！\nvia: https://t.co/e9SjiBo9tQ\n人間とAIが混ざる高度なグループ対話をシミュレート。人間が介入して精度を保てるため、接客や会議の訓練に最適です！✨ #Google #AI",
       "url": "https://x.com/i/status/2022552888178835943",
       "publishedAt": "2026-02-14T06:06:00.000Z",
-      "author": "ブックマーク"
+      "author": "ブックマーク",
+      "linkPreview": {
+        "url": "https://x.com/GoogleResearch/status/2021292319539069150",
+        "title": "For truly realistic conversational research, we must rethink fully autonomous agent design.\n\nDialogLab, our new open-source prototyping framework, uses a human-in-the-loop control strategy to achie…",
+        "description": "@GoogleResearch",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/2021292192858562560/img/oba7ZmTX7RSscRgo.jpg",
+        "domain": "x.com"
+      }
     },
     {
       "id": "x-2022484776570220849",
@@ -10314,7 +10744,14 @@
       "publishedAt": "2026-02-13T17:31:46.000Z",
       "summary": "WebMCP is available for early preview → https://t.co/bZMcANfg37\n\nWebMCP aims to provide a standard way for exposing structured tools, ensuring AI agents can perform actions on your side with increased speed, reliability, and precision.",
       "author": "ブックマーク",
-      "thumbnail": "https://developer.chrome.com/static/blog/webmcp-epp/image/cover.png"
+      "thumbnail": "https://developer.chrome.com/static/blog/webmcp-epp/image/cover.png",
+      "linkPreview": {
+        "url": "https://developer.chrome.com/blog/webmcp-epp",
+        "title": "WebMCP is available for early preview  |  Blog  |  Chrome for Developers",
+        "description": "WebMCP aims to provide a standard way for exposing structured tools, ensuring AI agents can perform actions on your site with increased speed, reliability, and precision.",
+        "image": "https://developer.chrome.com/static/blog/webmcp-epp/image/cover.png",
+        "domain": "developer.chrome.com"
+      }
     },
     {
       "id": "x-2022317192243810587",
@@ -10323,7 +10760,14 @@
       "url": "https://x.com/i/status/2022317192243810587",
       "publishedAt": "2026-02-13T14:29:26.000Z",
       "summary": "【注意喚起】バクラク共通利用規約において、LayerX社は、ユーザーがバクラクにアップロードしたデータをバクラクの機能改善、精度向上に利用するとしているため、バクラクの利用は守秘義務違反または個人情報保護法違反のおそれがあります。これは特にISMSやPマークを取得している企業は要注意です。 https://t.co/rRJ54MMuVy",
-      "author": "ブックマーク"
+      "author": "ブックマーク",
+      "linkPreview": {
+        "url": "https://x.com/igaki/status/2022317192243810587",
+        "title": "【注意喚起】バクラク共通利用規約において、LayerX社は、ユーザーがバクラクにアップロードしたデータをバクラクの機能改善、精度向上に利用するとしているため、バクラクの利用は守秘義務違反または個人情報保護法違反のおそれがあります。これは特にISMSやPマークを取得している企業は要注意です。",
+        "description": "@igaki",
+        "image": "https://pbs.twimg.com/media/HBC2w9DbUAE2SnF.jpg",
+        "domain": "x.com"
+      }
     },
     {
       "id": "x-2022252256247095615",
@@ -10350,7 +10794,14 @@
       "publishedAt": "2026-02-13T02:41:46.000Z",
       "summary": "Ready to try the updated Gemini 3 Deep Think?\n\nGoogle AI Ultra users can go to https://t.co/382WL5xSvc or open the app, then select the \"Deep Think\" option in the tools menu to get started. https://t.co/FXmY02jT3w",
       "author": "ブックマーク",
-      "thumbnail": "https://www.gstatic.com/lamda/images/gemini_aurora_thumbnail_4g_e74822ff0ca4259beb718.png"
+      "thumbnail": "https://www.gstatic.com/lamda/images/gemini_aurora_thumbnail_4g_e74822ff0ca4259beb718.png",
+      "linkPreview": {
+        "url": "https://x.com/GeminiApp/status/2022139103236812946",
+        "title": "Ready to try the updated Gemini 3 Deep Think?\n\nGoogle AI Ultra users can go to or open the app, then select the \"Deep Think\" option in the tools menu to get started.",
+        "description": "@GeminiApp",
+        "image": "https://pbs.twimg.com/media/HBAUmhca8AAqGa6.jpg",
+        "domain": "x.com"
+      }
     },
     {
       "id": "x-2022018481332662435",
@@ -10375,7 +10826,12 @@
       "url": "https://x.com/i/status/2021927055890543043",
       "publishedAt": "2026-02-12T12:39:10.000Z",
       "summary": "巨大なLLM事前学習データを爆速で検索出来る「SoftMatcha 2」の開発に参加させてもらいました。デモ、論文、ソースコード等をこの度公開しましたので是非お試し下さい！\n\nhttps://t.co/Y7JhTKmivw\n\n意味的類似性に基づいた置換や挿入削除に対応しながら1兆トークン規模のデータを0.1秒代で検索すると",
-      "author": "ブックマーク"
+      "author": "ブックマーク",
+      "linkPreview": {
+        "url": "https://softmatcha.github.io/v2/",
+        "title": "SoftMatcha 2",
+        "domain": "softmatcha.github.io"
+      }
     },
     {
       "id": "x-2021869466280452573",
@@ -10416,7 +10872,12 @@
       "url": "https://x.com/i/status/2020918870375370825",
       "publishedAt": "2026-02-09T17:53:00.000Z",
       "summary": "We've released the official https://t.co/AngZk3kQsM MCP server 🎉\nBut we're also sharing an alternative approach using Claude Project Instructions – no MCP setup needed, works directly in https://t.co/Tw7s9xxTaS in your browser.",
-      "author": "ブックマーク"
+      "author": "ブックマーク",
+      "linkPreview": {
+        "url": "https://app.diagrams.net/",
+        "title": "Flowchart Maker & Online Diagram Software",
+        "domain": "app.diagrams.net"
+      }
     },
     {
       "id": "x-2020413186529505687",
@@ -10443,7 +10904,14 @@
       "url": "https://x.com/i/status/2019607222737928451",
       "publishedAt": "2026-02-06T03:00:59.000Z",
       "author": "ブックマーク",
-      "thumbnail": "https://automaton-media.com/wp-content/uploads/2026/02/20260206-416934-header.jpg"
+      "thumbnail": "https://automaton-media.com/wp-content/uploads/2026/02/20260206-416934-header.jpg",
+      "linkPreview": {
+        "url": "https://automaton-media.com/articles/newsjp/20260206-416934/",
+        "title": "デスクトップ侵食型ホラー『佐藤さん暇つぶしチャット.exe』発表、3月13日リリースへ。謎の美少女とのチャットやブラウザを使う“現実侵食”謎解き - AUTOMATON",
+        "description": "ダンクハーツは2月6日、『佐藤さん暇つぶしチャット.exe』を3月13日に配信すると発表。本作はデスクトップ侵食型アドベンチャーと謳われるホラーARGだ。",
+        "image": "https://automaton-media.com/wp-content/uploads/2026/02/20260206-416934-header.jpg",
+        "domain": "automaton-media.com"
+      }
     },
     {
       "id": "x-2019305002418991138",
@@ -10452,7 +10920,14 @@
       "url": "https://x.com/i/status/2019305002418991138",
       "publishedAt": "2026-02-05T07:00:04.000Z",
       "author": "ブックマーク",
-      "thumbnail": "https://news.denfaminicogamer.jp/wp-content/uploads/2026/02/Coffee_Talk_Episode_1_Key-Art.png"
+      "thumbnail": "https://news.denfaminicogamer.jp/wp-content/uploads/2026/02/Coffee_Talk_Episode_1_Key-Art.png",
+      "linkPreview": {
+        "url": "https://news.denfaminicogamer.jp/news/260205u",
+        "title": "『コーヒートーク：エピソード1』モバイル版が3月20日に配信決定。物語の1日目を無料で体験可能。いつでもどこでも、人々の会話に耳を傾ける安らぎのひと時をスマホで味わえる",
+        "description": "多様な種族が共存する架空の都市で、お客にドリンクを提供しながらその会話に耳を傾ける。いつでもどこでも、落ち着いた安らぎのひと時を味わえる",
+        "image": "https://news.denfaminicogamer.jp/wp-content/uploads/2026/02/Coffee_Talk_Episode_1_Key-Art.png",
+        "domain": "news.denfaminicogamer.jp"
+      }
     },
     {
       "id": "x-2019300436352856302",
@@ -10545,7 +11020,14 @@
       "url": "https://x.com/i/status/2016416741749096762",
       "publishedAt": "2026-01-28T07:43:09.000Z",
       "author": "ブックマーク",
-      "thumbnail": "https://www.watch.impress.co.jp/img/ipw/list/2081/534/1.jpg"
+      "thumbnail": "https://www.watch.impress.co.jp/img/ipw/list/2081/534/1.jpg",
+      "linkPreview": {
+        "url": "https://www.watch.impress.co.jp/docs/news/2081534.html",
+        "title": "Genspark、日本展開を本格化　「1回の指示で完結」を目指すAIエージェント",
+        "description": "米AIスタートアップのGenspark(ジェンスパーク)は1月28日、日本市場への本格展開を開始すると発表した。あわせて、音声入力やカスタムワークフロー構築機能を備えた「Genspark AI Workspace 2.0」を発表した。",
+        "image": "https://www.watch.impress.co.jp/img/ipw/list/2081/534/1.jpg",
+        "domain": "watch.impress.co.jp"
+      }
     },
     {
       "id": "x-2016209462621831448",
@@ -10554,7 +11036,12 @@
       "url": "https://x.com/i/status/2016209462621831448",
       "publishedAt": "2026-01-27T17:59:29.000Z",
       "summary": "Introducing Prism, a free workspace for scientists to write and collaborate on research, powered by GPT-5.2.\n\nAvailable today to anyone with a ChatGPT personal account: https://t.co/9mTLAbxPdH",
-      "author": "ブックマーク"
+      "author": "ブックマーク",
+      "linkPreview": {
+        "url": "https://prism.openai.com/",
+        "title": "Prism - AI LaTeX Editor",
+        "domain": "prism.openai.com"
+      }
     },
     {
       "id": "x-2015745070079922228",
@@ -10580,6 +11067,16 @@
       "publishedAt": "2026-01-22T02:09:52.000Z",
       "author": "ブックマーク",
       "thumbnail": "https://ai-data-base.com/wp-content/uploads/2026/01/AIDB_eye_100698.jpg"
+    },
+    {
+      "id": "hatena-https://zenn.dev/okuoku/scraps/6e9dd8a0d0b76a",
+      "source": "hatena",
+      "title": "Wi-Fi locationサービスってまだ存在するのか...",
+      "url": "https://zenn.dev/okuoku/scraps/6e9dd8a0d0b76a",
+      "publishedAt": "2024-02-17T03:16:12.000Z",
+      "summary": "Wi-FiのMACアドレスを渡すと、事前にwar drivingなりなんなりで集めたデータからおおよその位置を割り出してくれるサービスがある。最大手は多分Skyhookで、iOSやPSVita等で採用されていた。 これは基本的に違法ではないが、個人が設置したWi-Fi APのMACアドレスを使ってストーキングができてしまうので良くないって意見...",
+      "thumbnail": "https://storage.googleapis.com/zenn-user-upload/avatar/1e7fbed78b.jpeg",
+      "bookmarkCount": 5
     }
   ],
   "state": {
@@ -11507,7 +12004,11 @@
       "qiita-https://qiita.com/st-man-hori/items/964ecefb7c3114d2c963": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjc3MTg3NTIxJTNGdiUzRDQ_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTExZWExYWI0ODFkZTVhZDIwN2E4YTUxZmY2ZmY2NTg2%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Decc7c404e7b65b7e7d260a9b2974593d?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODElQUIlRTMlODIlODIlRTQlQkElQkElRTklOTYlOTMlRTMlODElQUIlRTMlODIlODIlRTUlODQlQUElRTMlODElOTclRTMlODElODRMYXJhdmVsJUU4JUE4JUFEJUU4JUE4JTg4JUUzJTgwJTgxUGFja2FnZSUyMEJ5JTIwRmVhdHVyZSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTkzZWZjYWRkN2MyYmU0NTg2N2Y2NDM2NzRmNzVkN2Uw&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzdC1tYW4taG9yaSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTFlMmFhNTVkNmZhZTQyYjE1ODM0YzY2Y2VhNjc1ZmY1&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=477e3f72826563b306d762d7c1096dee",
       "qiita-https://qiita.com/danielcarterus/items/c76a01e996d7e38213c8": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzU2MDMyJTJGMDNlNzAwYzJjNmNhMjA5N2VjMGQ1YmY0M2Q0Zjg5NzA3MWExYzU3YSUyRmxhcmdlLnBuZyUzRjE3NzA3MjI2NTg_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWI2ZDEyMzhlNDExNDJhNjc0ODU4Y2JjOTg5MTFkODM3%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D5854919c7468f17b36efbe1015dccf62?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9RGF0YSUyMFF1YWxpdHklMjBmb3IlMjBBSSUyMENyZWF0ZXMlMjBSZWxpYWJsZSUyMEludGVsbGlnZW5jZSUyMEFjcm9zcyUyMEV2ZXJ5JTIwRW50ZXJwcmlzZSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTQ0ZmQ5OGQ1NWQ1M2M0ZWE2ZTdiZWYxNjk4Y2IzZGEy&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBkYW5pZWxjYXJ0ZXJ1cyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTU4OGZjYjY3YTI1ZWM4MDM1NTJlNjczNzY4ZWMxYmQz&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=6a7933d8f015e8666e258ac81851182c",
       "qiita-https://qiita.com/picnic/items/e96397a8ad93bca4ce25": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jS0oza2lJamRVZjd6UHZDUHNqTGhkcHFzbDlYU2MweGJscHRZRzgwOWd5dlhYWWh2UTElM0RzOTYtYz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OGM4MDU5ODEyMzY3Y2ZlNmIzMDVkYTMzMjAwNjcwMDE%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dfd6ab3c0ea5267b0e6bf5b2f6bc36ab2?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwT3B1cyUyMDUlMjAlRTMlODMlQUElRTMlODMlQUElRTMlODMlQkMlRTMlODIlQjklRTclQjclOEYlRTMlODElQkUlRTMlODElQTglRTMlODIlODElM0ExTSVFMyU4MiVCMyVFMyU4MyVCMyVFMyU4MyU4NiVFMyU4MiVBRCVFMyU4MiVCOSVFMyU4MyU4OCVFMyU4MSVBOCVFNyVBMCVCNCVFNSVBMyU4QSVFNyU5QSU4NCVFNSVBNCU4OSVFNiU5QiVCNDIlRTQlQkIlQjYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz00M2QxM2U3YzIwOTQ2OTJiMDYyMGM4YTUwNTMzZjFhYw&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwaWNuaWMmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1iZTllNDg4YzE3YjgzYzFmZGE3MTQ2MjU5MjlkYzU1ZQ&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=7cbd9aa5916bc72995a5014ca3a8d553",
-      "qiita-https://qiita.com/kakusan2022/items/3a86183d6b6187353262": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZhMzg2MjhhOGQ1YThlOTljNWFhNjdhY2JiYjU0NzY5Mj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OTRiMTdlMTU5YzFlNTY2NzkwNjRkMjc2NDI4YTljMjU%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D8ace5a6c354ebe63e25641fa20fb521b?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODElQTclRTMlODMlOUIlRTMlODMlQkMlRTMlODMlQTAlRTMlODMlOUElRTMlODMlQkMlRTMlODIlQjglRTMlODIlOTIlRTglODclQUElRTQlQkQlOUMlRTMlODMlQkIlRTUlODUlQUMlRTklOTYlOEIlRTMlODElOTklRTMlODIlOEIlRTYlODklOEIlRTklQTAlODYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz01OTZjOGZjY2M2ODEwZmJmZmIwYmJmYzQyMTNlMWUwMg&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrYWt1c2FuMjAyMiZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTgyNmU5NzcyYmRmY2I2ZmE2ZTA3M2U1NjM5N2JmNzYz&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=bba8a933133c3eb5745c5634fe997a2c"
+      "qiita-https://qiita.com/kakusan2022/items/3a86183d6b6187353262": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZhMzg2MjhhOGQ1YThlOTljNWFhNjdhY2JiYjU0NzY5Mj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OTRiMTdlMTU5YzFlNTY2NzkwNjRkMjc2NDI4YTljMjU%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D8ace5a6c354ebe63e25641fa20fb521b?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODElQTclRTMlODMlOUIlRTMlODMlQkMlRTMlODMlQTAlRTMlODMlOUElRTMlODMlQkMlRTMlODIlQjglRTMlODIlOTIlRTglODclQUElRTQlQkQlOUMlRTMlODMlQkIlRTUlODUlQUMlRTklOTYlOEIlRTMlODElOTklRTMlODIlOEIlRTYlODklOEIlRTklQTAlODYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz01OTZjOGZjY2M2ODEwZmJmZmIwYmJmYzQyMTNlMWUwMg&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrYWt1c2FuMjAyMiZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTgyNmU5NzcyYmRmY2I2ZmE2ZTA3M2U1NjM5N2JmNzYz&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=bba8a933133c3eb5745c5634fe997a2c",
+      "qiita-https://qiita.com/lemonIN/items/288c3d387275dfdd3d96": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY5ODE0MzIlMkY0YmJmOGQ3ZDJiNzViM2EwY2IzOGIwOTc0Y2RkYzVhOTg5ZDdhZGRlJTJGeF9sYXJnZS5wbmclM0YxNzM2NTM2ODM3P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1iYzM5NGIwM2I5ZTMyYjBlNjg1NTg0ZjJmN2U3OGI0Mw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D212190576611108f9d0cb54859c87ab6?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgzJTgxJUUzJTgzJUEzJUUzJTgzJTgzJUUzJTgzJTg4JUU2JUFDJTg0JUUzJTgyJUJGJUUzJTgyJUE0JUUzJTgzJTk0JUUzJTgzJUIzJUUzJTgyJUIwJUVGJUJDJTlBJUUzJTgyJUE4JUUzJTgzJUEyJUUzJTgzJUJDJUUzJTgzJTg4JUU1JUJDJUJFJUU1JUI5JTk1JUU2JTg4JUE2JUVGJUJDJTgxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MzExMDBmNTg0OTFiZTVkODQyOTRhNzJkNzFkNzM4MzY&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBsZW1vbklOJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OTMwMjZmMDQ0MDlhZGI1YTBhMDM2YzQ2NjRhNDM2YmQ&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=25af966bb28e65af24d19ac404ad5c37",
+      "qiita-https://qiita.com/ryotani3/items/af4244bb68009412ee83": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDc3NDQ4JTJGNWIzYmQ2OWVjMWE3ZGI0NzAwYTI2NGZmMjQ4OWRlZGZiODkxNzg2ZSUyRmxhcmdlLnBuZyUzRjE3ODU1MTYyMzE_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTZjZjJhMmI4Yzk0ZWE1NWI2Njk3NTFlNDBkMTM4YTNh%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D63ef90fe7b0efd477083b4ee535754ff?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUI5JUUzJTgzJTlFJUUzJTgzJTlCJUUzJTgxJUFFV2ViR1BVJUUzJTgxJUE3JUU1JTg4JTg2JUU2JTk1JUEzQUklRTUlOUYlQkElRTclOUIlQTQlRTMlODIlOTIlRTQlQkQlOUMlRTMlODIlOEQlRTMlODElODYlRTMlODElQTglRTMlODElOTclRTMlODElOUYlRTMlODIlODklRTclQjIlQkUlRTUlQkElQTYlRTUlQjclQUUlRTMlODElQTclRTUlODclQkElRTUlOEElOUIlRTMlODElOEMlRTUlODglODYlRTUlQjIlOTAlRTMlODElOTclRTMlODElOUYlRTglQTklQjElRUYlQkMlODhBcmNBc2hhLU9TJUU5JTk2JThCJUU3JTk5JUJBJUU4JUE4JTk4JUVGJUJDJTg5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZGFkZDE1MDYzMjc3NTJlMmE0OGM4YTk0NzNiMDhmMzE&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDByeW90YW5pMyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTFkOTY5MjE5NWIwZGQ5OTA0ODJiODNhZDMwN2YzMGIx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=607d19d965ea76b299e379e194738caa",
+      "qiita-https://qiita.com/DaokFrontier/items/b0dc4a2be0fe3e6cfb19": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDQ1MTE3MCUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc4MTg2NTQyNj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YjNiYWUxYTQ4YjRlYWJlNTkyOTlkZjQ0ZTYwZDE0OTU%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D0fb64aa6d6d91929c8e58e5dc28b513f?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODIlQjMlRTMlODMlQkMlRTMlODMlODklRTMlODIlQTIlRTMlODIlQjclRTMlODIlQjklRTMlODIlQkYlRTMlODMlQjMlRTMlODMlODglRTYlQjQlQkIlRTclOTQlQTglRTglQTElOTMlRUYlQkMlOUFET1JBJUU2JThDJTg3JUU2JUE4JTk5JUUzJTgyJTkyJUU4JUI2JTg1JUUzJTgxJTg4JUUzJTgyJThCJUU3JTk0JTlGJUU3JTk0JUEzJUU2JTgwJUE3JUU4JUE5JTk1JUU0JUJFJUExJUUzJTgyJTkyJUUzJTgyJUJDJUUzJTgzJUFEJUUzJTgxJThCJUUzJTgyJTg5JUU2JUE3JThCJUU3JUFGJTg5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZjZmZjJhYmYxZjg0MDFlYzE4N2QxM2E2MDA3ZDIwNzc&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBEYW9rRnJvbnRpZXImdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz0zOWUwZTE2ZDQ5Y2U5ZmI5MzdjMzRiZGIyMWM1MjQwYw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=9000296ad5122cc4d9bf6cd86b7654e7",
+      "qiita-https://qiita.com/Joy0321/items/5c0733ec4da62e8c4ae6": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jTHZwQWQyb0pybUFfd2FkNThkRGVkSXNDaWllRGZyb0UzZVFqU0dYQjlHVFBGdiUzRHM5Ni1jP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1mMjI3ZDZkZDU5YzVmMmJjNDJhYmVjZDI2ODk4MzM3Zg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da69efe475fd0ae385f1bf1207319c80b?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JTIzJTIwJUU2JTk3JTg1JUU4JUExJThDJUU0JUI4JUFEJUUzJTgxJUFFJUU3JTk0JUJCJUU1JTgzJThGJUU3JUJGJUJCJUU4JUE4JUIzJUUzJTgyJTkyJUU4JUE5JUE2JUUzJTgxJTk3JUUzJTgxJUE2JUUzJTgxJUJGJUUzJTgxJTlGJUVGJUJDJTlBJUUzJTgzJUExJUUzJTgzJThCJUUzJTgzJUE1JUUzJTgzJUJDJUUzJTgyJTg0JUU2JUExJTg4JUU1JTg2JTg1JUU2JTlEJUJGJUUzJTgyJTkyJUU4JUFBJUFEJUUzJTgyJTgwJUU2JTk2JUI5JUU2JUIzJTk1JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9M2NjNjRlMThlOTcwNzhiNjEyOTVkY2YzNjQyZjRiODQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBKb3kwMzIxJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9M2NmOGNmMzUxNDgwMjQ4NmY4NDAwMzNhYTQ2MGFiZTA&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=b42c0500e829c8d88b1799de85f292d1"
     },
     "translations": {
       "hatena-https://pc.watch.impress.co.jp/docs/news/2119895.html": {
@@ -12495,6 +12996,206 @@
         "name": "Google",
         "handle": "Google",
         "avatar": "https://pbs.twimg.com/profile_images/2042749771337564160/AgOFPEL3_400x400.jpg"
+      },
+      "x-2044829708609851775": {
+        "name": "AGIラボ",
+        "handle": "ctgptlb",
+        "avatar": "https://pbs.twimg.com/profile_images/1671845985574875137/W689Frac_400x400.jpg"
+      },
+      "x-2044677900360892420": {
+        "name": "公正取引委員会",
+        "handle": "jftc",
+        "avatar": "https://pbs.twimg.com/profile_images/1422419569415655427/oP9KuARy_400x400.png"
+      },
+      "x-2044631098345591175": {
+        "name": "Oikon",
+        "handle": "oikon48",
+        "avatar": "https://pbs.twimg.com/profile_images/1957490792601456640/Z2aPsuaY_400x400.jpg"
+      },
+      "x-2044383179411431844": {
+        "name": "sakata",
+        "handle": "mariosakata",
+        "avatar": "https://pbs.twimg.com/profile_images/2049829391207936000/1uf2Lr2e_400x400.jpg"
+      },
+      "x-2044597920079692093": {
+        "name": "ITmedia AI＋",
+        "handle": "itm_aiplus",
+        "avatar": "https://pbs.twimg.com/profile_images/1764479065791348736/cZaiR26R_400x400.jpg"
+      },
+      "x-2044131493966909862": {
+        "name": "Claude",
+        "handle": "claudeai",
+        "avatar": "https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_400x400.jpg"
+      },
+      "x-2044106378655215625": {
+        "name": "Google",
+        "handle": "Google",
+        "avatar": "https://pbs.twimg.com/profile_images/2042749771337564160/AgOFPEL3_400x400.jpg"
+      },
+      "x-2044037960954245419": {
+        "name": "Google Japan",
+        "handle": "googlejapan",
+        "avatar": "https://pbs.twimg.com/profile_images/2079747251493367808/A0xSBIan_400x400.jpg"
+      },
+      "x-2043848112352178453": {
+        "name": "Vaibhav Sisinty",
+        "handle": "VaibhavSisinty",
+        "avatar": "https://pbs.twimg.com/profile_images/1466482275361562626/jP_Sgq2A_400x400.jpg"
+      },
+      "x-2043794937523945860": {
+        "name": "🚨 AI News | TestingCatalog",
+        "handle": "testingcatalog",
+        "avatar": "https://pbs.twimg.com/profile_images/1899962463115751424/i-6MBWau_400x400.jpg"
+      },
+      "x-2043734511176094048": {
+        "name": "Go学长",
+        "handle": "arkuy99",
+        "avatar": "https://pbs.twimg.com/profile_images/1929775085520670720/nyG5k8ou_400x400.jpg"
+      },
+      "x-2042796840865927288": {
+        "name": "Oikon",
+        "handle": "oikon48",
+        "avatar": "https://pbs.twimg.com/profile_images/1957490792601456640/Z2aPsuaY_400x400.jpg"
+      },
+      "x-2043347156141064476": {
+        "name": "0xMarioNawfal",
+        "handle": "RoundtableSpace",
+        "avatar": "https://pbs.twimg.com/profile_images/2012162102283407360/U-fPj6wg_400x400.jpg"
+      },
+      "x-2042783148564713501": {
+        "name": "梶谷健人",
+        "handle": "kajikent",
+        "avatar": "https://pbs.twimg.com/profile_images/1306395711118876672/jrCwx-VO_400x400.jpg"
+      },
+      "x-2042780059363336237": {
+        "name": "OpenAI",
+        "handle": "OpenAI",
+        "avatar": "https://pbs.twimg.com/profile_images/1885410181409820672/ztsaR0JW_400x400.jpg"
+      },
+      "x-2042722362643398719": {
+        "name": "Claude Code研究所|スパルタClaude Code塾",
+        "handle": "claudecode_lab",
+        "avatar": "https://pbs.twimg.com/profile_images/2047553749867216896/_SKwpHqG_400x400.jpg"
+      },
+      "x-2042670341915295865": {
+        "name": "Claude",
+        "handle": "claudeai",
+        "avatar": "https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_400x400.jpg"
+      },
+      "x-2042523878736695318": {
+        "name": "Kazuhiro Sera (瀬良)",
+        "handle": "seratch_ja",
+        "avatar": "https://pbs.twimg.com/profile_images/2075873753930887168/lxl0CWEP_400x400.jpg"
+      },
+      "x-2042550380031049878": {
+        "name": "Oikon",
+        "handle": "oikon48",
+        "avatar": "https://pbs.twimg.com/profile_images/1957490792601456640/Z2aPsuaY_400x400.jpg"
+      },
+      "x-2042452558556643428": {
+        "name": "日経クロストレンド@マーケティングと消費がわかるメディア",
+        "handle": "NIKKEIxTREND",
+        "avatar": "https://pbs.twimg.com/profile_images/980549317067853824/rIRAwj7U_400x400.jpg"
+      },
+      "x-2042201466769903906": {
+        "name": "Kai",
+        "handle": "hqmank",
+        "avatar": "https://pbs.twimg.com/profile_images/2001227557765832707/XG7mxw62_400x400.jpg"
+      },
+      "x-2042394750511431867": {
+        "name": "Oikon",
+        "handle": "oikon48",
+        "avatar": "https://pbs.twimg.com/profile_images/1957490792601456640/Z2aPsuaY_400x400.jpg"
+      },
+      "x-2041982449387810962": {
+        "name": "Gemini Notebook",
+        "handle": "Gemini_Notebook",
+        "avatar": "https://pbs.twimg.com/profile_images/2077802672909127680/08OuXlca_400x400.png"
+      },
+      "x-2041927687460024721": {
+        "name": "Claude",
+        "handle": "claudeai",
+        "avatar": "https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_400x400.jpg"
+      },
+      "x-2041842023196450858": {
+        "name": "draw.io",
+        "handle": "drawio",
+        "avatar": "https://pbs.twimg.com/profile_images/976028830430351361/Hh-vWsQ0_400x400.jpg"
+      },
+      "x-2041578392852517128": {
+        "name": "Anthropic",
+        "handle": "AnthropicAI",
+        "avatar": "https://pbs.twimg.com/profile_images/1798110641414443008/XP8gyBaY_400x400.jpg"
+      },
+      "x-2041741597180887178": {
+        "name": "ITmedia AI＋",
+        "handle": "itm_aiplus",
+        "avatar": "https://pbs.twimg.com/profile_images/1764479065791348736/cZaiR26R_400x400.jpg"
+      },
+      "x-2041561791243940092": {
+        "name": "Cursor",
+        "handle": "cursor_ai",
+        "avatar": "https://pbs.twimg.com/profile_images/1970182748146180096/dhZeXi_X_400x400.jpg"
+      },
+      "x-2041542766585610477": {
+        "name": "0xMarioNawfal",
+        "handle": "RoundtableSpace",
+        "avatar": "https://pbs.twimg.com/profile_images/2012162102283407360/U-fPj6wg_400x400.jpg"
+      },
+      "x-2041444646946283961": {
+        "name": "ITmedia AI＋",
+        "handle": "itm_aiplus",
+        "avatar": "https://pbs.twimg.com/profile_images/1764479065791348736/cZaiR26R_400x400.jpg"
+      },
+      "x-2041411084821971204": {
+        "name": "マネーフォワード",
+        "handle": "moneyforward",
+        "avatar": "https://pbs.twimg.com/profile_images/1612691615965138945/Ht6SrsaF_400x400.png"
+      },
+      "x-2040227127082295424": {
+        "name": "Gemini Notebook",
+        "handle": "Gemini_Notebook",
+        "avatar": "https://pbs.twimg.com/profile_images/2077802672909127680/08OuXlca_400x400.png"
+      },
+      "x-2041827249759088949": {
+        "name": "Genspark",
+        "handle": "genspark_ai",
+        "avatar": "https://pbs.twimg.com/profile_images/1782715833099382784/R6nadR8G_400x400.jpg"
+      },
+      "x-2039845602096472467": {
+        "name": "AGIラボ",
+        "handle": "ctgptlb",
+        "avatar": "https://pbs.twimg.com/profile_images/1671845985574875137/W689Frac_400x400.jpg"
+      },
+      "x-2039841577078808693": {
+        "name": "ITmedia AI＋",
+        "handle": "itm_aiplus",
+        "avatar": "https://pbs.twimg.com/profile_images/1764479065791348736/cZaiR26R_400x400.jpg"
+      },
+      "x-2039843952694886564": {
+        "name": "AGIラボ",
+        "handle": "ctgptlb",
+        "avatar": "https://pbs.twimg.com/profile_images/1671845985574875137/W689Frac_400x400.jpg"
+      },
+      "x-2039474419048108429": {
+        "name": "池田晴紀｜AI×新規事業",
+        "handle": "ikeda_haruki_",
+        "avatar": "https://pbs.twimg.com/profile_images/1670801902076940290/vKqo59Ga_400x400.jpg"
+      },
+      "x-2039181788363567598": {
+        "name": "Oikon",
+        "handle": "oikon48",
+        "avatar": "https://pbs.twimg.com/profile_images/1957490792601456640/Z2aPsuaY_400x400.jpg"
+      },
+      "x-2039176534477734009": {
+        "name": "福島良典 | LayerX",
+        "handle": "fukkyy",
+        "avatar": "https://pbs.twimg.com/profile_images/479435326083964928/CPcSdHAV_400x400.png"
+      },
+      "x-2039128554630451386": {
+        "name": "Kazuhiro Sera (瀬良)",
+        "handle": "seratch_ja",
+        "avatar": "https://pbs.twimg.com/profile_images/2075873753930887168/lxl0CWEP_400x400.jpg"
       }
     },
     "xLinkCards": {
@@ -12920,6 +13621,85 @@
         "title": "報道発表資料：AIを活用した多様な地理空間情報の連携環境を試作・提供！<br>～地理空間MCP Server（α版）の公開～ - 国土交通省",
         "image": "https://www.mlit.go.jp/common/001391890.png",
         "domain": "mlit.go.jp"
+      },
+      "x-2026204586860843151": null,
+      "x-2026222182150328678": null,
+      "x-2026064025172455480": null,
+      "x-2024606418922283303": {
+        "url": "https://oikon48.dev/ja/blog/claude-agent-teams/",
+        "title": "How I Use Claude Agent Teams | oikon48",
+        "description": "Claude Code Agent Teamsの概要とSubagentsとの違い、Plan & DiscussionとTask executionの2つの活用法を紹介",
+        "image": "https://oikon48.dev/og/ja-blog-claude-agent-teams.png",
+        "domain": "oikon48.dev"
+      },
+      "x-2021927055890543043": {
+        "url": "https://softmatcha.github.io/v2/",
+        "title": "SoftMatcha 2",
+        "domain": "softmatcha.github.io"
+      },
+      "x-2020967720095973805": null,
+      "x-2022363079976034455": {
+        "url": "https://developer.chrome.com/blog/webmcp-epp",
+        "title": "WebMCP is available for early preview  |  Blog  |  Chrome for Developers",
+        "description": "WebMCP aims to provide a standard way for exposing structured tools, ensuring AI agents can perform actions on your site with increased speed, reliability, and precision.",
+        "image": "https://developer.chrome.com/static/blog/webmcp-epp/image/cover.png",
+        "domain": "developer.chrome.com"
+      },
+      "x-2019620314867724681": null,
+      "x-2022552888178835943": {
+        "url": "https://x.com/GoogleResearch/status/2021292319539069150",
+        "title": "For truly realistic conversational research, we must rethink fully autonomous agent design.\n\nDialogLab, our new open-source prototyping framework, uses a human-in-the-loop control strategy to achie…",
+        "description": "@GoogleResearch",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/2021292192858562560/img/oba7ZmTX7RSscRgo.jpg",
+        "domain": "x.com"
+      },
+      "x-2020918870375370825": {
+        "url": "https://app.diagrams.net/",
+        "title": "Flowchart Maker & Online Diagram Software",
+        "domain": "app.diagrams.net"
+      },
+      "x-2022317192243810587": {
+        "url": "https://x.com/igaki/status/2022317192243810587",
+        "title": "【注意喚起】バクラク共通利用規約において、LayerX社は、ユーザーがバクラクにアップロードしたデータをバクラクの機能改善、精度向上に利用するとしているため、バクラクの利用は守秘義務違反または個人情報保護法違反のおそれがあります。これは特にISMSやPマークを取得している企業は要注意です。",
+        "description": "@igaki",
+        "image": "https://pbs.twimg.com/media/HBC2w9DbUAE2SnF.jpg",
+        "domain": "x.com"
+      },
+      "x-2018559165837574263": null,
+      "x-2017838482341957924": null,
+      "x-2016959338523611621": null,
+      "x-2022139103236812946": {
+        "url": "https://x.com/GeminiApp/status/2022139103236812946",
+        "title": "Ready to try the updated Gemini 3 Deep Think?\n\nGoogle AI Ultra users can go to or open the app, then select the \"Deep Think\" option in the tools menu to get started.",
+        "description": "@GeminiApp",
+        "image": "https://pbs.twimg.com/media/HBAUmhca8AAqGa6.jpg",
+        "domain": "x.com"
+      },
+      "x-2016209462621831448": {
+        "url": "https://prism.openai.com/",
+        "title": "Prism - AI LaTeX Editor",
+        "domain": "prism.openai.com"
+      },
+      "x-2019607222737928451": {
+        "url": "https://automaton-media.com/articles/newsjp/20260206-416934/",
+        "title": "デスクトップ侵食型ホラー『佐藤さん暇つぶしチャット.exe』発表、3月13日リリースへ。謎の美少女とのチャットやブラウザを使う“現実侵食”謎解き - AUTOMATON",
+        "description": "ダンクハーツは2月6日、『佐藤さん暇つぶしチャット.exe』を3月13日に配信すると発表。本作はデスクトップ侵食型アドベンチャーと謳われるホラーARGだ。",
+        "image": "https://automaton-media.com/wp-content/uploads/2026/02/20260206-416934-header.jpg",
+        "domain": "automaton-media.com"
+      },
+      "x-2016416741749096762": {
+        "url": "https://www.watch.impress.co.jp/docs/news/2081534.html",
+        "title": "Genspark、日本展開を本格化　「1回の指示で完結」を目指すAIエージェント",
+        "description": "米AIスタートアップのGenspark(ジェンスパーク)は1月28日、日本市場への本格展開を開始すると発表した。あわせて、音声入力やカスタムワークフロー構築機能を備えた「Genspark AI Workspace 2.0」を発表した。",
+        "image": "https://www.watch.impress.co.jp/img/ipw/list/2081/534/1.jpg",
+        "domain": "watch.impress.co.jp"
+      },
+      "x-2019305002418991138": {
+        "url": "https://news.denfaminicogamer.jp/news/260205u",
+        "title": "『コーヒートーク：エピソード1』モバイル版が3月20日に配信決定。物語の1日目を無料で体験可能。いつでもどこでも、人々の会話に耳を傾ける安らぎのひと時をスマホで味わえる",
+        "description": "多様な種族が共存する架空の都市で、お客にドリンクを提供しながらその会話に耳を傾ける。いつでもどこでも、落ち着いた安らぎのひと時を味わえる",
+        "image": "https://news.denfaminicogamer.jp/wp-content/uploads/2026/02/Coffee_Talk_Episode_1_Key-Art.png",
+        "domain": "news.denfaminicogamer.jp"
       }
     }
   }
