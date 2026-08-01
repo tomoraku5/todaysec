@@ -144,10 +144,12 @@ export const feedsConfig: FeedsConfig = {
     sourceUrl: "https://storage.googleapis.com/basecamp-feeds/x-tweets.json",
     username: "satory074",
     categories: ["bookmark"], // 自分のデータからはブックマークのみ取り込む
-    accounts: ["NotebookLM", "claudeai", "itm_aiplus", "OpenAIDevs", "OpenAI", "GeminiApp"], // 外部アカウントのポスト（@なし）。複数可
+    // X API を今後一切使わないため空にする（外部アカウント取得＝課金対象を停止）。
+    accounts: [],
     accountMaxResults: 20,
     retentionMax: 1000,
-    disabled: false,
+    // sourceUrl が他人（basecamp）の公開ブックマーク JSON のため停止。
+    disabled: true,
   },
   zenn: {
     rssUrl: "https://zenn.dev/topics/ai/feed", // Zenn AIトピック
@@ -183,7 +185,8 @@ export const feedsConfig: FeedsConfig = {
     newerThanDays: 30,
     maxResults: 20,
     retentionMax: 2000, // ~190件/通と物量大。別枠なので他ソースを押し出さない
-    disabled: false,
+    // Gmail OAuth（GMAIL_CLIENT_ID/_SECRET/_REFRESH_TOKEN）が必要なため停止。
+    disabled: true,
   },
   translate: {
     // gemini-2.0-flash は 2026-06-01 に提供終了（無料枠撤廃で 429 になる）。
@@ -193,6 +196,7 @@ export const feedsConfig: FeedsConfig = {
     concurrency: 3,
     summarizeSources: ["zenn", "qiita", "hatena", "workspace", "gcloud"],
     summaryMinLen: 40,
-    disabled: false,
+    // GEMINI_API_KEY が未設定のため停止（原文のまま表示＝graceful degradation）。
+    disabled: true,
   },
 };
