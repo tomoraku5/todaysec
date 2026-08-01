@@ -1,8 +1,12 @@
 name: Update feeds & Deploy
 
 on:
-  schedule:
-    - cron: "0 */6 * * *" # 6時間ごと
+  # TODO: Phase 2 完了後に再有効化する。
+  # セキュリティ情報集約サイトへの改造中は自動集約を止める。
+  # 有効なままだと 6 時間ごとに残りのソース（AI 系 RSS）が feed.json を
+  # 再び埋めて main に自動コミットしてしまうため。
+  # schedule:
+  #   - cron: "0 */6 * * *" # 6時間ごと
   push:
     branches: [main]
   workflow_dispatch:
