@@ -16,12 +16,16 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
   トークン・API キーは一切不要で、公開 RSS だけで動く。
 - **位置づけ**: 運用者は開発未経験。**個人の学習目的**のサイトであり、特定の組織を代表するものではない。
 
-### 現在有効なソース（2ソース）
+### 現在有効なソース（3ソース）
 
 | source | 内容 | 取得元 |
 | --- | --- | --- |
 | `qiita` | Qiita「Security」タグ・「認証」タグ | 公開 RSS（複数 URL・トークン不要） |
 | `zenn` | Zenn「security」トピック | 公開 RSS（トークン不要） |
+| `hatenablog` | セキュリティ専門のはてなブログ3本（piyolog / Fox on Security / GMO Flatt Security） | 公開 Atom（複数 URL・トークン不要） |
+
+⚠️ `hatena`（はてなブックマーク）と `hatenablog`（はてなブログ）は**別サービス・別枠**。
+前者は無効のまま、後者が新設された有効ソース。混同しないこと。
 
 ### 現在無効なソース・機能
 
@@ -32,7 +36,7 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 | --- | --- |
 | `x` | `sourceUrl` がフォーク元作者（basecamp）の公開ブックマーク JSON。X API も有料のため使わない。`x.accounts` は空配列にしてある |
 | `layerx` | Gmail OAuth（`GMAIL_CLIENT_ID`/`_SECRET`/`_REFRESH_TOKEN`）が必要 |
-| `hatena` | **後日セキュリティ向けに差し替えて復活させる予定**。⚠️ `rssUrl` は IT 人気エントリーのままなので、有効化する前に必ず URL を差し替えること |
+| `hatena`（はてな**ブックマーク**） | 人気エントリー RSS。⚠️ `rssUrl` は IT 人気エントリーのままなので、有効化する前に必ずセキュリティ向け URL へ差し替えること。※はてな**ブログ**は別枠 `hatenablog` として稼働中 |
 | `gcloud` | GCP 全製品のリリースノートでセキュリティ用途に合わない |
 | `workspace` | Google Workspace の機能更新情報でセキュリティ用途に合わない |
 | `translate`（Gemini 翻訳/要約） | `GEMINI_API_KEY` 未設定。原文のまま表示される（graceful degradation） |
@@ -134,7 +138,13 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
   **`rssUrls` は配列**＝1ソースに複数タグ/トピックを束ねられる（改造で `rssUrl` から拡張）。**URL ごとに個別 try/catch** するので1本が 404 等で落ちても残りは取り込まれる。全 URL が失敗しても throw せず、`aggregate.ts` がブロック先頭で積んだ前回キャッシュがそのまま残る。**`limit` は「1 URL あたり」**の取得窓（合計ではない）＝ URL を足しても既存フィードの取り込み量が痩せない。それぞれ独立タブ `source: "zenn"` / `"qiita"`。
   - ⚠️ **日本語タグ URL の扱い**: `qiita.com/tags/認証/feed` を生のまま渡すと rss-parser は `Request path contains unescaped characters` で失敗する（ブラウザや `fetch` と違い Node の http クライアントは自動エンコードしない）。`rss.ts` の `toRequestUrl()` が WHATWG `URL` に通してパーセントエンコードするので、**設定ファイルには読みやすい生の日本語のまま書いてよい**。
   - （履歴）todayai 時代は Zenn「AI」トピック／Qiita「AI」タグだった。さらにその前の「Feedly」（AI 関連 RSS 8本まとめ集約）は廃止済み。
-- **【現在は無効】はてブ**: 公開 RSS（`b.hatena.ne.jp/hotentry/it.rss`）を直接パース。トークン不要。**人気エントリーRSSは「今まさに人気の約30件」しか返さない**ためフレッシュ取得分だけだとランキング外の記事が消える。→ 全ソース共通の蓄積（`cachedFor(cache,"hatena")` を先頭で積む）で過去分を保持し、`hatena.retentionMax`（既定1000≒数ヶ月・`feed.json` 肥大の安全弁）まで残す。dedup（id=entry url）で重複は1件。（かつては「はてブだけ蓄積・`maxAgeDays` 対象外」の特別扱いだったが、全ソースが同じ蓄積＋ソース別枠に統一された。）
+- **【有効】はてなブログ（`hatenablog`）**: セキュリティ専門のはてなブログの公開 Atom を、**Zenn/Qiita と同じ `fetchRss`（`rssUrls` 配列）で取得**する（設定構造が同一なので専用パーサは作らず `aggregate.ts` の同じループに相乗り）。
+  - ⚠️ **はてなブログには「全ブログ横断で特定タグの新着を取る」フィードが存在しない**。`hatenablog.com/tag/<tag>` は `hatena.blog/tag/<tag>` へ 301 したうえで **404**。`/feed`・`?mode=rss`・`.rss`・`/tags/`・`/topic/`・`/g/`・`blog.hatena.ne.jp/-/search` もすべて 404（実アクセスで確認済み）。横断で取れるのは **はてなブックマークの検索 RSS**（`b.hatena.ne.jp/q/<word>?mode=rss`・RSS 1.0・40件）だけだが、これはブログ記事ではなくブックマーク＝別サービスの `hatena` 枠と同じもの。**タグ横断を再検討するときは、この 404 の事実から確認し直すこと。**
+  - そのため**個別ブログのフィードを列挙**している（`feeds.config.ts` の `hatenablog.rssUrls`）。ブログを増やすときは配列に足すだけ。候補探しは「はてブ検索 RSS でセキュリティ関連語を引き、はてなブログ系ドメインのホストを集計する」方法が有効（推測より確実）。
+  - フィードは Atom で `title` / `link` / `isoDate` / `contentSnippet` / `author` を持つが、**`enclosure` も `media:thumbnail` も無い**＝サムネはフィードから取れない。よって `enrichArticles` の対象に含め、記事ページの og:image から補完している（Zenn/Qiita と同じ）。
+  - `contentSnippet` が非常に長い（piyolog は 1万字超）が、`rss.ts` の `snippet()` が 200 字に切るので問題ない。
+  - **バッジ色は `--color-hatenablog: #7c3aed`（バイオレット）**。はてブの青 `#1f7fc2`・Zenn の水色・Qiita の黄緑・ロゴのエメラルドのいずれとも色相を 36°以上離してある。
+- **【現在は無効】はてブ（はてなブックマーク。上の `hatenablog` とは別サービス）**: 公開 RSS（`b.hatena.ne.jp/hotentry/it.rss`）を直接パース。トークン不要。**人気エントリーRSSは「今まさに人気の約30件」しか返さない**ためフレッシュ取得分だけだとランキング外の記事が消える。→ 全ソース共通の蓄積（`cachedFor(cache,"hatena")` を先頭で積む）で過去分を保持し、`hatena.retentionMax`（既定1000≒数ヶ月・`feed.json` 肥大の安全弁）まで残す。dedup（id=entry url）で重複は1件。（かつては「はてブだけ蓄積・`maxAgeDays` 対象外」の特別扱いだったが、全ソースが同じ蓄積＋ソース別枠に統一された。）
 - **【現在は無効】Workspace**: Google Workspace Updates ブログ（Blogger 製）の Atom を `rss-parser` で直接取得。トークン不要。既定の `/feeds/posts/default` は FeedBurner（http）へ 302 するため `?redirect=false` を付けて Google ドメインから https Atom を取得（`workspace.rssUrl`）。`perFeedLimit` で件数を抑制。サムネは `media:thumbnail` 優先＋本文 HTML の最初の `<img>` をフォールバック抽出。表示は `source: "workspace"`（青バッジ「Workspace」）。
 - **【現在は無効】LayerX**: Substack 公開 RSS が invite-only のため、毎週届くメール（`layerxnews@substack.com`）を **Gmail REST API** で読む（`GMAIL_CLIENT_ID`/`_SECRET`/`_REFRESH_TOKEN`、scope `gmail.readonly`）。**本文(text/plain)に列挙された各トピックリンク = 1アイテム**（1通 ~190件）。`<タイトル> [ substack redirect url ]` が**行末**にある行だけ採用＝「View this post」/Unsubscribe/文中プロモを自然に除外。id は redirect UUID で安定（再取得しても dedup で増えない）。1通の物量が大きいので `layerx.retentionMax` は 2000（ソース別枠なので他ソースは押し出さない）。インフラ設定とトークン失効の注意は memory `todayai-layerx-gmail-infra` 参照。
 - **【現在は無効】GCP**: Google Cloud リリースノートの公開 Atom（`https://docs.cloud.google.com/feeds/gcp-release-notes.xml`。旧 `cloud.google.com/feeds/gcp-release-notes.xml` は 301 でここへ）を `rss-parser` で直接取得。トークン不要。**⚠️ このフィードは 1エントリ=1日** で `<title>` は日付だけ（例 "July 07, 2026"）・`<content>`(HTML) にその日の全プロダクトの更新がまとまる（AI 専用ではなく全 GCP プロダクト。ただし ~1件/日と低頻度）。today.ai は日付グルーピングするので日付見出しは冗長 → 専用パーサ `scripts/sources/gcloud.ts` が本文の `<h2 class="release-note-product-title">製品名</h2>`（安定した hook）を抽出して「App Engine・Bigtable ほかN製品のリリースノート」を `title` にする（抽出0件なら日付フォールバック。末尾「のリリースノート」で `isJapanese()`=true → 見出しの無駄翻訳を回避）。**enrichArticles には渡さない**（エントリ link を辿ると当日でなく60日分のページ全体が返るため・サムネ不要）＝サムネ無しのコンパクト行で描画。要約は `contentText`（本文長め・一時）を `translate.summarizeSources` の3行要約に載せ、`summary` は表示用に短め。表示は `source: "gcloud"`（赤バッジ「GCP」）。
