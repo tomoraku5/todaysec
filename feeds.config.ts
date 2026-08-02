@@ -3,7 +3,7 @@
  *
  * ★ 実運用前に以下を埋めること:
  *   - x.username : 取得したい X(Twitter) アカウントのユーザー名（@ なし）
- *   - zenn/qiita.rssUrl : 集約したい AI 関連 RSS フィードの URL
+ *   - zenn/qiita.rssUrls : 集約したいトピック／タグの RSS フィード URL（配列。複数可）
  *
  * トークン類（X_*）は .env / GitHub Secrets に置く（このファイルには書かない）。
  * 記事系（Zenn/Qiita/はてブ/Workspace）は公開 RSS を rss-parser で直接取得する
@@ -39,19 +39,26 @@ export interface FeedsConfig {
     /** true の場合、X取得を完全にスキップ */
     disabled?: boolean;
   };
-  /** Zenn「AI」トピックの公開 RSS（rss-parser で直接取得。トークン不要）。 */
+  /**
+   * Zenn トピックの公開 RSS（rss-parser で直接取得。トークン不要）。
+   * 複数トピックを束ねられる（URL ごとに個別 try/catch＝1本落ちても残りは取り込む）。
+   */
   zenn: {
-    rssUrl: string;
-    /** 1回に取り込む最大件数（取得窓。蓄積は retentionMax まで） */
+    rssUrls: string[];
+    /** 1回に取り込む最大件数（**1 URL あたり**の取得窓。蓄積は retentionMax まで） */
     limit?: number;
     /** 保持上限件数（全期間アーカイブの安全弁） */
     retentionMax: number;
     disabled?: boolean;
   };
-  /** Qiita「AI」タグの公開 RSS（rss-parser で直接取得。トークン不要）。 */
+  /**
+   * Qiita タグの公開 RSS（rss-parser で直接取得。トークン不要）。
+   * 複数タグを束ねられる。複数タグに跨る記事は id（= source-記事URL）が同一になるので
+   * 集約時の dedup で1件にまとまる。
+   */
   qiita: {
-    rssUrl: string;
-    /** 1回に取り込む最大件数（取得窓。蓄積は retentionMax まで） */
+    rssUrls: string[];
+    /** 1回に取り込む最大件数（**1 URL あたり**の取得窓。蓄積は retentionMax まで） */
     limit?: number;
     /** 保持上限件数（全期間アーカイブの安全弁） */
     retentionMax: number;
@@ -152,15 +159,21 @@ export const feedsConfig: FeedsConfig = {
     disabled: true,
   },
   zenn: {
-    rssUrl: "https://zenn.dev/topics/ai/feed", // Zenn AIトピック
+    // トピックを増やしたいときはこの配列に URL を足すだけ（1本落ちても他は取り込まれる）。
+    rssUrls: [
+      "https://zenn.dev/topics/security/feed", // Zenn Securityトピック
+    ],
     limit: 20,
     retentionMax: 1000, // 取りこぼしが激しかった主対象。数ヶ月〜相当
-    // まず Qiita だけで動作確認するため停止。URL が AI トピックのままなので、
-    // 有効化するなら先に security トピック（zenn.dev/topics/security/feed）へ差し替えること。
-    disabled: true,
+    disabled: false,
   },
   qiita: {
-    rssUrl: "https://qiita.com/tags/security/feed", // Qiita Securityタグ
+    // タグを増やしたいときはこの配列に URL を足すだけ。複数タグに跨る記事は dedup で1件になる。
+    // 日本語タグは生のまま書いてよい（rss.ts の toRequestUrl がパーセントエンコードする）。
+    rssUrls: [
+      "https://qiita.com/tags/security/feed", // Qiita Securityタグ
+      "https://qiita.com/tags/認証/feed", // Qiita 認証タグ
+    ],
     limit: 20,
     retentionMax: 1000, // 取りこぼしが激しかった主対象。数ヶ月〜相当
     disabled: false,

@@ -139,8 +139,10 @@ async function run(): Promise<void> {
     collected.push(...xItems);
   }
 
-  // ---- Zenn「AI」トピック / Qiita「AI」タグ（公開 RSS を直接取得。トークン不要）----
-  // 取得窓（limit）が狭く RSS は最新数十件しか返さないので、前回分を土台に蓄積して過去分を保持する
+  // ---- Zenn トピック / Qiita タグ（公開 RSS を直接取得。トークン不要）----
+  // 1ソースにつき複数 URL（rssUrls）を束ねられる（例: Qiita = Security タグ＋認証タグ）。
+  // limit は「1 URL あたり」の取得窓なので、URL を足しても既存フィードの取り込みは痩せない。
+  // 取得窓が狭く RSS は最新数十件しか返さないので、前回分を土台に蓄積して過去分を保持する
   // （全期間アーカイブ。dedup=id で重複は集約）。取得失敗/disabled でも蓄積済みの過去分は残る。
   for (const source of ["zenn", "qiita"] as const) {
     const cfg = feedsConfig[source];
@@ -150,9 +152,19 @@ async function run(): Promise<void> {
       continue;
     }
     try {
-      const items = await fetchRss({ rssUrl: cfg.rssUrl, source, limit: cfg.limit });
-      collected.push(...items);
-      console.log(`[${source}] ${items.length} items (＋過去 ${cachedFor(cache, source).length} 件を保持)`);
+      const r = await fetchRss({ rssUrls: cfg.rssUrls, source, limit: cfg.limit });
+      collected.push(...r.items);
+      // URL 単位の失敗は他 URL を巻き込まない（fetchRss が握る）。理由だけ集計へ回す。
+      for (const e of r.errors) errors.push(`${source}: ${e}`);
+      // 同じ記事が複数タグに跨って出た分（後段の id dedup で1件に集約される）。
+      const dup = r.items.length - new Set(r.items.map((i) => i.id)).size;
+      console.log(
+        `[${source}] ${r.items.length} items (＋過去 ${cachedFor(cache, source).length} 件を保持)` +
+          (dup > 0 ? ` ※URL間の重複 ${dup} 件は dedup で1件に集約` : ""),
+      );
+      for (const p of r.perUrl) {
+        console.log(`  └ ${p.url}: ${p.error ? `失敗 (${p.error})` : `${p.count} 件`}`);
+      }
     } catch (e) {
       const msg = (e as Error).message;
       errors.push(`${source}: ${msg}`);
