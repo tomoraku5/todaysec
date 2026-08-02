@@ -33,7 +33,7 @@ type GcItem = {
 
 const parser: Parser<{ title?: string }, GcItem> = new Parser({
   timeout: 15000,
-  headers: { "User-Agent": "Mozilla/5.0 (todayai feed aggregator)" },
+  headers: { "User-Agent": "Mozilla/5.0 (todaysec feed aggregator)" },
 });
 
 /** HTML → プレーンテキスト（タグ除去＋空白畳み込み）。maxLen 超は `…` で切る。 */

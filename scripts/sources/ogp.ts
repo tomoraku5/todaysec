@@ -9,8 +9,10 @@
  */
 import { dropSplitSurrogateEnd } from "./util";
 
+// 取得先サーバーに名乗る文字列。末尾の +URL は「このクローラーの説明ページ」を示す慣習で、
+// 外部に送信される値なので自サイトを指すこと（fork 元の作者ドメインを残さない）。
 const UA =
-  "Mozilla/5.0 (compatible; todayai-aggregator/1.0; +https://satory074.github.io/todayai/)";
+  "Mozilla/5.0 (compatible; todaysec-aggregator/1.0; +https://tomoraku5.github.io/todaysec/)";
 const TIMEOUT_MS = 5000;
 
 function isXHost(host: string): boolean {

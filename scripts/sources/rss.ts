@@ -29,7 +29,7 @@ type RssItem = {
 
 const parser: Parser<{ title?: string }, RssItem> = new Parser({
   timeout: 15000,
-  headers: { "User-Agent": "Mozilla/5.0 (todayai feed aggregator)" },
+  headers: { "User-Agent": "Mozilla/5.0 (todaysec feed aggregator)" },
   customFields: {
     item: [
       ["media:thumbnail", "mediaThumbnail"],
