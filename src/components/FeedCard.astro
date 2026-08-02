@@ -63,15 +63,6 @@ const variant = item.source === "x" ? "tweet" : item.thumbnail ? "hero" : "compa
             <BilingualText orig={item.summary} ja={item.summaryJa} />
           </p>
         )}
-
-        {item.bookmarkCount !== undefined && (
-          <div class="mt-3 inline-flex items-center gap-1 rounded-md bg-[var(--color-hatena-bg)] px-2 py-0.5 text-[11px] font-medium text-[var(--color-hatena)]">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3 w-3">
-              <path d="M6 2a2 2 0 0 0-2 2v18l8-5.5L20 22V4a2 2 0 0 0-2-2H6z" />
-            </svg>
-            {item.bookmarkCount} users
-          </div>
-        )}
       </div>
     </article>
   ) : (
@@ -102,12 +93,9 @@ const variant = item.source === "x" ? "tweet" : item.thumbnail ? "hero" : "compa
               <BilingualText orig={item.summary} ja={item.summaryJa} />
             </p>
           )}
-          {(item.author || item.bookmarkCount !== undefined) && (
+          {item.author && (
             <div class="mt-1 flex items-center gap-2 font-mono text-[11px] text-[var(--color-text-subtle)]">
-              {item.author && <span class="truncate">{item.author}</span>}
-              {item.bookmarkCount !== undefined && (
-                <span class="shrink-0">★ {item.bookmarkCount}</span>
-              )}
+              <span class="truncate">{item.author}</span>
             </div>
           )}
         </div>

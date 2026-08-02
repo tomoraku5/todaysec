@@ -28,8 +28,6 @@ export interface FeedItem {
   avatarUrl?: string;
   /** X の表示名（@handle とは別。例 "NotebookLM"）。集約時に補完。 */
   authorName?: string;
-  /** はてブのブックマーク数 */
-  bookmarkCount?: number;
   /**
    * X ツイート本文中の t.co リンク先の OGP プレビュー（リンクカード）。集約時に enrichXLinks が解決し、
    * title/description は translate ステップで日本語補完（titleJa/descriptionJa）。表示は TweetCard。
