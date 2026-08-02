@@ -7,6 +7,7 @@ import {
   dayLabel,
   isKnownSource,
   relativeTime,
+  sourceListText,
   timeOfDay,
   type FeedData,
   type FeedItem,
@@ -45,7 +46,7 @@ const updatedRel = feed.updatedAt ? relativeTime(feed.updatedAt) : "";
       セキュリティ情報フィード
     </h1>
     <p class="mt-1.5 text-[13px] text-[var(--color-text-muted)]">
-      Zenn・Qiita から自動集約。
+      {sourceListText()} から自動集約。
       {updatedRel && <span class="font-mono text-[var(--color-text-subtle)]">更新 {updatedRel}</span>}
     </p>
   </section>

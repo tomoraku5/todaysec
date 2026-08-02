@@ -121,24 +121,64 @@ export interface SourceMeta {
   label: string;
   /** Tailwind 用のアクセントクラス（バッジ等） */
   badgeClass: string;
+  /** about ページに出す1行説明。何を取ってくるソースかを利用者向けに書く。 */
+  description: string;
 }
 
-// 並び順がそのままフィルタチップの表示順（先頭に「すべて」が付く）。
+// 並び順がそのままフィルタチップの表示順（先頭に「すべて」が付く）＝
+// 説明文やフッターのソース名の並び順にもなる。
 //
-// ★ ここに載っているソースだけが画面に出る（フィルタチップ／カード描画とも SOURCES 駆動）。
+// ★★ このサイトで「今どのソースを集めているか」の唯一の正（single source of truth）。
+// フィルタチップ・カード描画に加え、**説明文／フッター／about／RSS／OGP 画像のソース名も
+// すべてこの配列から自動生成される**（下の sourceListText()）。
+// → ソースを増減するときはここだけ直せば、表示テキストは全部追従する。
+//    ただし OGP 画像（public/og-default.png）だけは生成済み PNG をコミットする運用なので、
+//    `npx tsx scripts/generateOgImage.ts` の再実行が別途必要。
+//
 // 収集を止めたソースは 0 件のチップだけが並んで邪魔になるため、いったん外している。
 // 将来復活させる場合はこの配列に該当行を戻すこと（FeedSource 型・badgeClass の CSS・
 // feeds.config.ts の設定はいずれも残してあるので、行を戻すだけで表示に復帰する）:
-//   { key: "x", label: "X", badgeClass: "src-x" },
-//   { key: "workspace", label: "Workspace", badgeClass: "src-workspace" },
-//   { key: "layerx", label: "LayerX", badgeClass: "src-layerx" },
-//   { key: "hatena", label: "はてブ", badgeClass: "src-hatena" },   // 後日追加予定
-//   { key: "gcloud", label: "GCP", badgeClass: "src-gcloud" },
+//   { key: "x", label: "X", badgeClass: "src-x", description: "特定の X(Twitter) アカウントの投稿。" },
+//   { key: "workspace", label: "Workspace", badgeClass: "src-workspace", description: "Google Workspace Updates ブログの新着。" },
+//   { key: "layerx", label: "LayerX", badgeClass: "src-layerx", description: "LayerX AI・LLM Newsletter（週刊）の各トピック。" },
+//   { key: "hatena", label: "はてブ", badgeClass: "src-hatena", description: "はてなブックマークの人気エントリー。" },  // 後日追加予定
+//   { key: "gcloud", label: "GCP", badgeClass: "src-gcloud", description: "Google Cloud リリースノート。" },
 export const SOURCES: SourceMeta[] = [
-  { key: "zenn", label: "Zenn", badgeClass: "src-zenn" },
-  { key: "qiita", label: "Qiita", badgeClass: "src-qiita" },
-  { key: "hatenablog", label: "はてなブログ", badgeClass: "src-hatenablog" },
+  {
+    key: "zenn",
+    label: "Zenn",
+    badgeClass: "src-zenn",
+    description: "Zenn「Security」トピックの新着記事。",
+  },
+  {
+    key: "qiita",
+    label: "Qiita",
+    badgeClass: "src-qiita",
+    description: "Qiita「Security」タグ・「認証」タグの新着記事。",
+  },
+  {
+    key: "hatenablog",
+    label: "はてなブログ",
+    badgeClass: "src-hatenablog",
+    description: "セキュリティ専門ブログ（piyolog / Fox on Security / GMO Flatt Security）の新着記事。",
+  },
 ];
+
+/**
+ * SOURCES のラベルを連結した「ソース一覧」テキスト。
+ *
+ * 説明文・フッター・about・RSS・OGP 画像が**同じ配列から文言を組み立てる**ための共通ヘルパー。
+ * ソースを足したのに説明文が古いまま、という取りこぼしを構造的に防ぐのが目的。
+ *
+ * @param separator 日本語の文中は "・"、フッターのような記号区切りは " / " を使う。
+ *
+ * ソースが0件のときは "各種フィード" を返す（"" だと「 から自動集約。」と主語が消えて
+ * 文章が壊れるため）。1件のときは単にその名前になる＝区切り文字が余らない。
+ */
+export function sourceListText(separator: "・" | " / " = "・"): string {
+  if (SOURCES.length === 0) return "各種フィード";
+  return SOURCES.map((s) => s.label).join(separator);
+}
 
 export function sourceLabel(source: FeedSource): string {
   return SOURCES.find((s) => s.key === source)?.label ?? source;
@@ -151,7 +191,14 @@ export function isKnownSource(source: string): source is FeedSource {
 
 /** source のメタ。未登録なら中立フォールバック（バッジ色なし・ラベルは生の source）。 */
 export function sourceMeta(source: FeedSource): SourceMeta {
-  return SOURCES.find((s) => s.key === source) ?? { key: source, label: source, badgeClass: "" };
+  return (
+    SOURCES.find((s) => s.key === source) ?? {
+      key: source,
+      label: source,
+      badgeClass: "",
+      description: "",
+    }
+  );
 }
 
 /** 相対時刻（"3分前" / "2時間前" / "5日前" / 日付）。 */

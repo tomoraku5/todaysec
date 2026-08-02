@@ -1,6 +1,6 @@
 import rss from "@astrojs/rss";
 import { absUrl } from "@/lib/url";
-import { sourceLabel, type FeedData } from "@/lib/feed";
+import { sourceLabel, sourceListText, type FeedData } from "@/lib/feed";
 import { readFeed } from "@/lib/feedStore";
 
 export async function GET() {
@@ -14,7 +14,7 @@ export async function GET() {
 
   return rss({
     title: "today.security — セキュリティ情報フィード",
-    description: "Zenn・Qiita から集約したセキュリティ関連情報。",
+    description: `${sourceListText()} から集約したセキュリティ関連情報。`,
     site: absUrl("/"),
     items: items.map((item) => ({
       title: `[${sourceLabel(item.source)}] ${item.title}`,

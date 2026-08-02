@@ -20,6 +20,8 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import sharp from "sharp";
 
+import { sourceListText } from "../src/lib/feed";
+
 const WIDTH = 1200;
 const HEIGHT = 630;
 const OUT = path.join(process.cwd(), "public", "og-default.png");
@@ -54,14 +56,18 @@ function esc(s: string): string {
     .replace(/"/g, "&quot;");
 }
 
-/** 掲載する文言。ここだけ直せば内容を変えられる。 */
+/**
+ * 掲載する文言。ここだけ直せば内容を変えられる。
+ * **ソース名は `src/lib/feed.ts` の SOURCES から自動生成**するのでここには書かない
+ * （ソースを増やしたのに OGP 画像だけ古い、を防ぐ）。
+ */
 const CONTENT = {
   wordmarkHead: "today",
   wordmarkTail: ".security",
   kicker: "SECURITY BRIEFING",
   headline: "セキュリティ情報フィード",
-  description: "Zenn・Qiita からセキュリティ関連情報を自動集約。",
-  sources: "Zenn / Qiita",
+  description: `${sourceListText()} からセキュリティ関連情報を自動集約。`,
+  sources: sourceListText(" / "),
   url: "tomoraku5.github.io/todaysec",
 };
 
