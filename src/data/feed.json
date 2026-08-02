@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-02T04:27:50.991Z",
+  "updatedAt": "2026-08-02T04:57:45.991Z",
   "items": [
     {
       "id": "qiita-https://qiita.com/hiroshi_imaoku/items/f88d1e10196659c231fe",
@@ -30,6 +30,26 @@
       "summary": "Claude Code の確認プロンプトを減らしつつ、危ない操作は通らないようにする設定です。1か月ほど運用していて、確認は格段に減り、確認疲れによるミスも減りました。 settings.json の全文と、PreToolUse フックのスクリプトを載せます。ユーザー名など...",
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNjg4MDYxJTJGcHJvZmlsZS1pbWFnZXMlMkYxNzc2NTc2Nzc4P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz05MjliYmMzZDJjNGJjNGZjMDFmYmYxMzVlMTAwZTUxMA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D8dffbcb595fcd95ac296045b37793b3e?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MSVBRSUyMHNldHRpbmdzLmpzb24lMjAlRTUlODUlQTglRTYlOTYlODclRTUlODUlQUMlRTklOTYlOEIlRTMlODAlODIlRTMlODIlQjUlRTMlODMlQjMlRTMlODMlODklRTMlODMlOUMlRTMlODMlODMlRTMlODIlQUYlRTMlODIlQjklRUYlQkMlOEJhdXRvJTIwJUUzJTgzJUEyJUUzJTgzJUJDJUUzJTgzJTg5JUUzJTgxJUE3JUU3JUEyJUJBJUU4JUFBJThEJUUzJTgyJTkyJUU2JTlDJTgwJUU1JUIwJThGJUUzJTgxJUFCJUUzJTgxJTk5JUUzJTgyJThCJUU4JUE4JUFEJUU1JUFFJTlBJUUzJTgwJTkwJUUzJTgyJUIzJUUzJTgzJTk0JUUzJTgzJTlBJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MGMyMjg3ODE4YmFkN2ZkMTBhODYwOTZkNjNmN2JkNjg&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBSYXBscyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTVkMzY2N2I3MTA4ZjYxOWY2MDI1NDQ1NDY5ODAwNDE4&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=471e50c0f4f6093ba713b6121fcee769",
       "author": "Securityタグが付けられた新着記事 - Qiita"
+    },
+    {
+      "id": "zenn-https://zenn.dev/jikki_log/articles/argv-flag-injection",
+      "source": "zenn",
+      "title": "引数を配列で渡してもフラグ注入は防げない",
+      "url": "https://zenn.dev/jikki_log/articles/argv-flag-injection",
+      "publishedAt": "2026-08-02T01:06:10.000Z",
+      "summary": "外部コマンドを呼ぶとき、引数を配列で渡すのは定石です。 // シェルを介さない = シェル注入は原理的に起きない await new Deno.Command(\"tmux\", { args: [\"send-keys\", \"-t\", target, \"-l\", text] }).output(); ユーザー入力に ; rm -rf ~ が混じっても、それは1個の引数として扱われるだけで、コマン…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--_0DMqTcU--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%25BC%2595%25E6%2595%25B0%25E3%2582%2592%25E9%2585%258D%25E5%2588%2597%25E3%2581%25A7%25E6%25B8%25A1%25E3%2581%2597%25E3%2581%25A6%25E3%2582%2582%25E3%2583%2595%25E3%2583%25A9%25E3%2582%25B0%25E6%25B3%25A8%25E5%2585%25A5%25E3%2581%25AF%25E9%2598%25B2%25E3%2581%2592%25E3%2581%25AA%25E3%2581%2584%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25B2%25E3%2582%258D%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSWdlZHF5MDRHeGJXSzNORWx6bGtjME4xenNoWjFZRlhWRHBUOFNXanE5ZmotbEtRPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/poko8725/articles/mail-parser-3-vulns",
+      "source": "zenn",
+      "title": "レシートメールを読む道具に脆弱性が3件。2件はメールを送るだけで成立する",
+      "url": "https://zenn.dev/poko8725/articles/mail-parser-3-vulns",
+      "publishedAt": "2026-08-02T00:10:00.000Z",
+      "summary": "結論 レシートメールから支出を集計する道具を公開したあと、セキュリティレビューをかけたら3件出ました。 IMAP の証明書を検証していなかった（imaplib の既定） CSV に数式を仕込めた（= で始まるセル） 正規表現が長い数字列で破綻した（ReDoS） このうち 2件は、攻撃者がやることが「メールを送る」だけです。 特別な権限も、こちらへのアクセスも要りません。 残る1件（証明書）は…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--H9x6Stjd--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%25AC%25E3%2582%25B7%25E3%2583%25BC%25E3%2583%2588%25E3%2583%25A1%25E3%2583%25BC%25E3%2583%25AB%25E3%2582%2592%25E8%25AA%25AD%25E3%2582%2580%25E9%2581%2593%25E5%2585%25B7%25E3%2581%25AB%25E8%2584%2586%25E5%25BC%25B1%25E6%2580%25A7%25E3%2581%258C3%25E4%25BB%25B6%25E3%2580%25822%25E4%25BB%25B6%25E3%2581%25AF%25E3%2583%25A1%25E3%2583%25BC%25E3%2583%25AB%25E3%2582%2592%25E9%2580%2581%25E3%2582%258B%25E3%2581%25A0%25E3%2581%2591%25E3%2581%25A7%25E6%2588%2590%25E7%25AB%258B%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:poko8725%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzJhM2ViODY1MjUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "qiita-https://qiita.com/henagineer/items/ea5d2acf4717be29695a",
