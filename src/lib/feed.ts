@@ -1,17 +1,10 @@
 /** 全情報源を統一する正規化済みフィードアイテム。 */
 /**
- * `hatena` = はてなブックマーク（人気エントリー RSS。現在は無効）。
- * `hatenablog` = はてなブログのセキュリティ系ブログ（別サービスなので枠を分けている）。
+ * `x` は現在 `disabled`（実装・設定とも温存）。それ以外は稼働中のソース。
+ * かつて存在した `hatena`（はてなブックマーク）/ `layerx` / `workspace` / `gcloud` は
+ * セキュリティ用途に合わないため削除済み（詳細は削除前のコミット c5c9547 を参照）。
  */
-export type FeedSource =
-  | "x"
-  | "zenn"
-  | "qiita"
-  | "hatena"
-  | "hatenablog"
-  | "layerx"
-  | "workspace"
-  | "gcloud";
+export type FeedSource = "x" | "zenn" | "qiita" | "hatenablog";
 
 export interface FeedItem {
   /** 一意キー（X: tweet id / 記事系(zenn/qiita/workspace): 記事URL / はてブ: entry url） */
@@ -139,10 +132,6 @@ export interface SourceMeta {
 // 将来復活させる場合はこの配列に該当行を戻すこと（FeedSource 型・badgeClass の CSS・
 // feeds.config.ts の設定はいずれも残してあるので、行を戻すだけで表示に復帰する）:
 //   { key: "x", label: "X", badgeClass: "src-x", description: "特定の X(Twitter) アカウントの投稿。" },
-//   { key: "workspace", label: "Workspace", badgeClass: "src-workspace", description: "Google Workspace Updates ブログの新着。" },
-//   { key: "layerx", label: "LayerX", badgeClass: "src-layerx", description: "LayerX AI・LLM Newsletter（週刊）の各トピック。" },
-//   { key: "hatena", label: "はてブ", badgeClass: "src-hatena", description: "はてなブックマークの人気エントリー。" },  // 後日追加予定
-//   { key: "gcloud", label: "GCP", badgeClass: "src-gcloud", description: "Google Cloud リリースノート。" },
 export const SOURCES: SourceMeta[] = [
   {
     key: "zenn",

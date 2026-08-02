@@ -1,7 +1,7 @@
 /**
  * フィード集約スクリプト。
  *
- * 7ソース（X / Zenn / Qiita / はてブ / Workspace / LayerX / GCP）を取得 → FeedItem に正規化 → 既存キャッシュとマージ
+ * 各ソース（Zenn / Qiita / はてなブログ、および無効化中の X）を取得 → FeedItem に正規化 → 既存キャッシュとマージ
  * → 重複排除・ソート・トリム → src/data/feed.json に書き出す。
  *
  * 各ソースは個別に try/catch する。あるソースの取得に失敗した場合、
@@ -18,12 +18,7 @@ import { readFeed } from "../src/lib/feedStore";
 import { writeFeed } from "./lib/feedWrite";
 import { fetchX, fetchXAccounts } from "./sources/x";
 import { fetchRss } from "./sources/rss";
-import { fetchHatena } from "./sources/hatena";
-import { fetchLayerX } from "./sources/layerx";
-import { fetchWorkspace } from "./sources/workspace";
-import { fetchGcloud } from "./sources/gcloud";
 import { enrichArticles } from "./sources/enrichArticles";
-import { enrichLayerxThumbs } from "./sources/layerxThumb";
 import { enrichXLinks } from "./sources/xLinkCard";
 import { enrichTranslations } from "./sources/translate";
 
@@ -174,97 +169,6 @@ async function run(): Promise<void> {
     }
   }
 
-  // ---- はてブ ----
-  // 人気エントリーRSSは「今まさに人気の約30件」しか返さないので、前回分を土台に蓄積して過去分を保持する
-  // （全ソース共通の全期間アーカイブ。dedup=id で重複は集約、後段で retentionMax まで保持）。
-  collected.push(...cachedFor(cache, "hatena"));
-  if (feedsConfig.hatena.disabled) {
-    console.log("[hatena] disabled");
-  } else {
-    try {
-      const items = await fetchHatena({ rssUrl: feedsConfig.hatena.rssUrl });
-      collected.push(...items);
-      console.log(`[hatena] ${items.length} items (＋過去 ${cachedFor(cache, "hatena").length} 件を保持)`);
-    } catch (e) {
-      const msg = (e as Error).message;
-      errors.push(`hatena: ${msg}`);
-      console.error("[hatena] 取得失敗（前回キャッシュを維持）:", msg);
-    }
-  }
-
-  // ---- Google Workspace Updates（Blogger Atom を直接取得。トークン不要）----
-  // 前回分を土台に蓄積（全期間アーカイブ）。取得失敗/disabled でも過去分は残る。
-  collected.push(...cachedFor(cache, "workspace"));
-  if (feedsConfig.workspace.disabled) {
-    console.log("[workspace] disabled");
-  } else {
-    try {
-      const items = await fetchWorkspace({
-        rssUrl: feedsConfig.workspace.rssUrl,
-        perFeedLimit: feedsConfig.workspace.perFeedLimit,
-      });
-      collected.push(...items);
-      console.log(`[workspace] ${items.length} items (＋過去 ${cachedFor(cache, "workspace").length} 件を保持)`);
-    } catch (e) {
-      const msg = (e as Error).message;
-      errors.push(`workspace: ${msg}`);
-      console.error("[workspace] 取得失敗（前回キャッシュを維持）:", msg);
-    }
-  }
-
-  // ---- Google Cloud リリースノート（Atom を直接取得。トークン不要）----
-  // 前回分を土台に蓄積（全期間アーカイブ）。取得は直近60日分だが、それより古い日も過去分として残る。
-  collected.push(...cachedFor(cache, "gcloud"));
-  if (feedsConfig.gcloud.disabled) {
-    console.log("[gcloud] disabled");
-  } else {
-    try {
-      const items = await fetchGcloud({
-        rssUrl: feedsConfig.gcloud.rssUrl,
-        limit: feedsConfig.gcloud.limit,
-      });
-      collected.push(...items);
-      console.log(`[gcloud] ${items.length} items (＋過去 ${cachedFor(cache, "gcloud").length} 件を保持)`);
-    } catch (e) {
-      const msg = (e as Error).message;
-      errors.push(`gcloud: ${msg}`);
-      console.error("[gcloud] 取得失敗（前回キャッシュを維持）:", msg);
-    }
-  }
-
-  // ---- LayerX AI・LLM Newsletter（Gmail 経由）----
-  // 前回分を土台に蓄積（全期間アーカイブ）。取得は直近 newerThanDays 日分のメールだが、
-  // それより古いトピックも過去分として残る。取得失敗/未設定/disabled でも過去分は残る。
-  collected.push(...cachedFor(cache, "layerx"));
-  if (feedsConfig.layerx.disabled) {
-    console.log("[layerx] disabled");
-  } else {
-    const clientId = process.env.GMAIL_CLIENT_ID;
-    const clientSecret = process.env.GMAIL_CLIENT_SECRET;
-    const refreshToken = process.env.GMAIL_REFRESH_TOKEN;
-    if (!clientId || !clientSecret || !refreshToken) {
-      errors.push("layerx: GMAIL_CLIENT_ID/SECRET/REFRESH_TOKEN 未設定");
-      console.error("[layerx] GMAIL_* 未設定（取得スキップ・前回キャッシュを維持）");
-    } else {
-      try {
-        const items = await fetchLayerX({
-          sender: feedsConfig.layerx.sender,
-          newerThanDays: feedsConfig.layerx.newerThanDays,
-          maxResults: feedsConfig.layerx.maxResults,
-          clientId,
-          clientSecret,
-          refreshToken,
-        });
-        collected.push(...items);
-        console.log(`[layerx] ${items.length} items (＋過去 ${cachedFor(cache, "layerx").length} 件を保持)`);
-      } catch (e) {
-        const msg = (e as Error).message;
-        errors.push(`layerx: ${msg}`);
-        console.error("[layerx] 取得失敗（前回キャッシュを維持）:", msg);
-      }
-    }
-  }
-
   // ---- 重複排除 → ソート → トリム ----
   const byId = new Map<string, FeedItem>();
   for (const item of collected) {
@@ -279,7 +183,7 @@ async function run(): Promise<void> {
   );
 
   // 件数トリム（全期間アーカイブ・ソース別枠）: 年齢トリムは廃止。ソースごとに retentionMax まで保持し、
-  // 物量の多いソース（LayerX）が他ソースを押し出さない。items は publishedAt 降順なので、
+  // 物量の多いソースが他ソースを押し出さない。items は publishedAt 降順なので、
   // ソース別バケットも降順が保たれ slice(0,cap) で newest を残す。最後に日付順へ統合。
   const bySource = new Map<FeedSource, FeedItem[]>();
   for (const item of items) {
@@ -302,13 +206,13 @@ async function run(): Promise<void> {
   }
 
   // ---- 記事系を1回 fetch で og:image＋本文を補完（トリム後の最終アイテムのみ＝無駄fetch回避）----
-  // X は basecamp 公開JSON 経由で補完済み。記事系（zenn/qiita/hatena/workspace）は og:image に加え、
+  // X は basecamp 公開JSON 経由で補完済み。記事系（zenn/qiita/hatenablog）は og:image に加え、
   // これから要約する item には本文プレーンテキストを `contentText`（一時）として載せる（要約入力用）。
   const ogImages = state.ogImages ?? {};
   try {
-    // はてなブログのフィードは enclosure / media:thumbnail を持たないので、
-    // Zenn/Qiita と同じく記事ページの og:image から補完する。
-    const r = await enrichArticles(items, ogImages, translations, new Set(["zenn", "qiita", "hatena", "hatenablog", "workspace"]), {
+    // 記事系フィードは enclosure / media:thumbnail を持たないものが多いので、
+    // 記事ページの og:image から補完する。
+    const r = await enrichArticles(items, ogImages, translations, new Set(["zenn", "qiita", "hatenablog"]), {
       extractText: willSummarize,
       maxLen: 2000, // 短い要約に長文は不要。入力トークンを抑え 429(無料枠TPM超過)・コストを緩和。
     });
@@ -316,27 +220,10 @@ async function run(): Promise<void> {
   } catch (e) {
     console.error("[article] 記事エンリッチでエラー（スキップ）:", (e as Error).message);
   }
-  // LayerX サムネ。掲載リンクの多くが x.com（ツイート）に解決されるので、syndication で
-  // ツイートのメディア（無ければ本文リンク先の og:image）を取得するハイブリッド。
-  // ⚠️ 新規解決は CI では不可: 全リンクが通る substack.com/redirect が CI(datacenter IP)を
-  // 403 で弾く（実測 s403×40・x.com 到達前）。residential IP のローカル `npm run enrich:layerx`
-  // では ~70% 解決できる。memory: todayai-gemini-quota-429 参照。
-  // → CI（既定）は maxNew:0＝ネット取得せず、ローカルで埋めた state.ogImages のサムネを
-  //   毎回フレッシュ取得される LayerX 項目に **再適用するだけ**（ローカル補完分を永続化）。
-  //   env ENRICH_LAYERX_THUMBS を立てたときだけ新規解決も行う。
-  const layerxMaxNew = process.env.ENRICH_LAYERX_THUMBS ? 40 : 0;
-  try {
-    const r = await enrichLayerxThumbs(items, ogImages, { maxNew: layerxMaxNew, concurrency: 3 });
-    if (layerxMaxNew > 0) {
-      console.log(`[ogp] サムネ補完(LayerX): +${r.resolved} 件解決 (試行 ${r.attempted})`);
-    }
-  } catch (e) {
-    console.error("[ogp] サムネ補完(LayerX)でエラー（スキップ）:", (e as Error).message);
-  }
   // X ツイート本文の t.co をリンクプレビュー（画像＋タイトル＋説明＋ドメイン）に解決。
   // 外部アカウント（X API 経路）は t.co を一切解決しないので、ここで両経路を横断して補完する。
   // 外部サイトは多くが CI でも解決できるが、一部は Cloudflare 等で 403 になり得る＝負キャッシュ＋
-  // 再適用で吸収し、ローカル `npm run enrich:xlinks` で埋められる（LayerX と同じ運用）。
+  // 再適用で吸収し、ローカル `npm run enrich:xlinks` で埋められる。
   const xLinkCards = state.xLinkCards ?? {};
   try {
     const r = await enrichXLinks(items, xLinkCards, { maxNew: X_LINK_MAX_NEW, concurrency: 5 });
@@ -395,21 +282,12 @@ async function run(): Promise<void> {
   };
   await writeCache(out);
 
-  const counts = {
-    x: 0,
-    zenn: 0,
-    qiita: 0,
-    hatena: 0,
-    hatenablog: 0,
-    layerx: 0,
-    workspace: 0,
-    gcloud: 0,
-  } as Record<FeedSource, number>;
+  const counts = { x: 0, zenn: 0, qiita: 0, hatenablog: 0 } as Record<FeedSource, number>;
   for (const i of items) counts[i.source]++;
   const withThumb = items.filter((i) => i.thumbnail).length;
   const withJa = items.filter((i) => i.titleJa).length;
   console.log(
-    `\n✅ feed.json 更新: 計 ${items.length} 件 (X=${counts.x} / Zenn=${counts.zenn} / Qiita=${counts.qiita} / はてブ=${counts.hatena} / はてなブログ=${counts.hatenablog} / LayerX=${counts.layerx} / Workspace=${counts.workspace} / GCP=${counts.gcloud}) サムネ ${withThumb} 件 / 翻訳 ${withJa} 件`,
+    `\n✅ feed.json 更新: 計 ${items.length} 件 (X=${counts.x} / Zenn=${counts.zenn} / Qiita=${counts.qiita} / はてなブログ=${counts.hatenablog}) サムネ ${withThumb} 件 / 翻訳 ${withJa} 件`,
   );
   if (errors.length) {
     console.warn(`⚠️  ${errors.length} 件のソースでエラー:\n  - ${errors.join("\n  - ")}`);

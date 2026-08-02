@@ -6,8 +6,8 @@
  * JSON で返す。**非公式 API なので予告なく壊れ得る** → 失敗時は undefined を返し、
  * 呼び出し側はサムネ無しにフォールバックする（CI は落とさない）。
  *
- * LayerX ニュースレターの掲載リンクの多くが x.com（ツイート）に解決されるため、
- * それらのサムネ補完に使う（scripts/sources/layerxThumb.ts）。
+ * 用途は X 項目の著者情報の解決（`x.ts`）と、本文 t.co がツイートに解決されたときの
+ * リンクプレビュー（`xLinkCard.ts`）。
  */
 import { fetchWithTimeout } from "./ogp";
 

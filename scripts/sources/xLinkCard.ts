@@ -6,11 +6,11 @@
  * そこで両経路（fetchX / fetchXAccounts）の X 項目を横断し、t.co を解決してカード
  * （画像＋タイトル＋説明＋ドメイン）を `item.linkPreview` に載せる。
  *
- * `layerxThumb.ts` の `resolveThumb` を土台にしたハイブリッド解決:
+ * ハイブリッド解決:
  *   - x.com/…/status/<id> → 非公式 syndication でツイートのメディア画像 / 本文リンク先 og:image。
  *   - それ以外（外部サイト・主ケース） → og:image + og:title + og:description。
  *
- * `enrichArticles.ts` / `enrichLayerxThumbs` と同じ「state 永続キャッシュ（負キャッシュ込み）＋
+ * `enrichArticles.ts` と同じ「state 永続キャッシュ（負キャッシュ込み）＋
  * 毎回再適用＋トリム後対象＋未確認のみ取得＋1run あたり maxNew で段階補完」パターン。
  * 失敗は握りつぶしプレビュー無しにフォールバック（集約全体を止めない）。
  *

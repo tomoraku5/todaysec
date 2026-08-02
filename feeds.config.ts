@@ -5,9 +5,13 @@
  *   - x.username : 取得したい X(Twitter) アカウントのユーザー名（@ なし）
  *   - zenn/qiita.rssUrls : 集約したいトピック／タグの RSS フィード URL（配列。複数可）
  *
- * トークン類（X_*）は .env / GitHub Secrets に置く（このファイルには書かない）。
- * 記事系（Zenn/Qiita/はてブ/Workspace）は公開 RSS を rss-parser で直接取得する
- * （トークン・課金・失効なし）。
+ * トークン類（X_* / GEMINI_API_KEY）は .env / GitHub Secrets に置く（このファイルには書かない）。
+ * 記事系（Zenn / Qiita / はてなブログ）は公開 RSS を rss-parser で直接取得する
+ * （トークン・課金・失効なし）＝現在の構成はトークン無しで完結する。
+ *
+ * かつて存在した hatena（はてなブックマーク）/ layerx / workspace / gcloud は
+ * セキュリティ用途に合わないため削除済み（詳細は削除前のコミット c5c9547 を参照）。
+ * x と translate は使っていないが **削除せず disabled: true で温存**している。
  */
 
 import type { FeedSource } from "./src/lib/feed";
@@ -71,66 +75,14 @@ export interface FeedsConfig {
    * （`hatenablog.com/tag/<tag>` は `hatena.blog/tag/<tag>` へ 301 したうえで 404。
    * `/feed`・`?mode=rss`・`/tags/`・`/topic/`・検索ページもすべて 404。実アクセスで確認済み）。
    * 横断で取れるのは**はてなブックマーク**の検索 RSS だけだが、それはブログ記事ではなく
-   * ブックマークで、別サービスの `hatena` 枠と同じもの。
+   * ブックマーク（＝別サービス）なので用途に合わない。
    * → **個別のブログのフィードを `rssUrls` に列挙して束ねる**方式を採る。
-   *
-   * 既存の `hatena`（はてなブックマーク人気エントリー）とは別枠・別サービス。
    */
   hatenablog: {
     rssUrls: string[];
     /** 1回に取り込む最大件数（**1 URL あたり**の取得窓。蓄積は retentionMax まで） */
     limit?: number;
     /** 保持上限件数（全期間アーカイブの安全弁） */
-    retentionMax: number;
-    disabled?: boolean;
-  };
-  /**
-   * Google Cloud リリースノートの公開 Atom（rss-parser で直接取得。トークン不要）。
-   * 1エントリ=1日で本文にその日の全製品更新がまとまる。scripts/sources/gcloud.ts が
-   * 製品名を抽出して見出しにする。
-   */
-  gcloud: {
-    rssUrl: string;
-    /** 1回に取り込む最大件数（取得窓。蓄積は retentionMax まで） */
-    limit?: number;
-    /** 保持上限件数（全期間アーカイブの安全弁） */
-    retentionMax: number;
-    disabled?: boolean;
-  };
-  hatena: {
-    /** はてなブックマーク 人気エントリー テクノロジー の RSS */
-    rssUrl: string;
-    /** 保持上限件数（全期間アーカイブの安全弁。後述 retentionMax） */
-    retentionMax: number;
-    disabled?: boolean;
-  };
-  workspace: {
-    /**
-     * Google Workspace Updates ブログ（Blogger 製）の Atom フィード。
-     * 既定の /feeds/posts/default は FeedBurner（http）へ 302 するため、
-     * `?redirect=false` を付けて Google ドメインから直接 https の Atom を取得する。
-     * 公開フィードなのでトークン・課金・失効なし。表示は「Workspace」バッジ。
-     */
-    rssUrl: string;
-    /** 1回に取り込む最大件数（取得窓。蓄積は retentionMax まで） */
-    perFeedLimit: number;
-    /** 保持上限件数（全期間アーカイブの安全弁） */
-    retentionMax: number;
-    disabled?: boolean;
-  };
-  layerx: {
-    /**
-     * LayerX AI・LLM Newsletter（Substack 発行・毎週 Gmail に届く）の取得設定。
-     * Substack の公開 RSS は invite-only のため、Gmail REST API でこの送信元のメールを読む。
-     * 認証情報は env / GitHub Secrets（GMAIL_CLIENT_ID / GMAIL_CLIENT_SECRET / GMAIL_REFRESH_TOKEN）。
-     * いずれか未設定ならこのソースはスキップされる。
-     */
-    sender: string;
-    /** この日数より新しいメールのみ取得（Gmail クエリ newer_than:Nd） */
-    newerThanDays: number;
-    /** 1回に取得する最大メール数 */
-    maxResults: number;
-    /** 保持上限件数（全期間アーカイブの安全弁。~190件/通と物量大） */
     retentionMax: number;
     disabled?: boolean;
   };
@@ -162,7 +114,7 @@ export interface FeedsConfig {
  * 保持ポリシー（全ソース共通）:
  * 集約は各ソースとも「前回分を土台に蓄積」し、id で重複排除する（全期間アーカイブ）。
  * 年齢による一律トリム（旧 maxAgeDays）は行わず、各ソースの `retentionMax`（newest を残す件数上限）が
- * 唯一の上限＝ソース別枠なので、物量の多いソース（LayerX）が他ソースを押し出さない。
+ * 唯一の上限＝ソース別枠なので、物量の多いソースが他ソースを押し出さない。
  * feed.json 肥大を抑える安全弁なので、無制限に近づけたいソースは値を大きくする。
  */
 
@@ -210,44 +162,13 @@ export const feedsConfig: FeedsConfig = {
     retentionMax: 1000,
     disabled: false,
   },
-  gcloud: {
-    rssUrl: "https://docs.cloud.google.com/feeds/gcp-release-notes.xml", // Google Cloud リリースノート（Atom）
-    limit: 30,
-    retentionMax: 500, // 低頻度（~1件/日）。~1.4年分
-    // GCP 全製品のリリースノートでセキュリティ用途には合わないため停止。
-    // 将来もセキュリティ情報源としては使わない想定（削除は次段階で検討）。
-    disabled: true,
-  },
-  hatena: {
-    rssUrl: "https://b.hatena.ne.jp/hotentry/it.rss",
-    retentionMax: 1000, // 過去分も保持（実質全期間）。feed.json 肥大を抑える安全弁
-    // まず Qiita だけで動作確認するため停止。URL が IT 人気エントリーのままなので、
-    // 有効化するなら先にセキュリティ関連の絞り込み（タグ検索 RSS 等）へ差し替えること。
-    disabled: true,
-  },
-  workspace: {
-    rssUrl: "https://workspaceupdates.googleblog.com/feeds/posts/default?redirect=false",
-    perFeedLimit: 15,
-    retentionMax: 500, // 低頻度。~1.4年分
-    // Google Workspace の機能更新情報でセキュリティ用途には合わないため停止。
-    // 将来もセキュリティ情報源としては使わない想定（削除は次段階で検討）。
-    disabled: true,
-  },
-  layerx: {
-    sender: "layerxnews@substack.com",
-    newerThanDays: 30,
-    maxResults: 20,
-    retentionMax: 2000, // ~190件/通と物量大。別枠なので他ソースを押し出さない
-    // Gmail OAuth（GMAIL_CLIENT_ID/_SECRET/_REFRESH_TOKEN）が必要なため停止。
-    disabled: true,
-  },
   translate: {
     // gemini-2.0-flash は 2026-06-01 に提供終了（無料枠撤廃で 429 になる）。
     // 後継の Flash-Lite に切替（無料枠あり・翻訳/簡易処理向け）。memory: todayai-gemini-quota-429。
     model: "gemini-3.1-flash-lite",
     batchSize: 10, // 要約入力に記事本文(~3000字)を載せるので1コールが過大にならないよう小さめ
     concurrency: 3,
-    summarizeSources: ["zenn", "qiita", "hatena", "hatenablog", "workspace", "gcloud"],
+    summarizeSources: ["zenn", "qiita", "hatenablog"],
     summaryMinLen: 40,
     // GEMINI_API_KEY が未設定のため停止（原文のまま表示＝graceful degradation）。
     disabled: true,
