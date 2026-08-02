@@ -1,81 +1,127 @@
-# today.ai — AI情報フィード集約サイト
+# today.security — セキュリティ情報フィード集約サイト
 
-特定の **X(Twitter)アカウント**・**Feedlyフォルダ**・**はてなブックマーク 人気エントリー テクノロジー** から
-AI関連情報を自動集約し、時系列の統合タイムラインとして表示する静的サイト（GitHub Pages）。
+**Zenn**「security」トピックと **Qiita**「Security」「認証」タグからセキュリティ関連情報を
+自動集約し、時系列の統合タイムラインとして表示する静的サイト（GitHub Pages）。
 
-- 基盤: Astro 5 + Tailwind v4
+- 公開URL: <https://tomoraku5.github.io/todaysec/>
+- 基盤: Astro 5 + Tailwind v4 + TypeScript
 - 更新: GitHub Actions（6時間ごと）でフィード取得 → `src/data/feed.json` をコミット → Pages へデプロイ
-- 公開URL想定: `https://satory074.github.io/todayai/`
 
-## ローカル開発
+> 個人の学習目的で運用しているサイトであり、特定の組織を代表するものではありません。
+> 掲載内容は各情報源の見出し・抜粋であり、正確性を保証するものではありません。
+
+## トークン・API キーは不要です
+
+**このサイトの運用に費用はかかりません（完全に 0 円）。**
+取得元はどちらも**公開 RSS** なので、アカウント登録も API キーも認証も要りません。
 
 ```bash
+git clone https://github.com/tomoraku5/todaysec.git
+cd todaysec
 npm install
-cp .env.example .env   # トークンを記入（X取得・Feedly取得をローカルで試す場合）
-npm run aggregate      # 3ソースを取得して src/data/feed.json を生成
-npm run dev            # http://localhost:4321/todayai/
-npm run build          # 本番ビルド（型チェック込み）
+npm run aggregate   # RSS を取得して src/data/feed.json を生成
+npm run dev         # http://localhost:4321/todaysec/
 ```
 
-`npm run aggregate` はトークンが無いソースを自動的にスキップし、前回キャッシュを維持します
-（クラッシュしません）。トークン無しでも `npm run dev` でサンプルデータの表示確認が可能です。
+`.env` の用意は不要です。`npm run aggregate` を実行しなくても、リポジトリに含まれる
+`src/data/feed.json` の内容で `npm run dev` の表示確認ができます。
 
-## 設定
+> このリポジトリは [satory074/todayai](https://github.com/satory074/todayai)（AI 情報の集約サイト）を
+> ベースに、セキュリティ情報向けへ改造したものです。X API・Gmail API・Gemini API を使う機能が
+> 実装として残っていますが、**すべて無効化**しており、有効化しない限り動きません。
 
-`feeds.config.ts` を編集します。
+## コマンド
 
-| 項目 | 内容 |
+| コマンド | 内容 |
 |------|------|
-| `x.username` | 取得したい X アカウントのユーザー名（@なし） |
-| `feedly.rssUrls` | 集約する AI 関連 RSS フィードの URL 一覧（下記参照） |
-| `feedly.perFeedLimit` | 1フィードあたり取り込む最大件数 |
-| `hatena.rssUrl` | 既定 `https://b.hatena.ne.jp/hotentry/it.rss` |
-| `maxItems` / `maxAgeDays` | 保持件数・保持日数 |
+| `npm run aggregate` | 有効なソースを取得して `src/data/feed.json` を再生成 |
+| `npm run dev` | 開発サーバー（<http://localhost:4321/todaysec/>） |
+| `npm run build` | 本番ビルド（Astro グラフの型チェック込み） |
+| `npm run typecheck` | `astro check`。`scripts/` も型検査される |
 
-各ソースは `disabled: true` で個別に無効化できます。
+テストフレームワークはありません。検証は `npm run typecheck` / `npm run build` と、
+`npm run aggregate` の実行ログで行います。
 
-### Feedly（RSS 直接集約）について
+> **`scripts/` を変更したら `npm run typecheck` を実行してください。**
+> `npm run build` は Astro が読み込むファイルしか型検査せず、`scripts/` は対象外のためです。
 
-Feedly の開発者 API トークンは現在 **Enterprise プラン限定**で個人/Pro では取得できません
-（[公式 Authorization docs](https://developers.feedly.com/reference/authorization)）。
-そのため Feedly API は使わず、Feedly フォルダに入れていた **各 RSS フィードを直接取得**します
-（トークン・課金・失効なし）。表示上は従来どおり「Feedly」バッジになります。
+## 収集しているソース
 
-取り込みたい RSS の URL を `feeds.config.ts` の `feedly.rssUrls` に列挙するだけです。
-Feedly フォルダの購読 RSS 一覧は **OPML エクスポート**（feedly.com → Organize sources / `feedly.com/i/opml`）から取得できます。
-フィードごとに try/catch するため、1本が落ちても他は表示されます。
+`feeds.config.ts` で設定します。
 
-### X(Twitter) について
+### 有効（2ソース）
 
-X API は**叩きません**。basecamp が公開している `x-tweets.json`
-（`https://storage.googleapis.com/basecamp-feeds/x-tweets.json`）を読むだけです。これにより:
+| source | 取得元 | 設定 |
+|------|------|------|
+| `zenn` | `zenn.dev/topics/security/feed` | `zenn.rssUrls` |
+| `qiita` | `qiita.com/tags/security/feed`<br>`qiita.com/tags/認証/feed` | `qiita.rssUrls` |
 
-- X API・トークン・追加課金が**不要**
-- basecamp の X feed とトークンローテーションが**競合しない**
+**`rssUrls` は配列**なので、タグやトピックを増やしたいときは URL を足すだけです。
 
-`feeds.config.ts` の `x.categories` で `post` / `like` / `bookmark` を選べます（既定は `post` のみ）。
+- URL ごとに個別にエラー処理するため、**1本が落ちても残りは取り込まれます**
+- `limit` は「**1 URL あたり**」の取得件数です（合計ではありません）。URL を足しても
+  既存フィードの取り込み量は減りません
+- 日本語のタグ URL（`.../tags/認証/feed`）は**そのまま書いて構いません**。
+  プログラム側で自動的にエンコードされます
+- 同じ記事が複数のタグに出ても、記事 URL をキーに重複排除されて 1 件になります
 
-## デプロイ（初回セットアップ）
+### 無効（`disabled: true`）
 
-1. このディレクトリを git 初期化し、GitHub に `todayai` リポジトリを作成して push
-2. リポジトリ **Settings → Pages → Build and deployment → Source: GitHub Actions**
-3. **Settings → Secrets and variables → Actions**（任意）:
-   - `X_BEARER_TOKEN` … 外部アカウントのポスト取得用（未設定ならそのソースをスキップ）。
-   - Feedly・はてブは公開 RSS を直接読むためトークン不要。
-4. `feeds.config.ts` の `feedly.rssUrls` を確認（X は設定済み）
-5. **Actions** タブ → 「Update feeds & Deploy」→ **Run workflow**（`workflow_dispatch`）で初回実行
+コードは残してあるので、設定を戻せば復活できます。
 
-以降は6時間ごとに自動更新・デプロイされます。
+| source / 機能 | 停止理由 |
+|------|------|
+| `x` | 取得元がフォーク元作者の公開データ。X API も有料のため使わない |
+| `layerx` | Gmail OAuth が必要 |
+| `hatena` | 後日セキュリティ向けに差し替えて復活予定 |
+| `gcloud` | GCP 全製品のリリースノートで用途に合わない |
+| `workspace` | Workspace の機能更新情報で用途に合わない |
+| `translate` | Gemini API キー未設定（原文のまま表示されます） |
+
+> ⚠️ `hatena` を有効化するときは、`rssUrl` が IT 人気エントリーのままなので
+> **先にセキュリティ向けの URL へ差し替えてください。**
+
+無効なソースを画面のフィルタから隠すため、`src/lib/feed.ts` の `SOURCES` 配列からも
+外してあります。復活させるときは、同ファイルのコメントに書かれた行を配列に戻してください。
+
+## 保持ポリシー
+
+各ソースは**前回の `feed.json` を土台に蓄積**します（全期間アーカイブ）。RSS は最新数十件しか
+返さないため、この仕組みがないと過去記事が消えてしまうためです。
+
+上限はソースごとの `retentionMax`（件数）だけで、古さによる削除はしません。ソース別の枠なので、
+記事数の多いソースが他を押し出すことはありません。
+
+> **`disabled: true` にしても、蓄積済みの記事は残り続けます。** 消したい場合は
+> `src/data/feed.json` の `items` を明示的に空にしてください。
+
+## デプロイ
+
+1. リポジトリ **Settings → Pages → Build and deployment → Source: GitHub Actions**
+2. **Actions** タブ → 「Update feeds & Deploy」→ **Run workflow** で初回実行
+3. 以降は6時間ごとに自動で更新・デプロイされます
+
+Secrets の設定は不要です（公開 RSS のみを使うため）。
+
+- 集約が走るのは `schedule`（cron）と `workflow_dispatch`（手動実行）のときだけです。
+  `push` では既存の `feed.json` でビルドするだけなので、「コミット → push → 再集約 → …」の
+  無限ループになりません
+- 任意: アクセス解析に Cloudflare Web Analytics を使う場合のみ、リポジトリ**変数**（Secrets ではない）に
+  `PUBLIC_CF_BEACON_TOKEN` を設定します。未設定なら解析タグは出力されません
 
 ## 構成
 
 ```
-feeds.config.ts            ソース定義（username / streamId / URL / 保持設定）
-scripts/aggregate.ts       集約オーケストレータ（取得→正規化→マージ→trim→書き出し）
-scripts/sources/           x.ts / feedly.ts / hatena.ts
-src/data/feed.json         集約キャッシュ（CIがコミット）
-src/lib/feed.ts            FeedItem 型・相対時刻などのヘルパ
-src/components/            Layout / FeedCard / SourceFilter
+feeds.config.ts            ソース定義（URL / 取得件数 / 保持件数 / 有効・無効）
+scripts/aggregate.ts       集約オーケストレータ（取得→正規化→マージ→重複排除→トリム→書き出し）
+scripts/sources/           ソース別の取得処理（rss.ts が Zenn/Qiita 共通）
+src/data/feed.json         集約結果（CI がコミット）
+src/lib/feed.ts            FeedItem 型・SOURCES レジストリ・表示ヘルパ
+src/components/            Layout / FeedCard / TweetCard / SourceFilter
 src/pages/                 index / about / rss.xml
+src/styles/globals.css     配色トークン（@theme）
 .github/workflows/         update-and-deploy.yml
+docs/gcs-storage-setup.md  GCS 保管モードの手順（現在は未使用）
 ```
+
+設計の詳細・過去の障害記録は [`CLAUDE.md`](./CLAUDE.md) を参照してください。
