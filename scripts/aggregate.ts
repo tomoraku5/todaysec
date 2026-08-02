@@ -36,7 +36,7 @@ const ENRICH_VERSION = "5";
 
 /**
  * X リンクプレビューの1run あたり新規解決の上限。外部サイトは多くが CI でも解決できるので
- * 既定で走らせる（LayerX と違い Substack 壁を通らない）。env `X_LINK_MAX_NEW` で上書き可
+ * 既定で走らせる。env `X_LINK_MAX_NEW` で上書き可
  * （ローカル一括バックフィル用）。
  */
 const X_LINK_MAX_NEW = Number(process.env.X_LINK_MAX_NEW) || 40;

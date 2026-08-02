@@ -10,7 +10,7 @@
  * - summary: `summarizeSources`（記事系）は原文の言語によらず **3行要約**（summaryJa）。
  *   それ以外（X 等）は従来どおり summary を翻訳（非日本語のときのみ）。
  *
- * Gemini REST API（generateContent）を fetch のみで叩く（layerx.ts と同方式・依存追加なし）。
+ * Gemini REST API（generateContent）を fetch のみで叩く（依存追加なし）。
  * responseMimeType=application/json + responseSchema で配列 JSON を堅牢に受け取る。
  * バッチ失敗（network / parse / 件数不一致）はそのバッチをスキップし run 全体は落とさない。
  */

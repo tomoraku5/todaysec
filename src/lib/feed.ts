@@ -7,7 +7,7 @@
 export type FeedSource = "x" | "zenn" | "qiita" | "hatenablog";
 
 export interface FeedItem {
-  /** 一意キー（X: tweet id / 記事系(zenn/qiita/workspace): 記事URL / はてブ: entry url） */
+  /** 一意キー（X: tweet id / 記事系(zenn/qiita/hatenablog): `<source>-<記事URL>`） */
   id: string;
   source: FeedSource;
   /** X は本文先頭、その他は記事タイトル（原文） */
@@ -86,7 +86,7 @@ export interface FeedData {
      * fetch 失敗（transient/CIブロック）時は記録せず次回 run で再試行する。
      */
     xAuthors?: Record<string, XAuthorMeta | null>;
-    /** X以外（zenn/qiita/hatena/workspace）item id -> OGP画像URL / ""(確認済み・画像なし) */
+    /** X以外（zenn/qiita/hatenablog）item id -> OGP画像URL / ""(確認済み・画像なし) */
     ogImages?: Record<string, string>;
     /**
      * X item id(`x-<id>`) -> リンクプレビューカード（原文）/ null(確認済み・カードなしの負キャッシュ)。

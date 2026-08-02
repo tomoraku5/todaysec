@@ -24,8 +24,7 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 | `zenn` | Zenn「security」トピック | 公開 RSS（トークン不要） |
 | `hatenablog` | セキュリティ専門のはてなブログ3本（piyolog / Fox on Security / GMO Flatt Security） | 公開 Atom（複数 URL・トークン不要） |
 
-⚠️ `hatena`（はてなブックマーク）と `hatenablog`（はてなブログ）は**別サービス・別枠**。
-前者は無効のまま、後者が新設された有効ソース。混同しないこと。
+⚠️ 「はてなブログ」は**はてなブックマークとは別サービス**。かつて `hatena`（はてブ人気エントリー）枠もあったが削除済み（後述の「削除したソース」参照）。
 
 ### 現在無効なソース・機能
 
@@ -35,12 +34,24 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 | 対象 | 停止した理由 |
 | --- | --- |
 | `x` | `sourceUrl` がフォーク元作者（basecamp）の公開ブックマーク JSON。X API も有料のため使わない。`x.accounts` は空配列にしてある |
-| `layerx` | Gmail OAuth（`GMAIL_CLIENT_ID`/`_SECRET`/`_REFRESH_TOKEN`）が必要 |
-| `hatena`（はてな**ブックマーク**） | 人気エントリー RSS。⚠️ `rssUrl` は IT 人気エントリーのままなので、有効化する前に必ずセキュリティ向け URL へ差し替えること。※はてな**ブログ**は別枠 `hatenablog` として稼働中 |
-| `gcloud` | GCP 全製品のリリースノートでセキュリティ用途に合わない |
-| `workspace` | Google Workspace の機能更新情報でセキュリティ用途に合わない |
 | `translate`（Gemini 翻訳/要約） | `GEMINI_API_KEY` 未設定。原文のまま表示される（graceful degradation） |
 | GCS 保管モード | **未使用**。feed.json は git 保管（ローカルモード）で運用。詳細は `docs/gcs-storage-setup.md` |
+
+**この2つは「削除」ではなく「温存」**（`disabled: true`）。実装・型・設定を残してあるので、
+フラグを戻せば復活する。将来 X を別アカウントで使ったり、Gemini 要約を有効化したいため。
+
+### 削除したソース（履歴）
+
+以下4ソースはセキュリティ用途に合わないため **コードごと削除済み**。
+**実装・設計の詳細は削除前のコミット `c5c9547` を参照**（`git show c5c9547:scripts/sources/<name>.ts`）。
+要点だけ残す:
+
+| 削除ソース | 残す価値のある要点 |
+| --- | --- |
+| `hatena`（はてなブックマーク） | 人気エントリー RSS は**「今まさに人気の約30件」しか返さない**。フレッシュ取得分だけだとランキングから外れた記事が消えるため、**前回分を土台に蓄積する設計が必須**だった。この蓄積方式は今も全ソース共通の仕組みとして残っている |
+| `layerx` | Substack の公開 RSS が invite-only で取得不可 → 毎週届くメールを **Gmail REST API**（`GMAIL_CLIENT_ID`/`_SECRET`/`_REFRESH_TOKEN`、scope `gmail.readonly`）で読み、本文の各トピックリンクを1アイテム化していた。OAuth のリフレッシュトークンは失効しうる運用コストがあった |
+| `workspace` | Google Workspace Updates ブログ（Blogger Atom）。`?redirect=false` を付けないと FeedBurner（http）へ 302 する落とし穴があった |
+| `gcloud` | Google Cloud リリースノート Atom。**1エントリ＝1日**でタイトルが日付だけ・本文に全製品の更新がまとまるため、専用パーサで製品名を抽出して見出しにしていた |
 
 ## Commands
 
@@ -50,18 +61,15 @@ npm run aggregate   # 有効なソースを取得 → src/data/feed.json を再�
 npm run dev         # http://localhost:4321/todaysec/（feed.json をそのまま表示。集約はしない）
 npm run build       # 本番ビルド。Astro グラフの型チェック込み
 npm run typecheck   # astro check。tsconfig が **/* を含むので scripts/ も型検査される
-# ↓ 現在は無効な X / LayerX 用のローカル補完スクリプト（該当ソースを復活させたときだけ使う）
-npm run enrich:layerx           # LayerX 項目にサムネだけ補完（他ソース非取得・トークン不要・要 residential IP。後述）
-npm run enrich:layerx -- --fresh  # 負キャッシュを一掃して未補完分を再試行
 npm run enrich:xlinks           # X 項目の t.co をリンクプレビュー（OGP カード）に補完（他ソース非取得・トークン不要。後述）
 npm run enrich:xlinks -- --fresh  # 負キャッシュ（null）を一掃して未補完分を再試行
 
 npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生成（後述）
 ```
 
-- **テストフレームワークは無い。** 検証は `npm run build` / `npm run typecheck` と、`npm run aggregate` の実行ログ（`✅ feed.json 更新: 計N件 (X=.. / Zenn=.. / Qiita=.. / はてブ=.. / LayerX=.. / Workspace=..)`）で行う。
+- **テストフレームワークは無い。** 検証は `npm run build` / `npm run typecheck` と、`npm run aggregate` の実行ログ（`✅ feed.json 更新: 計N件 (X=.. / Zenn=.. / Qiita=.. / はてなブログ=..)`）で行う。
 - **型チェックの落とし穴**: `npm run build` は Astro が import するファイルしか型検査しない。`scripts/aggregate.ts` と `scripts/sources/*` は Astro グラフ外なので、scripts を変更したら **`npm run typecheck`（astro check）で確認する**こと（tsconfig の `include: ["**/*"]` が拾う）。scripts は `tsx` で実行され、tsx は型を消すだけで検査しない。
-- **現在の構成では `.env` もトークンも不要**（有効な 2 ソースはどちらも公開 RSS）。無効化した X / LayerX / 翻訳をローカルで試す場合のみ `cp .env.example .env` してトークン（`X_BEARER_TOKEN` / `GMAIL_*` / `GEMINI_API_KEY`）を記入する。
+- **現在の構成では `.env` もトークンも不要**（有効な 3 ソースはすべて公開 RSS）。温存している X / 翻訳をローカルで試す場合のみ `cp .env.example .env` してトークン（`X_BEARER_TOKEN` / `GEMINI_API_KEY`）を記入する。
 
 ## フォーク元（satory074/todayai）からの変更点
 
@@ -75,7 +83,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 | `public/robots.txt` | Sitemap URL を `https://tomoraku5.github.io/todaysec/sitemap-index.xml` に修正（静的配信ファイルなので config は参照できず直接記述） |
 | `feeds.config.ts` | `qiita` / `zenn` を `rssUrl`（単一）→ **`rssUrls`（配列）** に拡張。1ソースに複数タグ/トピックを束ねられる。**`limit` は「1 URL あたり」**の取得窓（合計ではない）＝ URL を足しても既存フィードの取り込みが痩せない |
 | `scripts/sources/rss.ts` | 複数 URL 対応。**URL ごとに個別 try/catch**（1本落ちても残りは取り込む）。日本語タグ URL を `toRequestUrl()` で正規化（後述の gotcha） |
-| `src/lib/feed.ts` | `SOURCES` から無効ソース（x/workspace/layerx/hatena/gcloud）を**一時的に除外**。`FeedSource` のユニオン型・CSS・`feeds.config.ts` は残してあるので、**配列に行を戻すだけで復活する**（戻し方は `SOURCES` 直上のコメント） |
+| `src/lib/feed.ts` | `SOURCES` から無効ソースを除外（現在は `x` のみ温存）。`FeedSource` のユニオン型・CSS・`feeds.config.ts` は残してあるので、**配列に行を戻すだけで復活する**（戻し方は `SOURCES` 直上のコメント） |
 | `src/styles/globals.css` | **ロゴ専用の CSS 変数** `--color-logo` 系（エメラルドグリーン `#0f9b6c`）を追加。サイト全体のアクセント `--color-accent`（コバルト `#2f5fff`）は**変更していない**＝フィルタチップ・hover は青のまま |
 | `scripts/sources/*.ts` | 外部へ送信する **User-Agent** を `todayai` → `todaysec` に変更。特に `ogp.ts` は `+https://satory074.github.io/todayai/`（クローラー説明ページを示す慣習）が他人のサイトを指していたため自サイトへ修正 |
 | 表示系（`Layout` / `index` / `about` / `rss.xml.ts` / `package.json`） | サイト名を `today.ai` → `today.security`、見出しを「セキュリティ情報フィード」に。フッターにあったフォーク元作者サイト（`satory074.com/apps`）への固定逆リンクバーを削除し、その分の下部余白を圧縮 |
@@ -99,21 +107,18 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 - **ローカルモード（`GCS_BUCKET` 未設定・既定/開発）**: `src/data/feed.json` を fs で読み書き。従来どおり CI（feed-bot）が main にコミット。
 - **GCS モード（`GCS_BUCKET` 設定）**: feed.json は **GCS（`gs://<bucket>/feed.json`）が正本**。集約は GCS の public URL を読んでマージ→**ローカルに書き**、ワークフローが **`gcloud storage cp` で GCS へアップロード**（runner プリインストールの gcloud＋`google-github-actions/auth` の WIF。**@google-cloud/storage SDK は使わない**＝SDK の WIF→STS トークン交換が CI の node-fetch で `ERR_STREAM_PREMATURE_CLOSE` するため）。**git にはコミットしない**（6時間ごとのコミットループが消える＝履歴を git の外で全期間保持）。ビルドは GCS の public URL を fetch（読みは認証不要）。`src/data/feed.json`（committed）は GCS 404/障害時の**フォールバック種**として残す。`readFeed` は書き込み直後の読みで `?t=$GITHUB_RUN_ID` を付けて古いエッジキャッシュ（`Cache-Control: max-age=300`）を回避。**ワークフローは全 GCS ステップを `vars.GCS_BUCKET` でゲート**＝リポジトリ変数 `GCS_BUCKET`/`GCP_WIF_PROVIDER`/`GCP_SERVICE_ACCOUNT` を設定するまで現状（ローカルモード）のまま。
 
-**保持ポリシー（全期間アーカイブ・ソース別枠）**: **全ソースがブロック先頭で `cachedFor(cache, source)` を無条件に積んで前回分を土台に蓄積**し、取得できた新着を追記 → dedup（id）で集約する。取得窓が狭い RSS（Zenn/Qiita は `limit:20`）でも過去分が失われない。**年齢トリム（旧 `maxAgeDays`）は廃止**し、各ソースの `retentionMax`（`feeds.config.ts`。newest を残す件数上限）が唯一の上限＝**ソース別枠なので物量の多い LayerX が他ソースを押し出さない**。トリム区間（`aggregate.ts` 末尾）は items をソース別バケットに分けて各 `slice(0, retentionMax)`（`retentionMaxFor()` ヘルパー）→ 再統合。**X も全キャッシュ保持でアーカイブ化**（旧来のブックマーク毎回フレッシュ置換＝上流削除分の purge は廃止）。
+**保持ポリシー（全期間アーカイブ・ソース別枠）**: **全ソースがブロック先頭で `cachedFor(cache, source)` を無条件に積んで前回分を土台に蓄積**し、取得できた新着を追記 → dedup（id）で集約する。取得窓が狭い RSS（Zenn/Qiita は `limit:20`）でも過去分が失われない。**年齢トリム（旧 `maxAgeDays`）は廃止**し、各ソースの `retentionMax`（`feeds.config.ts`。newest を残す件数上限）が唯一の上限＝**ソース別枠なので物量の多いソースが他ソースを押し出さない**。トリム区間（`aggregate.ts` 末尾）は items をソース別バケットに分けて各 `slice(0, retentionMax)`（`retentionMaxFor()` ヘルパー）→ 再統合。**X も全キャッシュ保持でアーカイブ化**（旧来のブックマーク毎回フレッシュ置換＝上流削除分の purge は廃止）。
 
 **graceful degradation**: 各ソースは `aggregate.ts` 内で個別 try/catch。失敗 or トークン未設定でも、先頭で積んだ前回キャッシュ分がそのまま残り、他ソースだけ更新される。1ソースが落ちても run 全体は成功する。
 
-**`feed.json` の `state`**: run をまたいで持ち越す状態。X 外部アカウントの `since_id`（重複課金回避）、`userIds` キャッシュ、`xOgImages`（X由来 OGP画像の解決キャッシュ）、`xAuthors`（X item id→`{name,handle,avatar?}` の著者解決キャッシュ。`null`＝確認済み著者なしの負キャッシュ。fetch 失敗時は記録せず次回再試行）、`ogImages`（X以外 OGP画像の解決キャッシュ。`""`＝確認済み画像なしの負キャッシュ含む。記事系＋LayerX 共用）、`xLinkCards`（X item id→リンクプレビューカード `{url,title?,description?,image?,domain}` / `null`＝確認済み・カードなしの負キャッシュ。t.co 先の OGP 解決結果。後述）、`translations`（id→`{titleJa?, summaryJa?, linkTitleJa?, linkDescJa?}` の翻訳/要約キャッシュ。`linkTitleJa`/`linkDescJa` は linkPreview の翻訳。毎回フレッシュ取得されるソースでも再生成しないための永続化）、`enrichVersion`（translations の生成ロジック版。`aggregate.ts` の `ENRICH_VERSION` と不一致なら旧キャッシュを破棄して作り直す＝プロンプト/挙動変更を即反映）。
+**`feed.json` の `state`**: run をまたいで持ち越す状態。X 外部アカウントの `since_id`（重複課金回避）、`userIds` キャッシュ、`xOgImages`（X由来 OGP画像の解決キャッシュ）、`xAuthors`（X item id→`{name,handle,avatar?}` の著者解決キャッシュ。`null`＝確認済み著者なしの負キャッシュ。fetch 失敗時は記録せず次回再試行）、`ogImages`（X以外 OGP画像の解決キャッシュ。`""`＝確認済み画像なしの負キャッシュ含む）、`xLinkCards`（X item id→リンクプレビューカード `{url,title?,description?,image?,domain}` / `null`＝確認済み・カードなしの負キャッシュ。t.co 先の OGP 解決結果。後述）、`translations`（id→`{titleJa?, summaryJa?, linkTitleJa?, linkDescJa?}` の翻訳/要約キャッシュ。`linkTitleJa`/`linkDescJa` は linkPreview の翻訳。毎回フレッシュ取得されるソースでも再生成しないための永続化）、`enrichVersion`（translations の生成ロジック版。`aggregate.ts` の `ENRICH_VERSION` と不一致なら旧キャッシュを破棄して作り直す＝プロンプト/挙動変更を即反映）。
 
-**OGP サムネ補完（記事系: `scripts/sources/enrichOgp.ts`）**: `feed.json` 全体でサムネ付きは少数のため、トリム後の最終アイテムのうち**サムネが無いもの**を、記事 URL から og:image を `resolveOgImage()`（`scripts/sources/ogp.ts` を再利用、リダイレクト follow 済み）で解決して補完する。`state.ogImages` で既知分は再取得せず（負キャッシュ込み）、実行後に現存 id 分だけへ prune。**X は basecamp 公開JSON 経由で `xOgImages` により補完済み**なので対象外。記事系（`zenn`/`qiita`/`hatena`/`workspace`）は**上限なし**（少量）。並列プールは `scripts/sources/util.ts` の `mapLimit`（x.ts と共有）。
+**OGP サムネ補完（記事系: `scripts/sources/enrichArticles.ts`）**: `feed.json` 全体でサムネ付きは少数のため、トリム後の最終アイテムのうち**サムネが無いもの**を、記事 URL から og:image を `resolveOgImage()`（`scripts/sources/ogp.ts` を再利用、リダイレクト follow 済み）で解決して補完する。`state.ogImages` で既知分は再取得せず（負キャッシュ込み）、実行後に現存 id 分だけへ prune。**X は basecamp 公開JSON 経由で `xOgImages` により補完済み**なので対象外。記事系（`zenn`/`qiita`/`hatenablog`）は**上限なし**（少量）。並列プールは `scripts/sources/util.ts` の `mapLimit`（x.ts と共有）。
 
-**【現在は無効】LayerX サムネ（`scripts/sources/layerxThumb.ts` ＋ `syndication.ts`）— CI では新規取得不可・ローカル補完＋再適用の二段構え**: LayerX の掲載リンクの多くは `x.com`（ツイート）に解決される。x.com はログイン壁で og:image が取れないため、リダイレクト先を判定して **①x.com/status/<id> → 非公式 syndication（`cdn.syndication.twimg.com`＝react-tweet 方式・無料）でツイートのメディア画像、無ければ本文リンク先の og:image を解決**、②それ以外 → 通常の og:image、という**ハイブリッド**で解決する。**⚠️ ただし CI（GitHub Actions の datacenter IP）では機能しない**: 全リンクが通る `substack.com/redirect` を Cloudflare が **403** で弾く（実測 `s403`×40・x.com 到達前。弾いているのは X ではなく **Substack**）。residential IP（手元）なら ~70% 解決できる。そのため:
-- **CI の `aggregate.ts` は既定 `maxNew:0`**＝ネット取得せず、`state.ogImages` に入っているサムネを毎回フレッシュ取得される LayerX 項目に**再適用するだけ**（ローカルで埋めた分を cron 越しに永続化）。env `ENRICH_LAYERX_THUMBS` を立てたときだけ新規解決も試みる。
-- **ローカル補完は `npm run enrich:layerx`**（`scripts/enrichLayerxLocal.ts`）。他ソースを再取得せず・トークン不要で、committed `feed.json` の LayerX 項目にサムネだけ足す。`--fresh` で負キャッシュ（CI 403 の false negative 含む）を一掃して再試行。運用は `git pull → npm run enrich:layerx → commit/push`。新しい項目ほどヒット率が高い（最新は ~70%、古い項目は本文のみツイート/期限切れリンクが多く低め）。詳細・診断は memory `todayai-gemini-quota-429` 参照。
 
-**【現在は無効（X ソース停止中のため実質no-op）】X リンクプレビュー（`scripts/sources/xLinkCard.ts` の `enrichXLinks`）**: 本文が t.co リンクだけ / 末尾リンクの X ツイートに、リンク先の OGP カード（画像＋タイトル＋説明＋ドメイン）を `item.linkPreview` として補完する。**なぜ必要か**: 外部アカウント（`x.accounts`）は X API 経路（`fetchXAccounts`）で取得され、これは**添付メディアのサムネしか拾わず t.co を一切解決しない**＝link-card ツイートは無プレビューだった。そこで**両経路（fetchX / fetchXAccounts）の X 項目を横断**して補完する（enrichArticles/LayerX と同じ「state 永続キャッシュ＋毎回再適用＋トリム後対象＋未確認のみ取得＋maxNew 段階補完＋prune」パターン。負キャッシュ=`null`）。解決は `resolveThumb` と同じ**ハイブリッド**: t.co を `resolvePage` で追跡し、**①最終URLが x.com/status → syndication でツイートのメディア画像＋本文（title）＋著者（description）**、**②外部サイト → `extractOgImage`/`extractOgTitle`/`extractOgDescription`**（`ogp.ts` に title/description 抽出を追加。`<title>` フォールバック込み）。**⚠️ LayerX と違い Substack 壁を通らないので CI（datacenter IP）でも多くの外部サイトが解決できる** → `aggregate.ts` は既定で走らせる（`X_LINK_MAX_NEW` 既定40/run・env で上書き可）。Cloudflare 等で 403 になる分は負キャッシュ＋再適用で吸収し、`npm run enrich:xlinks`（`scripts/enrichXLinksLocal.ts`・residential IP・トークン不要）でバックフィルできる（LayerX と同じ運用。`--fresh` で負キャッシュ一掃）。表示は `TweetCard.astro` が入れ子 `<a>`（`z-30`＞カード全面オーバーレイ `z-20`）でカードを描画＝カードのタップは**リンク先へ**、カード外はツイートへ遷移。本文からは t.co を落として生 URL を隠す（空になれば本文非表示）。title/description は translate ステップで日本語補完（`linkPreview.titleJa`/`descriptionJa`・`BilingualText` で日本語/原文トグル対応）。
+**【現在は無効（X ソース停止中のため実質no-op）】X リンクプレビュー（`scripts/sources/xLinkCard.ts` の `enrichXLinks`）**: 本文が t.co リンクだけ / 末尾リンクの X ツイートに、リンク先の OGP カード（画像＋タイトル＋説明＋ドメイン）を `item.linkPreview` として補完する。**なぜ必要か**: 外部アカウント（`x.accounts`）は X API 経路（`fetchXAccounts`）で取得され、これは**添付メディアのサムネしか拾わず t.co を一切解決しない**＝link-card ツイートは無プレビューだった。そこで**両経路（fetchX / fetchXAccounts）の X 項目を横断**して補完する（enrichArticles と同じ「state 永続キャッシュ＋毎回再適用＋トリム後対象＋未確認のみ取得＋maxNew 段階補完＋prune」パターン。負キャッシュ=`null`）。解決は `resolveThumb` と同じ**ハイブリッド**: t.co を `resolvePage` で追跡し、**①最終URLが x.com/status → syndication でツイートのメディア画像＋本文（title）＋著者（description）**、**②外部サイト → `extractOgImage`/`extractOgTitle`/`extractOgDescription`**（`ogp.ts` に title/description 抽出を追加。`<title>` フォールバック込み）。**CI（datacenter IP）でも多くの外部サイトが解決できる** → `aggregate.ts` は既定で走らせる（`X_LINK_MAX_NEW` 既定40/run・env で上書き可）。Cloudflare 等で 403 になる分は負キャッシュ＋再適用で吸収し、`npm run enrich:xlinks`（`scripts/enrichXLinksLocal.ts`・residential IP・トークン不要）でバックフィルできる（`--fresh` で負キャッシュ一掃）。表示は `TweetCard.astro` が入れ子 `<a>`（`z-30`＞カード全面オーバーレイ `z-20`）でカードを描画＝カードのタップは**リンク先へ**、カード外はツイートへ遷移。本文からは t.co を落として生 URL を隠す（空になれば本文非表示）。title/description は translate ステップで日本語補完（`linkPreview.titleJa`/`descriptionJa`・`BilingualText` で日本語/原文トグル対応）。
 
-**【現在は無効（`GEMINI_API_KEY` 未設定・API を使わない方針）】機械翻訳／3行要約で日本語補完（`scripts/sources/translate.ts` の `enrichTranslations`）**: `enrichOgp.ts` と同じ「state 永続キャッシュ＋毎回再適用＋トリム後対象」パターン。Gemini REST API（`generateContent`、`fetch` のみで依存追加なし）で **`titleJa` と `summaryJa` を1回のバッチ呼び出しで同時補完**する。`titleJa`=title が非日本語なら翻訳（日本語ならスキップ／空文字）。`summaryJa` は**ソースで分岐**: `feeds.config.ts` の `translate.summarizeSources`（既定 `zenn`/`qiita`/`hatena`/`workspace`）＆ summary が `summaryMinLen`（既定40字）以上のものは**原文の言語を問わず3行要約**（朝刊カードの概要が読みやすくなる。日本語記事も要約対象）、それ以外（X 等）は従来どおり summary を翻訳（非日本語のみ）。LayerX は summary 無しなので titleJa 翻訳のみ。**X の `linkPreview`（リンクカード）がある項目は title/description も同じバッチで翻訳**し `linkPreview.titleJa`/`descriptionJa` に載せる（linkPreview は maxNew で本文と別ライフサイクルなので、cached があっても未翻訳の link だけ都度再翻訳＝キャッシュはマージ更新）。バッチ入力に per-entry `summarize` フラグを載せ1プロンプトで分岐。日本語判定は `isJapanese()`。`translate.batchSize` ごとに1回 API 呼び出し（`responseSchema` で JSON 配列を堅牢に受け取る）、`mapLimit` で `translate.concurrency` 並列。バッチ失敗（network/parse/件数不一致）はそのバッチをスキップし次回 run で再試行。結果は `state.translations` に保存し実行後に現存 id 分だけへ prune。**`GEMINI_API_KEY` 未設定なら丸ごとスキップ＝カードは原文のまま（graceful degradation）。** 毎回フレッシュ取得されるソースが `titleJa`/`summaryJa` を失っても `state.translations` から再適用するので再生成しない。**生成ロジック（プロンプト・翻訳↔要約の切替）を変えたら `aggregate.ts` の `ENRICH_VERSION` を上げる**＝`state.enrichVersion` と不一致なら旧キャッシュを破棄して即作り直す（アイテムが `retentionMax` で自然に入れ替わるのを待たない）。表示は `BilingualText.astro` がそのまま機能し、日本語＝AI要約 / 原文＝元の抜粋、として出し分く。
+**【現在は無効（`GEMINI_API_KEY` 未設定・API を使わない方針）】機械翻訳／3行要約で日本語補完（`scripts/sources/translate.ts` の `enrichTranslations`）**: `enrichArticles.ts` と同じ「state 永続キャッシュ＋毎回再適用＋トリム後対象」パターン。Gemini REST API（`generateContent`、`fetch` のみで依存追加なし）で **`titleJa` と `summaryJa` を1回のバッチ呼び出しで同時補完**する。`titleJa`=title が非日本語なら翻訳（日本語ならスキップ／空文字）。`summaryJa` は**ソースで分岐**: `feeds.config.ts` の `translate.summarizeSources`（既定 `zenn`/`qiita`/`hatenablog`）＆ summary が `summaryMinLen`（既定40字）以上のものは**原文の言語を問わず3行要約**（朝刊カードの概要が読みやすくなる。日本語記事も要約対象）、それ以外（X 等）は従来どおり summary を翻訳（非日本語のみ）。**X の `linkPreview`（リンクカード）がある項目は title/description も同じバッチで翻訳**し `linkPreview.titleJa`/`descriptionJa` に載せる（linkPreview は maxNew で本文と別ライフサイクルなので、cached があっても未翻訳の link だけ都度再翻訳＝キャッシュはマージ更新）。バッチ入力に per-entry `summarize` フラグを載せ1プロンプトで分岐。日本語判定は `isJapanese()`。`translate.batchSize` ごとに1回 API 呼び出し（`responseSchema` で JSON 配列を堅牢に受け取る）、`mapLimit` で `translate.concurrency` 並列。バッチ失敗（network/parse/件数不一致）はそのバッチをスキップし次回 run で再試行。結果は `state.translations` に保存し実行後に現存 id 分だけへ prune。**`GEMINI_API_KEY` 未設定なら丸ごとスキップ＝カードは原文のまま（graceful degradation）。** 毎回フレッシュ取得されるソースが `titleJa`/`summaryJa` を失っても `state.translations` から再適用するので再生成しない。**生成ロジック（プロンプト・翻訳↔要約の切替）を変えたら `aggregate.ts` の `ENRICH_VERSION` を上げる**＝`state.enrichVersion` と不一致なら旧キャッシュを破棄して即作り直す（アイテムが `retentionMax` で自然に入れ替わるのを待たない）。表示は `BilingualText.astro` がそのまま機能し、日本語＝AI要約 / 原文＝元の抜粋、として出し分く。
 
 ### ソースの登録は `src/lib/feed.ts` の `FeedSource` 型 + `SOURCES` 配列が中心レジストリ
 
@@ -121,7 +126,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 1. `src/lib/feed.ts`: `FeedSource` ユニオンに追加 + `SOURCES` にエントリ（`key`/`label`/`badgeClass`）。← これで `FeedCard` / `SourceFilter` は `SOURCES` 駆動なので自動対応。
 2. `src/styles/globals.css`: `.src-<key>` クラス + `@theme` に `--color-<key>` / `--color-<key>-bg`。
 3. `feeds.config.ts`: `FeedsConfig` インターフェース + `feedsConfig` に設定。トークン類はここに書かず env/Secrets。
-4. `scripts/sources/<key>.ts`: 取得して `FeedItem[]` を返す関数（`hatena.ts` が最小の手本）。
+4. `scripts/sources/<key>.ts`: 取得して `FeedItem[]` を返す関数（`rss.ts` が最小の手本）。
 5. `scripts/aggregate.ts`: `disabled` とクレデンシャルを見て try/catch する取得ブロックを追加。末尾 `counts` とログにも `<key>` を足す。
 
 ### ソース別の要点（なぜ普通の RSS じゃないか）
@@ -130,7 +135,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 > 記述は将来の復活・障害記録のため残してある。有効なのは **Zenn / Qiita** の 2 つ。
 
 - **【現在は無効】X**: X API を**叩かない**。自分のデータは basecamp 公開 JSON（`storage.googleapis.com/basecamp-feeds/x-tweets.json`）を読むだけ（トークン・課金不要、basecamp の OAuth と競合しない）。`x.accounts` の外部アカウントのみ X API **App-only Bearer**（`X_BEARER_TOKEN`）+ `since_id` 増分。OGP サムネは `scripts/sources/ogp.ts` で解決し `state.xOgImages` にキャッシュ。**本文が t.co リンクのツイートはリンク先の OGP カードを `linkPreview` として補完**（`enrichXLinks`。両取得経路を横断。後述）。表示は `TweetCard.astro`（ツイート風＋リンクプレビューカード）。
-  - **著者アイコン(avatar)/実名/@handle**: basecamp 公開JSON は元ツイートの著者を持たず `author` が `"ブックマーク"` 等の固定ラベルになる。これを **syndication（`scripts/sources/syndication.ts` の `fetchTweet`＝`cdn.syndication.twimg.com`・無料・トークン不要）** で解決し `FeedItem.avatarUrl`（`_400x400`化）/`authorName`/`author=@handle` を補完（`xOgImages` と同じ state永続キャッシュ＋毎回再適用＋新規は `authorMaxNew` 件/run の段階補完＋トリム後 prune パターン、`state.xAuthors`）。外部アカウントは X API の `expansions=author_id&user.fields=profile_image_url,name` で同様取得。`TweetCard.astro` は `avatarUrl` があれば丸枠に `<img>`（`onerror` でイニシャル/Xロゴへフォールバック）、無ければ従来の代替アイコン。**⚠️ syndication 直叩きは residential IP(ローカル)なら解決でき、CI(datacenter IP)では弱い可能性**（LayerXサムネ系統の制約。ただし Substack 非経由の直叩きなので 403 リスクは低い）。ローカル `npm run aggregate` で埋めた `state.xAuthors` は CI でも毎回再適用＝永続化される（LayerXサムネと同じ運用）。
+  - **著者アイコン(avatar)/実名/@handle**: basecamp 公開JSON は元ツイートの著者を持たず `author` が `"ブックマーク"` 等の固定ラベルになる。これを **syndication（`scripts/sources/syndication.ts` の `fetchTweet`＝`cdn.syndication.twimg.com`・無料・トークン不要）** で解決し `FeedItem.avatarUrl`（`_400x400`化）/`authorName`/`author=@handle` を補完（`xOgImages` と同じ state永続キャッシュ＋毎回再適用＋新規は `authorMaxNew` 件/run の段階補完＋トリム後 prune パターン、`state.xAuthors`）。外部アカウントは X API の `expansions=author_id&user.fields=profile_image_url,name` で同様取得。`TweetCard.astro` は `avatarUrl` があれば丸枠に `<img>`（`onerror` でイニシャル/Xロゴへフォールバック）、無ければ従来の代替アイコン。**⚠️ syndication 直叩きは residential IP(ローカル)なら解決でき、CI(datacenter IP)では弱い可能性**（datacenter IP からの直叩きという制約。ただし 403 リスクは低い）。ローカル `npm run aggregate` で埋めた `state.xAuthors` は CI でも毎回再適用＝永続化される。
 - **【有効】Zenn / Qiita**: 公開 RSS を共有ヘルパー `scripts/sources/rss.ts` の `fetchRss({rssUrls, source, limit})` で直接取得（`rss-parser`、トークン不要）。**現在の取得先はセキュリティ関連**:
   - Zenn = `zenn.dev/topics/security/feed`（`zenn.rssUrls`）
   - Qiita = `qiita.com/tags/security/feed` ＋ `qiita.com/tags/認証/feed`（`qiita.rssUrls`）
@@ -144,10 +149,6 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
   - フィードは Atom で `title` / `link` / `isoDate` / `contentSnippet` / `author` を持つが、**`enclosure` も `media:thumbnail` も無い**＝サムネはフィードから取れない。よって `enrichArticles` の対象に含め、記事ページの og:image から補完している（Zenn/Qiita と同じ）。
   - `contentSnippet` が非常に長い（piyolog は 1万字超）が、`rss.ts` の `snippet()` が 200 字に切るので問題ない。
   - **バッジ色は `--color-hatenablog: #7c3aed`（バイオレット）**。はてブの青 `#1f7fc2`・Zenn の水色・Qiita の黄緑・ロゴのエメラルドのいずれとも色相を 36°以上離してある。
-- **【現在は無効】はてブ（はてなブックマーク。上の `hatenablog` とは別サービス）**: 公開 RSS（`b.hatena.ne.jp/hotentry/it.rss`）を直接パース。トークン不要。**人気エントリーRSSは「今まさに人気の約30件」しか返さない**ためフレッシュ取得分だけだとランキング外の記事が消える。→ 全ソース共通の蓄積（`cachedFor(cache,"hatena")` を先頭で積む）で過去分を保持し、`hatena.retentionMax`（既定1000≒数ヶ月・`feed.json` 肥大の安全弁）まで残す。dedup（id=entry url）で重複は1件。（かつては「はてブだけ蓄積・`maxAgeDays` 対象外」の特別扱いだったが、全ソースが同じ蓄積＋ソース別枠に統一された。）
-- **【現在は無効】Workspace**: Google Workspace Updates ブログ（Blogger 製）の Atom を `rss-parser` で直接取得。トークン不要。既定の `/feeds/posts/default` は FeedBurner（http）へ 302 するため `?redirect=false` を付けて Google ドメインから https Atom を取得（`workspace.rssUrl`）。`perFeedLimit` で件数を抑制。サムネは `media:thumbnail` 優先＋本文 HTML の最初の `<img>` をフォールバック抽出。表示は `source: "workspace"`（青バッジ「Workspace」）。
-- **【現在は無効】LayerX**: Substack 公開 RSS が invite-only のため、毎週届くメール（`layerxnews@substack.com`）を **Gmail REST API** で読む（`GMAIL_CLIENT_ID`/`_SECRET`/`_REFRESH_TOKEN`、scope `gmail.readonly`）。**本文(text/plain)に列挙された各トピックリンク = 1アイテム**（1通 ~190件）。`<タイトル> [ substack redirect url ]` が**行末**にある行だけ採用＝「View this post」/Unsubscribe/文中プロモを自然に除外。id は redirect UUID で安定（再取得しても dedup で増えない）。1通の物量が大きいので `layerx.retentionMax` は 2000（ソース別枠なので他ソースは押し出さない）。インフラ設定とトークン失効の注意は memory `todayai-layerx-gmail-infra` 参照。
-- **【現在は無効】GCP**: Google Cloud リリースノートの公開 Atom（`https://docs.cloud.google.com/feeds/gcp-release-notes.xml`。旧 `cloud.google.com/feeds/gcp-release-notes.xml` は 301 でここへ）を `rss-parser` で直接取得。トークン不要。**⚠️ このフィードは 1エントリ=1日** で `<title>` は日付だけ（例 "July 07, 2026"）・`<content>`(HTML) にその日の全プロダクトの更新がまとまる（AI 専用ではなく全 GCP プロダクト。ただし ~1件/日と低頻度）。today.ai は日付グルーピングするので日付見出しは冗長 → 専用パーサ `scripts/sources/gcloud.ts` が本文の `<h2 class="release-note-product-title">製品名</h2>`（安定した hook）を抽出して「App Engine・Bigtable ほかN製品のリリースノート」を `title` にする（抽出0件なら日付フォールバック。末尾「のリリースノート」で `isJapanese()`=true → 見出しの無駄翻訳を回避）。**enrichArticles には渡さない**（エントリ link を辿ると当日でなく60日分のページ全体が返るため・サムネ不要）＝サムネ無しのコンパクト行で描画。要約は `contentText`（本文長め・一時）を `translate.summarizeSources` の3行要約に載せ、`summary` は表示用に短め。表示は `source: "gcloud"`（赤バッジ「GCP」）。
 
 ## 重要な制約・gotcha
 
@@ -188,7 +189,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 
 Astro 5, Tailwind v4, TypeScript, GitHub Pages 静的サイト。
 
-特定のX(Twitter)アカウント・Zenn「AI」トピック・Qiita「AI」タグ・はてなブックマーク人気エントリー(テクノロジー)・Google Workspace Updatesブログ・LayerX AI・LLM Newsletter(Gmail経由)・Google Cloud リリースノート(Atom)からAI関連情報を集約し、統合タイムラインとして表示。
+（todayai 時代）X・Zenn「AI」・Qiita「AI」・はてなブックマーク・Google Workspace Updates・LayerX Newsletter(Gmail経由)・Google Cloud リリースノート の7ソースから AI 関連情報を集約していた。**現在はこのうち Zenn / Qiita のみ残し、セキュリティ向けに差し替え＋はてなブログを追加した3ソース構成**。
 
 ```bash
 npm install
@@ -202,11 +203,7 @@ npm run build      # 本番ビルド（型チェック込み）
 **Gotcha**:
 - X取得は2系統（`feeds.config.ts` の `x`）: (a) **自分のデータ**は basecampの公開JSON（`storage.googleapis.com/basecamp-feeds/x-tweets.json`）から `x.categories`（post/like/bookmark、既定は bookmark）で取得＝トークン・課金不要。(b) **外部アカウントのポスト**は `x.accounts` に列挙し、X API **App-only Bearer Token**（Secret `X_BEARER_TOKEN`）+ `since_id` 増分取得（`state.xAccountSinceIds` に永続化）で新着のみ課金（Non-owned Read $0.005/件）。App-only Bearer は固定トークンなので basecamp の OAuth2 refresh token と競合しない。aggregate は外部アカウント分のみ前回キャッシュを保持し、ブックマークは毎回フレッシュ置換。
 - **Zenn / Qiita はトークン不要**: Zenn「AI」トピック（`zenn.dev/topics/ai/feed`）と Qiita「AI」タグ（`qiita.com/tags/ai/feed`）の公開 RSS を、共有ヘルパー `scripts/sources/rss.ts` の `fetchRss({rssUrl, source, limit})` が rss-parser で直接取得（`limit` で件数を抑制、取得失敗時は前回キャッシュへフォールバック）。それぞれ独立タブ `source: "zenn"` / `"qiita"` で表示。設定は `feeds.config.ts` の `zenn` / `qiita`。（かつての「Feedly」= AI 関連 RSS 8本まとめ集約は廃止。この2フィードだけ独立ソース化した）
-- **Google Workspace Updates はトークン不要**: Google Workspace Updates ブログ（Blogger 製）の Atom を `scripts/sources/workspace.ts` が rss-parser で直接取得。既定の `/feeds/posts/default` は FeedBurner（http）へ 302 リダイレクトするため、`feeds.config.ts` の `workspace.rssUrl` に `?redirect=false` を付けて Google ドメインから https の Atom を取得する。`perFeedLimit` で件数を抑制。サムネは `media:thumbnail` 優先＋本文 HTML の最初の `<img>` をフォールバック抽出。`source: "workspace"`（青バッジ「Workspace」）。
-- **LayerX AI・LLM Newsletter は Gmail 経由**: Substack 公開 RSS（`layerxnews.substack.com/feed`）が invite-only で取得不可のため、毎週届くメール（送信元 `layerxnews@substack.com`）を **Gmail REST API** で読む（`scripts/sources/layerx.ts`、依存追加なし＝`fetch` のみ）。refresh token を access token に交換し `messages.list`(`from:...newer_than:Nd`)→`messages.get?format=full`。**本文(text/plain)に列挙された各トピックリンクを個別の FeedItem 化**（1通 ~190件）。`<タイトル> [ https://substack.com/redirect/<uuid>?j=... ]` が**行末**にある行のみ採用し、`View this post`/Unsubscribe/文中プロモは除外。`title`=トピック見出し、`url`=リダイレクトURL（解決せずそのまま）、`id`=`layerx-<uuid>`（再取得しても dedup で増殖しない）。`source: "layerx"`（専用「LayerX」バッジ、Substack オレンジ）。物量が大きいため `layerx.retentionMax` は 2000（全ソース共通の全期間アーカイブ＝各ソース別枠で保持、後述）。設定は `feeds.config.ts` の `layerx`。
-- **機械翻訳／3行要約（原文→日本語）**: 集約時に各アイテムの `title`/`summary` を Gemini REST API（`scripts/sources/translate.ts` の `enrichTranslations`、`fetch` のみ）で1回のバッチ呼び出しで日本語補完。`titleJa`=非日本語タイトルの翻訳。`summaryJa` はソースで分岐し、記事系（`translate.summarizeSources`＝Zenn/Qiita/はてブ/Workspace）の十分な長さの抜粋は**原文の言語を問わず生成AIで3行要約**、その他（X 等）は summary を翻訳。日本語判定は `isJapanese()`。`state.translations` に永続キャッシュ、生成ロジック変更時は `aggregate.ts` の `ENRICH_VERSION`↔`state.enrichVersion` 不一致で旧キャッシュを破棄して再生成。表示はフィルタバー右端の「日本語／原文」一括トグル（`:root.show-orig` クラス＋`localStorage`、`BilingualText.astro`。日本語＝AI要約／原文＝元の抜粋）。
-- **LayerX サムネ**: Substack リダイレクトを辿って og:image を解決できるが物量が大きい（~190件/通）ため、`enrichOgImages` の `maxNew`（既定40件/run）で **1run あたりの新規取得を絞り段階的に補完**（負キャッシュで取得済みはスキップ）。記事系（Zenn/Qiita/はてブ/Workspace）は上限なし。
-- **GCP（Google Cloud リリースノート）はトークン不要**: 公開 Atom（`docs.cloud.google.com/feeds/gcp-release-notes.xml`）を `scripts/sources/gcloud.ts` が rss-parser で取得。**1エントリ=1日**でタイトルは日付だけ・本文にその日の全プロダクト更新がまとまるため、本文の `<h2 class="release-note-product-title">` から製品名を抽出して「App Engine・Bigtable ほかN製品のリリースノート」を見出しにする。enrichArticles には渡さず（link は60日分ページ全体を返す）サムネ無しコンパクト行＋`translate.summarizeSources` の3行要約。赤バッジ「GCP」（`source: "gcloud"`）。全 GCP プロダクト対象（AI 専用ではないが ~1件/日と低頻度）。
-- Secret: `X_BEARER_TOKEN`（外部アカウント取得）、`GMAIL_CLIENT_ID`/`GMAIL_CLIENT_SECRET`/`GMAIL_REFRESH_TOKEN`（LayerX 取得、scope `gmail.readonly`）、`GEMINI_API_KEY`（機械翻訳）。いずれも任意で、未設定ならそのソース／翻訳をスキップ。Zenn・Qiita・はてブは公開 RSS で不要。
+- **機械翻訳／3行要約（原文→日本語）**: 集約時に各アイテムの `title`/`summary` を Gemini REST API（`scripts/sources/translate.ts` の `enrichTranslations`、`fetch` のみ）で1回のバッチ呼び出しで日本語補完。`titleJa`=非日本語タイトルの翻訳。`summaryJa` はソースで分岐し、記事系（`translate.summarizeSources`＝Zenn/Qiita/はてなブログ）の十分な長さの抜粋は**原文の言語を問わず生成AIで3行要約**、その他（X 等）は summary を翻訳。日本語判定は `isJapanese()`。`state.translations` に永続キャッシュ、生成ロジック変更時は `aggregate.ts` の `ENRICH_VERSION`↔`state.enrichVersion` 不一致で旧キャッシュを破棄して再生成。表示はフィルタバー右端の「日本語／原文」一括トグル（`:root.show-orig` クラス＋`localStorage`、`BilingualText.astro`。日本語＝AI要約／原文＝元の抜粋）。
+- Secret: `X_BEARER_TOKEN`（X の外部アカウント取得）、`GEMINI_API_KEY`（機械翻訳）。**どちらも現在は無効化中の機能向け**で、未設定ならスキップされるだけ。稼働中の Zenn・Qiita・はてなブログは公開 RSS なのでトークン不要。
 - `push` 時は取得＋コミットをスキップ（既存キャッシュでビルド）しコミットループを回避。
 - Tailwind v4 + Astro 型不一致は `astro.config.mjs` で `any` キャスト。内部リンクは `src/lib/url.ts` の `siteLink()` 必須（base path は現在 `/todaysec`）。

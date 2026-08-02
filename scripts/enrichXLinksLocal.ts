@@ -2,7 +2,7 @@
  * X ツイートのリンクプレビューをローカルで補完する単体スクリプト（`npm run enrich:xlinks`）。
  *
  * 通常の集約（aggregate.ts）は CI でも既定でリンクプレビューを解決する（外部サイトは多くが
- * datacenter IP でも取れる。LayerX と違い Substack 壁を通らない）。ただし 1run あたり
+ * datacenter IP でも取れる）。ただし 1run あたり
  * `X_LINK_MAX_NEW`(既定40) の上限があり、一部の外部サイトは Cloudflare 等で 403 になり得る。
  * このスクリプトはその **バックフィル / stragglers 用の安全網**。
  *
