@@ -65,6 +65,26 @@ export interface FeedsConfig {
     disabled?: boolean;
   };
   /**
+   * はてなブログのセキュリティ系ブログ（公開フィードを直接取得。トークン不要）。
+   *
+   * ⚠️ はてなブログには「全ブログ横断で特定タグの新着を取る」フィードが**存在しない**
+   * （`hatenablog.com/tag/<tag>` は `hatena.blog/tag/<tag>` へ 301 したうえで 404。
+   * `/feed`・`?mode=rss`・`/tags/`・`/topic/`・検索ページもすべて 404。実アクセスで確認済み）。
+   * 横断で取れるのは**はてなブックマーク**の検索 RSS だけだが、それはブログ記事ではなく
+   * ブックマークで、別サービスの `hatena` 枠と同じもの。
+   * → **個別のブログのフィードを `rssUrls` に列挙して束ねる**方式を採る。
+   *
+   * 既存の `hatena`（はてなブックマーク人気エントリー）とは別枠・別サービス。
+   */
+  hatenablog: {
+    rssUrls: string[];
+    /** 1回に取り込む最大件数（**1 URL あたり**の取得窓。蓄積は retentionMax まで） */
+    limit?: number;
+    /** 保持上限件数（全期間アーカイブの安全弁） */
+    retentionMax: number;
+    disabled?: boolean;
+  };
+  /**
    * Google Cloud リリースノートの公開 Atom（rss-parser で直接取得。トークン不要）。
    * 1エントリ=1日で本文にその日の全製品更新がまとまる。scripts/sources/gcloud.ts が
    * 製品名を抽出して見出しにする。
@@ -178,6 +198,18 @@ export const feedsConfig: FeedsConfig = {
     retentionMax: 1000, // 取りこぼしが激しかった主対象。数ヶ月〜相当
     disabled: false,
   },
+  hatenablog: {
+    // セキュリティ専門のはてなブログ。ブログを増やしたいときはこの配列に足すだけ
+    // （1本落ちても他は取り込まれる）。いずれも実アクセスで取得を確認済み。
+    rssUrls: [
+      "https://piyolog.hatenadiary.jp/feed", // piyolog（セキュリティインシデントまとめ）
+      "https://foxsecurity.hatenablog.com/feed", // Fox on Security（日次セキュリティニュース）
+      "https://blog.flatt.tech/feed", // GMO Flatt Security Blog（脆弱性の技術解説・独自ドメインだが基盤ははてなブログ）
+    ],
+    limit: 20,
+    retentionMax: 1000,
+    disabled: false,
+  },
   gcloud: {
     rssUrl: "https://docs.cloud.google.com/feeds/gcp-release-notes.xml", // Google Cloud リリースノート（Atom）
     limit: 30,
@@ -215,7 +247,7 @@ export const feedsConfig: FeedsConfig = {
     model: "gemini-3.1-flash-lite",
     batchSize: 10, // 要約入力に記事本文(~3000字)を載せるので1コールが過大にならないよう小さめ
     concurrency: 3,
-    summarizeSources: ["zenn", "qiita", "hatena", "workspace", "gcloud"],
+    summarizeSources: ["zenn", "qiita", "hatena", "hatenablog", "workspace", "gcloud"],
     summaryMinLen: 40,
     // GEMINI_API_KEY が未設定のため停止（原文のまま表示＝graceful degradation）。
     disabled: true,

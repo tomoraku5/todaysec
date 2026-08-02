@@ -139,12 +139,14 @@ async function run(): Promise<void> {
     collected.push(...xItems);
   }
 
-  // ---- Zenn トピック / Qiita タグ（公開 RSS を直接取得。トークン不要）----
-  // 1ソースにつき複数 URL（rssUrls）を束ねられる（例: Qiita = Security タグ＋認証タグ）。
+  // ---- Zenn トピック / Qiita タグ / はてなブログ（公開 RSS を直接取得。トークン不要）----
+  // いずれも設定が `rssUrls`（配列）で構造が同じなので、専用実装を作らず同じループで扱う。
+  // 1ソースにつき複数 URL（rssUrls）を束ねられる（例: Qiita = Security タグ＋認証タグ、
+  // はてなブログ = 個別ブログ3本）。
   // limit は「1 URL あたり」の取得窓なので、URL を足しても既存フィードの取り込みは痩せない。
   // 取得窓が狭く RSS は最新数十件しか返さないので、前回分を土台に蓄積して過去分を保持する
   // （全期間アーカイブ。dedup=id で重複は集約）。取得失敗/disabled でも蓄積済みの過去分は残る。
-  for (const source of ["zenn", "qiita"] as const) {
+  for (const source of ["zenn", "qiita", "hatenablog"] as const) {
     const cfg = feedsConfig[source];
     collected.push(...cachedFor(cache, source));
     if (cfg.disabled) {
@@ -304,7 +306,9 @@ async function run(): Promise<void> {
   // これから要約する item には本文プレーンテキストを `contentText`（一時）として載せる（要約入力用）。
   const ogImages = state.ogImages ?? {};
   try {
-    const r = await enrichArticles(items, ogImages, translations, new Set(["zenn", "qiita", "hatena", "workspace"]), {
+    // はてなブログのフィードは enclosure / media:thumbnail を持たないので、
+    // Zenn/Qiita と同じく記事ページの og:image から補完する。
+    const r = await enrichArticles(items, ogImages, translations, new Set(["zenn", "qiita", "hatena", "hatenablog", "workspace"]), {
       extractText: willSummarize,
       maxLen: 2000, // 短い要約に長文は不要。入力トークンを抑え 429(無料枠TPM超過)・コストを緩和。
     });
@@ -391,15 +395,21 @@ async function run(): Promise<void> {
   };
   await writeCache(out);
 
-  const counts = { x: 0, zenn: 0, qiita: 0, hatena: 0, layerx: 0, workspace: 0, gcloud: 0 } as Record<
-    FeedSource,
-    number
-  >;
+  const counts = {
+    x: 0,
+    zenn: 0,
+    qiita: 0,
+    hatena: 0,
+    hatenablog: 0,
+    layerx: 0,
+    workspace: 0,
+    gcloud: 0,
+  } as Record<FeedSource, number>;
   for (const i of items) counts[i.source]++;
   const withThumb = items.filter((i) => i.thumbnail).length;
   const withJa = items.filter((i) => i.titleJa).length;
   console.log(
-    `\n✅ feed.json 更新: 計 ${items.length} 件 (X=${counts.x} / Zenn=${counts.zenn} / Qiita=${counts.qiita} / はてブ=${counts.hatena} / LayerX=${counts.layerx} / Workspace=${counts.workspace} / GCP=${counts.gcloud}) サムネ ${withThumb} 件 / 翻訳 ${withJa} 件`,
+    `\n✅ feed.json 更新: 計 ${items.length} 件 (X=${counts.x} / Zenn=${counts.zenn} / Qiita=${counts.qiita} / はてブ=${counts.hatena} / はてなブログ=${counts.hatenablog} / LayerX=${counts.layerx} / Workspace=${counts.workspace} / GCP=${counts.gcloud}) サムネ ${withThumb} 件 / 翻訳 ${withJa} 件`,
   );
   if (errors.length) {
     console.warn(`⚠️  ${errors.length} 件のソースでエラー:\n  - ${errors.join("\n  - ")}`);

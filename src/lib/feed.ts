@@ -1,5 +1,17 @@
 /** 全情報源を統一する正規化済みフィードアイテム。 */
-export type FeedSource = "x" | "zenn" | "qiita" | "hatena" | "layerx" | "workspace" | "gcloud";
+/**
+ * `hatena` = はてなブックマーク（人気エントリー RSS。現在は無効）。
+ * `hatenablog` = はてなブログのセキュリティ系ブログ（別サービスなので枠を分けている）。
+ */
+export type FeedSource =
+  | "x"
+  | "zenn"
+  | "qiita"
+  | "hatena"
+  | "hatenablog"
+  | "layerx"
+  | "workspace"
+  | "gcloud";
 
 export interface FeedItem {
   /** 一意キー（X: tweet id / 記事系(zenn/qiita/workspace): 記事URL / はてブ: entry url） */
@@ -125,6 +137,7 @@ export interface SourceMeta {
 export const SOURCES: SourceMeta[] = [
   { key: "zenn", label: "Zenn", badgeClass: "src-zenn" },
   { key: "qiita", label: "Qiita", badgeClass: "src-qiita" },
+  { key: "hatenablog", label: "はてなブログ", badgeClass: "src-hatenablog" },
 ];
 
 export function sourceLabel(source: FeedSource): string {

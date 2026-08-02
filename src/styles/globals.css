@@ -38,6 +38,12 @@
   --color-qiita-bg: rgba(85, 197, 0, 0.12);
   --color-hatena: #1f7fc2;
   --color-hatena-bg: rgba(31, 127, 194, 0.12);
+  /* はてなブログ枠。はてブ（#1f7fc2 青）とは別サービスなので色を分ける。
+     Zenn(#3ea8ff 水色) / Qiita(#55c500 黄緑) / ロゴ(#0f9b6c エメラルド) とも混同しない
+     バイオレット系を選定（色相262°で最も近い既存色から36°離れている）。白背景での
+     コントラストは 5.70:1 で本文サイズでも可読。 */
+  --color-hatenablog: #7c3aed;
+  --color-hatenablog-bg: rgba(124, 58, 237, 0.12);
   --color-layerx: #d8500a;
   --color-layerx-bg: rgba(216, 80, 10, 0.12);
   --color-workspace: #2d68d8;
@@ -139,6 +145,10 @@ a {
 .src-hatena {
   color: var(--color-hatena);
   background: var(--color-hatena-bg);
+}
+.src-hatenablog {
+  color: var(--color-hatenablog);
+  background: var(--color-hatenablog-bg);
 }
 .src-layerx {
   color: var(--color-layerx);
