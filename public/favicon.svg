@@ -1,11 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
   <defs>
+    <!-- ロゴのエメラルドグリーン（globals.css の color-logo トークン #0f9b6c）に寄せたグラデーション。
+         元はティール系（#6ff0ea → #1c8b87）で色相が近かったため、色相だけ緑側へ寄せている。
+         注: XML コメント内に連続ハイフンは書けない（SVG が壊れる）。 -->
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#6ff0ea"/>
-      <stop offset="1" stop-color="#1c8b87"/>
+      <stop offset="0" stop-color="#5fe8b4"/>
+      <stop offset="1" stop-color="#0f8b62"/>
     </linearGradient>
   </defs>
   <rect width="32" height="32" rx="8" fill="#0a0b0f"/>
   <rect x="3" y="3" width="26" height="26" rx="6" fill="url(#g)"/>
-  <text x="16" y="22" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#06201f">ai</text>
+  <!-- 3文字なので "ai" のときより font-size を下げて 26px 角の中に収める -->
+  <text x="16" y="21" font-family="Inter, system-ui, sans-serif" font-size="12.5" font-weight="700" letter-spacing="-0.4" text-anchor="middle" fill="#052018">sec</text>
 </svg>
