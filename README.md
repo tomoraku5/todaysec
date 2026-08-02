@@ -38,12 +38,29 @@ npm run dev         # http://localhost:4321/todaysec/
 | `npm run dev` | 開発サーバー（<http://localhost:4321/todaysec/>） |
 | `npm run build` | 本番ビルド（Astro グラフの型チェック込み） |
 | `npm run typecheck` | `astro check`。`scripts/` も型検査される |
+| `npx tsx scripts/generateOgImage.ts` | OGP 画像 `public/og-default.png` を再生成（下記） |
 
 テストフレームワークはありません。検証は `npm run typecheck` / `npm run build` と、
 `npm run aggregate` の実行ログで行います。
 
 > **`scripts/` を変更したら `npm run typecheck` を実行してください。**
 > `npm run build` は Astro が読み込むファイルしか型検査せず、`scripts/` は対象外のためです。
+
+## OGP 画像の作り直し
+
+SNS やチャットに URL を貼ったときに表示される画像（`public/og-default.png`・1200x630）は、
+**コードから生成**しています。画像編集ソフトは不要です。
+
+```bash
+npx tsx scripts/generateOgImage.ts
+```
+
+文言や色を変えたいときは `scripts/generateOgImage.ts` の冒頭にある `CONTENT`（文言）と
+`C`（配色）を編集して、上のコマンドを実行し直してください。生成された PNG はリポジトリに
+コミットするので、普段は再生成不要です。
+
+> 画像内の文字は**実行した PC にインストールされているフォント**で描画されます。
+> 別の PC で再生成すると字形が少し変わることがあります。
 
 ## 収集しているソース
 
