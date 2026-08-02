@@ -155,10 +155,12 @@ export const feedsConfig: FeedsConfig = {
     rssUrl: "https://zenn.dev/topics/ai/feed", // Zenn AIトピック
     limit: 20,
     retentionMax: 1000, // 取りこぼしが激しかった主対象。数ヶ月〜相当
-    disabled: false,
+    // まず Qiita だけで動作確認するため停止。URL が AI トピックのままなので、
+    // 有効化するなら先に security トピック（zenn.dev/topics/security/feed）へ差し替えること。
+    disabled: true,
   },
   qiita: {
-    rssUrl: "https://qiita.com/tags/ai/feed", // Qiita AIタグ
+    rssUrl: "https://qiita.com/tags/security/feed", // Qiita Securityタグ
     limit: 20,
     retentionMax: 1000, // 取りこぼしが激しかった主対象。数ヶ月〜相当
     disabled: false,
@@ -167,18 +169,24 @@ export const feedsConfig: FeedsConfig = {
     rssUrl: "https://docs.cloud.google.com/feeds/gcp-release-notes.xml", // Google Cloud リリースノート（Atom）
     limit: 30,
     retentionMax: 500, // 低頻度（~1件/日）。~1.4年分
-    disabled: false,
+    // GCP 全製品のリリースノートでセキュリティ用途には合わないため停止。
+    // 将来もセキュリティ情報源としては使わない想定（削除は次段階で検討）。
+    disabled: true,
   },
   hatena: {
     rssUrl: "https://b.hatena.ne.jp/hotentry/it.rss",
     retentionMax: 1000, // 過去分も保持（実質全期間）。feed.json 肥大を抑える安全弁
-    disabled: false,
+    // まず Qiita だけで動作確認するため停止。URL が IT 人気エントリーのままなので、
+    // 有効化するなら先にセキュリティ関連の絞り込み（タグ検索 RSS 等）へ差し替えること。
+    disabled: true,
   },
   workspace: {
     rssUrl: "https://workspaceupdates.googleblog.com/feeds/posts/default?redirect=false",
     perFeedLimit: 15,
     retentionMax: 500, // 低頻度。~1.4年分
-    disabled: false,
+    // Google Workspace の機能更新情報でセキュリティ用途には合わないため停止。
+    // 将来もセキュリティ情報源としては使わない想定（削除は次段階で検討）。
+    disabled: true,
   },
   layerx: {
     sender: "layerxnews@substack.com",
