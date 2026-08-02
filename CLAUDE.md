@@ -122,17 +122,14 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 
 ### ソースの登録は `src/lib/feed.ts` の `FeedSource` 型 + `SOURCES` 配列が中心レジストリ
 
-新ソースを足すときの定型（既存の追加コミットが参考）:
-1. `src/lib/feed.ts`: `FeedSource` ユニオンに追加 + `SOURCES` にエントリ（`key`/`label`/`badgeClass`）。← これで `FeedCard` / `SourceFilter` は `SOURCES` 駆動なので自動対応。
-2. `src/styles/globals.css`: `.src-<key>` クラス + `@theme` に `--color-<key>` / `--color-<key>-bg`。
-3. `feeds.config.ts`: `FeedsConfig` インターフェース + `feedsConfig` に設定。トークン類はここに書かず env/Secrets。
-4. `scripts/sources/<key>.ts`: 取得して `FeedItem[]` を返す関数（`rss.ts` が最小の手本）。
-5. `scripts/aggregate.ts`: `disabled` とクレデンシャルを見て try/catch する取得ブロックを追加。末尾 `counts` とログにも `<key>` を足す。
+`SOURCES` が「今どのソースを集めているか」の唯一の正。画面の説明文・フィルタ・about・RSS の
+ソース名はすべてここから生成される。**具体的な手順は後述の「ソースを追加・削除するときの
+チェックリスト」を参照。**
 
 ### ソース別の要点（なぜ普通の RSS じゃないか）
 
 > **凡例**: 見出しの【現在は無効】は `feeds.config.ts` で `disabled: true` のソース。
-> 記述は将来の復活・障害記録のため残してある。有効なのは **Zenn / Qiita** の 2 つ。
+> 記述は将来の復活・障害記録のため残してある。有効なのは **Zenn / Qiita / はてなブログ** の 3 つ。
 
 - **【現在は無効】X**: X API を**叩かない**。自分のデータは basecamp 公開 JSON（`storage.googleapis.com/basecamp-feeds/x-tweets.json`）を読むだけ（トークン・課金不要、basecamp の OAuth と競合しない）。`x.accounts` の外部アカウントのみ X API **App-only Bearer**（`X_BEARER_TOKEN`）+ `since_id` 増分。OGP サムネは `scripts/sources/ogp.ts` で解決し `state.xOgImages` にキャッシュ。**本文が t.co リンクのツイートはリンク先の OGP カードを `linkPreview` として補完**（`enrichXLinks`。両取得経路を横断。後述）。表示は `TweetCard.astro`（ツイート風＋リンクプレビューカード）。
   - **著者アイコン(avatar)/実名/@handle**: basecamp 公開JSON は元ツイートの著者を持たず `author` が `"ブックマーク"` 等の固定ラベルになる。これを **syndication（`scripts/sources/syndication.ts` の `fetchTweet`＝`cdn.syndication.twimg.com`・無料・トークン不要）** で解決し `FeedItem.avatarUrl`（`_400x400`化）/`authorName`/`author=@handle` を補完（`xOgImages` と同じ state永続キャッシュ＋毎回再適用＋新規は `authorMaxNew` 件/run の段階補完＋トリム後 prune パターン、`state.xAuthors`）。外部アカウントは X API の `expansions=author_id&user.fields=profile_image_url,name` で同様取得。`TweetCard.astro` は `avatarUrl` があれば丸枠に `<img>`（`onerror` でイニシャル/Xロゴへフォールバック）、無ければ従来の代替アイコン。**⚠️ syndication 直叩きは residential IP(ローカル)なら解決でき、CI(datacenter IP)では弱い可能性**（datacenter IP からの直叩きという制約。ただし 403 リスクは低い）。ローカル `npm run aggregate` で埋めた `state.xAuthors` は CI でも毎回再適用＝永続化される。
@@ -149,6 +146,76 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
   - フィードは Atom で `title` / `link` / `isoDate` / `contentSnippet` / `author` を持つが、**`enclosure` も `media:thumbnail` も無い**＝サムネはフィードから取れない。よって `enrichArticles` の対象に含め、記事ページの og:image から補完している（Zenn/Qiita と同じ）。
   - `contentSnippet` が非常に長い（piyolog は 1万字超）が、`rss.ts` の `snippet()` が 200 字に切るので問題ない。
   - **バッジ色は `--color-hatenablog: #7c3aed`（バイオレット）**。はてブの青 `#1f7fc2`・Zenn の水色・Qiita の黄緑・ロゴのエメラルドのいずれとも色相を 36°以上離してある。
+
+## ソースを追加・削除するときのチェックリスト
+
+> **なぜこれがあるか**: はてなブログを追加したとき、コードは全部直したのに
+> **README.md の更新だけ漏れて「Zenn と Qiita から集約」と古いまま**になった。
+> 「自動で追従するもの」と「手で直すもの」が混在していて、後者を忘れやすい。
+
+### 1. コード・設定（追加時に必ず触る）
+
+| # | ファイル | やること |
+| --- | --- | --- |
+| 1 | `src/lib/feed.ts` | `FeedSource` ユニオンに `"<key>"` を追加 ＋ `SOURCES` にエントリ（`key`/`label`/`badgeClass`/`description`）。**ここが中心レジストリ**で、下の「自動で追従するもの」はすべてこの配列を見ている |
+| 2 | `src/styles/globals.css` | `@theme` に `--color-<key>` / `--color-<key>-bg`、続けて `.src-<key>` クラス。**既存ソースの色と色相が近すぎないか数値で確認する**（`--color-hatenablog` のコメントに選定根拠の書き方の例がある） |
+| 3 | `feeds.config.ts` | `FeedsConfig` インターフェース ＋ `feedsConfig` に設定。トークン類はここに書かず env/Secrets |
+| 4 | `scripts/sources/<key>.ts` | 取得して `FeedItem[]` を返す関数。**公開 RSS/Atom なら新規作成は不要**で、`rss.ts` の `fetchRss({rssUrls, source, limit})` をそのまま流用できる（設定を `rssUrls` 配列にすれば `aggregate.ts` の既存ループに相乗りするだけで済む） |
+| 5 | `scripts/aggregate.ts` | 取得ブロック（`rssUrls` 形式なら既存ループの配列に `<key>` を足すだけ）。**末尾の `counts` オブジェクトと完了ログにも `<key>` を追加**（忘れると集計に出ない） |
+| 6 | `feeds.config.ts` の `translate.summarizeSources` | 記事系なら追加（`scripts/sources/translate.ts` が参照する。翻訳は現在無効だが、有効化したときに要約対象になる） |
+| 7 | `scripts/sources/enrichArticles.ts` の呼び出し（`aggregate.ts` 内） | フィードがサムネ（`enclosure` / `media:thumbnail`）を持たないソースは対象セットに追加＝記事ページの og:image から補完する |
+
+### 2. 自動で追従するもの（手を入れない）
+
+`SOURCES` 配列を直せば、以下は**放っておいても正しくなる**。ここを手で書き換えると二重管理になる。
+
+- **トップの説明文 / フッター / `<meta name="description">`** … `sourceListText()` が `SOURCES` の label を連結する
+- **フィルタチップ**（`SourceFilter.astro`）… `SOURCES` を map している
+- **about ページの情報源カード** … `SOURCES` の `label` / `badgeClass` / `description` から生成
+- **RSS（`rss.xml.ts`）の description とアイテムのソース名** … 同上
+- **カードのバッジ**（`FeedCard` / `TweetCard`）… `sourceMeta()` 経由
+- **「日本語 / 原文」トグルの表示可否** … `hasAnyTranslation(items)` 次第（翻訳データが増えれば勝手に出る）
+
+### 3. 手で更新が必要なもの（★ ここが漏れやすい）
+
+- [ ] **`README.md`** … 冒頭の説明文、「収集しているソース」の表と**見出しの「有効（N ソース）」の数字**、「構成」の記述
+- [ ] **`CLAUDE.md`** … 「現在有効なソース」の表、「ソース別の要点」に取得元固有の落とし穴（フィード形式・サムネの有無・URL の癖）
+- [ ] **OGP 画像** … `npx tsx scripts/generateOgImage.ts` を実行して `public/og-default.png` を再生成＋コミット。スクリプト自体は `SOURCES` を読むので**文言の修正は不要、実行を忘れないことだけが問題**
+
+### 4. 無効化したソースを復活させるとき
+
+⚠️ **`feeds.config.ts` の `disabled` を `false` に戻すだけでは画面に出ない。**
+収集は再開されるが、`SOURCES` 配列から外れていると `index.astro` の `isKnownSource()` で
+弾かれてカードが描画されず、フィルタチップにも出ない（＝取得はしているのに見えない状態）。
+
+1. `feeds.config.ts` の `disabled: false`
+2. **`src/lib/feed.ts` の `SOURCES` にエントリを戻す**（コメントアウトされた行が直上にある）
+3. 取得先 URL が現状に合っているか確認する（例: 旧 `hatena` は IT 人気エントリーのままだった）
+4. 上の「3. 手で更新が必要なもの」を実施
+
+### 5. 削除するとき
+
+上の 1 の逆をやったうえで、**取り残しやすい所**を確認する:
+
+- `src/lib/feed.ts` の `FeedSource` ユニオン / そのソース専用フィールド（例: はてブの `bookmarkCount`）と、**それを表示しているコンポーネント**
+- `globals.css` の色変数と `.src-<key>`（**消した変数を参照している箇所が残っていないか**）
+- 専用スクリプトと `package.json` の npm スクリプト
+- `.env.example` / ワークフローの env（そのソース専用のクレデンシャル）
+- `src/data/feed.json` の `items` と `state`（`disabled` にするだけでは蓄積分が残る）
+- ドキュメントは消すだけでなく、**要点を1〜2行残して削除前のコミットハッシュを添える**
+
+### 6. 検証（全部通す）
+
+```bash
+npm run typecheck   # 型エラー 0。scripts/ もここでしか検査されない
+npm run build       # 本番ビルド
+npm run aggregate   # 実際に取得できるか。ログのソース別件数を確認
+npm run dev         # 画面（フィルタ・バッジ・説明文）を目視
+```
+
+- **設定する URL は事前に実アクセスして 200 と item 取得を確認する**（`rss-parser` は日本語 URL を
+  そのままだと拒否する等の癖がある。`rssUrls` に入れる前に確かめる）
+- `npm run aggregate` 後は **ソース別の取得件数**と、他ソースが壊れていないことをログで確認する
 
 ## 重要な制約・gotcha
 
