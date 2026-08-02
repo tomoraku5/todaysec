@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = "today.ai — AI情報フィード",
-  description = "特定のXアカウント・Zenn/Qiita・はてなブックマーク（テクノロジー）からAI関連情報を集約する個人フィード。",
+  title = "today.security — セキュリティ情報フィード",
+  description = "Zenn・Qiita からセキュリティ関連情報を集約する個人フィード。",
 } = Astro.props;
 
 const ogImage = absUrl("/og-default.png");
@@ -37,7 +37,7 @@ const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="today.ai"
+      title="today.security"
       href={siteLink("/rss.xml")}
     />
     <meta property="og:type" content="website" />
@@ -73,10 +73,10 @@ const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
           <a href={siteLink("/")} class="group flex items-center gap-2.5">
             <span
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-accent)] font-mono text-sm font-bold text-white shadow-[0_2px_10px_var(--color-accent-glow)]"
-              >ai</span
+              >sec</span
             >
             <span class="font-display text-[16px] font-bold tracking-tight">
-              today<span class="text-[var(--color-accent)]">.ai</span>
+              today<span class="text-[var(--color-accent)]">.security</span>
             </span>
           </a>
           <nav class="flex items-center gap-1 font-mono text-[12px] text-[var(--color-text-muted)]">
@@ -107,33 +107,8 @@ const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
       <footer
         class="border-t border-[var(--color-border)] py-6 text-center text-[12px] text-[var(--color-text-subtle)]"
       >
-        <p>
-          today.ai — AI情報を1つのフィードに。X / Zenn / Qiita / はてブ / Workspace / LayerX / GCP
-          から自動集約。
-        </p>
+        <p>today.security — セキュリティ情報を1つのフィードに。Zenn / Qiita から自動集約。</p>
       </footer>
-
-      <!-- サイト間ナビ: 画面下端に常駐する控えめな逆リンクバー（→ satory074.com/apps）。
-           フィードが長大で通常フッターは実質スクロール到達不能なため、tenji と同じく fixed で常時表示する -->
-      <nav
-        aria-label="サイト間ナビゲーション"
-        class="fixed inset-x-0 bottom-0 z-30 border-t border-[var(--color-border)] bg-[var(--color-bg)]"
-        style="padding-bottom: env(safe-area-inset-bottom)"
-      >
-        <div
-          class="mx-auto flex h-9 max-w-[46rem] items-center justify-center px-4 sm:px-6 lg:max-w-[58rem]"
-        >
-          <a
-            href="https://satory074.com/apps/"
-            target="_blank"
-            rel="noopener"
-            aria-label="satory074 のほかのアプリ一覧を新しいタブで開く"
-            class="inline-flex items-center gap-1 font-mono text-[12px] text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-accent)]"
-          >
-            satory074 のほかのアプリ <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </nav>
     </div>
   </body>
 </html>
