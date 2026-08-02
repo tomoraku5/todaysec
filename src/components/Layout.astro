@@ -64,7 +64,9 @@ const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
     }
   </head>
   <body>
-    <div class="mx-auto flex min-h-screen max-w-[46rem] flex-col px-4 pb-12 sm:px-6 lg:max-w-[58rem]">
+    <!-- pb-6: ページ末尾の余白。以前は画面下端に固定表示していたサイト間ナビ（h-9）に
+         フッターが隠れないための逃げが必要だったが、そのバーを削除したので通常の余白まで詰めた。 -->
+    <div class="mx-auto flex min-h-screen max-w-[46rem] flex-col px-4 pb-6 sm:px-6 lg:max-w-[58rem]">
       <header
         id="app-header"
         class="sticky-surface sticky top-0 z-20 -mx-4 mb-2 border-b border-[var(--color-border)] px-4 py-3 sm:-mx-6 sm:px-6"
@@ -100,7 +102,9 @@ const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
         </div>
       </header>
 
-      <main class="flex-1 pb-16">
+      <!-- pb-10: 本文とフッターの間隔。日付グループ間（space-y-8＝32px）より広く取り、
+           フッターが「本文の続き」ではなく別の層に見えるようにしている。 -->
+      <main class="flex-1 pb-10">
         <slot />
       </main>
 
