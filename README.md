@@ -1,7 +1,8 @@
 # today.security — セキュリティ情報フィード集約サイト
 
-**Zenn**「security」トピックと **Qiita**「Security」「認証」タグからセキュリティ関連情報を
-自動集約し、時系列の統合タイムラインとして表示する静的サイト（GitHub Pages）。
+**Zenn**「security」トピック、**Qiita**「Security」「認証」タグ、**はてなブログ**の
+セキュリティ専門ブログからセキュリティ関連情報を自動集約し、時系列の統合タイムラインとして
+表示する静的サイト（GitHub Pages）。
 
 - 公開URL: <https://tomoraku5.github.io/todaysec/>
 - 基盤: Astro 5 + Tailwind v4 + TypeScript
@@ -13,7 +14,7 @@
 ## トークン・API キーは不要です
 
 **このサイトの運用に費用はかかりません（完全に 0 円）。**
-取得元はどちらも**公開 RSS** なので、アカウント登録も API キーも認証も要りません。
+取得元はすべて**公開 RSS / Atom** なので、アカウント登録も API キーも認証も要りません。
 
 ```bash
 git clone https://github.com/tomoraku5/todaysec.git
@@ -27,8 +28,9 @@ npm run dev         # http://localhost:4321/todaysec/
 `src/data/feed.json` の内容で `npm run dev` の表示確認ができます。
 
 > このリポジトリは [satory074/todayai](https://github.com/satory074/todayai)（AI 情報の集約サイト）を
-> ベースに、セキュリティ情報向けへ改造したものです。X API・Gmail API・Gemini API を使う機能が
-> 実装として残っていますが、**すべて無効化**しており、有効化しない限り動きません。
+> ベースに、セキュリティ情報向けへ改造したものです。X API・Gemini API を使う機能が実装として
+> 残っていますが、**どちらも無効化**しており、有効化しない限り動きません
+> （Gmail API を使っていた LayerX ソースは実装ごと削除済みです）。
 
 ## コマンド
 
@@ -66,14 +68,15 @@ npx tsx scripts/generateOgImage.ts
 
 `feeds.config.ts` で設定します。
 
-### 有効（2ソース）
+### 有効（3ソース）
 
 | source | 取得元 | 設定 |
 |------|------|------|
 | `zenn` | `zenn.dev/topics/security/feed` | `zenn.rssUrls` |
 | `qiita` | `qiita.com/tags/security/feed`<br>`qiita.com/tags/認証/feed` | `qiita.rssUrls` |
+| `hatenablog` | `piyolog.hatenadiary.jp/feed`（piyolog）<br>`foxsecurity.hatenablog.com/feed`（Fox on Security）<br>`blog.flatt.tech/feed`（GMO Flatt Security） | `hatenablog.rssUrls` |
 
-**`rssUrls` は配列**なので、タグやトピックを増やしたいときは URL を足すだけです。
+**`rssUrls` は配列**なので、タグ・トピック・ブログを増やしたいときは URL を足すだけです。
 
 - URL ごとに個別にエラー処理するため、**1本が落ちても残りは取り込まれます**
 - `limit` は「**1 URL あたり**」の取得件数です（合計ではありません）。URL を足しても
@@ -81,6 +84,12 @@ npx tsx scripts/generateOgImage.ts
 - 日本語のタグ URL（`.../tags/認証/feed`）は**そのまま書いて構いません**。
   プログラム側で自動的にエンコードされます
 - 同じ記事が複数のタグに出ても、記事 URL をキーに重複排除されて 1 件になります
+
+> **はてなブログだけ「個別ブログのURLを並べる」方式**にしています。はてなブログには
+> Zenn/Qiita のような「全ブログ横断で特定タグの新着を取るフィード」が存在せず、
+> タグページは 404 を返すことを実アクセスで確認したためです（試した URL と結果は
+> [`CLAUDE.md`](./CLAUDE.md) に記録しています）。ブログを追加したいときは
+> `hatenablog.rssUrls` に足してください。
 
 ### 無効（`disabled: true`）— 削除せず温存
 
@@ -139,10 +148,10 @@ Secrets の設定は不要です（公開 RSS のみを使うため）。
 ```
 feeds.config.ts            ソース定義（URL / 取得件数 / 保持件数 / 有効・無効）
 scripts/aggregate.ts       集約オーケストレータ（取得→正規化→マージ→重複排除→トリム→書き出し）
-scripts/sources/           ソース別の取得処理（rss.ts が Zenn/Qiita 共通）
+scripts/sources/           ソース別の取得処理（rss.ts が Zenn/Qiita/はてなブログ共通）
 src/data/feed.json         集約結果（CI がコミット）
 src/lib/feed.ts            FeedItem 型・SOURCES レジストリ・表示ヘルパ
-src/components/            Layout / FeedCard / TweetCard / SourceFilter
+src/components/            Layout / FeedCard / TweetCard / SourceFilter / BilingualText
 src/pages/                 index / about / rss.xml
 src/styles/globals.css     配色トークン（@theme）
 .github/workflows/         update-and-deploy.yml
