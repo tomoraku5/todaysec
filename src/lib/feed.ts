@@ -167,6 +167,36 @@ export function sourceListText(separator: "・" | " / " = "・"): string {
   return SOURCES.map((s) => s.label).join(separator);
 }
 
+/**
+ * 原文と日本語訳の両方があり、実際に切り替わるか。
+ *
+ * `BilingualText.astro` が2つの span を出すかどうかの判定であり、
+ * 「日本語 / 原文」トグルを出すかどうかの判定でもある。**両者がズレると
+ * 「押しても何も変わらないトグル」ができる**ので、ここに一本化している。
+ * 訳が原文と同一（＝翻訳しても変わらなかった）ケースは切替の意味がないので false。
+ */
+export function hasBilingual(orig?: string, ja?: string): boolean {
+  return Boolean(ja && orig && ja !== orig);
+}
+
+/**
+ * フィード全体に「切り替えられる二言語テキスト」が1件でもあるか。
+ * 言語トグルを表示するかどうかの判定に使う（1件も無ければトグルは無意味なので隠す）。
+ *
+ * 翻訳（Gemini）を有効化して titleJa/summaryJa が入れば自動で true に戻り、
+ * トグルが復活する＝手作業での復旧が要らない。
+ */
+export function hasAnyTranslation(items: FeedItem[]): boolean {
+  return items.some(
+    (i) =>
+      hasBilingual(i.title, i.titleJa) ||
+      hasBilingual(i.summary, i.summaryJa) ||
+      // X のリンクプレビュー（TweetCard が BilingualText で描画する）
+      hasBilingual(i.linkPreview?.title, i.linkPreview?.titleJa) ||
+      hasBilingual(i.linkPreview?.description, i.linkPreview?.descriptionJa),
+  );
+}
+
 export function sourceLabel(source: FeedSource): string {
   return SOURCES.find((s) => s.key === source)?.label ?? source;
 }

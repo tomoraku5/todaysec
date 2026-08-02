@@ -4,12 +4,16 @@
  * グローバルトグル（:root.show-orig）で表示を切り替える。
  * 翻訳が無い（ja 未設定 or ja===orig）場合は素のテキストを常時表示し、トグルの影響を受けない。
  */
+import { hasBilingual } from "@/lib/feed";
+
 interface Props {
   orig?: string;
   ja?: string;
 }
 const { orig, ja } = Astro.props;
-const hasBoth = ja && orig && ja !== orig;
+// 判定は SourceFilter の言語トグル表示条件と共有する（ズレると「押しても
+// 何も変わらないトグル」ができるため）。挙動は従来と同一。
+const hasBoth = hasBilingual(orig, ja);
 ---
 
 {

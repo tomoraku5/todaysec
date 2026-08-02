@@ -1,10 +1,16 @@
 ---
-import { SOURCES, type FeedItem } from "@/lib/feed";
+import { SOURCES, hasAnyTranslation, type FeedItem } from "@/lib/feed";
 
 interface Props {
   items: FeedItem[];
 }
 const { items } = Astro.props;
+
+// 「日本語 / 原文」トグルは、切り替えられる二言語テキストが1件でもあるときだけ出す。
+// 翻訳（Gemini）が無効な今は0件＝押しても何も変わらないので隠す。
+// 判定は BilingualText.astro と同じ hasBilingual を使うので両者がズレない。
+// 翻訳を有効化して titleJa/summaryJa が入れば自動で true に戻り、トグルが復活する。
+const showLangToggle = hasAnyTranslation(items);
 
 const counts: Record<string, number> = { all: items.length };
 for (const s of SOURCES) counts[s.key] = items.filter((i) => i.source === s.key).length;
@@ -33,28 +39,33 @@ const chips = [
     ))
   }
 
-  <!-- 表示言語の一括トグル（日本語 / 原文）。右端に寄せる -->
-  <div class="ml-auto flex items-center gap-1.5">
-    <span class="font-mono text-[11px] text-[var(--color-text-subtle)]">表示</span>
-    <div class="flex items-center gap-1 rounded-full border border-[var(--color-border)] bg-[var(--color-card)] p-0.5">
-      <button
-        type="button"
-        data-lang="ja"
-        class="lang-toggle rounded-full px-2.5 py-1 text-[12px] font-medium text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)] aria-[pressed=true]:bg-[var(--color-accent-glow)] aria-[pressed=true]:text-[var(--color-accent-bright)]"
-        aria-pressed="true"
-      >
-        日本語
-      </button>
-      <button
-        type="button"
-        data-lang="orig"
-        class="lang-toggle rounded-full px-2.5 py-1 text-[12px] font-medium text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)] aria-[pressed=true]:bg-[var(--color-accent-glow)] aria-[pressed=true]:text-[var(--color-accent-bright)]"
-        aria-pressed="false"
-      >
-        原文
-      </button>
-    </div>
-  </div>
+  {
+    /* 表示言語の一括トグル（日本語 / 原文）。右端に寄せる。
+       翻訳データが1件も無いときは丸ごと出さない（押しても何も変わらないため）。 */
+    showLangToggle && (
+      <div class="ml-auto flex items-center gap-1.5">
+        <span class="font-mono text-[11px] text-[var(--color-text-subtle)]">表示</span>
+        <div class="flex items-center gap-1 rounded-full border border-[var(--color-border)] bg-[var(--color-card)] p-0.5">
+          <button
+            type="button"
+            data-lang="ja"
+            class="lang-toggle rounded-full px-2.5 py-1 text-[12px] font-medium text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)] aria-[pressed=true]:bg-[var(--color-accent-glow)] aria-[pressed=true]:text-[var(--color-accent-bright)]"
+            aria-pressed="true"
+          >
+            日本語
+          </button>
+          <button
+            type="button"
+            data-lang="orig"
+            class="lang-toggle rounded-full px-2.5 py-1 text-[12px] font-medium text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)] aria-[pressed=true]:bg-[var(--color-accent-glow)] aria-[pressed=true]:text-[var(--color-accent-bright)]"
+            aria-pressed="false"
+          >
+            原文
+          </button>
+        </div>
+      </div>
+    )
+  }
 </div>
 
 <script>
@@ -105,24 +116,31 @@ const chips = [
   });
 
   // ===== 表示言語トグル（日本語 / 原文）。:root.show-orig を切り替える =====
+  // トグルは翻訳データがあるときだけ描画される（SourceFilter の showLangToggle）。
+  // 無いときはこのブロックを丸ごとスキップする＝存在しない要素を触らないうえ、
+  // 保存済みの "orig" で :root.show-orig が付いたままになる事故も防ぐ。
   const langButtons = Array.from(document.querySelectorAll<HTMLButtonElement>(".lang-toggle"));
-  const LANG_KEY = "todayai:lang";
+  if (langButtons.length > 0) {
+    // 旧キー "todayai:lang" は移行せず放置してよい（単なる表示の好み・既定は日本語で、
+    // 読み取らないので影響しない。ブラウザに数バイト残るだけ）。
+    const LANG_KEY = "todaysec:lang";
 
-  function applyLang(lang: string) {
-    document.documentElement.classList.toggle("show-orig", lang === "orig");
+    const applyLang = (lang: string) => {
+      document.documentElement.classList.toggle("show-orig", lang === "orig");
+      for (const b of langButtons) {
+        b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false");
+      }
+    };
+
+    // 保存済みの選択を復元（既定: 日本語）
+    applyLang(localStorage.getItem(LANG_KEY) === "orig" ? "orig" : "ja");
+
     for (const b of langButtons) {
-      b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false");
+      b.addEventListener("click", () => {
+        const lang = b.dataset.lang === "orig" ? "orig" : "ja";
+        localStorage.setItem(LANG_KEY, lang);
+        applyLang(lang);
+      });
     }
-  }
-
-  // 保存済みの選択を復元（既定: 日本語）
-  applyLang(localStorage.getItem(LANG_KEY) === "orig" ? "orig" : "ja");
-
-  for (const b of langButtons) {
-    b.addEventListener("click", () => {
-      const lang = b.dataset.lang === "orig" ? "orig" : "ja";
-      localStorage.setItem(LANG_KEY, lang);
-      applyLang(lang);
-    });
   }
 </script>
