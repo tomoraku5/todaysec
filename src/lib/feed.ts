@@ -112,14 +112,19 @@ export interface SourceMeta {
 }
 
 // 並び順がそのままフィルタチップの表示順（先頭に「すべて」が付く）。
+//
+// ★ ここに載っているソースだけが画面に出る（フィルタチップ／カード描画とも SOURCES 駆動）。
+// 収集を止めたソースは 0 件のチップだけが並んで邪魔になるため、いったん外している。
+// 将来復活させる場合はこの配列に該当行を戻すこと（FeedSource 型・badgeClass の CSS・
+// feeds.config.ts の設定はいずれも残してあるので、行を戻すだけで表示に復帰する）:
+//   { key: "x", label: "X", badgeClass: "src-x" },
+//   { key: "workspace", label: "Workspace", badgeClass: "src-workspace" },
+//   { key: "layerx", label: "LayerX", badgeClass: "src-layerx" },
+//   { key: "hatena", label: "はてブ", badgeClass: "src-hatena" },   // 後日追加予定
+//   { key: "gcloud", label: "GCP", badgeClass: "src-gcloud" },
 export const SOURCES: SourceMeta[] = [
-  { key: "x", label: "X", badgeClass: "src-x" },
-  { key: "workspace", label: "Workspace", badgeClass: "src-workspace" },
-  { key: "layerx", label: "LayerX", badgeClass: "src-layerx" },
-  { key: "hatena", label: "はてブ", badgeClass: "src-hatena" },
   { key: "zenn", label: "Zenn", badgeClass: "src-zenn" },
   { key: "qiita", label: "Qiita", badgeClass: "src-qiita" },
-  { key: "gcloud", label: "GCP", badgeClass: "src-gcloud" },
 ];
 
 export function sourceLabel(source: FeedSource): string {
