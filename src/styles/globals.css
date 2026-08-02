@@ -20,6 +20,15 @@
   --color-accent-deep: #173bbf;
   --color-accent-glow: rgba(47, 95, 255, 0.1);
 
+  /* Logo — エメラルドグリーン。ロゴ（ヘッダーのバッジ＋ワードマーク）専用。
+     サイト全体のアクセント（--color-accent＝コバルト）とは別系統にして、
+     フィルタチップや hover の配色を巻き込まずロゴだけ差し替えられるようにしている。
+     bright/deep は accent と同じく「ライト背景では濃い方が hover」の関係。 */
+  --color-logo: #0f9b6c;
+  --color-logo-bright: #0d845c;
+  --color-logo-deep: #0b704e;
+  --color-logo-glow: rgba(15, 155, 108, 0.1);
+
   /* ソース別アクセント（白背景で可読な文字色＋淡いチップ背景） */
   --color-x: #15181d;
   --color-x-bg: rgba(20, 22, 27, 0.06);
