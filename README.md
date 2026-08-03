@@ -1,7 +1,7 @@
 # today.security — セキュリティ情報フィード集約サイト
 
 **Zenn**「security」トピック、**Qiita**「Security」「認証」タグ、**はてなブログ**の
-セキュリティ専門ブログ、**The Hacker News** / **Dark Reading** / **BleepingComputer** / **The Register**（英語）から
+セキュリティ専門ブログ、**The Hacker News** / **Dark Reading** / **BleepingComputer** / **The Register** / **HackRead**（英語）から
 セキュリティ関連情報を自動集約し、時系列の統合タイムラインとして表示する静的サイト（GitHub Pages）。
 
 - 公開URL: <https://tomoraku5.github.io/todaysec/>
@@ -68,7 +68,7 @@ npx tsx scripts/generateOgImage.ts
 
 `feeds.config.ts` で設定します。
 
-### 有効（7ソース）
+### 有効（8ソース）
 
 | source | 取得元 | 設定 |
 |------|------|------|
@@ -79,6 +79,7 @@ npx tsx scripts/generateOgImage.ts
 | `darkreading` | `www.darkreading.com/rss.xml`（Dark Reading・英語） | `darkreading.rssUrls` |
 | `bleepingcomputer` | `www.bleepingcomputer.com/feed/`（BleepingComputer・英語） | `bleepingcomputer.rssUrls` |
 | `theregister` | `www.theregister.com/security/headlines.atom`（The Register・英語・**セキュリティセクション限定**） | `theregister.rssUrls` |
+| `hackread` | `hackread.com/feed/`（HackRead・英語） | `hackread.rssUrls` |
 
 **`rssUrls` は配列**なので、タグ・トピック・ブログを増やしたいときは URL を足すだけです。
 
@@ -89,10 +90,11 @@ npx tsx scripts/generateOgImage.ts
   プログラム側で自動的にエンコードされます
 - 同じ記事が複数のタグに出ても、記事 URL をキーに重複排除されて 1 件になります
 
-> **The Hacker News / Dark Reading / BleepingComputer / The Register は英語のニュースサイト**です。
+> **The Hacker News / Dark Reading / BleepingComputer / The Register / HackRead は英語のニュースサイト**です。
 > 日本語記事に混じって英語の見出しが並びますが、**Gemini による翻訳が有効なので日本語訳が
 > 併記されます**（フィルタバー右端の「日本語 / 原文」で切り替え）。投稿量は The Hacker News
-> 約10件/日、Dark Reading 約4.6件/日、BleepingComputer 平日 約8件/日、The Register 約3.7件/日で、`limit` は
+> 約10件/日、Dark Reading 約4.6件/日、BleepingComputer 平日 約8件/日、The Register 約3.7件/日、
+> HackRead 約3.3件/日で、`limit` は
 > 「1URLあたり20件」なので取りこぼしません。The Register だけ**セキュリティセクション限定の
 > フィード**があるのでそれを使い（総合IT メディアなので全体フィードは使わない）、他の3サイトは
 > カテゴリ別フィードが無いため全体フィード1本ずつです（The Hacker News はサイトの各 URL が
@@ -100,6 +102,11 @@ npx tsx scripts/generateOgImage.ts
 >
 > ⚠️ BleepingComputer だけ**フィードが15件しか返しません**（他は20〜50件）。平日は約2日分に
 > あたるので、CI が2日以上止まると取りこぼす可能性があります。
+
+> ⚠️ **HackRead は PR配信・SEO記事が混ざります。** 実測では10件中セキュリティ報道が4件程度で、
+> 「Top 10 Companies to Hire Power BI Developers」のような無関係な記事も並びます。
+> 承知の上で採用しており、除外の仕組みは今のところ入れていません（運用しながら判断する方針）。
+> フィードは10件（約3日分）しか返さない点も BleepingComputer と同様の注意点です。
 
 > **はてなブログだけ「個別ブログのURLを並べる」方式**にしています。はてなブログには
 > Zenn/Qiita のような「全ブログ横断で特定タグの新着を取るフィード」が存在せず、
