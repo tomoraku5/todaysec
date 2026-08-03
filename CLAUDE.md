@@ -2,6 +2,11 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+> 📌 **「なぜそうなっているか」の判断記録は [`docs/decisions.md`](docs/decisions.md) にある。**
+> このファイルは**今どうなっているか**、`decisions.md` は**なぜそう決めたか・何を却下したか・
+> どうなったら覆るか**を扱う。現状の記述に納得がいかないとき、または方針を変えようとするときは、
+> 先に `decisions.md` の該当項目（特に「再検討すべき条件」）を読むこと。
+
 ## 作業依頼の標準ルール（毎回の依頼に暗黙で含まれる前提）
 
 > **このリポジトリでの作業は、依頼文に書かれていなくても以下をすべて満たすこと。**
@@ -107,7 +112,6 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 | 対象 | 停止した理由 |
 | --- | --- |
 | `x` | `sourceUrl` がフォーク元作者（basecamp）の公開ブックマーク JSON。X API も有料のため使わない。`x.accounts` は空配列にしてある |
-
 | GCS 保管モード | **未使用**。feed.json は git 保管（ローカルモード）で運用。詳細は `docs/gcs-storage-setup.md` |
 
 **x は「削除」ではなく「温存」**（`disabled: true`）。実装・型・設定を残してあるので、
@@ -191,7 +195,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 
 **2フェーズ構成。ビルド時集約と実行時表示が分離している。**
 
-> **現状との差分**: 以下は 7 ソース時代の記述。仕組みは変わっていないが、**現在有効なのは `zenn` / `qiita` の 2 ソースだけ**（他は `disabled`）。
+> **現状との差分**: 以下はフォーク元（todayai）7 ソース時代の記述で、ソース名の例が古い。**仕組み（2フェーズ構成・マージ・トリム・補完）は現在もそのまま有効**。現在有効なソースは冒頭の「現在有効なソース」表（8ソース）が正。
 
 1. **集約（Node/tsx、ビルド前）**: GitHub Actions の cron（6時間ごと、`.github/workflows/update-and-deploy.yml`）が `scripts/aggregate.ts` を実行。7ソースを `FeedItem` に正規化 → 既存 feed.json とマージ → id で重複排除 → publishedAt 降順ソート → **ソース別 `retentionMax` でトリム**（後述の全期間アーカイブ）→ **トリム後の最終アイテムに OGP サムネ補完 → 機械翻訳で日本語補完（いずれも後述）** → feed.json を上書き。
 2. **表示（Astro、完全静的）**: `src/pages/index.astro`（と `rss.xml.ts`）が **ビルド時に** feed.json を読み込んで描画する。サイトは**実行時には**一切フェッチしない（SSG）。feed.json がレンダリングの単一の真実。
@@ -358,6 +362,13 @@ npm run dev         # 画面（フィルタ・バッジ・説明文）を目視
   - **sharp は `package.json` の直接依存ではなく astro の推移的依存**。将来 astro が落としたら `npm i -D sharp` が必要。
   - **テキストは生成した PC のフォントでラスタライズされる**（サイトの Web フォント Space Grotesk / IBM Plex Mono は載らない）。別 PC で再生成すると字形が変わりうるので、生成済み PNG をコミットして通常は再生成しない運用。
   - favicon（`public/favicon.svg`）は SVG のまま配信＝ブラウザがレンダリングするので、こちらはフォント差の影響を受けない。**SVG のコメント内に連続ハイフン（`--`）を書くと XML が壊れて画像ごと表示されなくなる**ので注意（`--color-logo` のような変数名を書きたくなる場面で踏みやすい）。
+- **依存の脆弱性を理由に astro のメジャー更新を検討するときは、まず「使っていない機能の脆弱性か」を検索で確かめる。** astro 5 を据え置いている根拠が「該当機能を使っていないこと」なので、**判断のたびに同じ検索をやり直すことになる**。結論と経緯は `docs/decisions.md` 項目4 にあるので、ここには手順だけ残す:
+  ```bash
+  grep -rn "define:vars\|set:html\|server:defer\|ViewTransitions\|ClientRouter\|transition:" src/
+  grep -rn "{\.\.\." src/                        # spread props
+  grep -n "adapter\|output" astro.config.mjs     # 無ければ純 SSG＝SSR 系の脆弱性は非該当
+  ```
+  **すべて 0 件であることが据え置きの前提。** ヒットするようになったら `docs/decisions.md` 項目4 の「再検討すべき条件」を満たしたということなので、据え置きの判断ごと評価し直す。
 - **ライト専用サイトなので `globals.css` の `html` に `color-scheme: light` を宣言**。これが無いと Chrome の強制/Auto ダークモードが朝刊テーマを反転させて背景・カードが暗転する（UAの問題ではなくブラウザ設定）。
 - **翻訳が出ない＝Gemini の HTTP 4xx を疑う**（CI は緑のまま titleJa/summaryJa=0 になる）。実例: 使用モデル `gemini-2.0-flash` が 2026-06-01 提供終了→無料枠撤廃で **429**。`feeds.config.ts` の `translate.model` を後継 Flash-Lite（無料枠あり）に切替えて復旧。確認は `gh run view <id> --log | grep '\[translate\]'` と `git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length'`。詳細は memory `todayai-gemini-quota-429`。
 - **「日本語」フィルタチップは現在非表示（実装は残してある）。** 英語ソースが増えて日本語記事が埋没する問題への対策として追加したが、使ってみて不要と判断した。**削除ではなく `SourceFilter.astro` の `SHOW_LANG_FILTER_CHIP = false` で表示だけ止めている＝`true` にすれば復活する**（他の変更は不要）。
