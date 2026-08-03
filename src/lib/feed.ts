@@ -12,7 +12,8 @@ export type FeedSource =
   | "thehackernews"
   | "darkreading"
   | "bleepingcomputer"
-  | "theregister";
+  | "theregister"
+  | "hackread";
 
 export interface FeedItem {
   /** 一意キー（X: tweet id / 記事系(zenn/qiita/hatenablog): `<source>-<記事URL>`） */
@@ -182,6 +183,12 @@ export const SOURCES: SourceMeta[] = [
     label: "The Register",
     badgeClass: "src-theregister",
     description: "The Register（英語）セキュリティセクションの報道・分析。",
+  },
+  {
+    key: "hackread",
+    label: "HackRead",
+    badgeClass: "src-hackread",
+    description: "HackRead（英語）のセキュリティニュース。PR配信・SEO記事も混ざる。",
   },
 ];
 

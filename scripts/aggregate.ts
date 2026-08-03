@@ -134,7 +134,7 @@ async function run(): Promise<void> {
     collected.push(...xItems);
   }
 
-  // ---- 記事系すべて（Zenn / Qiita / はてなブログ / THN / Dark Reading / BleepingComputer / The Register）----
+  // ---- 記事系すべて（Zenn / Qiita / はてなブログ / THN / Dark Reading / BleepingComputer / The Register / HackRead）----
   // いずれも公開 RSS・トークン不要。
   // いずれも設定が `rssUrls`（配列）で構造が同じなので、専用実装を作らず同じループで扱う。
   // 1ソースにつき複数 URL（rssUrls）を束ねられる（例: Qiita = Security タグ＋認証タグ、
@@ -150,6 +150,7 @@ async function run(): Promise<void> {
     "darkreading",
     "bleepingcomputer",
     "theregister",
+    "hackread",
   ] as const) {
     const cfg = feedsConfig[source];
     collected.push(...cachedFor(cache, source));
@@ -234,6 +235,7 @@ async function run(): Promise<void> {
         "darkreading",
         "bleepingcomputer",
         "theregister",
+        "hackread",
       ]),
       {
         extractText: willSummarize,
@@ -315,12 +317,13 @@ async function run(): Promise<void> {
     darkreading: 0,
     bleepingcomputer: 0,
     theregister: 0,
+    hackread: 0,
   } as Record<FeedSource, number>;
   for (const i of items) counts[i.source]++;
   const withThumb = items.filter((i) => i.thumbnail).length;
   const withJa = items.filter((i) => i.titleJa).length;
   console.log(
-    `\n✅ feed.json 更新: 計 ${items.length} 件 (X=${counts.x} / Zenn=${counts.zenn} / Qiita=${counts.qiita} / はてなブログ=${counts.hatenablog} / THN=${counts.thehackernews} / DarkReading=${counts.darkreading} / Bleeping=${counts.bleepingcomputer} / TheRegister=${counts.theregister}) サムネ ${withThumb} 件 / 翻訳 ${withJa} 件`,
+    `\n✅ feed.json 更新: 計 ${items.length} 件 (X=${counts.x} / Zenn=${counts.zenn} / Qiita=${counts.qiita} / はてなブログ=${counts.hatenablog} / THN=${counts.thehackernews} / DarkReading=${counts.darkreading} / Bleeping=${counts.bleepingcomputer} / TheRegister=${counts.theregister} / HackRead=${counts.hackread}) サムネ ${withThumb} 件 / 翻訳 ${withJa} 件`,
   );
   if (errors.length) {
     console.warn(`⚠️  ${errors.length} 件のソースでエラー:\n  - ${errors.join("\n  - ")}`);

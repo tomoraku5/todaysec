@@ -71,6 +71,18 @@
      白背景コントラストは 7.17:1（WCAG AA クリア）。 */
   --color-theregister: #2a5e6f;
   --color-theregister-bg: rgba(42, 94, 111, 0.12);
+  /* HackRead。**9色目**。色相 338°のダスティローズ。
+     ⚠️ 既存8色との最小色差は ΔE=47.4（最近接 The Register 47.4 / BleepingComputer 47.5 /
+     The Hacker News 50.1）で、7色目まで守ってきた基準（既存どうしの最小ペア
+     Qiita↔ロゴ = 58.3）を**下回る**。8色目（The Register 48.3）に続いて2回連続で
+     基準未達＝個別色の割り当ては数値上すでに限界を超えている。
+     **それでも個別色を続ける判断**: バッジには常にソース名の文字が入るので、色は
+     「判別の主役」ではなく補助的な手がかりに留める、と割り切った（グループ配色へは移行しない）。
+     色相が近い赤系（THN 355° 彩度74% / Bleeping 318° 彩度100%）とは**彩度で差をつけている**
+     （本色は彩度30%＝くすんだ色）。白背景コントラストは 5.38:1（WCAG AA クリア）で、
+     既存の濃いバッジ（5.06〜5.71）と明度感もそろう。 */
+  --color-hackread: #9c546e;
+  --color-hackread-bg: rgba(156, 84, 110, 0.12);
 
   /* X ツイート風カード（朝刊ライトに合わせた配色） */
   --color-tweet-bg: #ffffff;
@@ -182,6 +194,10 @@ a {
 .src-theregister {
   color: var(--color-theregister);
   background: var(--color-theregister-bg);
+}
+.src-hackread {
+  color: var(--color-hackread);
+  background: var(--color-hackread-bg);
 }
 
 /* フィルタ非表示用 */

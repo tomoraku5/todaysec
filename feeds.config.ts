@@ -160,6 +160,29 @@ export interface FeedsConfig {
     retentionMax: number;
     disabled?: boolean;
   };
+  /**
+   * HackRead（英語のセキュリティニュース）の公開 RSS。トークン不要。
+   *
+   * ⚠️ **PR配信・SEO記事が混ざる。** 実測10件のうちセキュリティ報道は4件程度で、
+   * 「Top 10 Companies to Hire Power BI Developers」のようなセキュリティ無関係の SEO 記事や、
+   * 著者 `dc:creator` が `CyberNewswire`（プレスリリース転載）の広報記事が並ぶ。
+   * **ノイズを承知の上で採用**しており、除外の仕組みは意図的に作っていない
+   * （1週間ほど運用して実態を見てから判断する方針。詳細は CLAUDE.md）。
+   *
+   * ⚠️ **フィードが 10 件しか返さない**（約3日分）。BleepingComputer（15件・約2日分）と
+   * 並んで取りこぼしリスクが高い部類＝CI が3日以上止まると記事が消える。
+   *
+   * Cloudflare 配下だがフィードは UA を問わず 200（UA 無しでも通る）。
+   * サムネはフィードに無く、`enrichArticles` の og:image 補完に依存する。
+   */
+  hackread: {
+    rssUrls: string[];
+    /** 1回に取り込む最大件数（**1 URL あたり**の取得窓。蓄積は retentionMax まで） */
+    limit?: number;
+    /** 保持上限件数（全期間アーカイブの安全弁） */
+    retentionMax: number;
+    disabled?: boolean;
+  };
   translate: {
     /**
      * 集約時の機械翻訳（原文→日本語）。Gemini REST API を使う。
@@ -283,6 +306,15 @@ export const feedsConfig: FeedsConfig = {
     retentionMax: 1000,
     disabled: false,
   },
+  hackread: {
+    rssUrls: ["https://hackread.com/feed/"],
+    // フィードが10件しか返さないので limit 20 は実質上限なし（全件取り込む）。
+    // 約3.3件/日・6時間ごとの cron なら 1 run あたり ~1件。
+    limit: 20,
+    // 約3.3件/日なので 1000 件 ≒ 10ヶ月分。既定のままで足りる。
+    retentionMax: 1000,
+    disabled: false,
+  },
   translate: {
     // gemini-2.0-flash は 2026-06-01 に提供終了（無料枠撤廃で 429 になる）。
     // 後継の Flash-Lite に切替（無料枠あり・翻訳/簡易処理向け）。memory: todayai-gemini-quota-429。
@@ -302,7 +334,7 @@ export const feedsConfig: FeedsConfig = {
      *    翻訳の入力は抜粋（120字前後）。1件あたりおよそ16倍のトークンを食う。
      *
      * 3行要約を使いたくなったらここに入れる（記事系の全ソース）:
-     *   summarizeSources: ["zenn", "qiita", "hatenablog", "thehackernews", "darkreading", "bleepingcomputer", "theregister"],
+     *   summarizeSources: ["zenn", "qiita", "hatenablog", "thehackernews", "darkreading", "bleepingcomputer", "theregister", "hackread"],
      * ⚠️ 戻すときは `aggregate.ts` の `ENRICH_VERSION` も上げること。上げないと
      *    「翻訳」として保存済みのキャッシュが再生成されず、要約に切り替わらない。
      */
