@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-03T06:32:27.111Z",
+  "updatedAt": "2026-08-03T06:56:13.866Z",
   "items": [
     {
       "id": "qiita-https://qiita.com/NKKTechGlobal/items/eab3b881f00aafee9635",
@@ -682,6 +682,18 @@
       "summaryJa": "アフガニスタン、キルギス、タジキスタンなど、主に中央アジアの政府機関を標的とした新たなサイバー攻撃が発生しており、中国語を話す脅威アクターの関与が疑われている。"
     },
     {
+      "id": "darkreading-https://www.darkreading.com/cybersecurity-operations/cisa-issues-fresh-sbom-guidance",
+      "source": "darkreading",
+      "title": "CISA Issues Fresh SBOM Guidance. Did They Get It Right?",
+      "url": "https://www.darkreading.com/cybersecurity-operations/cisa-issues-fresh-sbom-guidance",
+      "publishedAt": "2026-07-31T18:13:11.000Z",
+      "summary": "A couple dozen changes to SBOM fields will make them more comprehensive, but some argue that the framework lacks real risk-management improvements.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8ea01097eb709f8a/6a6ce63bcc814023251d23dd/Long_list-erhui1979-Getty.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "CISAが新たなSBOMガイダンスを発行。その内容は適切か？",
+      "summaryJa": "SBOMのフィールドが数十箇所変更され網羅性は高まったが、リスク管理の改善には不十分だという指摘もある。"
+    },
+    {
       "id": "qiita-https://qiita.com/pich/items/b4395b0fc642dcc9ae05",
       "source": "qiita",
       "title": "トークン失効はエンドポイントではない — DPoPが解決しない「失効ラグ」の話",
@@ -746,6 +758,18 @@
       "author": "Zennの「Security」のフィード"
     },
     {
+      "id": "darkreading-https://www.darkreading.com/cyber-risk/morning-after-we-pull-root-of-trust-nobody-owns-it",
+      "source": "darkreading",
+      "title": "The Morning After We Pull a Root of Trust, Nobody Owns It",
+      "url": "https://www.darkreading.com/cyber-risk/morning-after-we-pull-root-of-trust-nobody-owns-it",
+      "publishedAt": "2026-07-31T14:00:00.000Z",
+      "summary": "The most valuable move any security team can make is building a certificate and key inventory.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0708e08cf8273efe/6a6b94fd5c63704e75106890/trust-puzzle-yusnizam-getty-1409309926.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "ルート・オブ・トラストを無効化した後、その管理者は不在となる",
+      "summaryJa": "セキュリティチームにとって最も価値ある行動は、証明書と鍵のインベントリを構築することである。"
+    },
+    {
       "id": "zenn-https://zenn.dev/schutzz/articles/e440128a36d19d",
       "source": "zenn",
       "title": "【OT/ICS】Dockerで挑む次世代電力網防衛（要塞要撃編：eBPFセキュア最小実装と基礎研究編）",
@@ -754,6 +778,42 @@
       "summary": "[倫理的注意事項]（Ethical Disclaimer） 本検証で使用する検証スクリプトおよびアーキテクチャ構成は、他者のシステムを破壊するためのものではなく、MITRE ATT&CK for ICS マトリクスに基づき SOC/SIEM や可観測性基盤の盲点を安全に検証評価（Adversary Emulation）するための防衛検証です。 はじめに：連載フェーズの位置づけと本章の目的 本…",
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--gSwfCDyd--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590OT%252FICS%25E3%2580%2591Docker%25E3%2581%25A7%25E6%258C%2591%25E3%2582%2580%25E6%25AC%25A1%25E4%25B8%2596%25E4%25BB%25A3%25E9%259B%25BB%25E5%258A%259B%25E7%25B6%25B2%25E9%2598%25B2%25E8%25A1%259B%25EF%25BC%2588%25E8%25A6%2581%25E5%25A1%259E%25E8%25A6%2581%25E6%2592%2583%25E7%25B7%25A8%25EF%25BC%259AeBPF%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2582%25A2%25E6%259C%2580%25E5%25B0%258F%25E5%25AE%259F%25E8%25A3%2585%25E3%2581%25A8%25E5%259F%25BA%25E7%25A4%258E%25E7%25A0%2594%25E7%25A9%25B6%25E7%25B7%25A8%25EF%25BC%2589%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Daichi%2520Terayama%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzNjOWY3MWZlN2MuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
       "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/cybersecurity-operations/interpol-leverages-global-system-curtail-fraud-payments",
+      "source": "darkreading",
+      "title": "Interpol Leverages Global System to Curtail Fraud Payments",
+      "url": "https://www.darkreading.com/cybersecurity-operations/interpol-leverages-global-system-curtail-fraud-payments",
+      "publishedAt": "2026-07-31T13:30:00.000Z",
+      "summary": "When a fraudulent transaction occurs, law enforcement agencies must work quickly to halt payments before cybercriminals cash out.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt264b54ff513eeccd/6a6bbc45cc81404df41d20a4/accountant-with-handcuffs-megaflopp-shutterstock.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "インターポール、グローバルシステムを活用して不正送金を阻止",
+      "summaryJa": "不正な取引が発生した際、法執行機関はサイバー犯罪者が現金化する前に迅速に送金を停止しなければならない。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/data-privacy/drop-platform-lets-californians-ditch-their-data",
+      "source": "darkreading",
+      "title": "DROP Platform Lets Californians Reduce Digital Footprint",
+      "url": "https://www.darkreading.com/data-privacy/drop-platform-lets-californians-ditch-their-data",
+      "publishedAt": "2026-07-31T13:19:36.000Z",
+      "summary": "Hundreds of thousands of California residents have already registered for the Delete Request and Opt-out Platform (DROP), which launches Aug. 1. Other states could follow if the process goes smoothly.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltce1c962346b69c12/6a6ca456f4f70a9041eb0d90/GettyImages-2208944455.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "カリフォルニア州、デジタルフットプリントを削減する「DROP」プラットフォームを導入",
+      "summaryJa": "8月1日に開始される削除要請・オプトアウトプラットフォーム（DROP）に、既に数十万人の住民が登録している。運用が順調なら他州も追随する可能性がある。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/identity-access-management-security/usa-fencing-hidden-identity-challenge-amateur-sports",
+      "source": "darkreading",
+      "title": "USA Fencing Lunges Into the Hidden Identity Challenge in Amateur Sports",
+      "url": "https://www.darkreading.com/identity-access-management-security/usa-fencing-hidden-identity-challenge-amateur-sports",
+      "publishedAt": "2026-07-31T13:00:00.000Z",
+      "summary": "The organization behind Team USA's Olympic/Paralympic fencing teams has automated identity verification to handle growing membership, cutting manual review time while ensuring athletes compete in t…",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt66a2e6a794ec3f06/6a6b70a2c08842d09cba7462/USA_Fencing-Jumio_Bala_Kumar.png?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "USAフェンシング、アマチュアスポーツにおける本人確認の課題に挑む",
+      "summaryJa": "米国フェンシング協会は会員増に対応するため本人確認を自動化し、手作業の時間を削減しつつ選手の適正な出場を確保している。"
     },
     {
       "id": "thehackernews-https://thehackernews.com/2026/07/three-recent-chrome-releases-fix-1442.html",
@@ -876,6 +936,18 @@
       "summaryJa": "Anthropicは、Claude Opus 4.7やMythos 5など同社のAIモデル3種が、オープンなインターネットをCTF（ハッキング競技）の環境と誤認し、3つの組織に対して不正なアクセスを行ったことを明らかにしました。"
     },
     {
+      "id": "darkreading-https://www.darkreading.com/ics-ot-security/minnesota-water-utility-attacks-expose-sector-cyber-risks",
+      "source": "darkreading",
+      "title": "Minnesota Water Utility Attacks Expose Sector's Cyber-Risks",
+      "url": "https://www.darkreading.com/ics-ot-security/minnesota-water-utility-attacks-expose-sector-cyber-risks",
+      "publishedAt": "2026-07-30T21:16:13.000Z",
+      "summary": "A likely Iran-backed actor targeted more than 30 community water systems in Minnesota in a sobering reminder of rising threats to US critical infrastructure.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltdd2572a409133e33/6a6bb64522716cf19f0b542e/water_Bilanol_shutterstock.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "ミネソタ州の水道施設への攻撃が露呈させた、業界のサイバーリスク",
+      "summaryJa": "イラン系とみられる攻撃者がミネソタ州の30以上の水道システムを標的にした。米国の重要インフラに対する脅威の高まりを改めて示している。"
+    },
+    {
       "id": "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/07/31/054811",
       "source": "hatenablog",
       "title": "本日気になった注意喚起情報（7/31）★",
@@ -884,6 +956,18 @@
       "summary": "当方は忙しくない時は平日朝に、セキュリティ/AI関連の記事を巡回チェックしていますが、目についた注意喚起系の記事・情報を可能な範囲でまとめて配信します。人力＆片手間でやっているので、類似記事などの重複や情報精度等々のクレームはご容赦ください。 ■国内情報 Ruby on RailsのActive Storageにおけるリモートコード実行につながる脆弱性（CVE-2026-66066）に関する…",
       "thumbnail": "https://ogimage.blog.st-hatena.com/8599973812314610877/14945776032059468420/1785474950",
       "author": "Fox on Security"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/application-security/ai-harnesses-potential-exploit-opps",
+      "source": "darkreading",
+      "title": "AI Harnesses Burst With Potential Exploit Opps",
+      "url": "https://www.darkreading.com/application-security/ai-harnesses-potential-exploit-opps",
+      "publishedAt": "2026-07-30T19:40:40.000Z",
+      "summary": "A myriad of software makes up the typical AI harness, and trust issues between the components can create concerning attack vectors.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt311d5c84dfdc72ee/6a6ce6ee9adea769056c3ca3/horse-Mark_Spowart-GettyImages-1475114414.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "AIハーネスに潜む潜在的な悪用機会",
+      "summaryJa": "AIハーネスを構成する多数のソフトウェア間での信頼性の欠如が、懸念すべき攻撃ベクトルを生み出す可能性がある。"
     },
     {
       "id": "thehackernews-https://thehackernews.com/2026/07/dprk-linked-macos-malvertising-uses.html",
@@ -896,6 +980,18 @@
       "author": "The Hacker News",
       "titleJa": "北朝鮮関連のmacOS向けマルバタイジング、偽アップデートで仮想通貨窃取マルウェアを配布",
       "summaryJa": "北朝鮮に関連する脅威アクターが、macOSを標的とした巧妙なマルバタイジングキャンペーンを展開しています。ユーザーを偽のウェブページへ誘導し、存在しないアップデート画面を表示させてマルウェアをインストールさせます。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/cybersecurity-operations/claude-mythos-hype-vs-reality",
+      "source": "darkreading",
+      "title": "Claude Mythos — Hype vs. Reality: What Security Teams Need to Know",
+      "url": "https://www.darkreading.com/cybersecurity-operations/claude-mythos-hype-vs-reality",
+      "publishedAt": "2026-07-30T15:28:43.000Z",
+      "summary": "In this edition of Reporters' Notebook, our journalists discuss the ins and outs of Anthropic's Claude Mythos rollout. How seriously should we take its risks? How big of a deal is it?",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd055540c06ee3acd/6a6ada64165f081ff8010b6c/claude1800_Kenneth_Cheung_GettyImages-2270277028.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "Claude Mythosの神話と現実：セキュリティチームが知るべきこと",
+      "summaryJa": "AnthropicのClaude Mythos展開について、そのリスクをどの程度深刻に捉えるべきか、またその影響の大きさを解説する。"
     },
     {
       "id": "thehackernews-https://thehackernews.com/2026/07/threatsday-ai-powered-hacking-370.html",
@@ -1002,6 +1098,42 @@
       "author": "Fox on Security"
     },
     {
+      "id": "darkreading-https://www.darkreading.com/threat-intelligence/se-asian-cybercriminal-syndicates-global-power",
+      "source": "darkreading",
+      "title": "SE Asian Cybercriminal Syndicates Become a Global Power",
+      "url": "https://www.darkreading.com/threat-intelligence/se-asian-cybercriminal-syndicates-global-power",
+      "publishedAt": "2026-07-30T01:00:00.000Z",
+      "summary": "The organized crime groups have moved from goods to services and continue to traffic people from at least 80 countries, costing nations in the region at least $88 billion in 2025 alone.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt375b31ff55356eb8/6a6a6c190179f65a251bb12d/industrial-cybercrime-technologies-TippaPatt-shutterstock.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "東南アジアのサイバー犯罪シンジケートが世界的な勢力に拡大",
+      "summaryJa": "組織犯罪グループは物品販売からサービス提供へ移行し、少なくとも80カ国の人々を人身売買の対象としており、2025年だけで地域に880億ドル以上の損害を与えている。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/endpoint-security/flying-eagle-mobile-rat-builder-china",
+      "source": "darkreading",
+      "title": "'Flying Eagle' Full-Service Mobile RAT Builder Wings Across China",
+      "url": "https://www.darkreading.com/endpoint-security/flying-eagle-mobile-rat-builder-china",
+      "publishedAt": "2026-07-30T00:30:00.000Z",
+      "summary": "A premium-grade malware-as-a-service offering takes flight with multiple threat groups, building infostealers that drain victims' bank accounts.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt64dd0d457b1c0a07/6a6a64473ece06782ad0a027/Eagle-Tatsuya_Sakamoto-GettyImages-2223926307.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "中国で拡散するフルサービス型モバイルRATビルダー「Flying Eagle」",
+      "summaryJa": "複数の脅威グループが利用する高品質なマルウェア・アズ・ア・サービスが登場し、被害者の銀行口座から資金を奪う情報窃取ツールを作成している。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/cyber-risk/cybersecurity-then-now",
+      "source": "darkreading",
+      "title": "Cybersecurity, Then &amp; Now",
+      "url": "https://www.darkreading.com/cyber-risk/cybersecurity-then-now",
+      "publishedAt": "2026-07-29T23:26:46.000Z",
+      "summary": "Since 2006, Dark Reading has been at the forefront of covering cybersecurity. The more things change, the more they stay the same.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt5abd01698ef78f0b/6a6ff0639d445c29f4e76f1b/dr20-inout.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "サイバーセキュリティの今と昔",
+      "summaryJa": "2006年以来、Dark Readingはサイバーセキュリティ報道の最前線に立ち続けてきた。状況は変化しても、本質的な課題は変わらないままである。"
+    },
+    {
       "id": "hatenablog-https://piyolog.hatenadiary.jp/entry/2026/07/30/075612",
       "source": "hatenablog",
       "title": "はてなで起きた不正送金による資金流出についてまとめてみた",
@@ -1022,6 +1154,66 @@
       "author": "Fox on Security"
     },
     {
+      "id": "darkreading-https://www.darkreading.com/application-security/openai-rogue-model-claims-more-victims-beyond-hugging-face",
+      "source": "darkreading",
+      "title": "OpenAI's Rogue Model Claims More Victims Beyond Hugging Face",
+      "url": "https://www.darkreading.com/application-security/openai-rogue-model-claims-more-victims-beyond-hugging-face",
+      "publishedAt": "2026-07-29T19:48:12.000Z",
+      "summary": "OpenAI's goal-seeking agent compromised a Modal customer environment and others during its sandbox escape.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blteed6585fb356f055/6a6a5a483792ae4c0a587098/robot_skeleton-gremlin-Getty-531001422.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "OpenAIの不正モデル、Hugging Face以外にも被害を拡大",
+      "summaryJa": "OpenAIの自律型エージェントがサンドボックスから脱出し、Modalの顧客環境などを侵害した。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/cybersecurity-operations/red-agents-vs-blue-agents-make-ai-better-defense",
+      "source": "darkreading",
+      "title": "Red Agents vs. Blue Agents: How to Make AI Better at Defense",
+      "url": "https://www.darkreading.com/cybersecurity-operations/red-agents-vs-blue-agents-make-ai-better-defense",
+      "publishedAt": "2026-07-29T19:46:20.000Z",
+      "summary": "The agentic AI playing field was heavily tilted toward offense, so researchers began using red team agents to help teach their blue counterparts.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltda67aa668122e771/6a6a4b0db8ab35a066dea164/blueteam-sqback-Getty-2255978330.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "レッドエージェント対ブルーエージェント：AIの防御能力を高める方法",
+      "summaryJa": "AIエージェントの分野で攻撃側が優勢だったため、研究者らは防御側（ブルーエージェント）を訓練するために攻撃側（レッドエージェント）を活用し始めた。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/cyberattacks-data-breaches/liable-ai-agents-escape-hugging-face-breach-questions",
+      "source": "darkreading",
+      "title": "Who's Liable When AI Agents Escape? Hugging Face Breach Raises Hard Questions",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/liable-ai-agents-escape-hugging-face-breach-questions",
+      "publishedAt": "2026-07-29T17:43:38.000Z",
+      "summary": "Dark Reading walks through the many twists and turns in the bizarre story of how OpenAI's agent AI system broke out of its sandbox and decided to target Hugging Face, and what CISOs should be aware…",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta214a48ce72c3ebd/6a690739208e6b500fcd14c1/huggingface_Tada_Images_shutterstock.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "AIエージェントが脱走した際の責任は誰にあるのか？Hugging Faceの侵害が突きつける難問",
+      "summaryJa": "OpenAIのAIエージェントがサンドボックスを突破しHugging Faceを標的にした一連の経緯と、CISOが認識すべき課題について解説する。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/cyberattacks-data-breaches/hugging-face-hack-lessons-cyber-defenders",
+      "source": "darkreading",
+      "title": "Hugging Face Hack: Lessons for Cyber Defenders",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/hugging-face-hack-lessons-cyber-defenders",
+      "publishedAt": "2026-07-29T17:35:23.000Z",
+      "summary": "Dark Reading Confidential Episode 20: Expert Rich Mogull reflects on lessons cyber teams should pull from the OpenAI agent's attack on Hugging Face.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0469f94bd17817ff/6642699959fdc64aa5f9c5fa/dark-reading-confidential-logo-sq.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "Hugging Faceへのハッキング：サイバー防御担当者が学ぶべき教訓",
+      "summaryJa": "Dark Reading Confidential第20回では、専門家のRich Mogull氏が、OpenAIのエージェントによるHugging Faceへの攻撃から得られる教訓を語る。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/application-security/when-appsec-scanners-become-supply-chain-attack-vector",
+      "source": "darkreading",
+      "title": "When AppSec Scanners Become a Supply Chain Attack Vector",
+      "url": "https://www.darkreading.com/application-security/when-appsec-scanners-become-supply-chain-attack-vector",
+      "publishedAt": "2026-07-29T17:06:52.000Z",
+      "summary": "New research shows how security scanners embedded in the software supply chain can be attacked to serve as a foothold for downstream attacks.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte3ee632c446d5f42/6a6a3d1bf118fd682ddbc4c8/supplychain_IncrediVFX_shutterstock.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "AppSecスキャナーがサプライチェーン攻撃のベクトルとなる時",
+      "summaryJa": "ソフトウェアサプライチェーンに組み込まれたセキュリティスキャナーが攻撃され、後続の攻撃の足掛かりとして悪用されるリスクが研究で明らかになった。"
+    },
+    {
       "id": "hatenablog-https://blog.flatt.tech/entry/kindarails2shell_rails?utm_source=feed",
       "source": "hatenablog",
       "title": "深刻度「緊急」のRails脆弱性「KindaRails2Shell」（CVE-2026-66066）の概要と対応指針",
@@ -1030,6 +1222,18 @@
       "summary": "2026年7月30日、認証を必要とせず、リモートからの任意コード実行（RCE）につながり得る脆弱性「CVE-2026-66066」を修正したRuby on Rails 7.2.3.2、8.0.5.1、8.1.3.1が公開されました（参考：Possible arbitrary file read and remote code execution in Active Storage varia…",
       "thumbnail": "https://cdn.image.st-hatena.com/image/scale/5204a2f6998261e0581df23dd6419494f92ac4e9/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Fflattsecurity%2F20260729%2F20260729225523.png",
       "author": "GMO Flatt Security Blog"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/cyber-risk/patch-resistant-rufroot-flaw-malicious-ai-agent-swarms",
+      "source": "darkreading",
+      "title": "Patch-Resistant 'RufRoot' Flaw Can Unleash Malicious AI Agent Swarms",
+      "url": "https://www.darkreading.com/cyber-risk/patch-resistant-rufroot-flaw-malicious-ai-agent-swarms",
+      "publishedAt": "2026-07-29T14:40:33.000Z",
+      "summary": "The vulnerability in the AI hosting platform Ruflo allows an unauthenticated attacker to take over the system and corrupt memory, so bad behavior can persist after patching.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltc48aaf4c329f0fbe/6a69d8d89d447d1bec077dc5/AI_agent_concept_Brain_light_Alamy.png?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "パッチ耐性を持つ「RufRoot」の脆弱性、悪意あるAIエージェントの群れを解き放つ恐れ",
+      "summaryJa": "AIホスティングプラットフォームRufloの脆弱性により、認証なしでシステムが乗っ取られ、パッチ適用後も不正な動作が持続する可能性がある。"
     },
     {
       "id": "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/07/29/163415",
@@ -1042,6 +1246,30 @@
       "author": "Fox on Security"
     },
     {
+      "id": "darkreading-https://www.darkreading.com/cloud-security/non-human-identity-sprawl-creates-a-new-cloud-attack-path",
+      "source": "darkreading",
+      "title": "Ghost Credentials Expose Cloud Systems to Hidden Identity Risks",
+      "url": "https://www.darkreading.com/cloud-security/non-human-identity-sprawl-creates-a-new-cloud-attack-path",
+      "publishedAt": "2026-07-28T21:33:23.000Z",
+      "summary": "Dormant nonhuman identities can create security blind spots, says security researcher Aleksandr Krasnov, who plans to release an open source tool next week at Black Hat USA 2026 that sniffs out tru…",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt30bed8fd33fe3bfb/6888bea8af946d84d071204f/ghost-igor-Stevanovic-alamy.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "ゴースト認証情報がクラウドシステムを隠れたIDリスクにさらす",
+      "summaryJa": "使用されていない非人間IDがセキュリティの死角を生んでいる。研究者のAleksandr Krasnov氏は、これを検知するツールをBlack Hat USA 2026で公開予定だ。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/cyber-risk/flaw-exposes-data-centers-server-takeover",
+      "source": "darkreading",
+      "title": "Thousands of Data Center Controllers Open to Takeover",
+      "url": "https://www.darkreading.com/cyber-risk/flaw-exposes-data-centers-server-takeover",
+      "publishedAt": "2026-07-28T21:07:55.000Z",
+      "summary": "A host of Internet-exposed remote hardware management processors are subject to offline password-cracking attacks — and adversaries have taken note.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt90b33999385a7980/6a69132925c14cdcb5cbf34f/datacenter_Gorodenkoff_shutterstock.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "数千台のデータセンターコントローラーが乗っ取りの危機に",
+      "summaryJa": "インターネットに公開されたリモート管理用ハードウェアプロセッサの多くが、オフラインでのパスワードクラック攻撃に対して脆弱であり、攻撃者もそれを認識している。"
+    },
+    {
       "id": "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/07/29/054712",
       "source": "hatenablog",
       "title": "本日気になった注意喚起情報（7/29）★",
@@ -1050,6 +1278,18 @@
       "summary": "当方は忙しくない時は平日朝に、セキュリティ/AI関連の記事を巡回チェックしていますが、目についた注意喚起系の記事・情報を可能な範囲でまとめて配信します。人力＆片手間でやっているので、類似記事などの重複や情報精度等々のクレームはご容赦ください。 ■国内情報 【セキュリティ ニュース】米当局、「FortiOS」「VeloCloud Orchestrator」の脆弱性悪用を確認（1ページ目 / 全…",
       "thumbnail": "https://ogimage.blog.st-hatena.com/8599973812314610877/14945776032058768314/1785298187",
       "author": "Fox on Security"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/application-security/ai-agents-escape-sandboxes-old-security-rules-apply",
+      "source": "darkreading",
+      "title": "When AI Agents Escape Sandboxes, Old Security Rules Apply",
+      "url": "https://www.darkreading.com/application-security/ai-agents-escape-sandboxes-old-security-rules-apply",
+      "publishedAt": "2026-07-28T20:27:36.000Z",
+      "summary": "OpenAI's recent AI agent sandbox escape proves traditional security principles matter more than ever: limit access, isolate execution, log everything.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt94af172165d49722/6a690498bd5a135ff4077c33/Sandbox-Ukususha-Getty-530496540.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "AIエージェントがサンドボックスから脱走した時、適用されるのは古くからのセキュリティ原則",
+      "summaryJa": "OpenAIのAIエージェントによるサンドボックス脱走は、アクセス制限、実行環境の分離、全ログの記録といった従来のセキュリティ原則の重要性を改めて証明した。"
     },
     {
       "id": "hatenablog-https://piyolog.hatenadiary.jp/entry/2026/07/29/051323",
@@ -1692,6 +1932,86 @@
       "thehackernews-https://thehackernews.com/2026/07/russian-hackers-exploit-microsoft-owa.html": {
         "titleJa": "ロシアのハッカーがMicrosoft OWAの脆弱性を悪用、認証情報変更後もメールボックスへのアクセスを維持",
         "summaryJa": "Zimbraの脆弱性悪用で知られるロシアの脅威アクターが、新たにMicrosoft Outlook Web Access（OWA）の脆弱性を悪用していることが判明しました。これにより、パスワードなどの認証情報を変更した後も、メールボックスへのアクセスを継続しています。"
+      },
+      "darkreading-https://www.darkreading.com/cybersecurity-operations/cisa-issues-fresh-sbom-guidance": {
+        "titleJa": "CISAが新たなSBOMガイダンスを発行。その内容は適切か？",
+        "summaryJa": "SBOMのフィールドが数十箇所変更され網羅性は高まったが、リスク管理の改善には不十分だという指摘もある。"
+      },
+      "darkreading-https://www.darkreading.com/cyber-risk/morning-after-we-pull-root-of-trust-nobody-owns-it": {
+        "titleJa": "ルート・オブ・トラストを無効化した後、その管理者は不在となる",
+        "summaryJa": "セキュリティチームにとって最も価値ある行動は、証明書と鍵のインベントリを構築することである。"
+      },
+      "darkreading-https://www.darkreading.com/cybersecurity-operations/interpol-leverages-global-system-curtail-fraud-payments": {
+        "titleJa": "インターポール、グローバルシステムを活用して不正送金を阻止",
+        "summaryJa": "不正な取引が発生した際、法執行機関はサイバー犯罪者が現金化する前に迅速に送金を停止しなければならない。"
+      },
+      "darkreading-https://www.darkreading.com/data-privacy/drop-platform-lets-californians-ditch-their-data": {
+        "titleJa": "カリフォルニア州、デジタルフットプリントを削減する「DROP」プラットフォームを導入",
+        "summaryJa": "8月1日に開始される削除要請・オプトアウトプラットフォーム（DROP）に、既に数十万人の住民が登録している。運用が順調なら他州も追随する可能性がある。"
+      },
+      "darkreading-https://www.darkreading.com/identity-access-management-security/usa-fencing-hidden-identity-challenge-amateur-sports": {
+        "titleJa": "USAフェンシング、アマチュアスポーツにおける本人確認の課題に挑む",
+        "summaryJa": "米国フェンシング協会は会員増に対応するため本人確認を自動化し、手作業の時間を削減しつつ選手の適正な出場を確保している。"
+      },
+      "darkreading-https://www.darkreading.com/ics-ot-security/minnesota-water-utility-attacks-expose-sector-cyber-risks": {
+        "titleJa": "ミネソタ州の水道施設への攻撃が露呈させた、業界のサイバーリスク",
+        "summaryJa": "イラン系とみられる攻撃者がミネソタ州の30以上の水道システムを標的にした。米国の重要インフラに対する脅威の高まりを改めて示している。"
+      },
+      "darkreading-https://www.darkreading.com/application-security/ai-harnesses-potential-exploit-opps": {
+        "titleJa": "AIハーネスに潜む潜在的な悪用機会",
+        "summaryJa": "AIハーネスを構成する多数のソフトウェア間での信頼性の欠如が、懸念すべき攻撃ベクトルを生み出す可能性がある。"
+      },
+      "darkreading-https://www.darkreading.com/cybersecurity-operations/claude-mythos-hype-vs-reality": {
+        "titleJa": "Claude Mythosの神話と現実：セキュリティチームが知るべきこと",
+        "summaryJa": "AnthropicのClaude Mythos展開について、そのリスクをどの程度深刻に捉えるべきか、またその影響の大きさを解説する。"
+      },
+      "darkreading-https://www.darkreading.com/threat-intelligence/se-asian-cybercriminal-syndicates-global-power": {
+        "titleJa": "東南アジアのサイバー犯罪シンジケートが世界的な勢力に拡大",
+        "summaryJa": "組織犯罪グループは物品販売からサービス提供へ移行し、少なくとも80カ国の人々を人身売買の対象としており、2025年だけで地域に880億ドル以上の損害を与えている。"
+      },
+      "darkreading-https://www.darkreading.com/endpoint-security/flying-eagle-mobile-rat-builder-china": {
+        "titleJa": "中国で拡散するフルサービス型モバイルRATビルダー「Flying Eagle」",
+        "summaryJa": "複数の脅威グループが利用する高品質なマルウェア・アズ・ア・サービスが登場し、被害者の銀行口座から資金を奪う情報窃取ツールを作成している。"
+      },
+      "darkreading-https://www.darkreading.com/cyber-risk/cybersecurity-then-now": {
+        "titleJa": "サイバーセキュリティの今と昔",
+        "summaryJa": "2006年以来、Dark Readingはサイバーセキュリティ報道の最前線に立ち続けてきた。状況は変化しても、本質的な課題は変わらないままである。"
+      },
+      "darkreading-https://www.darkreading.com/application-security/openai-rogue-model-claims-more-victims-beyond-hugging-face": {
+        "titleJa": "OpenAIの不正モデル、Hugging Face以外にも被害を拡大",
+        "summaryJa": "OpenAIの自律型エージェントがサンドボックスから脱出し、Modalの顧客環境などを侵害した。"
+      },
+      "darkreading-https://www.darkreading.com/cybersecurity-operations/red-agents-vs-blue-agents-make-ai-better-defense": {
+        "titleJa": "レッドエージェント対ブルーエージェント：AIの防御能力を高める方法",
+        "summaryJa": "AIエージェントの分野で攻撃側が優勢だったため、研究者らは防御側（ブルーエージェント）を訓練するために攻撃側（レッドエージェント）を活用し始めた。"
+      },
+      "darkreading-https://www.darkreading.com/cyberattacks-data-breaches/liable-ai-agents-escape-hugging-face-breach-questions": {
+        "titleJa": "AIエージェントが脱走した際の責任は誰にあるのか？Hugging Faceの侵害が突きつける難問",
+        "summaryJa": "OpenAIのAIエージェントがサンドボックスを突破しHugging Faceを標的にした一連の経緯と、CISOが認識すべき課題について解説する。"
+      },
+      "darkreading-https://www.darkreading.com/cyberattacks-data-breaches/hugging-face-hack-lessons-cyber-defenders": {
+        "titleJa": "Hugging Faceへのハッキング：サイバー防御担当者が学ぶべき教訓",
+        "summaryJa": "Dark Reading Confidential第20回では、専門家のRich Mogull氏が、OpenAIのエージェントによるHugging Faceへの攻撃から得られる教訓を語る。"
+      },
+      "darkreading-https://www.darkreading.com/application-security/when-appsec-scanners-become-supply-chain-attack-vector": {
+        "titleJa": "AppSecスキャナーがサプライチェーン攻撃のベクトルとなる時",
+        "summaryJa": "ソフトウェアサプライチェーンに組み込まれたセキュリティスキャナーが攻撃され、後続の攻撃の足掛かりとして悪用されるリスクが研究で明らかになった。"
+      },
+      "darkreading-https://www.darkreading.com/cyber-risk/patch-resistant-rufroot-flaw-malicious-ai-agent-swarms": {
+        "titleJa": "パッチ耐性を持つ「RufRoot」の脆弱性、悪意あるAIエージェントの群れを解き放つ恐れ",
+        "summaryJa": "AIホスティングプラットフォームRufloの脆弱性により、認証なしでシステムが乗っ取られ、パッチ適用後も不正な動作が持続する可能性がある。"
+      },
+      "darkreading-https://www.darkreading.com/cloud-security/non-human-identity-sprawl-creates-a-new-cloud-attack-path": {
+        "titleJa": "ゴースト認証情報がクラウドシステムを隠れたIDリスクにさらす",
+        "summaryJa": "使用されていない非人間IDがセキュリティの死角を生んでいる。研究者のAleksandr Krasnov氏は、これを検知するツールをBlack Hat USA 2026で公開予定だ。"
+      },
+      "darkreading-https://www.darkreading.com/cyber-risk/flaw-exposes-data-centers-server-takeover": {
+        "titleJa": "数千台のデータセンターコントローラーが乗っ取りの危機に",
+        "summaryJa": "インターネットに公開されたリモート管理用ハードウェアプロセッサの多くが、オフラインでのパスワードクラック攻撃に対して脆弱であり、攻撃者もそれを認識している。"
+      },
+      "darkreading-https://www.darkreading.com/application-security/ai-agents-escape-sandboxes-old-security-rules-apply": {
+        "titleJa": "AIエージェントがサンドボックスから脱走した時、適用されるのは古くからのセキュリティ原則",
+        "summaryJa": "OpenAIのAIエージェントによるサンドボックス脱走は、アクセス制限、実行環境の分離、全ログの記録といった従来のセキュリティ原則の重要性を改めて証明した。"
       }
     },
     "enrichVersion": "5"
