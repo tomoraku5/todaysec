@@ -103,6 +103,21 @@ export interface FeedsConfig {
     retentionMax: number;
     disabled?: boolean;
   };
+  /**
+   * Dark Reading（英語のセキュリティ専門メディア）の公開 RSS。トークン不要。
+   *
+   * **全体フィード `/rss.xml` の1本だけ**を使う。セクション別フィード
+   * （`/rss/<section>.xml` 形式）は 404 で存在せず、旧 `/rss_simple.asp` は 403、
+   * `/feed` はトップページへ飛ぶ（いずれも実アクセスで確認）。
+   */
+  darkreading: {
+    rssUrls: string[];
+    /** 1回に取り込む最大件数（**1 URL あたり**の取得窓。蓄積は retentionMax まで） */
+    limit?: number;
+    /** 保持上限件数（全期間アーカイブの安全弁） */
+    retentionMax: number;
+    disabled?: boolean;
+  };
   translate: {
     /**
      * 集約時の機械翻訳（原文→日本語）。Gemini REST API を使う。
@@ -190,6 +205,18 @@ export const feedsConfig: FeedsConfig = {
     retentionMax: 1000,
     disabled: false,
   },
+  darkreading: {
+    rssUrls: [
+      // セクション別フィードは存在しないので全体フィードのみ。
+      "https://www.darkreading.com/rss.xml",
+    ],
+    // 実測 約4.6件/日。cron は6時間ごと（＝1 run あたり ~1.2件）なので 20 で十分。
+    // フィード自体は50件（約11日分）返すため、数日止まっても取りこぼさない。
+    limit: 20,
+    // 約4.6件/日なので 1000 件 ≒ 7ヶ月分。既定のままで足りる。
+    retentionMax: 1000,
+    disabled: false,
+  },
   translate: {
     // gemini-2.0-flash は 2026-06-01 に提供終了（無料枠撤廃で 429 になる）。
     // 後継の Flash-Lite に切替（無料枠あり・翻訳/簡易処理向け）。memory: todayai-gemini-quota-429。
@@ -208,8 +235,8 @@ export const feedsConfig: FeedsConfig = {
      * 2. **トークン消費が桁違い。** 要約の入力は記事本文（`contentText`・最大2000字）で、
      *    翻訳の入力は抜粋（120字前後）。1件あたりおよそ16倍のトークンを食う。
      *
-     * 3行要約を使いたくなったらここに戻す（元の値）:
-     *   summarizeSources: ["zenn", "qiita", "hatenablog", "thehackernews"],
+     * 3行要約を使いたくなったらここに入れる（記事系の全ソース）:
+     *   summarizeSources: ["zenn", "qiita", "hatenablog", "thehackernews", "darkreading"],
      * ⚠️ 戻すときは `aggregate.ts` の `ENRICH_VERSION` も上げること。上げないと
      *    「翻訳」として保存済みのキャッシュが再生成されず、要約に切り替わらない。
      */

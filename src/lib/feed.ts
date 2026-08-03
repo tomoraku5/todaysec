@@ -4,7 +4,13 @@
  * かつて存在した `hatena`（はてなブックマーク）/ `layerx` / `workspace` / `gcloud` は
  * セキュリティ用途に合わないため削除済み（詳細は削除前のコミット c5c9547 を参照）。
  */
-export type FeedSource = "x" | "zenn" | "qiita" | "hatenablog" | "thehackernews";
+export type FeedSource =
+  | "x"
+  | "zenn"
+  | "qiita"
+  | "hatenablog"
+  | "thehackernews"
+  | "darkreading";
 
 export interface FeedItem {
   /** 一意キー（X: tweet id / 記事系(zenn/qiita/hatenablog): `<source>-<記事URL>`） */
@@ -156,6 +162,12 @@ export const SOURCES: SourceMeta[] = [
     label: "The Hacker News",
     badgeClass: "src-thehackernews",
     description: "The Hacker News（英語）の脆弱性・インシデント速報。",
+  },
+  {
+    key: "darkreading",
+    label: "Dark Reading",
+    badgeClass: "src-darkreading",
+    description: "Dark Reading（英語）のセキュリティ解説・分析記事。",
   },
 ];
 

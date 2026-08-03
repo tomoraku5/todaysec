@@ -48,6 +48,12 @@
      白背景でのコントラストは 5.71:1（AA 4.5:1 をクリア）。 */
   --color-thehackernews: #c81e2b;
   --color-thehackernews-bg: rgba(200, 30, 43, 0.12);
+  /* Dark Reading。色相環で最も空いていた領域（THN 355°→Qiita 94° の 99°の隙間）の
+     中点付近 44° を取った琥珀色。既存5色との最小色差 ΔE=59.9 で、既存どうしの
+     最小ペア（Qiita↔ロゴ = 58.3）より離れている＝見分けやすさは既存と同等以上。
+     白背景コントラストは 5.06:1（WCAG AA 4.5:1 をクリア）。 */
+  --color-darkreading: #8a6a12;
+  --color-darkreading-bg: rgba(138, 106, 18, 0.12);
 
   /* X ツイート風カード（朝刊ライトに合わせた配色） */
   --color-tweet-bg: #ffffff;
@@ -147,6 +153,10 @@ a {
 .src-thehackernews {
   color: var(--color-thehackernews);
   background: var(--color-thehackernews-bg);
+}
+.src-darkreading {
+  color: var(--color-darkreading);
+  background: var(--color-darkreading-bg);
 }
 
 /* フィルタ非表示用 */
