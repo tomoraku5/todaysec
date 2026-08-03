@@ -1,5 +1,5 @@
 ---
-import { SOURCES, hasAnyTranslation, type FeedItem } from "@/lib/feed";
+import { SOURCES, hasAnyTranslation, isTranslated, type FeedItem } from "@/lib/feed";
 
 interface Props {
   items: FeedItem[];
@@ -14,10 +14,27 @@ const showLangToggle = hasAnyTranslation(items);
 
 const counts: Record<string, number> = { all: items.length };
 for (const s of SOURCES) counts[s.key] = items.filter((i) => i.source === s.key).length;
+// 「日本語」= 訳が付いていない（＝原文が日本語）記事。ソースキーは見ないので
+// 英語ソースを追加しても自動で正しく数えられる。
+counts.ja = items.filter((i) => !isTranslated(i)).length;
 
+/**
+ * フィルタチップ。`kind` はどの軸で絞るかで、JS 側の判定に使う。
+ * - `source` … `data-source` で絞る（ソース軸）
+ * - `lang`   … `data-orig-lang` で絞る（言語軸。記事の原文が日本語かどうか）
+ * - `all`    … 絞らない
+ *
+ * **排他（同時に1つだけ）**にしている。このサイトではソース軸と言語軸がほぼ一致
+ * （Zenn/Qiita/はてなブログ＝日本語、英語メディア＝英語）するため、AND で掛け合わせても
+ * 「同じ結果」か「0件」になるだけで、2軸 UI を足す複雑さに見合わない。
+ */
 const chips = [
-  { key: "all", label: "すべて", badgeClass: "" },
-  ...SOURCES.map((s) => ({ key: s.key, label: s.label, badgeClass: s.badgeClass })),
+  { key: "all", label: "すべて", kind: "all" as const },
+  // 「すべて」の直後に置く: これも“見る範囲”を選ぶ横断的なビューで、粒度が
+  // 「すべて」と同じ層。末尾に置くとソースが増えるほど後ろに流れて見つけにくい
+  // （＝今回解決したい埋没問題を UI 側で再現してしまう）。
+  { key: "ja", label: "日本語", kind: "lang" as const },
+  ...SOURCES.map((s) => ({ key: s.key, label: s.label, kind: "source" as const })),
 ];
 ---
 
@@ -30,6 +47,7 @@ const chips = [
       <button
         type="button"
         data-filter={c.key}
+        data-filter-kind={c.kind}
         class="filter-chip inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-1.5 text-[12.5px] font-medium text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)] aria-[pressed=true]:border-[var(--color-accent)] aria-[pressed=true]:bg-[var(--color-accent-glow)] aria-[pressed=true]:text-[var(--color-accent-bright)]"
         aria-pressed={c.key === "all" ? "true" : "false"}
       >
@@ -92,9 +110,16 @@ const chips = [
   window.addEventListener("resize", measureSticky);
   document.fonts?.ready.then(measureSticky);
 
-  function applyFilter(filter: string) {
+  // チップは排他（常に1つだけ選択）。kind でどの属性を見るか切り替える:
+  //   all=絞らない / source=data-source と比較 / lang=data-orig-lang と比較
+  // ソースキーをハードコードしないので、ソースが増えても JS は変更不要。
+  // （記事側は data-orig-lang。下の「表示言語トグル」ボタンの data-lang とは別物なので
+  //   属性名を分けてある＝前者は記事の原文言語、後者は画面の表示言語。）
+  function applyFilter(filter: string, kind: string) {
     for (const card of cards) {
-      const match = filter === "all" || card.dataset.source === filter;
+      const match =
+        kind === "all" ||
+        (kind === "lang" ? card.dataset.origLang === filter : card.dataset.source === filter);
       card.classList.toggle("is-hidden", !match);
     }
     // 中身が全部隠れた日付セクションは見出しごと隠す
@@ -112,7 +137,7 @@ const chips = [
   filterBar?.addEventListener("click", (e) => {
     const chip = (e.target as HTMLElement).closest<HTMLButtonElement>(".filter-chip");
     if (!chip?.dataset.filter) return;
-    applyFilter(chip.dataset.filter);
+    applyFilter(chip.dataset.filter, chip.dataset.filterKind ?? "source");
   });
 
   // ===== 表示言語トグル（日本語 / 原文）。:root.show-orig を切り替える =====

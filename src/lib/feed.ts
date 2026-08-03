@@ -207,6 +207,25 @@ export function hasBilingual(orig?: string, ja?: string): boolean {
 }
 
 /**
+ * この 1 件に「日本語訳が付いているか」＝**原文が日本語でなかった**か。
+ *
+ * 集約時の翻訳（`translate.ts`）は `isJapanese()` で原文が日本語のものを対象外にするので、
+ * 訳が付いている＝原文が非日本語（英語ソース等）と判断できる。
+ * **特定のソースキーを見ない**ので、英語ソースを増やしても自動で正しく分類される。
+ *
+ * 判定は `hasBilingual` に一本化してある（`BilingualText.astro` の表示条件と同じ）。
+ */
+export function isTranslated(item: FeedItem): boolean {
+  return (
+    hasBilingual(item.title, item.titleJa) ||
+    hasBilingual(item.summary, item.summaryJa) ||
+    // X のリンクプレビュー（TweetCard が BilingualText で描画する）
+    hasBilingual(item.linkPreview?.title, item.linkPreview?.titleJa) ||
+    hasBilingual(item.linkPreview?.description, item.linkPreview?.descriptionJa)
+  );
+}
+
+/**
  * フィード全体に「切り替えられる二言語テキスト」が1件でもあるか。
  * 言語トグルを表示するかどうかの判定に使う（1件も無ければトグルは無意味なので隠す）。
  *
@@ -214,14 +233,7 @@ export function hasBilingual(orig?: string, ja?: string): boolean {
  * トグルが復活する＝手作業での復旧が要らない。
  */
 export function hasAnyTranslation(items: FeedItem[]): boolean {
-  return items.some(
-    (i) =>
-      hasBilingual(i.title, i.titleJa) ||
-      hasBilingual(i.summary, i.summaryJa) ||
-      // X のリンクプレビュー（TweetCard が BilingualText で描画する）
-      hasBilingual(i.linkPreview?.title, i.linkPreview?.titleJa) ||
-      hasBilingual(i.linkPreview?.description, i.linkPreview?.descriptionJa),
-  );
+  return items.some(isTranslated);
 }
 
 export function sourceLabel(source: FeedSource): string {
