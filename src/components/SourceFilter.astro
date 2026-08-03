@@ -12,6 +12,21 @@ const { items } = Astro.props;
 // 翻訳を有効化して titleJa/summaryJa が入れば自動で true に戻り、トグルが復活する。
 const showLangToggle = hasAnyTranslation(items);
 
+/**
+ * ★ 「日本語」フィルタチップを出すかどうか。**ここを `true` にすれば復活する**（他の変更は不要）。
+ *
+ * 現在 `false`（非表示）。使ってみて不要と判断したため。ただし**実装は残してある**:
+ * 判定（`isTranslated`）・記事側の目印（`data-orig-lang`）・フィルタの JS（`kind === "lang"`）は
+ * そのまま動く状態なので、このフラグだけで戻せる。
+ *
+ * なぜ削除しないか: 英語ソースの新着比率が約80%あり、蓄積が進んで日本語記事が
+ * タイムラインで埋没したときに再び必要になりうる。作り直しを避けたい。
+ *
+ * ⚠️ `isTranslated` / `hasAnyTranslation` は**このチップ専用ではない**（「日本語 / 原文」
+ * トグルの表示条件にも使われる）。フラグを false にしても消さないこと。
+ */
+const SHOW_LANG_FILTER_CHIP = false;
+
 const counts: Record<string, number> = { all: items.length };
 for (const s of SOURCES) counts[s.key] = items.filter((i) => i.source === s.key).length;
 // 「日本語」= 訳が付いていない（＝原文が日本語）記事。ソースキーは見ないので
@@ -30,10 +45,10 @@ counts.ja = items.filter((i) => !isTranslated(i)).length;
  */
 const chips = [
   { key: "all", label: "すべて", kind: "all" as const },
-  // 「すべて」の直後に置く: これも“見る範囲”を選ぶ横断的なビューで、粒度が
-  // 「すべて」と同じ層。末尾に置くとソースが増えるほど後ろに流れて見つけにくい
-  // （＝今回解決したい埋没問題を UI 側で再現してしまう）。
-  { key: "ja", label: "日本語", kind: "lang" as const },
+  // 「日本語」は SHOW_LANG_FILTER_CHIP が true のときだけ挿入する。
+  // 位置は「すべて」の直後: これも“見る範囲”を選ぶ横断的なビューで、粒度が
+  // 「すべて」と同じ層。末尾に置くとソースが増えるほど後ろに流れて見つけにくい。
+  ...(SHOW_LANG_FILTER_CHIP ? [{ key: "ja", label: "日本語", kind: "lang" as const }] : []),
   ...SOURCES.map((s) => ({ key: s.key, label: s.label, kind: "source" as const })),
 ];
 ---

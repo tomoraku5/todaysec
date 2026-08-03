@@ -281,6 +281,11 @@ npm run dev         # 画面（フィルタ・バッジ・説明文）を目視
   - favicon（`public/favicon.svg`）は SVG のまま配信＝ブラウザがレンダリングするので、こちらはフォント差の影響を受けない。**SVG のコメント内に連続ハイフン（`--`）を書くと XML が壊れて画像ごと表示されなくなる**ので注意（`--color-logo` のような変数名を書きたくなる場面で踏みやすい）。
 - **ライト専用サイトなので `globals.css` の `html` に `color-scheme: light` を宣言**。これが無いと Chrome の強制/Auto ダークモードが朝刊テーマを反転させて背景・カードが暗転する（UAの問題ではなくブラウザ設定）。
 - **翻訳が出ない＝Gemini の HTTP 4xx を疑う**（CI は緑のまま titleJa/summaryJa=0 になる）。実例: 使用モデル `gemini-2.0-flash` が 2026-06-01 提供終了→無料枠撤廃で **429**。`feeds.config.ts` の `translate.model` を後継 Flash-Lite（無料枠あり）に切替えて復旧。確認は `gh run view <id> --log | grep '\[translate\]'` と `git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length'`。詳細は memory `todayai-gemini-quota-429`。
+- **「日本語」フィルタチップは現在非表示（実装は残してある）。** 英語ソースが増えて日本語記事が埋没する問題への対策として追加したが、使ってみて不要と判断した。**削除ではなく `SourceFilter.astro` の `SHOW_LANG_FILTER_CHIP = false` で表示だけ止めている＝`true` にすれば復活する**（他の変更は不要）。
+  - 残してある理由: 英語ソースの新着比率が約80%あり、蓄積が進んで日本語記事が埋没したときに再び必要になりうる。作り直しを避けたい。
+  - 一緒に残っている実装: 判定 `isTranslated(item)`（`src/lib/feed.ts`）、記事側の目印 `data-orig-lang="ja" | "translated"`（`index.astro` の行ラッパ）、フィルタ JS の `kind === "lang"` 分岐（`SourceFilter.astro`）。**チップが無くても副作用はない**（JS はチップの `data-filter-kind` を見るだけで、「日本語」チップの存在を前提にしていない）。
+  - ⚠️ **`isTranslated` / `hasAnyTranslation` はこのチップ専用ではない。** 「日本語 / 原文」トグルの表示条件（`hasAnyTranslation`）と `BilingualText` の表示判定（`hasBilingual`）に使われているので消さないこと。
+  - フィルタの選択状態は `localStorage` に保存していない（保存しているのは表示言語トグルの `todaysec:lang` だけ）。よって「日本語」を選んだ状態で再訪して壊れる、という経路は存在しない。
 - **⚠️ バッジ色の限界: 8色目（The Register）で個別色の割り当ては限界に達した。次は配色方式そのものを変える。**
   - これまでソースごとに固有色を割り当て、「**既存どうしの最小色差 ΔE = 58.3（Qiita↔ロゴ）を上回る**」を合格基準にしてきた。7色目（BleepingComputer）までは満たせた（ΔE 59.9〜75.4）。
   - **8色目は満たせない。** 空いていた色相（Qiita 94°→ロゴ 160° / はてなブログ 262°→BleepingComputer 318°）はどちらも既存の緑・紫と近く、**明度・彩度も動かして全色相を総当たりしても最小 ΔE は 48.3 が上限**だった（明度感を無視して暗色を許しても 50.0）。The Register の `#2a5e6f` は ΔE 48.3 ＝「注意して見れば区別できるが一目では紛らわしい」水準の**暫定色**。
