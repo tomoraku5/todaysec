@@ -1,6 +1,26 @@
 {
-  "updatedAt": "2026-08-03T08:40:48.777Z",
+  "updatedAt": "2026-08-03T09:46:13.462Z",
   "items": [
+    {
+      "id": "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/08/03/183532",
+      "source": "hatenablog",
+      "title": "Daily記事まとめ（ClaudeとOpenAIの過剰攻撃競争、サイバーセキュリティ戦略本部公開資料、採用面接でのソーシャルエンジニアリング攻撃の事例 ほか）",
+      "url": "https://foxsecurity.hatenablog.com/entry/2026/08/03/183532",
+      "publishedAt": "2026-08-03T09:35:32.000Z",
+      "summary": "※直近に気になったセキュリティ関連の記事をまとめております（Excelファイルをサブスク配信）。 ※Weekly記事は時間が取れない為、明日の配信予定です。 この続きはcodocで購読 ※4月から本業にて新しいタスクが振られる事となり、従来のペースで記事チェックが出来なくなりそうです。（暫く様子見となりますが、今後記事・Excelファイル配信ペースを落とす/配信が遅くなる可能性があります） …",
+      "thumbnail": "https://cdn.image.st-hatena.com/image/scale/5c9c0e48343e2bb5887813512bc98cb4f1804084/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffoxcafelate%2F20230510%2F20230510095025.jpg",
+      "author": "Fox on Security"
+    },
+    {
+      "id": "qiita-https://qiita.com/Mina111280/items/b2523ac7dcef0b309981",
+      "source": "qiita",
+      "title": "【AWS】ある50人規模の検証環境の請求書がヤバすぎた件 〜システムのヤバさを測る物差し〜",
+      "url": "https://qiita.com/Mina111280/items/b2523ac7dcef0b309981",
+      "publishedAt": "2026-08-03T09:22:47.000Z",
+      "summary": "何でも屋さんです。 クラウドのコスト最適化は永遠の課題（だと私は思っているのですが）、過去にとある「50人規模の検証環境（バージニアリージョン）」のAWS請求書を見る機会がありました。（「見てしまった」が正しいです） 一見すると通常の検証環境に見えるかもしれませんが、その内...",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZjZGJiMWUyOTU0NmUwYmNlNTc1OWE5ZGVkM2NkOTlmNT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YjcxYjZmYWI2MThlZGE0Yzg0ZTc3NTRhMjk2ZWE2ZTc%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D772b04d4970b538e2425fcc74c1f43ac?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwQVdTJUUzJTgwJTkxJUUzJTgxJTgyJUUzJTgyJThCNTAlRTQlQkElQkElRTglQTYlOEYlRTYlQTglQTElRTMlODElQUUlRTYlQTQlOUMlRTglQTglQkMlRTclOTIlQjAlRTUlQTIlODMlRTMlODElQUUlRTglQUIlOEIlRTYlQjElODIlRTYlOUIlQjglRTMlODElOEMlRTMlODMlQTQlRTMlODMlOTAlRTMlODElOTklRTMlODElOEUlRTMlODElOUYlRTQlQkIlQjYlMjAlRTMlODAlOUMlRTMlODIlQjclRTMlODIlQjklRTMlODMlODYlRTMlODMlQTAlRTMlODElQUUlRTMlODMlQTQlRTMlODMlOTAlRTMlODElOTUlRTMlODIlOTIlRTYlQjglQUMlRTMlODIlOEIlRTclODklQTklRTUlQjclQUUlRTMlODElOTclRTMlODAlOUMmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1mODIzZTE1M2Q0YzIxNWUwNWRiYzI0MjliNWFiNmFmMg&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBNaW5hMTExMjgwJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9ZmNjMWViYjYyMDk2NzE3M2NjMWJjMmJiYjEwN2NlMjk&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=495029af26400eb0c611e5e708484112",
+      "author": "Securityタグが付けられた新着記事 - Qiita"
+    },
     {
       "id": "qiita-https://qiita.com/hypatia_AH1033/items/174d9c040abad84999b0",
       "source": "qiita",
@@ -22,6 +42,18 @@
       "author": "The Hacker News",
       "titleJa": "サーモフィッシャー、DNAファイル改ざんを許す脆弱性を修正",
       "summaryJa": "サーモフィッシャーサイエンティフィックは、Applied Biosystemsのヒト識別ソフトウェアにおいて、解析前にデータファイルが改ざんされる恐れがある脆弱性を修正しました。この欠陥により、データが不正に変更される可能性がありました。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/cyber-crime/2026/08/03/ai-is-both-the-weapon-and-the-target-in-latest-wave-of-cyberattacks/5281534",
+      "source": "theregister",
+      "title": "AI is 'both the weapon and the target' in latest wave of cyberattacks",
+      "url": "https://www.theregister.com/cyber-crime/2026/08/03/ai-is-both-the-weapon-and-the-target-in-latest-wave-of-cyberattacks/5281534",
+      "publishedAt": "2026-08-03T07:01:00.000Z",
+      "summary": "CrowdStrike tracks 89% surge in machine-assisted activity as patch windows shrink to 48 hours",
+      "thumbnail": "https://image.theregister.com/?imageId=258436&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "AIは最新のサイバー攻撃の波において「武器であり標的でもある」",
+      "summaryJa": "CrowdStrikeは、機械による攻撃活動が89%急増し、修正パッチの適用猶予期間が48時間に短縮されていると報告しています。"
     },
     {
       "id": "thehackernews-https://thehackernews.com/2026/08/n-able-says-attackers-take-over-n.html",
@@ -882,6 +914,30 @@
       "summaryJa": "サイバーセキュリティ研究者が、Go言語ベースのローダーフレームワーク「HollowFrame」と、Rust言語ベースのマルウェアファミリー「Matryoshka」の存在を明らかにした。Blackpoint Cyberによると、これらは法律事務所への攻撃で確認された。"
     },
     {
+      "id": "theregister-https://www.theregister.com/security/2026/07/31/the-most-famous-brand-in-physical-security-got-pwned-by-shinyhunters/5281924",
+      "source": "theregister",
+      "title": "The most famous brand in physical security got pwned by ShinyHunters",
+      "url": "https://www.theregister.com/security/2026/07/31/the-most-famous-brand-in-physical-security-got-pwned-by-shinyhunters/5281924",
+      "publishedAt": "2026-07-31T16:27:27.000Z",
+      "summary": "Hopefully the company secures houses better than it locks down SaaS systems",
+      "thumbnail": "https://image.theregister.com/?imageId=5241973&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "物理セキュリティで最も有名なブランドがShinyHuntersによってハッキングされた",
+      "summaryJa": "同社がSaaSシステムの保護よりも、住宅のセキュリティをより強固に保っていることを願うばかりです。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/07/31/anthropic-and-openai-are-competing-to-see-whose-agents-can-go-rogue-harder/5281797",
+      "source": "theregister",
+      "title": "Anthropic and OpenAI are competing to see whose agents can go rogue harder",
+      "url": "https://www.theregister.com/security/2026/07/31/anthropic-and-openai-are-competing-to-see-whose-agents-can-go-rogue-harder/5281797",
+      "publishedAt": "2026-07-31T15:04:04.000Z",
+      "summary": "Whoever wins, we lose",
+      "thumbnail": "https://image.theregister.com/?imageId=5248788&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "AnthropicとOpenAIは、どちらのエージェントがより危険な暴走をできるか競い合っている",
+      "summaryJa": "どちらが勝っても、我々が損をする結果となります。"
+    },
+    {
       "id": "qiita-https://qiita.com/io0323/items/a2320858184985e549ef",
       "source": "qiita",
       "title": "【書評】Practical Cloud Security",
@@ -945,6 +1001,18 @@
       "author": "darkreading",
       "titleJa": "ルート・オブ・トラストを無効化した後、その管理者は不在となる",
       "summaryJa": "セキュリティチームにとって最も価値ある行動は、証明書と鍵のインベントリを構築することである。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/07/31/charities-remain-locked-out-of-caf-bank-online-accounts/5281711",
+      "source": "theregister",
+      "title": "Charities remain locked out of CAF Bank online accounts",
+      "url": "https://www.theregister.com/security/2026/07/31/charities-remain-locked-out-of-caf-bank-online-accounts/5281711",
+      "publishedAt": "2026-07-31T13:55:00.000Z",
+      "summary": "A week into shutdown, 14,000 customers still have no restoration date and some are struggling to pay staff",
+      "thumbnail": "https://image.theregister.com/?imageId=5241871&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "慈善団体が依然としてCAF Bankのオンラインアカウントにアクセスできない状態",
+      "summaryJa": "システム停止から1週間が経過しましたが、14,000人の顧客は復旧の目処が立たず、スタッフへの給与支払いに苦慮しています。"
     },
     {
       "id": "zenn-https://zenn.dev/schutzz/articles/e440128a36d19d",
@@ -1113,6 +1181,18 @@
       "summaryJa": "Anthropicは、Claude Opus 4.7やMythos 5など同社のAIモデル3種が、オープンなインターネットをCTF（ハッキング競技）の環境と誤認し、3つの組織に対して不正なアクセスを行ったことを明らかにしました。"
     },
     {
+      "id": "theregister-https://www.theregister.com/ai-and-ml/2026/07/31/anthropics-claude-escaped-test-sandbox-to-attack-three-organizations/5281562",
+      "source": "theregister",
+      "title": "Anthropic’s Claude escaped test sandbox to attack three organizations",
+      "url": "https://www.theregister.com/ai-and-ml/2026/07/31/anthropics-claude-escaped-test-sandbox-to-attack-three-organizations/5281562",
+      "publishedAt": "2026-07-31T02:19:39.000Z",
+      "summary": "Wrote and published malware during tests, which is apparently OK because leaky test environments were the real problem",
+      "thumbnail": "https://image.theregister.com/?imageId=5281583&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "AnthropicのClaudeがテスト用サンドボックスから脱出し、3つの組織を攻撃",
+      "summaryJa": "テスト中にマルウェアを作成・公開しました。テスト環境の不備が真の問題であるため、これは許容されるようです。"
+    },
+    {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/",
       "source": "bleepingcomputer",
       "title": "Anthropic's Claude breached 3 orgs, uploaded PyPI malware during tests",
@@ -1219,6 +1299,18 @@
       "summaryJa": "AnthropicのClaude Mythos展開について、そのリスクをどの程度深刻に捉えるべきか、またその影響の大きさを解説する。"
     },
     {
+      "id": "theregister-https://www.theregister.com/security/2026/07/30/jailed-flock-vandal-wipes-out-three-cameras-racks-up-thousands-in-damages/5281224",
+      "source": "theregister",
+      "title": "Jailed Flock vandal wipes out three cameras, racks up thousands in damages",
+      "url": "https://www.theregister.com/security/2026/07/30/jailed-flock-vandal-wipes-out-three-cameras-racks-up-thousands-in-damages/5281224",
+      "publishedAt": "2026-07-30T15:28:00.000Z",
+      "summary": "A lesson for aspiring vandals: Take out all the cameras, not just the ones that flout your ideals",
+      "thumbnail": "https://image.theregister.com/?imageId=5281260&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "収監されたFlockの破壊者がカメラ3台を破壊し、数千ドルの損害を発生させる",
+      "summaryJa": "志ある破壊者への教訓として、自分の理想に反するカメラだけでなく、すべてのカメラを破壊すべきだという事例です。"
+    },
+    {
       "id": "thehackernews-https://thehackernews.com/2026/07/threatsday-ai-powered-hacking-370.html",
       "source": "thehackernews",
       "title": "ThreatsDay: AI-Powered Hacking, 370 Chrome Flaws, SonicWall Attacks, DNS Hijacking + 22 More Stories",
@@ -1291,6 +1383,18 @@
       "summaryJa": "中国のサイバー犯罪グループSilver Foxが、日本の製造業組織を標的とした攻撃を確認しました。脆弱なドライバを悪用するBYOVD攻撃と、遠隔操作ツールValleyRATを組み合わせて使用しています。"
     },
     {
+      "id": "theregister-https://www.theregister.com/security/2026/07/30/russian-spies-take-their-half-click-email-attack-from-zimbra-to-outlook/5281033",
+      "source": "theregister",
+      "title": "Russian spies take their half-click email attack from Zimbra to Outlook",
+      "url": "https://www.theregister.com/security/2026/07/30/russian-spies-take-their-half-click-email-attack-from-zimbra-to-outlook/5281033",
+      "publishedAt": "2026-07-30T10:29:00.000Z",
+      "summary": "Opening a booby-trapped message unleashes a browser implant that can survive password changes and device rebuilds",
+      "thumbnail": "https://image.theregister.com/?imageId=5237994&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "ロシアのスパイがZimbraからOutlookへ、ハーフクリックのメール攻撃を移行",
+      "summaryJa": "罠が仕掛けられたメッセージを開くと、パスワード変更やデバイスの再構築後も生き残るブラウザインプラントが実行されます。"
+    },
+    {
       "id": "thehackernews-https://thehackernews.com/2026/07/russian-hackers-exploit-microsoft-owa.html",
       "source": "thehackernews",
       "title": "Russian Hackers Exploit Microsoft OWA Flaw to Keep Mailbox Access After Credential Rotation",
@@ -1301,6 +1405,30 @@
       "author": "The Hacker News",
       "titleJa": "ロシアのハッカーがMicrosoft OWAの脆弱性を悪用、認証情報変更後もメールボックスへのアクセスを維持",
       "summaryJa": "Zimbraの脆弱性悪用で知られるロシアの脅威アクターが、新たにMicrosoft Outlook Web Access（OWA）の脆弱性を悪用していることが判明しました。これにより、パスワードなどの認証情報を変更した後も、メールボックスへのアクセスを継続しています。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/07/30/headteacher-had-the-most-guessable-username-password-combo-you-could-imagine/5280709",
+      "source": "theregister",
+      "title": "Headteacher had the most guessable username-password combo you could imagine",
+      "url": "https://www.theregister.com/security/2026/07/30/headteacher-had-the-most-guessable-username-password-combo-you-could-imagine/5280709",
+      "publishedAt": "2026-07-30T07:00:00.000Z",
+      "summary": "Schools often don't prioritize or understand cybersecurity",
+      "thumbnail": "https://image.theregister.com/?imageId=5280739&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "校長が想像しうる限り最も推測されやすいユーザー名とパスワードの組み合わせを使用していた",
+      "summaryJa": "学校ではサイバーセキュリティが優先されず、理解もされていないことが多々あります。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/legal/2026/07/30/excuses-like-ai-did-it-dont-exist-in-the-eyes-of-the-law/5280767",
+      "source": "theregister",
+      "title": "Excuses like 'AI did it' don't exist in the eyes of the law",
+      "url": "https://www.theregister.com/legal/2026/07/30/excuses-like-ai-did-it-dont-exist-in-the-eyes-of-the-law/5280767",
+      "publishedAt": "2026-07-30T06:30:00.000Z",
+      "summary": "If your AI goes rogue, better have a good lawyer",
+      "thumbnail": "https://image.theregister.com/?imageId=237716&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "法律の観点では「AIがやった」という言い訳は通用しない",
+      "summaryJa": "もしAIが暴走した場合は、優秀な弁護士を雇っておくのが賢明です。"
     },
     {
       "id": "hatenablog-https://piyolog.hatenadiary.jp/entry/2026/07/30/143946",
@@ -1403,6 +1531,18 @@
       "summaryJa": "AIエージェントの分野で攻撃側が優勢だったため、研究者らは防御側（ブルーエージェント）を訓練するために攻撃側（レッドエージェント）を活用し始めた。"
     },
     {
+      "id": "theregister-https://www.theregister.com/ai-and-ml/2026/07/29/closed-models-refuse-to-help-researcher-swat-linux-bug/5280647",
+      "source": "theregister",
+      "title": "Closed models refuse to help researcher swat Linux bug",
+      "url": "https://www.theregister.com/ai-and-ml/2026/07/29/closed-models-refuse-to-help-researcher-swat-linux-bug/5280647",
+      "publishedAt": "2026-07-29T18:33:16.000Z",
+      "summary": "\"I'm sorry, Dave. I'm afraid I can't do that\" is an effective sales pitch for open source",
+      "thumbnail": "https://image.theregister.com/?imageId=254582&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "クローズドモデルがLinuxのバグ修正を求める研究者の協力を拒否",
+      "summaryJa": "「申し訳ありませんが、それはできません」という回答は、オープンソースにとって効果的な宣伝文句となります。"
+    },
+    {
       "id": "darkreading-https://www.darkreading.com/cyberattacks-data-breaches/liable-ai-agents-escape-hugging-face-breach-questions",
       "source": "darkreading",
       "title": "Who's Liable When AI Agents Escape? Hugging Face Breach Raises Hard Questions",
@@ -1439,6 +1579,18 @@
       "summaryJa": "ソフトウェアサプライチェーンに組み込まれたセキュリティスキャナーが攻撃され、後続の攻撃の足掛かりとして悪用されるリスクが研究で明らかになった。"
     },
     {
+      "id": "theregister-https://www.theregister.com/security/2026/07/29/word-worm-crawls-into-copilot-spreads-chaos/5280588",
+      "source": "theregister",
+      "title": "Word worm crawls into Copilot, spreads chaos",
+      "url": "https://www.theregister.com/security/2026/07/29/word-worm-crawls-into-copilot-spreads-chaos/5280588",
+      "publishedAt": "2026-07-29T16:43:54.000Z",
+      "summary": "Researcher says months of coordination with Microsoft have yet to produce a robust mitigation",
+      "thumbnail": "https://image.theregister.com/?imageId=5249823&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "Copilotに「Wordワーム」が侵入し混乱を招く",
+      "summaryJa": "研究者はMicrosoftと数ヶ月間連携しているが、まだ強力な緩和策は講じられていないと述べている。"
+    },
+    {
       "id": "hatenablog-https://blog.flatt.tech/entry/kindarails2shell_rails?utm_source=feed",
       "source": "hatenablog",
       "title": "深刻度「緊急」のRails脆弱性「KindaRails2Shell」（CVE-2026-66066）の概要と対応指針",
@@ -1461,6 +1613,18 @@
       "summaryJa": "AIホスティングプラットフォームRufloの脆弱性により、認証なしでシステムが乗っ取られ、パッチ適用後も不正な動作が持続する可能性がある。"
     },
     {
+      "id": "theregister-https://www.theregister.com/security/2026/07/29/iran-linked-cyberav3ngers-suspected-in-attacks-on-minnesota-water-systems/5280357",
+      "source": "theregister",
+      "title": "Iran-linked CyberAv3ngers suspected in attacks on Minnesota water systems",
+      "url": "https://www.theregister.com/security/2026/07/29/iran-linked-cyberav3ngers-suspected-in-attacks-on-minnesota-water-systems/5280357",
+      "publishedAt": "2026-07-29T13:49:00.000Z",
+      "summary": "More than 30 facilities disrupted in 'coordinated cyberattack,' though officials have yet to name a culprit",
+      "thumbnail": "https://image.theregister.com/?imageId=150171&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "ミネソタ州の水道システムへの攻撃、イラン関連のCyberAv3ngersが関与か",
+      "summaryJa": "「組織的なサイバー攻撃」により30以上の施設が混乱したが、当局はまだ犯人を特定していない。"
+    },
+    {
       "id": "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/07/29/163415",
       "source": "hatenablog",
       "title": "Daily記事まとめ（ミュトスは暗号解読もお得意、高齢者を狙ったAI音声詐欺にご用心、阪大の猪俣先生のインタビュー記事 ほか）",
@@ -1469,6 +1633,42 @@
       "summary": "※直近に気になったセキュリティ関連の記事をまとめております（Excelファイルをサブスク配信）。 この続きはcodocで購読 ※4月から本業にて新しいタスクが振られる事となり、従来のペースで記事チェックが出来なくなりそうです。（暫く様子見となりますが、今後記事・Excelファイル配信ペースを落とす/配信が遅くなる可能性があります） ※記事調査～配信などはキタきつねの副業時間で対応している事も…",
       "thumbnail": "https://cdn.image.st-hatena.com/image/scale/5c9c0e48343e2bb5887813512bc98cb4f1804084/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffoxcafelate%2F20230510%2F20230510095025.jpg",
       "author": "Fox on Security"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/07/29/america-bans-imported-robots-due-to-supply-chain-and-security-risks/5280145",
+      "source": "theregister",
+      "title": "America bans imported robots due to supply chain and security risks",
+      "url": "https://www.theregister.com/security/2026/07/29/america-bans-imported-robots-due-to-supply-chain-and-security-risks/5280145",
+      "publishedAt": "2026-07-29T02:16:31.000Z",
+      "summary": "Docs point to China’s Unitree as prime example of the foreign clanker threat",
+      "thumbnail": "https://image.theregister.com/?imageId=5280168&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "米国、サプライチェーンとセキュリティリスクを理由に輸入ロボットを禁止",
+      "summaryJa": "文書では、中国のUnitree社が外国製ロボットによる脅威の代表例として挙げられている。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/ai-and-ml/2026/07/29/mcp-gets-an-enterprise-makeover/5280027",
+      "source": "theregister",
+      "title": "MCP gets an enterprise makeover",
+      "url": "https://www.theregister.com/ai-and-ml/2026/07/29/mcp-gets-an-enterprise-makeover/5280027",
+      "publishedAt": "2026-07-28T23:08:02.000Z",
+      "summary": "Now happier running in a conventional K8s environment, with `an easier-to-live-with lifecycle",
+      "thumbnail": "https://image.theregister.com/?imageId=5239946&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "MCPがエンタープライズ向けに刷新",
+      "summaryJa": "従来のKubernetes環境で動作しやすくなり、ライフサイクルの管理が容易になった。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/07/28/jfrogs-0-days-let-openais-models-hack-hugging-face/5280001",
+      "source": "theregister",
+      "title": "JFrog's 0-days let OpenAI's models hack Hugging Face",
+      "url": "https://www.theregister.com/security/2026/07/28/jfrogs-0-days-let-openais-models-hack-hugging-face/5280001",
+      "publishedAt": "2026-07-28T22:01:53.000Z",
+      "summary": "OpenAI confirms the link",
+      "thumbnail": "https://image.theregister.com/?imageId=232611&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "JFrogが発見したゼロデイ脆弱性、OpenAIのモデルがHugging Faceをハッキング可能に",
+      "summaryJa": "OpenAIはこの脆弱性の関連性を認めている。"
     },
     {
       "id": "darkreading-https://www.darkreading.com/cloud-security/non-human-identity-sprawl-creates-a-new-cloud-attack-path",
@@ -1525,6 +1725,66 @@
       "summary": "OpenAIは2026年7月21日、評価中の自社AIモデルがテスト環境から抜け出し、Hugging Faceのシステムへ侵入していたことを確認したと公表しました。Hugging Faceはこれに先立つ同月16日、自律型AIエージェントによるとみられる侵入を検知・対応していたことを公式に開示していました。OpenAIとHugging Face CEOはこれを「前例のない」自律的サイバー攻撃と位…",
       "thumbnail": "https://cdn.image.st-hatena.com/image/scale/884b7355bb0ce9bb2be4d5d5bddd04b11136e46d/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fp%2Fpiyokango%2F20260729%2F20260729050901.png",
       "author": "piyolog"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/07/28/microsoft-and-wiz-mind-meld-agents-catch-more-than-90-of-bugs/5279914",
+      "source": "theregister",
+      "title": "Microsoft and Wiz mind-meld agents catch more than 90% of bugs",
+      "url": "https://www.theregister.com/security/2026/07/28/microsoft-and-wiz-mind-meld-agents-catch-more-than-90-of-bugs/5279914",
+      "publishedAt": "2026-07-28T19:21:01.000Z",
+      "summary": "Secret to their success: Using the right model for the right security job",
+      "thumbnail": "https://image.theregister.com/?imageId=5279934&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "MicrosoftとWizの連携エージェント、バグの90%以上を検出",
+      "summaryJa": "成功の秘訣は、セキュリティの各タスクに適したモデルを使用することである。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/07/28/def-con-bans-meta-style-pervert-glasses/5279763",
+      "source": "theregister",
+      "title": "DEF CON bans Meta-style 'pervert glasses'",
+      "url": "https://www.theregister.com/security/2026/07/28/def-con-bans-meta-style-pervert-glasses/5279763",
+      "publishedAt": "2026-07-28T16:05:00.000Z",
+      "summary": "More organizers prohibit camera-equipped specs, even with prescription lenses",
+      "thumbnail": "https://image.theregister.com/?imageId=261585&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "DEF CONがMetaスタイルの「盗撮メガネ」を禁止",
+      "summaryJa": "主催者は、度付きレンズであってもカメラ付きメガネの持ち込みを禁止する動きを強めている。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/07/28/ai-found-bugs-arent-proving-any-easier-to-exploit-despite-the-hype/5279637",
+      "source": "theregister",
+      "title": "AI-found bugs aren't proving any easier to exploit despite the hype",
+      "url": "https://www.theregister.com/security/2026/07/28/ai-found-bugs-arent-proving-any-easier-to-exploit-despite-the-hype/5279637",
+      "publishedAt": "2026-07-28T15:26:41.000Z",
+      "summary": "VulnCheck says fewer than 2% of AI-assisted vulnerability discoveries have been weaponized, casting doubt on claims frontier models are handing attackers a major advantage",
+      "thumbnail": "https://image.theregister.com/?imageId=5259466&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "AIが発見したバグ、誇大広告に反して悪用は困難",
+      "summaryJa": "VulnCheckによると、AI支援で発見された脆弱性のうち悪用されたのは2%未満であり、攻撃者に大きな優位性を与えているという主張には疑問が残る。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/07/28/bank-for-charities-pulls-online-services-over-security-fears/5279615",
+      "source": "theregister",
+      "title": "Bank for charities pulls online services over security fears",
+      "url": "https://www.theregister.com/security/2026/07/28/bank-for-charities-pulls-online-services-over-security-fears/5279615",
+      "publishedAt": "2026-07-28T13:53:13.000Z",
+      "summary": "Customer funds safe, but 14,000 organizations may have to phone in time-sensitive payments",
+      "thumbnail": "https://image.theregister.com/?imageId=5266181&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "慈善団体向け銀行、セキュリティ懸念によりオンラインサービスを停止",
+      "summaryJa": "顧客の資金は安全だが、14,000の団体が緊急の支払いを電話で行う必要に迫られる可能性がある。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/networks/2026/07/28/uncle-sam-needs-you-to-fight-for-6g-leadership-and-security-lest-beijing-get-there-first/5279525",
+      "source": "theregister",
+      "title": "Uncle Sam needs you to fight for 6G leadership and security, lest Beijing get there first",
+      "url": "https://www.theregister.com/networks/2026/07/28/uncle-sam-needs-you-to-fight-for-6g-leadership-and-security-lest-beijing-get-there-first/5279525",
+      "publishedAt": "2026-07-28T12:49:02.000Z",
+      "summary": "Washington rallies allies to shape next-generation networks after spending 18 months rattling them",
+      "thumbnail": "https://image.theregister.com/?imageId=259566&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "米国政府、6Gのリーダーシップとセキュリティ確保を呼びかけ",
+      "summaryJa": "ワシントンは、中国に先を越されないよう、18ヶ月にわたる調整を経て同盟国と共に次世代ネットワークの形成を目指している。"
     },
     {
       "id": "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/07/28/163544",
@@ -2090,7 +2350,9 @@
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/south-korea-fines-telco-giant-kt-39-million-for-customer-data-breach/": "https://www.bleepstatic.com/content/hl-images/2026/07/30/kt.jpg",
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/": "https://www.bleepstatic.com/content/hl-images/2026/05/07/Claude_AI.png",
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/": "https://www.bleepstatic.com/content/hl-images/2024/06/11/JetBrains.jpg",
-      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/": "https://www.bleepstatic.com/content/hl-images/2023/11/10/North_Korean_hackers_headpic.jpg"
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/": "https://www.bleepstatic.com/content/hl-images/2023/11/10/North_Korean_hackers_headpic.jpg",
+      "qiita-https://qiita.com/Mina111280/items/b2523ac7dcef0b309981": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZjZGJiMWUyOTU0NmUwYmNlNTc1OWE5ZGVkM2NkOTlmNT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YjcxYjZmYWI2MThlZGE0Yzg0ZTc3NTRhMjk2ZWE2ZTc%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D772b04d4970b538e2425fcc74c1f43ac?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwQVdTJUUzJTgwJTkxJUUzJTgxJTgyJUUzJTgyJThCNTAlRTQlQkElQkElRTglQTYlOEYlRTYlQTglQTElRTMlODElQUUlRTYlQTQlOUMlRTglQTglQkMlRTclOTIlQjAlRTUlQTIlODMlRTMlODElQUUlRTglQUIlOEIlRTYlQjElODIlRTYlOUIlQjglRTMlODElOEMlRTMlODMlQTQlRTMlODMlOTAlRTMlODElOTklRTMlODElOEUlRTMlODElOUYlRTQlQkIlQjYlMjAlRTMlODAlOUMlRTMlODIlQjclRTMlODIlQjklRTMlODMlODYlRTMlODMlQTAlRTMlODElQUUlRTMlODMlQTQlRTMlODMlOTAlRTMlODElOTUlRTMlODIlOTIlRTYlQjglQUMlRTMlODIlOEIlRTclODklQTklRTUlQjclQUUlRTMlODElOTclRTMlODAlOUMmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1mODIzZTE1M2Q0YzIxNWUwNWRiYzI0MjliNWFiNmFmMg&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBNaW5hMTExMjgwJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9ZmNjMWViYjYyMDk2NzE3M2NjMWJjMmJiYjEwN2NlMjk&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=495029af26400eb0c611e5e708484112",
+      "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/08/03/183532": "https://cdn.image.st-hatena.com/image/scale/5c9c0e48343e2bb5887813512bc98cb4f1804084/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffoxcafelate%2F20230510%2F20230510095025.jpg"
     },
     "xLinkCards": {},
     "translations": {
@@ -2325,6 +2587,86 @@
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/online-ad-firm-adforms-script-compromised-to-steal-cryptocurrency/": {
         "titleJa": "オンライン広告企業Adformのスクリプトが侵害され、暗号資産が盗難",
         "summaryJa": "オンライン広告企業Adformがサプライチェーン攻撃を受けました。同社の広告プラットフォームを利用するウェブサイトに暗号資産を盗むスクリプトが埋め込まれ、訪問者のクリップボード内のウォレットアドレスが書き換えられました。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/29/word-worm-crawls-into-copilot-spreads-chaos/5280588": {
+        "titleJa": "Copilotに「Wordワーム」が侵入し混乱を招く",
+        "summaryJa": "研究者はMicrosoftと数ヶ月間連携しているが、まだ強力な緩和策は講じられていないと述べている。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/29/iran-linked-cyberav3ngers-suspected-in-attacks-on-minnesota-water-systems/5280357": {
+        "titleJa": "ミネソタ州の水道システムへの攻撃、イラン関連のCyberAv3ngersが関与か",
+        "summaryJa": "「組織的なサイバー攻撃」により30以上の施設が混乱したが、当局はまだ犯人を特定していない。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/29/america-bans-imported-robots-due-to-supply-chain-and-security-risks/5280145": {
+        "titleJa": "米国、サプライチェーンとセキュリティリスクを理由に輸入ロボットを禁止",
+        "summaryJa": "文書では、中国のUnitree社が外国製ロボットによる脅威の代表例として挙げられている。"
+      },
+      "theregister-https://www.theregister.com/ai-and-ml/2026/07/29/mcp-gets-an-enterprise-makeover/5280027": {
+        "titleJa": "MCPがエンタープライズ向けに刷新",
+        "summaryJa": "従来のKubernetes環境で動作しやすくなり、ライフサイクルの管理が容易になった。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/28/jfrogs-0-days-let-openais-models-hack-hugging-face/5280001": {
+        "titleJa": "JFrogが発見したゼロデイ脆弱性、OpenAIのモデルがHugging Faceをハッキング可能に",
+        "summaryJa": "OpenAIはこの脆弱性の関連性を認めている。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/28/microsoft-and-wiz-mind-meld-agents-catch-more-than-90-of-bugs/5279914": {
+        "titleJa": "MicrosoftとWizの連携エージェント、バグの90%以上を検出",
+        "summaryJa": "成功の秘訣は、セキュリティの各タスクに適したモデルを使用することである。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/28/def-con-bans-meta-style-pervert-glasses/5279763": {
+        "titleJa": "DEF CONがMetaスタイルの「盗撮メガネ」を禁止",
+        "summaryJa": "主催者は、度付きレンズであってもカメラ付きメガネの持ち込みを禁止する動きを強めている。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/28/ai-found-bugs-arent-proving-any-easier-to-exploit-despite-the-hype/5279637": {
+        "titleJa": "AIが発見したバグ、誇大広告に反して悪用は困難",
+        "summaryJa": "VulnCheckによると、AI支援で発見された脆弱性のうち悪用されたのは2%未満であり、攻撃者に大きな優位性を与えているという主張には疑問が残る。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/28/bank-for-charities-pulls-online-services-over-security-fears/5279615": {
+        "titleJa": "慈善団体向け銀行、セキュリティ懸念によりオンラインサービスを停止",
+        "summaryJa": "顧客の資金は安全だが、14,000の団体が緊急の支払いを電話で行う必要に迫られる可能性がある。"
+      },
+      "theregister-https://www.theregister.com/networks/2026/07/28/uncle-sam-needs-you-to-fight-for-6g-leadership-and-security-lest-beijing-get-there-first/5279525": {
+        "titleJa": "米国政府、6Gのリーダーシップとセキュリティ確保を呼びかけ",
+        "summaryJa": "ワシントンは、中国に先を越されないよう、18ヶ月にわたる調整を経て同盟国と共に次世代ネットワークの形成を目指している。"
+      },
+      "theregister-https://www.theregister.com/cyber-crime/2026/08/03/ai-is-both-the-weapon-and-the-target-in-latest-wave-of-cyberattacks/5281534": {
+        "titleJa": "AIは最新のサイバー攻撃の波において「武器であり標的でもある」",
+        "summaryJa": "CrowdStrikeは、機械による攻撃活動が89%急増し、修正パッチの適用猶予期間が48時間に短縮されていると報告しています。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/31/the-most-famous-brand-in-physical-security-got-pwned-by-shinyhunters/5281924": {
+        "titleJa": "物理セキュリティで最も有名なブランドがShinyHuntersによってハッキングされた",
+        "summaryJa": "同社がSaaSシステムの保護よりも、住宅のセキュリティをより強固に保っていることを願うばかりです。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/31/anthropic-and-openai-are-competing-to-see-whose-agents-can-go-rogue-harder/5281797": {
+        "titleJa": "AnthropicとOpenAIは、どちらのエージェントがより危険な暴走をできるか競い合っている",
+        "summaryJa": "どちらが勝っても、我々が損をする結果となります。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/31/charities-remain-locked-out-of-caf-bank-online-accounts/5281711": {
+        "titleJa": "慈善団体が依然としてCAF Bankのオンラインアカウントにアクセスできない状態",
+        "summaryJa": "システム停止から1週間が経過しましたが、14,000人の顧客は復旧の目処が立たず、スタッフへの給与支払いに苦慮しています。"
+      },
+      "theregister-https://www.theregister.com/ai-and-ml/2026/07/31/anthropics-claude-escaped-test-sandbox-to-attack-three-organizations/5281562": {
+        "titleJa": "AnthropicのClaudeがテスト用サンドボックスから脱出し、3つの組織を攻撃",
+        "summaryJa": "テスト中にマルウェアを作成・公開しました。テスト環境の不備が真の問題であるため、これは許容されるようです。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/30/jailed-flock-vandal-wipes-out-three-cameras-racks-up-thousands-in-damages/5281224": {
+        "titleJa": "収監されたFlockの破壊者がカメラ3台を破壊し、数千ドルの損害を発生させる",
+        "summaryJa": "志ある破壊者への教訓として、自分の理想に反するカメラだけでなく、すべてのカメラを破壊すべきだという事例です。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/30/russian-spies-take-their-half-click-email-attack-from-zimbra-to-outlook/5281033": {
+        "titleJa": "ロシアのスパイがZimbraからOutlookへ、ハーフクリックのメール攻撃を移行",
+        "summaryJa": "罠が仕掛けられたメッセージを開くと、パスワード変更やデバイスの再構築後も生き残るブラウザインプラントが実行されます。"
+      },
+      "theregister-https://www.theregister.com/security/2026/07/30/headteacher-had-the-most-guessable-username-password-combo-you-could-imagine/5280709": {
+        "titleJa": "校長が想像しうる限り最も推測されやすいユーザー名とパスワードの組み合わせを使用していた",
+        "summaryJa": "学校ではサイバーセキュリティが優先されず、理解もされていないことが多々あります。"
+      },
+      "theregister-https://www.theregister.com/legal/2026/07/30/excuses-like-ai-did-it-dont-exist-in-the-eyes-of-the-law/5280767": {
+        "titleJa": "法律の観点では「AIがやった」という言い訳は通用しない",
+        "summaryJa": "もしAIが暴走した場合は、優秀な弁護士を雇っておくのが賢明です。"
+      },
+      "theregister-https://www.theregister.com/ai-and-ml/2026/07/29/closed-models-refuse-to-help-researcher-swat-linux-bug/5280647": {
+        "titleJa": "クローズドモデルがLinuxのバグ修正を求める研究者の協力を拒否",
+        "summaryJa": "「申し訳ありませんが、それはできません」という回答は、オープンソースにとって効果的な宣伝文句となります。"
       }
     },
     "enrichVersion": "5"
