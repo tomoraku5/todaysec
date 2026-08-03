@@ -12,11 +12,12 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 - **フォーク元**: `satory074/todayai`（AI 情報の集約サイト）。本リポジトリはそれをベースに
   セキュリティ情報向けへ改造したもの。**以下のドキュメントには todayai 時代の設計判断・障害記録が
   そのまま残っている**（将来の復活に備えて意図的に保持。無効化した箇所には「現在は無効」と明記する）。
-- **費用は完全に 0 円**。X API / Gmail API / Gemini API は**使わない方針**。
-  トークン・API キーは一切不要で、公開 RSS だけで動く。
+- **費用は完全に 0 円**。記事の取得はすべて公開 RSS（トークン不要）。
+  Gemini は**無料枠の範囲で翻訳にだけ使う**（英語ソースのみ・1日4〜6リクエスト程度）。
+  X API / Gmail API は使わない。
 - **位置づけ**: 運用者は開発未経験。**個人の学習目的**のサイトであり、特定の組織を代表するものではない。
 
-### 現在有効なソース（5ソース）
+### 現在有効なソース（6ソース）
 
 | source | 内容 | 取得元 |
 | --- | --- | --- |
@@ -25,6 +26,7 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 | `hatenablog` | セキュリティ専門のはてなブログ3本（piyolog / Fox on Security / GMO Flatt Security） | 公開 Atom（複数 URL・トークン不要） |
 | `thehackernews` | The Hacker News（**英語**）の脆弱性・インシデント速報 | 公開 RSS（FeedBurner・トークン不要） |
 | `darkreading` | Dark Reading（**英語**）のセキュリティ解説・分析 | 公開 RSS（全体フィード1本・トークン不要） |
+| `bleepingcomputer` | BleepingComputer（**英語**）の脆弱性・マルウェア速報 | 公開 RSS（全体フィード1本・トークン不要） |
 
 ⚠️ 「はてなブログ」は**はてなブックマークとは別サービス**。かつて `hatena`（はてブ人気エントリー）枠もあったが削除済み（後述の「削除したソース」参照）。
 
@@ -36,11 +38,13 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 | 対象 | 停止した理由 |
 | --- | --- |
 | `x` | `sourceUrl` がフォーク元作者（basecamp）の公開ブックマーク JSON。X API も有料のため使わない。`x.accounts` は空配列にしてある |
-| `translate`（Gemini 翻訳/要約） | `GEMINI_API_KEY` 未設定。原文のまま表示される（graceful degradation） |
+
 | GCS 保管モード | **未使用**。feed.json は git 保管（ローカルモード）で運用。詳細は `docs/gcs-storage-setup.md` |
 
-**この2つは「削除」ではなく「温存」**（`disabled: true`）。実装・型・設定を残してあるので、
-フラグを戻せば復活する。将来 X を別アカウントで使ったり、Gemini 要約を有効化したいため。
+**x は「削除」ではなく「温存」**（`disabled: true`）。実装・型・設定を残してあるので、
+フラグを戻せば復活する。
+（`translate` は**有効化済み**。ただし `summarizeSources` は空＝英語記事の翻訳だけ行い、
+3行要約はしない。詳細は `feeds.config.ts` のコメント参照。）
 
 ### 削除したソース（履歴）
 
@@ -120,7 +124,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 
 **【現在は無効（X ソース停止中のため実質no-op）】X リンクプレビュー（`scripts/sources/xLinkCard.ts` の `enrichXLinks`）**: 本文が t.co リンクだけ / 末尾リンクの X ツイートに、リンク先の OGP カード（画像＋タイトル＋説明＋ドメイン）を `item.linkPreview` として補完する。**なぜ必要か**: 外部アカウント（`x.accounts`）は X API 経路（`fetchXAccounts`）で取得され、これは**添付メディアのサムネしか拾わず t.co を一切解決しない**＝link-card ツイートは無プレビューだった。そこで**両経路（fetchX / fetchXAccounts）の X 項目を横断**して補完する（enrichArticles と同じ「state 永続キャッシュ＋毎回再適用＋トリム後対象＋未確認のみ取得＋maxNew 段階補完＋prune」パターン。負キャッシュ=`null`）。解決は `resolveThumb` と同じ**ハイブリッド**: t.co を `resolvePage` で追跡し、**①最終URLが x.com/status → syndication でツイートのメディア画像＋本文（title）＋著者（description）**、**②外部サイト → `extractOgImage`/`extractOgTitle`/`extractOgDescription`**（`ogp.ts` に title/description 抽出を追加。`<title>` フォールバック込み）。**CI（datacenter IP）でも多くの外部サイトが解決できる** → `aggregate.ts` は既定で走らせる（`X_LINK_MAX_NEW` 既定40/run・env で上書き可）。Cloudflare 等で 403 になる分は負キャッシュ＋再適用で吸収し、`npm run enrich:xlinks`（`scripts/enrichXLinksLocal.ts`・residential IP・トークン不要）でバックフィルできる（`--fresh` で負キャッシュ一掃）。表示は `TweetCard.astro` が入れ子 `<a>`（`z-30`＞カード全面オーバーレイ `z-20`）でカードを描画＝カードのタップは**リンク先へ**、カード外はツイートへ遷移。本文からは t.co を落として生 URL を隠す（空になれば本文非表示）。title/description は translate ステップで日本語補完（`linkPreview.titleJa`/`descriptionJa`・`BilingualText` で日本語/原文トグル対応）。
 
-**【現在は無効（`GEMINI_API_KEY` 未設定・API を使わない方針）】機械翻訳／3行要約で日本語補完（`scripts/sources/translate.ts` の `enrichTranslations`）**: `enrichArticles.ts` と同じ「state 永続キャッシュ＋毎回再適用＋トリム後対象」パターン。Gemini REST API（`generateContent`、`fetch` のみで依存追加なし）で **`titleJa` と `summaryJa` を1回のバッチ呼び出しで同時補完**する。`titleJa`=title が非日本語なら翻訳（日本語ならスキップ／空文字）。`summaryJa` は**ソースで分岐**: `feeds.config.ts` の `translate.summarizeSources`（既定 `zenn`/`qiita`/`hatenablog`）＆ summary が `summaryMinLen`（既定40字）以上のものは**原文の言語を問わず3行要約**（朝刊カードの概要が読みやすくなる。日本語記事も要約対象）、それ以外（X 等）は従来どおり summary を翻訳（非日本語のみ）。**X の `linkPreview`（リンクカード）がある項目は title/description も同じバッチで翻訳**し `linkPreview.titleJa`/`descriptionJa` に載せる（linkPreview は maxNew で本文と別ライフサイクルなので、cached があっても未翻訳の link だけ都度再翻訳＝キャッシュはマージ更新）。バッチ入力に per-entry `summarize` フラグを載せ1プロンプトで分岐。日本語判定は `isJapanese()`。`translate.batchSize` ごとに1回 API 呼び出し（`responseSchema` で JSON 配列を堅牢に受け取る）、`mapLimit` で `translate.concurrency` 並列。バッチ失敗（network/parse/件数不一致）はそのバッチをスキップし次回 run で再試行。結果は `state.translations` に保存し実行後に現存 id 分だけへ prune。**`GEMINI_API_KEY` 未設定なら丸ごとスキップ＝カードは原文のまま（graceful degradation）。** 毎回フレッシュ取得されるソースが `titleJa`/`summaryJa` を失っても `state.translations` から再適用するので再生成しない。**生成ロジック（プロンプト・翻訳↔要約の切替）を変えたら `aggregate.ts` の `ENRICH_VERSION` を上げる**＝`state.enrichVersion` と不一致なら旧キャッシュを破棄して即作り直す（アイテムが `retentionMax` で自然に入れ替わるのを待たない）。表示は `BilingualText.astro` がそのまま機能し、日本語＝AI要約 / 原文＝元の抜粋、として出し分く。
+**【現在は有効。ただし `summarizeSources` が空なので「3行要約」ではなく「非日本語のみ翻訳」】機械翻訳／要約で日本語補完（`scripts/sources/translate.ts` の `enrichTranslations`）**: `enrichArticles.ts` と同じ「state 永続キャッシュ＋毎回再適用＋トリム後対象」パターン。Gemini REST API（`generateContent`、`fetch` のみで依存追加なし）で **`titleJa` と `summaryJa` を1回のバッチ呼び出しで同時補完**する。`titleJa`=title が非日本語なら翻訳（日本語ならスキップ／空文字）。`summaryJa` は**ソースで分岐**: `feeds.config.ts` の `translate.summarizeSources`（**現在は空**）＆ summary が `summaryMinLen`（既定40字）以上のものは**原文の言語を問わず3行要約**（朝刊カードの概要が読みやすくなる。日本語記事も要約対象）、それ以外（X 等）は従来どおり summary を翻訳（非日本語のみ）。**X の `linkPreview`（リンクカード）がある項目は title/description も同じバッチで翻訳**し `linkPreview.titleJa`/`descriptionJa` に載せる（linkPreview は maxNew で本文と別ライフサイクルなので、cached があっても未翻訳の link だけ都度再翻訳＝キャッシュはマージ更新）。バッチ入力に per-entry `summarize` フラグを載せ1プロンプトで分岐。日本語判定は `isJapanese()`。`translate.batchSize` ごとに1回 API 呼び出し（`responseSchema` で JSON 配列を堅牢に受け取る）、`mapLimit` で `translate.concurrency` 並列。バッチ失敗（network/parse/件数不一致）はそのバッチをスキップし次回 run で再試行。結果は `state.translations` に保存し実行後に現存 id 分だけへ prune。**`GEMINI_API_KEY` 未設定なら丸ごとスキップ＝カードは原文のまま（graceful degradation）。** 毎回フレッシュ取得されるソースが `titleJa`/`summaryJa` を失っても `state.translations` から再適用するので再生成しない。**生成ロジック（プロンプト・翻訳↔要約の切替）を変えたら `aggregate.ts` の `ENRICH_VERSION` を上げる**＝`state.enrichVersion` と不一致なら旧キャッシュを破棄して即作り直す（アイテムが `retentionMax` で自然に入れ替わるのを待たない）。表示は `BilingualText.astro` がそのまま機能し、日本語＝AI要約 / 原文＝元の抜粋、として出し分く。
 
 ### ソースの登録は `src/lib/feed.ts` の `FeedSource` 型 + `SOURCES` 配列が中心レジストリ
 
@@ -132,7 +136,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 
 > **凡例**: 見出しの【現在は無効】は `feeds.config.ts` で `disabled: true` のソース。
 > 記述は将来の復活・障害記録のため残してある。
-> 有効なのは **Zenn / Qiita / はてなブログ / The Hacker News / Dark Reading** の 5 つ。
+> 有効なのは **Zenn / Qiita / はてなブログ / The Hacker News / Dark Reading / BleepingComputer** の 6 つ。
 
 - **【現在は無効】X**: X API を**叩かない**。自分のデータは basecamp 公開 JSON（`storage.googleapis.com/basecamp-feeds/x-tweets.json`）を読むだけ（トークン・課金不要、basecamp の OAuth と競合しない）。`x.accounts` の外部アカウントのみ X API **App-only Bearer**（`X_BEARER_TOKEN`）+ `since_id` 増分。OGP サムネは `scripts/sources/ogp.ts` で解決し `state.xOgImages` にキャッシュ。**本文が t.co リンクのツイートはリンク先の OGP カードを `linkPreview` として補完**（`enrichXLinks`。両取得経路を横断。後述）。表示は `TweetCard.astro`（ツイート風＋リンクプレビューカード）。
   - **著者アイコン(avatar)/実名/@handle**: basecamp 公開JSON は元ツイートの著者を持たず `author` が `"ブックマーク"` 等の固定ラベルになる。これを **syndication（`scripts/sources/syndication.ts` の `fetchTweet`＝`cdn.syndication.twimg.com`・無料・トークン不要）** で解決し `FeedItem.avatarUrl`（`_400x400`化）/`authorName`/`author=@handle` を補完（`xOgImages` と同じ state永続キャッシュ＋毎回再適用＋新規は `authorMaxNew` 件/run の段階補完＋トリム後 prune パターン、`state.xAuthors`）。外部アカウントは X API の `expansions=author_id&user.fields=profile_image_url,name` で同様取得。`TweetCard.astro` は `avatarUrl` があれば丸枠に `<img>`（`onerror` でイニシャル/Xロゴへフォールバック）、無ければ従来の代替アイコン。**⚠️ syndication 直叩きは residential IP(ローカル)なら解決でき、CI(datacenter IP)では弱い可能性**（datacenter IP からの直叩きという制約。ただし 403 リスクは低い）。ローカル `npm run aggregate` で埋めた `state.xAuthors` は CI でも毎回再適用＝永続化される。
@@ -164,6 +168,13 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
   - **約4.6件/日**（実測: 50件が約11日分）。`limit: 20` / `retentionMax: 1000`（≒7ヶ月）で十分。
   - 記事ページは UA 付き fetch で **200・本文 9,000〜11,700字・og:image あり**（実測）＝将来の3行要約も機能する。`enrichArticles` の対象セットに含めてある。
   - **バッジ色は `--color-darkreading: #8a6a12`（琥珀）**。色相環で最も空いていた領域（THN 355°→Qiita 94° の 99°の隙間）の中点付近 44°。既存5色との最小色差 ΔE=59.9 で、**既存どうしの最小ペア（Qiita↔ロゴ 58.3）より離れている**。白背景コントラスト 5.06:1。
+- **【有効】BleepingComputer（`bleepingcomputer`）**: 英語のセキュリティ／IT ニュース。`fetchRss`（`rssUrls` 配列）で取得。
+  - **全体フィード `https://www.bleepingcomputer.com/feed/` の1本だけ**。カテゴリ別（`/news/<cat>/feed/`）は **404 で存在しない**（実アクセスで確認）。
+  - **Cloudflare 配下**（`cf-ray` ヘッダあり）だが、**フィードは UA を問わず 200**（プロジェクトUA / ブラウザUA / UA無し すべて成功、検証ページも出ない）。記事ページも同じく 200 なので、**CI（datacenter IP）でボット判定される懸念は低い**。ただし Cloudflare の設定はサイト側都合で変わり得るので、取得できなくなったら 403 / 検証ページを疑うこと。
+  - ⚠️ **フィードが 15 件しか返さない**（THN・Dark Reading は 50、はてなブログ 30、Zenn/Qiita 20）。平日 約8件/日なので**約2日分しか遡れない**＝**CI が2日以上止まると取りこぼす**。6時間ごとの cron なら 1 run あたり ~2件で十分。`limit: 20` はフィード件数を上回るので実質「全件取り込む」設定。
+  - ⚠️ **フィードにサムネが無い**（`enclosure` も `media:*` も無い）。他の英語2ソースと違い、**サムネは `enrichArticles` の og:image 補完に完全に依存する**。記事ページは UA 付き fetch で 200・og:image あり・本文 6,600〜9,000字（実測）なので機能するが、ここが失敗すると画像なしのコンパクト行になる。
+  - 抜粋は 159〜311字（中央206字）。`dc:creator` に記者名、`categories` にカテゴリが入る（現状は未使用）。
+  - **バッジ色は `--color-bleepingcomputer: #d10092`（マゼンタ）**。残った最大の空き（hatenablog 262°→THN 355° の 93°）から 318°。既存6色との最小色差 ΔE=60.1（基準 58.3 超）、白背景コントラスト 5.09:1。
 
 ## ソースを追加・削除するときのチェックリスト
 
@@ -252,12 +263,12 @@ npm run dev         # 画面（フィルタ・バッジ・説明文）を目視
   - **テキストは生成した PC のフォントでラスタライズされる**（サイトの Web フォント Space Grotesk / IBM Plex Mono は載らない）。別 PC で再生成すると字形が変わりうるので、生成済み PNG をコミットして通常は再生成しない運用。
   - favicon（`public/favicon.svg`）は SVG のまま配信＝ブラウザがレンダリングするので、こちらはフォント差の影響を受けない。**SVG のコメント内に連続ハイフン（`--`）を書くと XML が壊れて画像ごと表示されなくなる**ので注意（`--color-logo` のような変数名を書きたくなる場面で踏みやすい）。
 - **ライト専用サイトなので `globals.css` の `html` に `color-scheme: light` を宣言**。これが無いと Chrome の強制/Auto ダークモードが朝刊テーマを反転させて背景・カードが暗転する（UAの問題ではなくブラウザ設定）。
-- **【現在は無効】翻訳/3行要約が出ない＝Gemini の HTTP 4xx を疑う**（CI は緑のまま titleJa/summaryJa=0 になる）。実例: 使用モデル `gemini-2.0-flash` が 2026-06-01 提供終了→無料枠撤廃で **429**。`feeds.config.ts` の `translate.model` を後継 Flash-Lite（無料枠あり）に切替えて復旧。確認は `gh run view <id> --log | grep '\[translate\]'` と `git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length'`。詳細は memory `todayai-gemini-quota-429`。
+- **翻訳が出ない＝Gemini の HTTP 4xx を疑う**（CI は緑のまま titleJa/summaryJa=0 になる）。実例: 使用モデル `gemini-2.0-flash` が 2026-06-01 提供終了→無料枠撤廃で **429**。`feeds.config.ts` の `translate.model` を後継 Flash-Lite（無料枠あり）に切替えて復旧。確認は `gh run view <id> --log | grep '\[translate\]'` と `git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length'`。詳細は memory `todayai-gemini-quota-429`。
 - **ビジュアルは「朝刊（Daily Briefing）」ライトテーマ**（ペーパー白 `#f6f7f9` ＋白カード ＋ インク文字 ＋ コバルト `#2f5fff`）。配色トークンは `globals.css` の `@theme` に集約。見出しは Space Grotesk、時刻・ソース名は IBM Plex Mono（ティッカー風）。
 - **ロゴだけ別系統の色**（`--color-logo` 系＝エメラルドグリーン `#0f9b6c`）: `--color-accent`（コバルト）はフィルタチップ・言語トグル・カード hover が共有しているため、ロゴを変えるとサイト全体が巻き込まれる。**ロゴ専用変数に分けてあるので、ロゴの色を変えるときは `--color-logo` だけを触ること**（使用箇所は `Layout.astro` のバッジ背景＋glow とワードマークの2箇所）。なお Tailwind v4 は**実際に使われている `@theme` 変数しか CSS に出力しない**ので、`--color-logo-bright` / `-deep` は定義済みでもビルド後の CSS には現れない（`--color-accent-deep` も同様。不具合ではない）。
 - **カードはハイブリッド分岐**（`FeedCard.astro`）: X は `TweetCard`、それ以外は `item.thumbnail` の有無で **ヒーローカード** か **コンパクト行** に分かれる。ヒーローはモバイルで画像上＋本文下の縦積み、`sm:` 以上で `flex-row` の**画像左（`sm:w-[14rem]`）＋本文右**の横並びになる。OGP 補完でサムネ網羅率が上がるとヒーローが主役になる。**サムネ枠は全ブレークポイントで `aspect-video`（16:9）固定＋`sm:self-start`（上揃え）**＝カード全高に引き伸ばされない（横長 OGP が縦長クロップで崩れるのを防ぐ）。**カード外枠は `rounded-none`（直角）**＝バッジのピル・X アバターの丸・フィルタチップのピルは丸のまま、カード面だけ角。
 - **コンテナ幅**は `Layout.astro` の `max-w-[46rem] lg:max-w-[58rem]`（モバイル～タブレットは 46rem、`lg:`≥1024px で 58rem に広げて PC で横を使う）。ヘッダー/フィルタ/日付見出しもこの幅に従う。
-- **二言語表示（日本語／原文トグル）**: **【現在、翻訳は無効なので実質すべて原文表示】**（トグル UI は残っているが `titleJa`/`summaryJa` が生成されないため切り替えても見た目が変わらない）。`FeedItem` の `titleJa`/`summaryJa`（集約時に Gemini 補完）が原文と別に入る。表示は `BilingualText.astro`（`ja!==orig` のとき `.lang-ja` と `.lang-orig` の両 span を出力、翻訳なしは素テキスト）。`SourceFilter.astro` 右端の「日本語／原文」トグルが `:root.show-orig` クラスを切り替え、CSS（`globals.css` の `.lang-orig`/`:root.show-orig .lang-ja`）で全カードを一斉に出し分ける。選択は `localStorage("todayai:lang")` に永続。**フィルタ（`.is-hidden`）とは独立したクラストグルで競合しない。** 既定は日本語（クラス無し）。
+- **二言語表示（日本語／原文トグル）**: 翻訳が有効なので**英語ソースには日本語訳が付き、トグルが機能する**（日本語記事は訳が無いので素のまま＝トグルの影響を受けない）。トグル自体は `hasAnyTranslation(items)` が true のときだけ描画される。`FeedItem` の `titleJa`/`summaryJa`（集約時に Gemini 補完）が原文と別に入る。表示は `BilingualText.astro`（`ja!==orig` のとき `.lang-ja` と `.lang-orig` の両 span を出力、翻訳なしは素テキスト）。`SourceFilter.astro` 右端の「日本語／原文」トグルが `:root.show-orig` クラスを切り替え、CSS（`globals.css` の `.lang-orig`/`:root.show-orig .lang-ja`）で全カードを一斉に出し分ける。選択は `localStorage("todayai:lang")` に永続。**フィルタ（`.is-hidden`）とは独立したクラストグルで競合しない。** 既定は日本語（クラス無し）。
 - **`index.astro` は日付グルーピング＋タイムレール**: 各アイテムを `grid-cols-[auto_1fr]` で包み、左列に等幅 `HH:MM`＋縦ヘアライン（シグネチャ）。**この包み `div` に `data-feed-item`＋`data-source` を付け、フィルタ（`SourceFilter.astro` の `<script>`）はこのラッパに `.is-hidden` をトグルする**（`article` 単体ではなく行ごと出し分けるため。`[data-source].is-hidden{display:none}` がラッパも拾う）。
 - **sticky オフセットは JS 実測の CSS 変数**（旧来の `top-[57px]`/`top-[112px]` 手書きマジックナンバーは廃止）: `globals.css` の `:root` に `--header-h`/`--stack-h`（= ヘッダー高 / ヘッダー＋フィルタ高）をフォールバック値付きで定義し、`SourceFilter.astro` の `<script>` が `#app-header` と `#source-filter` を実測して上書きする（初回＋`window.resize`＋`document.fonts.ready`＋`ResizeObserver`）。フィルタは `top-[var(--header-h)]`、日付見出し（`index.astro`）は `top-[var(--stack-h)]`。**フィルタは `flex-wrap` で行数が変わる**ので固定値だと幅が狭いと崩れる＝実測必須。ヘッダーに `id="app-header"` が必要。
 - **ヘッダー／フィルタの sticky 面は `.sticky-surface`**（`globals.css`）: 既定は不透明 `--color-bg`、`@supports (backdrop-filter)` のときだけ frosted（`color-mix` 半透明＋blur）に格上げ。backdrop-filter 非対応や `prefers-reduced-transparency` でも背後のカードが透けない。**カード `<article>` には `isolate`（`isolation:isolate`）必須**（`FeedCard`/`TweetCard`）: 付けないと内部の `z-10`/`z-20`（オーバーレイ `<a>` と本文 `div`）がルートのスタッキングコンテキストへ漏れ、`z-10` の sticky フィルタの**上に**カード本文が描画されてタイトルがバー上にブリードする。
@@ -289,7 +300,7 @@ npm run build      # 本番ビルド（型チェック込み）
 **Gotcha**:
 - X取得は2系統（`feeds.config.ts` の `x`）: (a) **自分のデータ**は basecampの公開JSON（`storage.googleapis.com/basecamp-feeds/x-tweets.json`）から `x.categories`（post/like/bookmark、既定は bookmark）で取得＝トークン・課金不要。(b) **外部アカウントのポスト**は `x.accounts` に列挙し、X API **App-only Bearer Token**（Secret `X_BEARER_TOKEN`）+ `since_id` 増分取得（`state.xAccountSinceIds` に永続化）で新着のみ課金（Non-owned Read $0.005/件）。App-only Bearer は固定トークンなので basecamp の OAuth2 refresh token と競合しない。aggregate は外部アカウント分のみ前回キャッシュを保持し、ブックマークは毎回フレッシュ置換。
 - **Zenn / Qiita はトークン不要**: Zenn「AI」トピック（`zenn.dev/topics/ai/feed`）と Qiita「AI」タグ（`qiita.com/tags/ai/feed`）の公開 RSS を、共有ヘルパー `scripts/sources/rss.ts` の `fetchRss({rssUrl, source, limit})` が rss-parser で直接取得（`limit` で件数を抑制、取得失敗時は前回キャッシュへフォールバック）。それぞれ独立タブ `source: "zenn"` / `"qiita"` で表示。設定は `feeds.config.ts` の `zenn` / `qiita`。（かつての「Feedly」= AI 関連 RSS 8本まとめ集約は廃止。この2フィードだけ独立ソース化した）
-- **機械翻訳／3行要約（原文→日本語）**: 集約時に各アイテムの `title`/`summary` を Gemini REST API（`scripts/sources/translate.ts` の `enrichTranslations`、`fetch` のみ）で1回のバッチ呼び出しで日本語補完。`titleJa`=非日本語タイトルの翻訳。`summaryJa` はソースで分岐し、記事系（`translate.summarizeSources`＝Zenn/Qiita/はてなブログ）の十分な長さの抜粋は**原文の言語を問わず生成AIで3行要約**、その他（X 等）は summary を翻訳。日本語判定は `isJapanese()`。`state.translations` に永続キャッシュ、生成ロジック変更時は `aggregate.ts` の `ENRICH_VERSION`↔`state.enrichVersion` 不一致で旧キャッシュを破棄して再生成。表示はフィルタバー右端の「日本語／原文」一括トグル（`:root.show-orig` クラス＋`localStorage`、`BilingualText.astro`。日本語＝AI要約／原文＝元の抜粋）。
-- Secret: `X_BEARER_TOKEN`（X の外部アカウント取得）、`GEMINI_API_KEY`（機械翻訳）。**どちらも現在は無効化中の機能向け**で、未設定ならスキップされるだけ。稼働中の Zenn・Qiita・はてなブログは公開 RSS なのでトークン不要。
+- **機械翻訳／3行要約（原文→日本語）**: 集約時に各アイテムの `title`/`summary` を Gemini REST API（`scripts/sources/translate.ts` の `enrichTranslations`、`fetch` のみ）で1回のバッチ呼び出しで日本語補完。`titleJa`=非日本語タイトルの翻訳。`summaryJa` はソースで分岐し、記事系（`translate.summarizeSources`。**現在は空**）の十分な長さの抜粋は**原文の言語を問わず生成AIで3行要約**、その他（X 等）は summary を翻訳。日本語判定は `isJapanese()`。`state.translations` に永続キャッシュ、生成ロジック変更時は `aggregate.ts` の `ENRICH_VERSION`↔`state.enrichVersion` 不一致で旧キャッシュを破棄して再生成。表示はフィルタバー右端の「日本語／原文」一括トグル（`:root.show-orig` クラス＋`localStorage`、`BilingualText.astro`。日本語＝AI要約／原文＝元の抜粋）。
+- Secret: `GEMINI_API_KEY`（機械翻訳。**現在有効**。未設定ならスキップされ原文表示になる）、`X_BEARER_TOKEN`（X 用。現在は無効化中の機能向け）。記事の取得元はすべて公開 RSS なのでトークン不要。
 - `push` 時は取得＋コミットをスキップ（既存キャッシュでビルド）しコミットループを回避。
 - Tailwind v4 + Astro 型不一致は `astro.config.mjs` で `any` キャスト。内部リンクは `src/lib/url.ts` の `siteLink()` 必須（base path は現在 `/todaysec`）。
