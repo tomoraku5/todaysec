@@ -136,6 +136,30 @@ export interface FeedsConfig {
     retentionMax: number;
     disabled?: boolean;
   };
+  /**
+   * The Register の**セキュリティセクション限定**の公開 Atom。トークン不要。
+   *
+   * ⚠️ The Register は総合 IT メディア（クラウド・ハードウェア・企業ニュース・宇宙開発まで扱う）
+   * なので、**全体フィードは使わない**。`/security/headlines.atom` がセクション限定で、
+   * 実測 50 件すべてがセキュリティ関連だった。
+   *
+   * このURLは内部的に API（`api.theregister.com/...?query=tag:security`）へリダイレクトするが、
+   * **リダイレクト先ではなくこの人が読めるURLを設定に書く**。転送先は `site_id=2` /
+   * `remapper=rss` といった内部パラメータを含み、サイト側の実装変更で壊れやすいため。
+   * （The Hacker News は逆に最終URLを直接指定している。あちらの転送先は FeedBurner という
+   * 安定した公開エンドポイントなので判断が違う。）
+   *
+   * セクション別フィードの他の形（`/security/feed/`・`/security/rss`・`/security/atom.xml`・
+   * `/security/index.atom`）はすべて 404。`/security/headlines.rss` は同内容を返す。
+   */
+  theregister: {
+    rssUrls: string[];
+    /** 1回に取り込む最大件数（**1 URL あたり**の取得窓。蓄積は retentionMax まで） */
+    limit?: number;
+    /** 保持上限件数（全期間アーカイブの安全弁） */
+    retentionMax: number;
+    disabled?: boolean;
+  };
   translate: {
     /**
      * 集約時の機械翻訳（原文→日本語）。Gemini REST API を使う。
@@ -247,6 +271,18 @@ export const feedsConfig: FeedsConfig = {
     retentionMax: 1000,
     disabled: false,
   },
+  theregister: {
+    rssUrls: [
+      // セキュリティセクション限定。全体フィード（/headlines.atom）は使わない。
+      "https://www.theregister.com/security/headlines.atom",
+    ],
+    // 実測 約3.7件/日・フィードは50件（約13日分）返す＝取りこぼしリスクは最も低い部類。
+    // 1 run あたり ~1件なので 20 で十分。
+    limit: 20,
+    // 約3.7件/日なので 1000 件 ≒ 9ヶ月分。既定のままで足りる。
+    retentionMax: 1000,
+    disabled: false,
+  },
   translate: {
     // gemini-2.0-flash は 2026-06-01 に提供終了（無料枠撤廃で 429 になる）。
     // 後継の Flash-Lite に切替（無料枠あり・翻訳/簡易処理向け）。memory: todayai-gemini-quota-429。
@@ -266,7 +302,7 @@ export const feedsConfig: FeedsConfig = {
      *    翻訳の入力は抜粋（120字前後）。1件あたりおよそ16倍のトークンを食う。
      *
      * 3行要約を使いたくなったらここに入れる（記事系の全ソース）:
-     *   summarizeSources: ["zenn", "qiita", "hatenablog", "thehackernews", "darkreading", "bleepingcomputer"],
+     *   summarizeSources: ["zenn", "qiita", "hatenablog", "thehackernews", "darkreading", "bleepingcomputer", "theregister"],
      * ⚠️ 戻すときは `aggregate.ts` の `ENRICH_VERSION` も上げること。上げないと
      *    「翻訳」として保存済みのキャッシュが再生成されず、要約に切り替わらない。
      */

@@ -60,6 +60,17 @@
      hatenablog 5.70 / THN 5.71 / Dark Reading 5.06 と明度感もそろう。 */
   --color-bleepingcomputer: #d10092;
   --color-bleepingcomputer-bg: rgba(209, 0, 146, 0.12);
+  /* The Register。⚠️ これは**暫定色**。
+     8色目にあたり、色相環の空き（Qiita 94°→ロゴ 160° と はてなブログ 262°→Bleeping 318°）
+     はどちらも既存の緑・紫と近く、明度/彩度も動かして全色相を総当たりしても
+     既存色との最小色差は ΔE=48.3 が上限だった。既存7色が互いに 58.3 以上（最小ペアは
+     Qiita↔ロゴ 58.3）を保っているのに対し**明確に下回る**＝「注意して見れば区別できるが
+     一目では紛らわしい」水準。9色目以降は個別色の割り当てでは成立しない。
+     → 次回、ソース追加とは切り離した独立作業で**グループ配色（国内/海外メディア等の
+     数色を共有する方式）へ移行する予定**。それまでの暫定として青緑を置く。
+     白背景コントラストは 7.17:1（WCAG AA クリア）。 */
+  --color-theregister: #2a5e6f;
+  --color-theregister-bg: rgba(42, 94, 111, 0.12);
 
   /* X ツイート風カード（朝刊ライトに合わせた配色） */
   --color-tweet-bg: #ffffff;
@@ -167,6 +178,10 @@ a {
 .src-bleepingcomputer {
   color: var(--color-bleepingcomputer);
   background: var(--color-bleepingcomputer-bg);
+}
+.src-theregister {
+  color: var(--color-theregister);
+  background: var(--color-theregister-bg);
 }
 
 /* フィルタ非表示用 */
