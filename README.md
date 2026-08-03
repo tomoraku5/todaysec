@@ -1,8 +1,8 @@
 # today.security — セキュリティ情報フィード集約サイト
 
 **Zenn**「security」トピック、**Qiita**「Security」「認証」タグ、**はてなブログ**の
-セキュリティ専門ブログからセキュリティ関連情報を自動集約し、時系列の統合タイムラインとして
-表示する静的サイト（GitHub Pages）。
+セキュリティ専門ブログ、**The Hacker News**（英語）からセキュリティ関連情報を自動集約し、
+時系列の統合タイムラインとして表示する静的サイト（GitHub Pages）。
 
 - 公開URL: <https://tomoraku5.github.io/todaysec/>
 - 基盤: Astro 5 + Tailwind v4 + TypeScript
@@ -68,13 +68,14 @@ npx tsx scripts/generateOgImage.ts
 
 `feeds.config.ts` で設定します。
 
-### 有効（3ソース）
+### 有効（4ソース）
 
 | source | 取得元 | 設定 |
 |------|------|------|
 | `zenn` | `zenn.dev/topics/security/feed` | `zenn.rssUrls` |
 | `qiita` | `qiita.com/tags/security/feed`<br>`qiita.com/tags/認証/feed` | `qiita.rssUrls` |
 | `hatenablog` | `piyolog.hatenadiary.jp/feed`（piyolog）<br>`foxsecurity.hatenablog.com/feed`（Fox on Security）<br>`blog.flatt.tech/feed`（GMO Flatt Security） | `hatenablog.rssUrls` |
+| `thehackernews` | `feeds.feedburner.com/TheHackersNews`（The Hacker News・英語） | `thehackernews.rssUrls` |
 
 **`rssUrls` は配列**なので、タグ・トピック・ブログを増やしたいときは URL を足すだけです。
 
@@ -84,6 +85,12 @@ npx tsx scripts/generateOgImage.ts
 - 日本語のタグ URL（`.../tags/認証/feed`）は**そのまま書いて構いません**。
   プログラム側で自動的にエンコードされます
 - 同じ記事が複数のタグに出ても、記事 URL をキーに重複排除されて 1 件になります
+
+> **The Hacker News は英語のニュースサイト**です。日本語記事に混じって英語の見出しが
+> 並びます（翻訳機能は現在無効なので原文のまま表示されます）。1日あたり約10件と多めですが、
+> `limit` は「1URLあたり20件」で6時間ごとに取得するので取りこぼしません。
+> サイトの `/rss.xml` などはすべて FeedBurner に転送されるため、設定には転送先の
+> URL を直接書いています。
 
 > **はてなブログだけ「個別ブログのURLを並べる」方式**にしています。はてなブログには
 > Zenn/Qiita のような「全ブログ横断で特定タグの新着を取るフィード」が存在せず、

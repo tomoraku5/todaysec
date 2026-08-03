@@ -16,13 +16,14 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
   トークン・API キーは一切不要で、公開 RSS だけで動く。
 - **位置づけ**: 運用者は開発未経験。**個人の学習目的**のサイトであり、特定の組織を代表するものではない。
 
-### 現在有効なソース（3ソース）
+### 現在有効なソース（4ソース）
 
 | source | 内容 | 取得元 |
 | --- | --- | --- |
 | `qiita` | Qiita「Security」タグ・「認証」タグ | 公開 RSS（複数 URL・トークン不要） |
 | `zenn` | Zenn「security」トピック | 公開 RSS（トークン不要） |
 | `hatenablog` | セキュリティ専門のはてなブログ3本（piyolog / Fox on Security / GMO Flatt Security） | 公開 Atom（複数 URL・トークン不要） |
+| `thehackernews` | The Hacker News（**英語**）の脆弱性・インシデント速報 | 公開 RSS（FeedBurner・トークン不要） |
 
 ⚠️ 「はてなブログ」は**はてなブックマークとは別サービス**。かつて `hatena`（はてブ人気エントリー）枠もあったが削除済み（後述の「削除したソース」参照）。
 
@@ -129,7 +130,8 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 ### ソース別の要点（なぜ普通の RSS じゃないか）
 
 > **凡例**: 見出しの【現在は無効】は `feeds.config.ts` で `disabled: true` のソース。
-> 記述は将来の復活・障害記録のため残してある。有効なのは **Zenn / Qiita / はてなブログ** の 3 つ。
+> 記述は将来の復活・障害記録のため残してある。
+> 有効なのは **Zenn / Qiita / はてなブログ / The Hacker News** の 4 つ。
 
 - **【現在は無効】X**: X API を**叩かない**。自分のデータは basecamp 公開 JSON（`storage.googleapis.com/basecamp-feeds/x-tweets.json`）を読むだけ（トークン・課金不要、basecamp の OAuth と競合しない）。`x.accounts` の外部アカウントのみ X API **App-only Bearer**（`X_BEARER_TOKEN`）+ `since_id` 増分。OGP サムネは `scripts/sources/ogp.ts` で解決し `state.xOgImages` にキャッシュ。**本文が t.co リンクのツイートはリンク先の OGP カードを `linkPreview` として補完**（`enrichXLinks`。両取得経路を横断。後述）。表示は `TweetCard.astro`（ツイート風＋リンクプレビューカード）。
   - **著者アイコン(avatar)/実名/@handle**: basecamp 公開JSON は元ツイートの著者を持たず `author` が `"ブックマーク"` 等の固定ラベルになる。これを **syndication（`scripts/sources/syndication.ts` の `fetchTweet`＝`cdn.syndication.twimg.com`・無料・トークン不要）** で解決し `FeedItem.avatarUrl`（`_400x400`化）/`authorName`/`author=@handle` を補完（`xOgImages` と同じ state永続キャッシュ＋毎回再適用＋新規は `authorMaxNew` 件/run の段階補完＋トリム後 prune パターン、`state.xAuthors`）。外部アカウントは X API の `expansions=author_id&user.fields=profile_image_url,name` で同様取得。`TweetCard.astro` は `avatarUrl` があれば丸枠に `<img>`（`onerror` でイニシャル/Xロゴへフォールバック）、無ければ従来の代替アイコン。**⚠️ syndication 直叩きは residential IP(ローカル)なら解決でき、CI(datacenter IP)では弱い可能性**（datacenter IP からの直叩きという制約。ただし 403 リスクは低い）。ローカル `npm run aggregate` で埋めた `state.xAuthors` は CI でも毎回再適用＝永続化される。
@@ -146,6 +148,14 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
   - フィードは Atom で `title` / `link` / `isoDate` / `contentSnippet` / `author` を持つが、**`enclosure` も `media:thumbnail` も無い**＝サムネはフィードから取れない。よって `enrichArticles` の対象に含め、記事ページの og:image から補完している（Zenn/Qiita と同じ）。
   - `contentSnippet` が非常に長い（piyolog は 1万字超）が、`rss.ts` の `snippet()` が 200 字に切るので問題ない。
   - **バッジ色は `--color-hatenablog: #7c3aed`（バイオレット）**。はてブの青 `#1f7fc2`・Zenn の水色・Qiita の黄緑・ロゴのエメラルドのいずれとも色相を 36°以上離してある。
+- **【有効】The Hacker News（`thehackernews`）**: 英語のセキュリティ専門ニュース。これも `fetchRss`（`rssUrls` 配列）で取得する。
+  - ⚠️ **Y Combinator の Hacker News（`news.ycombinator.com`）とは別サービス**。key を `hackernews` にしないこと。
+  - **サイト側の `/rss.xml`・`/atom.xml`・`/feeds/posts/default` はすべて FeedBurner（`feeds.feedburner.com/TheHackersNews`）へリダイレクトする**（実測）。実質フィードは1本しかないので、リダイレクトを1回減らすため設定には最終 URL を直接書いている。裏を返すと **FeedBurner が止まると代替経路が無い**（サイト固有 URL も同じ先を指すため）。
+  - RSS 2.0。`title` / `link` / `isoDate` / `contentSnippet`（約400字）/ `author` に加え、**`enclosure` にサムネイル画像が付く**（Blogger の CDN）。よってはてなブログと違い og:image 補完は不要で、全件がヒーローカードになる。
+  - **約10件/日**（実測: 50件が約5日分）。cron 6時間ごと＝1 run あたり ~2.5件なので `limit: 20` で十分な余裕。フィードが50件返すので数 run 落ちても取りこぼさない。
+  - 記事ページは **UA を付けた fetch で 200 が返り、本文も 7,000〜10,000 字抽出できる**（実測）＝将来 `translate` を有効化したときの3行要約も機能する。そのため `enrichArticles` の対象セットに含めてある（サムネ済み item は fetch されないので現状のコストは増えない）。
+  - **唯一の英語ソース**。翻訳が無効な現在は英語の見出しがそのまま日本語記事に混在する。タイトルは 56〜100 字程度で、ヒーローカードの `h2` に `break-words` が効くため折り返しは崩れない。
+  - **バッジ色は `--color-thehackernews: #c81e2b`（ブランドの赤）**。色相 355°で最近接の hatenablog（262°）から 93°離れ、白背景コントラストは 5.71:1。
 
 ## ソースを追加・削除するときのチェックリスト
 
@@ -163,7 +173,8 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 | 4 | `scripts/sources/<key>.ts` | 取得して `FeedItem[]` を返す関数。**公開 RSS/Atom なら新規作成は不要**で、`rss.ts` の `fetchRss({rssUrls, source, limit})` をそのまま流用できる（設定を `rssUrls` 配列にすれば `aggregate.ts` の既存ループに相乗りするだけで済む） |
 | 5 | `scripts/aggregate.ts` | 取得ブロック（`rssUrls` 形式なら既存ループの配列に `<key>` を足すだけ）。**末尾の `counts` オブジェクトと完了ログにも `<key>` を追加**（忘れると集計に出ない） |
 | 6 | `feeds.config.ts` の `translate.summarizeSources` | 記事系なら追加（`scripts/sources/translate.ts` が参照する。翻訳は現在無効だが、有効化したときに要約対象になる） |
-| 7 | `scripts/sources/enrichArticles.ts` の呼び出し（`aggregate.ts` 内） | フィードがサムネ（`enclosure` / `media:thumbnail`）を持たないソースは対象セットに追加＝記事ページの og:image から補完する |
+| 7 | `scripts/sources/enrichArticles.ts` の呼び出し（`aggregate.ts` 内） | **記事系なら基本は対象セットに追加する。** この関数は2役: ①サムネが無い item の og:image 補完、②要約を有効化したときの本文テキスト取得。**フィードにサムネがあっても ② のために入れておく**（サムネ済み item は fetch されないのでコストは増えない）。追加前に**記事ページが UA 付き fetch で 200 を返すか実測する**（拒否するサイトがある） |
+| 8 | `feeds.config.ts` の `retentionMax` | 投稿頻度から決める。既定 1000 は約10件/日なら3ヶ月分。物量が桁違いなソースだけ調整すればよい（ソース別枠なので他を押し出さない） |
 
 ### 2. 自動で追従するもの（手を入れない）
 
@@ -179,7 +190,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 ### 3. 手で更新が必要なもの（★ ここが漏れやすい）
 
 - [ ] **`README.md`** … 冒頭の説明文、「収集しているソース」の表と**見出しの「有効（N ソース）」の数字**、「構成」の記述
-- [ ] **`CLAUDE.md`** … 「現在有効なソース」の表、「ソース別の要点」に取得元固有の落とし穴（フィード形式・サムネの有無・URL の癖）
+- [ ] **`CLAUDE.md`** … 「現在有効なソース」の表と**その見出しの「（N ソース）」**、「ソース別の要点」に取得元固有の落とし穴（フィード形式・サムネの有無・URL の癖）、**同節の凡例にある有効ソースの列挙**（`> 有効なのは … の N つ`。ここは自動生成されないので必ずズレる）
 - [ ] **OGP 画像** … `npx tsx scripts/generateOgImage.ts` を実行して `public/og-default.png` を再生成＋コミット。スクリプト自体は `SOURCES` を読むので**文言の修正は不要、実行を忘れないことだけが問題**
 
 ### 4. 無効化したソースを復活させるとき
