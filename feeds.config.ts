@@ -196,9 +196,25 @@ export const feedsConfig: FeedsConfig = {
     model: "gemini-3.1-flash-lite",
     batchSize: 10, // 要約入力に記事本文(~3000字)を載せるので1コールが過大にならないよう小さめ
     concurrency: 3,
-    summarizeSources: ["zenn", "qiita", "hatenablog", "thehackernews"],
+    /**
+     * 3行要約に切り替えるソース。**意図的に空**にしている＝どのソースも「要約」ではなく
+     * 「非日本語のときだけ翻訳」になる（方針: 日本語記事はそのまま、英語記事だけ翻訳）。
+     *
+     * 空にしている理由:
+     * 1. **日本語記事は API を呼ばずに済む。** ここが空なら `summarize=false` になり、
+     *    `translate.ts` は `isJapanese()` で日本語の title/summary を弾いて対象から外す
+     *    （＝Zenn/Qiita/はてなブログのほとんどはリクエストが発生しない）。
+     *    逆にここへ入れると「原文の言語を問わず要約する」ので日本語記事まで API を消費する。
+     * 2. **トークン消費が桁違い。** 要約の入力は記事本文（`contentText`・最大2000字）で、
+     *    翻訳の入力は抜粋（120字前後）。1件あたりおよそ16倍のトークンを食う。
+     *
+     * 3行要約を使いたくなったらここに戻す（元の値）:
+     *   summarizeSources: ["zenn", "qiita", "hatenablog", "thehackernews"],
+     * ⚠️ 戻すときは `aggregate.ts` の `ENRICH_VERSION` も上げること。上げないと
+     *    「翻訳」として保存済みのキャッシュが再生成されず、要約に切り替わらない。
+     */
+    summarizeSources: [],
     summaryMinLen: 40,
-    // GEMINI_API_KEY が未設定のため停止（原文のまま表示＝graceful degradation）。
-    disabled: true,
+    disabled: false,
   },
 };
