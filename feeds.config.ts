@@ -118,6 +118,24 @@ export interface FeedsConfig {
     retentionMax: number;
     disabled?: boolean;
   };
+  /**
+   * BleepingComputer（英語のセキュリティ／IT ニュース）の公開 RSS。トークン不要。
+   *
+   * **全体フィード `/feed/` の1本だけ**。カテゴリ別（`/news/<cat>/feed/`）は 404 で存在しない。
+   * Cloudflare 配下（`cf-ray` ヘッダあり）だが、フィードは **UA を問わず 200**（UA 無しでも通る）
+   * ＝ CI（datacenter IP）でもボット判定される可能性は低い。実アクセスで確認済み。
+   *
+   * ⚠️ **フィードが 15 件しか返さない**（他ソースは 20〜50 件）。平日は約8件/日なので
+   * 約2日分しか遡れない。6時間ごとの cron なら十分だが、**CI が2日以上止まると取りこぼす**。
+   */
+  bleepingcomputer: {
+    rssUrls: string[];
+    /** 1回に取り込む最大件数（**1 URL あたり**の取得窓。蓄積は retentionMax まで） */
+    limit?: number;
+    /** 保持上限件数（全期間アーカイブの安全弁） */
+    retentionMax: number;
+    disabled?: boolean;
+  };
   translate: {
     /**
      * 集約時の機械翻訳（原文→日本語）。Gemini REST API を使う。
@@ -217,6 +235,18 @@ export const feedsConfig: FeedsConfig = {
     retentionMax: 1000,
     disabled: false,
   },
+  bleepingcomputer: {
+    rssUrls: [
+      // カテゴリ別フィードは存在しないので全体フィードのみ。
+      "https://www.bleepingcomputer.com/feed/",
+    ],
+    // フィード自体が 15 件しか返さないので limit 20 は実質上限なし（全件取り込む）。
+    // 平日 約8件/日・6時間ごとの cron なら 1 run あたり ~2件で余裕がある。
+    limit: 20,
+    // 平日 約8件/日 → 1000 件 ≒ 4〜6ヶ月分。既定のままで足りる。
+    retentionMax: 1000,
+    disabled: false,
+  },
   translate: {
     // gemini-2.0-flash は 2026-06-01 に提供終了（無料枠撤廃で 429 になる）。
     // 後継の Flash-Lite に切替（無料枠あり・翻訳/簡易処理向け）。memory: todayai-gemini-quota-429。
@@ -236,7 +266,7 @@ export const feedsConfig: FeedsConfig = {
      *    翻訳の入力は抜粋（120字前後）。1件あたりおよそ16倍のトークンを食う。
      *
      * 3行要約を使いたくなったらここに入れる（記事系の全ソース）:
-     *   summarizeSources: ["zenn", "qiita", "hatenablog", "thehackernews", "darkreading"],
+     *   summarizeSources: ["zenn", "qiita", "hatenablog", "thehackernews", "darkreading", "bleepingcomputer"],
      * ⚠️ 戻すときは `aggregate.ts` の `ENRICH_VERSION` も上げること。上げないと
      *    「翻訳」として保存済みのキャッシュが再生成されず、要約に切り替わらない。
      */

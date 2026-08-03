@@ -54,6 +54,12 @@
      白背景コントラストは 5.06:1（WCAG AA 4.5:1 をクリア）。 */
   --color-darkreading: #8a6a12;
   --color-darkreading-bg: rgba(138, 106, 18, 0.12);
+  /* BleepingComputer。残った最大の空き（hatenablog 262°→THN 355° の 93°の隙間）から
+     318° のマゼンタ。既存6色との最小色差 ΔE=60.1 で、既存どうしの最小ペア
+     （Qiita↔ロゴ 58.3）を上回る。白背景コントラスト 5.09:1（WCAG AA クリア）で、
+     hatenablog 5.70 / THN 5.71 / Dark Reading 5.06 と明度感もそろう。 */
+  --color-bleepingcomputer: #d10092;
+  --color-bleepingcomputer-bg: rgba(209, 0, 146, 0.12);
 
   /* X ツイート風カード（朝刊ライトに合わせた配色） */
   --color-tweet-bg: #ffffff;
@@ -157,6 +163,10 @@ a {
 .src-darkreading {
   color: var(--color-darkreading);
   background: var(--color-darkreading-bg);
+}
+.src-bleepingcomputer {
+  color: var(--color-bleepingcomputer);
+  background: var(--color-bleepingcomputer-bg);
 }
 
 /* フィルタ非表示用 */

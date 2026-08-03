@@ -10,7 +10,8 @@ export type FeedSource =
   | "qiita"
   | "hatenablog"
   | "thehackernews"
-  | "darkreading";
+  | "darkreading"
+  | "bleepingcomputer";
 
 export interface FeedItem {
   /** 一意キー（X: tweet id / 記事系(zenn/qiita/hatenablog): `<source>-<記事URL>`） */
@@ -168,6 +169,12 @@ export const SOURCES: SourceMeta[] = [
     label: "Dark Reading",
     badgeClass: "src-darkreading",
     description: "Dark Reading（英語）のセキュリティ解説・分析記事。",
+  },
+  {
+    key: "bleepingcomputer",
+    label: "BleepingComputer",
+    badgeClass: "src-bleepingcomputer",
+    description: "BleepingComputer（英語）の脆弱性・マルウェア・障害の速報。",
   },
 ];
 
