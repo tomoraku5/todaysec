@@ -42,6 +42,12 @@
      コントラストは 5.70:1 で本文サイズでも可読。 */
   --color-hatenablog: #7c3aed;
   --color-hatenablog-bg: rgba(124, 58, 237, 0.12);
+  /* The Hacker News。サイトのブランドカラー（赤）に寄せた深紅。
+     色相355°で、最も近い既存色（hatenablog 262°）から 93°離れている
+     ＝Zenn の水色・Qiita の黄緑・ロゴのエメラルドとも十分離れる。
+     白背景でのコントラストは 5.71:1（AA 4.5:1 をクリア）。 */
+  --color-thehackernews: #c81e2b;
+  --color-thehackernews-bg: rgba(200, 30, 43, 0.12);
 
   /* X ツイート風カード（朝刊ライトに合わせた配色） */
   --color-tweet-bg: #ffffff;
@@ -137,6 +143,10 @@ a {
 .src-hatenablog {
   color: var(--color-hatenablog);
   background: var(--color-hatenablog-bg);
+}
+.src-thehackernews {
+  color: var(--color-thehackernews);
+  background: var(--color-thehackernews-bg);
 }
 
 /* フィルタ非表示用 */

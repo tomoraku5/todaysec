@@ -134,14 +134,14 @@ async function run(): Promise<void> {
     collected.push(...xItems);
   }
 
-  // ---- Zenn トピック / Qiita タグ / はてなブログ（公開 RSS を直接取得。トークン不要）----
+  // ---- Zenn / Qiita / はてなブログ / The Hacker News（公開 RSS を直接取得。トークン不要）----
   // いずれも設定が `rssUrls`（配列）で構造が同じなので、専用実装を作らず同じループで扱う。
   // 1ソースにつき複数 URL（rssUrls）を束ねられる（例: Qiita = Security タグ＋認証タグ、
   // はてなブログ = 個別ブログ3本）。
   // limit は「1 URL あたり」の取得窓なので、URL を足しても既存フィードの取り込みは痩せない。
   // 取得窓が狭く RSS は最新数十件しか返さないので、前回分を土台に蓄積して過去分を保持する
   // （全期間アーカイブ。dedup=id で重複は集約）。取得失敗/disabled でも蓄積済みの過去分は残る。
-  for (const source of ["zenn", "qiita", "hatenablog"] as const) {
+  for (const source of ["zenn", "qiita", "hatenablog", "thehackernews"] as const) {
     const cfg = feedsConfig[source];
     collected.push(...cachedFor(cache, source));
     if (cfg.disabled) {
@@ -210,12 +210,19 @@ async function run(): Promise<void> {
   // これから要約する item には本文プレーンテキストを `contentText`（一時）として載せる（要約入力用）。
   const ogImages = state.ogImages ?? {};
   try {
-    // 記事系フィードは enclosure / media:thumbnail を持たないものが多いので、
-    // 記事ページの og:image から補完する。
-    const r = await enrichArticles(items, ogImages, translations, new Set(["zenn", "qiita", "hatenablog"]), {
-      extractText: willSummarize,
-      maxLen: 2000, // 短い要約に長文は不要。入力トークンを抑え 429(無料枠TPM超過)・コストを緩和。
-    });
+    // 対象に含める理由は2つ: ①サムネがフィードに無いソース（はてなブログ）の og:image 補完、
+    // ②要約を有効化したときの本文テキスト取得。The Hacker News はフィードに enclosure が
+    // 付くので①は不要だが②のために含める（サムネ済み item は fetch されないのでコストは増えない）。
+    const r = await enrichArticles(
+      items,
+      ogImages,
+      translations,
+      new Set(["zenn", "qiita", "hatenablog", "thehackernews"]),
+      {
+        extractText: willSummarize,
+        maxLen: 2000, // 短い要約に長文は不要。入力トークンを抑え 429(無料枠TPM超過)・コストを緩和。
+      },
+    );
     console.log(`[article] og:image +${r.ogResolved} / 本文 +${r.textResolved} (fetch ${r.fetched})`);
   } catch (e) {
     console.error("[article] 記事エンリッチでエラー（スキップ）:", (e as Error).message);
@@ -282,12 +289,15 @@ async function run(): Promise<void> {
   };
   await writeCache(out);
 
-  const counts = { x: 0, zenn: 0, qiita: 0, hatenablog: 0 } as Record<FeedSource, number>;
+  const counts = { x: 0, zenn: 0, qiita: 0, hatenablog: 0, thehackernews: 0 } as Record<
+    FeedSource,
+    number
+  >;
   for (const i of items) counts[i.source]++;
   const withThumb = items.filter((i) => i.thumbnail).length;
   const withJa = items.filter((i) => i.titleJa).length;
   console.log(
-    `\n✅ feed.json 更新: 計 ${items.length} 件 (X=${counts.x} / Zenn=${counts.zenn} / Qiita=${counts.qiita} / はてなブログ=${counts.hatenablog}) サムネ ${withThumb} 件 / 翻訳 ${withJa} 件`,
+    `\n✅ feed.json 更新: 計 ${items.length} 件 (X=${counts.x} / Zenn=${counts.zenn} / Qiita=${counts.qiita} / はてなブログ=${counts.hatenablog} / THN=${counts.thehackernews}) サムネ ${withThumb} 件 / 翻訳 ${withJa} 件`,
   );
   if (errors.length) {
     console.warn(`⚠️  ${errors.length} 件のソースでエラー:\n  - ${errors.join("\n  - ")}`);

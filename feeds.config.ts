@@ -86,6 +86,23 @@ export interface FeedsConfig {
     retentionMax: number;
     disabled?: boolean;
   };
+  /**
+   * The Hacker News（英語のセキュリティ専門ニュースサイト）の公開 RSS。トークン不要。
+   *
+   * ⚠️ Y Combinator の Hacker News（news.ycombinator.com）とは**別サービス**。
+   *
+   * サイト側の `/rss.xml`・`/atom.xml`・`/feeds/posts/default` はいずれも
+   * **FeedBurner（`feeds.feedburner.com/TheHackersNews`）へリダイレクトする**ので、
+   * 実質フィードは1本。リダイレクトを1回減らすため最終URLを直接指定している。
+   */
+  thehackernews: {
+    rssUrls: string[];
+    /** 1回に取り込む最大件数（**1 URL あたり**の取得窓。蓄積は retentionMax まで） */
+    limit?: number;
+    /** 保持上限件数（全期間アーカイブの安全弁） */
+    retentionMax: number;
+    disabled?: boolean;
+  };
   translate: {
     /**
      * 集約時の機械翻訳（原文→日本語）。Gemini REST API を使う。
@@ -162,13 +179,24 @@ export const feedsConfig: FeedsConfig = {
     retentionMax: 1000,
     disabled: false,
   },
+  thehackernews: {
+    rssUrls: [
+      // サイトの /rss.xml 等はすべてここへリダイレクトするので最終URLを直接指定。
+      "https://feeds.feedburner.com/TheHackersNews",
+    ],
+    // 実測 約10件/日。cron は6時間ごと（＝1 run あたり ~2.5件）なので 20 で十分な余裕。
+    // フィード自体は50件（約5日分）返すため、数 run 落ちても取りこぼさない。
+    limit: 20,
+    retentionMax: 1000,
+    disabled: false,
+  },
   translate: {
     // gemini-2.0-flash は 2026-06-01 に提供終了（無料枠撤廃で 429 になる）。
     // 後継の Flash-Lite に切替（無料枠あり・翻訳/簡易処理向け）。memory: todayai-gemini-quota-429。
     model: "gemini-3.1-flash-lite",
     batchSize: 10, // 要約入力に記事本文(~3000字)を載せるので1コールが過大にならないよう小さめ
     concurrency: 3,
-    summarizeSources: ["zenn", "qiita", "hatenablog"],
+    summarizeSources: ["zenn", "qiita", "hatenablog", "thehackernews"],
     summaryMinLen: 40,
     // GEMINI_API_KEY が未設定のため停止（原文のまま表示＝graceful degradation）。
     disabled: true,
