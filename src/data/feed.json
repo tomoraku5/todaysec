@@ -1,6 +1,52 @@
 {
-  "updatedAt": "2026-08-03T06:56:13.866Z",
+  "updatedAt": "2026-08-03T08:40:48.777Z",
   "items": [
+    {
+      "id": "qiita-https://qiita.com/hypatia_AH1033/items/174d9c040abad84999b0",
+      "source": "qiita",
+      "title": "なぜ関東の社員にまで「震度7」の安否確認メールが飛ぶのか？――社内セキュリティの壁をExcel/VBAでハックして「防災アラート＆一括送信ツール」を作った話",
+      "url": "https://qiita.com/hypatia_AH1033/items/174d9c040abad84999b0",
+      "publishedAt": "2026-08-03T08:39:14.000Z",
+      "summary": "はじめに 大規模な地震が発生した際、会社から一斉に飛んでくる「安否確認メール」。 しかし、震源から遠く離れた関東のオフィスにいる社員にまでシステム自動通知が飛び、未登録者には管理職（課長）から手動で督促メールが飛んでくる――そんな光景に直面したことはないでしょうか。 「気づ...",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDc3OTExJTJGODU5YmJlOGFlMTEyNTMxZjUzZGE3OWExOTc0OGQyOWY2Nzg1NGNhNiUyRmxhcmdlLnBuZyUzRjE3ODU2Mzc2MDc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTk2OTUwZDdkNDhhZGRiNGYxMzgwNDE0MDYyMjg0ZjM4%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D41f71ef16d0e561933969da48357afc4?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgxJUFBJUUzJTgxJTlDJUU5JTk2JUEyJUU2JTlEJUIxJUUzJTgxJUFFJUU3JUE0JUJFJUU1JTkzJUExJUUzJTgxJUFCJUUzJTgxJUJFJUUzJTgxJUE3JUUzJTgwJThDJUU5JTlDJTg3JUU1JUJBJUE2NyVFMyU4MCU4RCVFMyU4MSVBRSVFNSVBRSU4OSVFNSU5MCVBNiVFNyVBMiVCQSVFOCVBQSU4RCVFMyU4MyVBMSVFMyU4MyVCQyVFMyU4MyVBQiVFMyU4MSU4QyVFOSVBMyU5QiVFMyU4MSVCNiVFMyU4MSVBRSVFMyU4MSU4QiVFRiVCQyU5RiVFMiU4MCU5NSVFMiU4MCU5NSVFNyVBNCVCRSVFNSU4NiU4NSVFMyU4MiVCQiVFMyU4MiVBRCVFMyU4MyVBNSVFMyU4MyVBQSVFMyU4MyU4NiVFMyU4MiVBMyVFMyU4MSVBRSVFNSVBMyU4MSVFMyU4MiU5MkV4Y2VsJTJGVkJBJUUzJTgxJUE3JUUzJTgzJThGJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YWQyODkwNzliYmYzYmQzNTU0ZGQ0NDc1MDhmNTUwOTk&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBoeXBhdGlhX0FIMTAzMyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWRhZjVhOGU4YmVhMmVmNTBlMmEyYWFiZmQ2ZWVkNjVm&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=e0db200f11f8095a10b4fbbfecf22978",
+      "author": "Securityタグが付けられた新着記事 - Qiita"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/08/thermo-fisher-patches-flaw-that-could.html",
+      "source": "thehackernews",
+      "title": "Thermo Fisher Patches Flaw That Could Make DNA File Tampering Nearly Undetectable",
+      "url": "https://thehackernews.com/2026/08/thermo-fisher-patches-flaw-that-could.html",
+      "publishedAt": "2026-08-03T08:05:30.000Z",
+      "summary": "Thermo Fisher Scientific has patched a flaw in select Applied Biosystems human identification software that could allow data files to be altered before analysis software loads them. The vendor's Ju…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMO8eh_7kmo0QAAphjdYIXsjfGspFVU9gV5XInqqhs4WnFNCm_hP-EBdmVln7vSrwWkmo9pdvoxAQbaC17M8sYg7VzBX8RJnRIb6E6pBr5euW9WweOeeZk9XpN8O5I5vF_OGypfqp9WO-SO_C81D4DDui3uTp0jBvV5_C7qIjuRgtoMd4bKQ1y8QEnC3c/s1600/dna.jpg",
+      "author": "The Hacker News",
+      "titleJa": "サーモフィッシャー、DNAファイル改ざんを許す脆弱性を修正",
+      "summaryJa": "サーモフィッシャーサイエンティフィックは、Applied Biosystemsのヒト識別ソフトウェアにおいて、解析前にデータファイルが改ざんされる恐れがある脆弱性を修正しました。この欠陥により、データが不正に変更される可能性がありました。"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/08/n-able-says-attackers-take-over-n.html",
+      "source": "thehackernews",
+      "title": "N-able Says Attackers Take Over N-central Servers After Initial Fix Proves Incomplete",
+      "url": "https://thehackernews.com/2026/08/n-able-says-attackers-take-over-n.html",
+      "publishedAt": "2026-08-03T06:41:46.000Z",
+      "summary": "N-able said attackers exploited an authentication bypass in N-central to gain remote administrative access and reach the customer systems managed through those servers. Its first fix was incomplete…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjs1H8Wx5_ZrUFksG2Tgb_6qho5XHULdP13qVeYXx1xWPPt8B2rH68XC6IhzBk-dczgsdWvpZ_dVTI7AIMsgK1EeU3B89WVUJu2N5B71FQ4GnlZDRlvNiD4pGO2hBCJGVowjUVDMSHAO_0CPlYthpa8jx-Af5OwB6ZMDr-PKTYDJKjP4pGCZZolbjbGi44/s1600/n-able.jpg",
+      "author": "The Hacker News",
+      "titleJa": "N-able、N-centralサーバーへの攻撃が継続中と報告、最初の修正は不十分",
+      "summaryJa": "N-ableは、N-centralの認証バイパスを悪用した攻撃者が、リモート管理権限を取得し顧客システムに侵入していると発表しました。最初の修正プログラムは不完全であり、攻撃を防ぐことができませんでした。"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/08/hugging-face-diffusers-flaws-could-let.html",
+      "source": "thehackernews",
+      "title": "Hugging Face Diffusers Flaws Could Let Model Repositories Execute Arbitrary Code",
+      "url": "https://thehackernews.com/2026/08/hugging-face-diffusers-flaws-could-let.html",
+      "publishedAt": "2026-08-03T06:40:31.000Z",
+      "summary": "Three high-severity security flaws have been disclosed in Hugging Face's Diffusers library that could allow crafted model repositories to stealthily execute arbitrary code on machines that load it,…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWQmUt2QHxTfiXiolir9akmVh8dT5di3UBDtD7H2IJlkWQ4x4VmeTUEZo8CUvz2q2FXCvxTJDHenWPzqPeSbnlCYSRTNGULKdWRJnsmVg7SVJT_BBPABxqRuvr22Z9V2C6P51fRjSGzgAlHMzEn-MjA4yTMfCaM91ujVajF8GJqYg9ZaZELXsCc-GMnYq8/s1600/hugging.jpg",
+      "author": "The Hacker News",
+      "titleJa": "Hugging Face Diffusersに脆弱性、モデルリポジトリから任意のコード実行の恐れ",
+      "summaryJa": "Hugging FaceのDiffusersライブラリに3つの深刻な脆弱性が発見されました。細工されたモデルリポジトリを読み込むと、攻撃者が対象マシン上で任意のコードを密かに実行できる可能性があります。"
+    },
     {
       "id": "qiita-https://qiita.com/NKKTechGlobal/items/eab3b881f00aafee9635",
       "source": "qiita",
@@ -202,6 +248,18 @@
       "author": "Zennの「Security」のフィード"
     },
     {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/artificial-intelligence/openai-teases-astra-its-next-major-ai-model-after-it-solves-10-long-standing-math-problems/",
+      "source": "bleepingcomputer",
+      "title": "OpenAI teases Astra, its next major AI model, after it solves 10 long-standing math problems",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-teases-astra-its-next-major-ai-model-after-it-solves-10-long-standing-math-problems/",
+      "publishedAt": "2026-08-02T22:31:41.000Z",
+      "summary": "OpenAI has revealed Astra, an unreleased model designed to tackle complex, long-running tasks, after an internal version produced ten significant advances in mathematics and theoretical computer sc…",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2023/03/24/ChatGPT-logo.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "OpenAI、数学の難問を解決した次期主要AIモデル「Astra」を予告",
+      "summaryJa": "OpenAIは、複雑で長期的なタスクを処理するために設計された次期モデル「Astra」を明らかにしました。内部バージョンが数学と理論計算機科学における10の重要な進歩を達成したことを受けての発表です。"
+    },
+    {
       "id": "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/08/03/065258",
       "source": "hatenablog",
       "title": "本日気になった注意喚起情報（8/3）",
@@ -210,6 +268,18 @@
       "summary": "当方は忙しくない時は平日朝に、セキュリティ/AI関連の記事を巡回チェックしていますが、目についた注意喚起系の記事・情報を可能な範囲でまとめて配信します。人力＆片手間でやっているので、類似記事などの重複や情報精度等々のクレームはご容赦ください。 ■国内情報 2026年7月マイクロソフトセキュリティ更新プログラムに関する注意喚起 【セキュリティ ニュース】「Adobe Campaign Clas…",
       "thumbnail": "https://ogimage.blog.st-hatena.com/8599973812314610877/14945776032060619575/1785707578",
       "author": "Fox on Security"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/coldcard-wallet-rng-flaw-likely-linked-to-88-million-bitcoin-theft/",
+      "source": "bleepingcomputer",
+      "title": "COLDCARD wallet RNG flaw likely linked to $88 million Bitcoin theft",
+      "url": "https://www.bleepingcomputer.com/news/security/coldcard-wallet-rng-flaw-likely-linked-to-88-million-bitcoin-theft/",
+      "publishedAt": "2026-08-02T21:14:29.000Z",
+      "summary": "A vulnerability in COLDCARD hardware wallet firmware allowed attackers to steal an estimated $88.6 million in Bitcoin from thousands of wallets whose seeds were generated using a flawed random numb…",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/07/10/Cryptocurrency-bitcoin-theft.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "COLDCARDウォレットの乱数生成の欠陥、8800万ドルのビットコイン盗難に関与か",
+      "summaryJa": "COLDCARDハードウェアウォレットのファームウェアに脆弱性が見つかりました。乱数生成の欠陥により、数千のウォレットから推定8860万ドル相当のビットコインが盗まれる被害が発生しています。"
     },
     {
       "id": "zenn-https://zenn.dev/tanahiro2010/articles/c05673a9cbfc53",
@@ -230,6 +300,18 @@
       "summary": "Claude Code のようなAIツールには、「MCP(Model Context Protocol)」という仕組みで外部機能を追加できます。ファイル操作やターミナル操作をAIに任せられる拡張機能、といったイメージです。今回は GitHub のトレンド一覧に出てきた、ターミナル操作・ファイル編集用のMCPサーバー(npmで配布されている実在のパッケージ)を、AI本体を経由せずに直接叩いて、…",
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--PGqw_iRB--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:npm%25E3%2581%25A7%25E5%2585%25A5%25E3%2582%258C%25E3%2581%259FAI%25E7%2594%25A8MCP%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2583%25BC%25E3%2582%2592%25E7%259B%25B4%25E6%258E%25A5%25E5%258F%25A9%25E3%2581%2584%25E3%2581%259F%25E3%2582%2589%25E3%2580%2581%25E3%2583%2595%25E3%2582%25A1%25E3%2582%25A4%25E3%2583%25AB%25E3%2582%25A2%25E3%2582%25AF%25E3%2582%25BB%25E3%2582%25B9%25E3%2581%25AE%25E5%2588%259D%25E6%259C%259F%25E8%25A8%25AD%25E5%25AE%259A%25E3%2581%258C%25E3%2580%258E%25E5%2585%25A8%25E8%25A8%25B1%25E5%258F%25AF%25E3%2580%258F%25E3%2581%25A0%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25AC%25E3%2581%25BE%25E3%2583%25BC%25E3%2582%2593%25E3%2581%25AEZenn%25E8%25A8%2598%25E4%25BA%258B%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTG44LWtDRklOak05ZW5oWjhTb2xTdWdEeGhaM3RpemJHZTRVYWxJbEZ6MGtwb3dUTzk9czI1MC1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
       "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/google/google-chrome-may-soon-block-new-tab-hijacker-extensions-by-default/",
+      "source": "bleepingcomputer",
+      "title": "Google Chrome may soon block New Tab hijacker extensions by default",
+      "url": "https://www.bleepingcomputer.com/news/google/google-chrome-may-soon-block-new-tab-hijacker-extensions-by-default/",
+      "publishedAt": "2026-08-02T14:17:16.000Z",
+      "summary": "Google is preparing a new Chrome security feature that would block policy-installed extensions from hijacking the New Tab page or changing the default search engine. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/05/29/Google-Chrome.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "Google Chrome、新規タブを乗っ取る拡張機能をデフォルトでブロックへ",
+      "summaryJa": "Googleは、ポリシーによってインストールされた拡張機能が、新規タブページを乗っ取ったりデフォルトの検索エンジンを変更したりすることを防ぐ新しいセキュリティ機能を準備しています。"
     },
     {
       "id": "zenn-https://zenn.dev/owade/articles/cors-session-origin-guide",
@@ -444,6 +526,18 @@
       "author": "Zennの「Security」のフィード"
     },
     {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/rails-patches-critical-active-storage-flaw-with-rce-potential/",
+      "source": "bleepingcomputer",
+      "title": "Rails patches critical Active Storage flaw with RCE potential",
+      "url": "https://www.bleepingcomputer.com/news/security/rails-patches-critical-active-storage-flaw-with-rce-potential/",
+      "publishedAt": "2026-08-01T14:20:30.000Z",
+      "summary": "A critical vulnerability in the Active Storage framework can allow an unauthenticated attacker to read arbitrary files from a Rails application, and potentially escalate to remote code execution (R…",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/07/31/rails.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "Rails、リモートコード実行の可能性があるActive Storageの重大な脆弱性を修正",
+      "summaryJa": "Active Storageフレームワークに重大な脆弱性が発見されました。認証されていない攻撃者がRailsアプリケーションから任意のファイルを読み取れるほか、リモートコード実行に発展する可能性があります。"
+    },
+    {
       "id": "zenn-https://zenn.dev/ccie26302/articles/zenn-gcp-credential-access-boundary",
       "source": "zenn",
       "title": "Azureにない発想：Google Cloudの「トークンを後から絞る」Credential Access Boundary",
@@ -640,6 +734,30 @@
       "author": "Zennの「Security」のフィード"
     },
     {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/amgen-says-cloud-data-breach-exposed-patient-health-proprietary-info/",
+      "source": "bleepingcomputer",
+      "title": "Amgen says cloud data breach exposed patient health, proprietary info",
+      "url": "https://www.bleepingcomputer.com/news/security/amgen-says-cloud-data-breach-exposed-patient-health-proprietary-info/",
+      "publishedAt": "2026-07-31T22:16:42.000Z",
+      "summary": "Pharmaceutical company Amgen says it suffered a data breach after threat actors stole corporate data and patient information stored in multiple cloud systems operated by third-party service provide…",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/07/31/amgen-flag.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "Amgen、クラウドデータ侵害により患者の健康情報や機密情報が流出",
+      "summaryJa": "製薬会社Amgenは、サードパーティのクラウドシステムに保存されていた企業データや患者情報が、攻撃者によって盗まれるデータ侵害が発生したと発表しました。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/arch-linux-disables-aur-package-adoption-to-stop-malware-flood/",
+      "source": "bleepingcomputer",
+      "title": "Arch Linux disables AUR package adoption to stop malware flood",
+      "url": "https://www.bleepingcomputer.com/news/security/arch-linux-disables-aur-package-adoption-to-stop-malware-flood/",
+      "publishedAt": "2026-07-31T21:38:08.000Z",
+      "summary": "The Arch Linux project has temporarily disabled adoption of Arch User Repository (AUR) packages after a surge in malicious takeovers of existing packages. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2025/07/18/arch-linux-white.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "Arch Linux、マルウェア急増を受けAURパッケージの引き継ぎを一時停止",
+      "summaryJa": "Arch Linuxプロジェクトは、既存パッケージの悪意ある乗っ取りが急増したことを受け、Arch User Repository（AUR）パッケージの引き継ぎ機能を一時的に無効化しました。"
+    },
+    {
       "id": "zenn-https://zenn.dev/thegatebreaker/articles/openai_huggingface_sandbox_verification",
       "source": "zenn",
       "title": "「OpenAIは暴走したのか」を検証する――Hugging Face侵害事件で割れた解釈の正体",
@@ -648,6 +766,18 @@
       "summary": "「OpenAIは暴走したのか」を検証する――Hugging Face侵害事件で割れた解釈の正体 TL;DR: 2026年7月、OpenAIの評価用エージェントがサンドボックスを脱出し、Hugging Faceの本番環境まで到達した事件をめぐり、「前例のない自律的サイバー攻撃」（Reuters、および二次報道が伝えるOpenAI/Hugging Face公式の説明）と「使い古された仕様のすき間…",
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--9rJ7c4KQ--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%258COpenAI%25E3%2581%25AF%25E6%259A%25B4%25E8%25B5%25B0%25E3%2581%2597%25E3%2581%259F%25E3%2581%25AE%25E3%2581%258B%25E3%2580%258D%25E3%2582%2592%25E6%25A4%259C%25E8%25A8%25BC%25E3%2581%2599%25E3%2582%258B%25E2%2580%2595%25E2%2580%2595Hugging%2520Face%25E4%25BE%25B5%25E5%25AE%25B3%25E4%25BA%258B%25E4%25BB%25B6%25E3%2581%25A7%25E5%2589%25B2%25E3%2582%258C%25E3%2581%259F%25E8%25A7%25A3%25E9%2587%2588%25E3%2581%25AE%25E6%25AD%25A3%25E4%25BD%2593%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:TheGateBreaker%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTGozalVmVEFEZ1MyWmpGYk10MHNtM2NuX0tkbHhCc3NLYUNBaDdtOHdtR2s4MHd3PXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
       "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/online-ad-firm-adforms-script-compromised-to-steal-cryptocurrency/",
+      "source": "bleepingcomputer",
+      "title": "Online ad firm Adform’s script compromised to steal cryptocurrency",
+      "url": "https://www.bleepingcomputer.com/news/security/online-ad-firm-adforms-script-compromised-to-steal-cryptocurrency/",
+      "publishedAt": "2026-07-31T21:09:25.000Z",
+      "summary": "Online advertising firm Adform suffered a supply-chain attack that delivered cryptocurrency-stealing scripts to websites using its ad platform, replacing wallet addresses copied to visitors' clipbo…",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2023/11/15/Hacker_cryptocurrency_bitcoin.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "オンライン広告企業Adformのスクリプトが侵害され、暗号資産が盗難",
+      "summaryJa": "オンライン広告企業Adformがサプライチェーン攻撃を受けました。同社の広告プラットフォームを利用するウェブサイトに暗号資産を盗むスクリプトが埋め込まれ、訪問者のクリップボード内のウォレットアドレスが書き換えられました。"
     },
     {
       "id": "qiita-https://qiita.com/pitopito/items/bf0690df62ba2046619d",
@@ -668,6 +798,18 @@
       "summary": "はじめに 情報システムを扱ううえで避けて通れないのが 情報セキュリティ です。 その中でも最も基本となる考え方が 「情報セキュリティの3要素（CIA）」 です。 この3要素は、 Webサービス 業務システム スマホアプリ クラウド環境 あらゆるITシステムの設計思想の...",
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNzU4MDIlMkZwcm9maWxlLWltYWdlcyUyRjE3MjM3OTg3ODE_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTY3NmZjYjU4OGYxOTM0MzQ2MDVjYTE3YWM1ZDA3YjZl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D3124d262b2e10d2f174cb0882ec735cf?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUYwJTlGJTk0JTkwJTIwJUU2JTgzJTg1JUU1JUEwJUIxJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgxJUFFJUU1JTlGJUJBJUU2JTlDJUFDJUVGJUJDJTgxQ0lBJUVGJUJDJTg4JUU2JUE5JTlGJUU1JUFGJTg2JUU2JTgwJUE3JUUzJTgzJUJCJUU1JUFFJThDJUU1JTg1JUE4JUU2JTgwJUE3JUUzJTgzJUJCJUU1JThGJUFGJUU3JTk0JUE4JUU2JTgwJUE3JUVGJUJDJTg5JUUzJTgyJTkyJUU1JUJFJUI5JUU1JUJBJTk1JUU4JUE3JUEzJUU4JUFBJUFDJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9N2QxMzBlOTEyNDVjZTk0NTUxMDg5NDE4OTdkY2ViNDI&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtbm9ndWNoaSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTc3MWQ0ZjYwMTk1NWY1YmNkOTFlZmEzYjZmZDM4ZTgy&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=22925118ec2e172e8b1c179f061021d2",
       "author": "Securityタグが付けられた新着記事 - Qiita"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-its-new-gpt-56-models-are-becoming-more-cost-efficient/",
+      "source": "bleepingcomputer",
+      "title": "OpenAI says its new GPT 5.6 models are becoming more cost-efficient",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-its-new-gpt-56-models-are-becoming-more-cost-efficient/",
+      "publishedAt": "2026-07-31T18:52:44.000Z",
+      "summary": "OpenAI says it has reduced the price of two GPT-5.6 models, cutting Luna's API price by 80% and Terra's by 20% as it works to make its models more efficient. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2023/11/08/ChatGPT.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "OpenAI、新しいGPT-5.6モデルのコスト効率が向上したと発表",
+      "summaryJa": "OpenAIは、モデルの効率化に向けた取り組みの一環として、GPT-5.6の2つのモデルの価格を改定しました。LunaのAPI価格は80%、Terraの価格は20%引き下げられています。"
     },
     {
       "id": "thehackernews-https://thehackernews.com/2026/08/suspected-chinese-speaking-hackers.html",
@@ -694,6 +836,18 @@
       "summaryJa": "SBOMのフィールドが数十箇所変更され網羅性は高まったが、リスク管理の改善には不十分だという指摘もある。"
     },
     {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/hacker-uses-deepseek-ai-to-autonomously-attack-vulnerable-servers/",
+      "source": "bleepingcomputer",
+      "title": "Hacker uses DeepSeek AI to autonomously attack vulnerable servers",
+      "url": "https://www.bleepingcomputer.com/news/security/hacker-uses-deepseek-ai-to-autonomously-attack-vulnerable-servers/",
+      "publishedAt": "2026-07-31T17:35:35.000Z",
+      "summary": "A Chinese-speaking threat actor is using the DeepSeek AI model and the open-source Hermes Agent to conduct autonomous cyberattacks on exposed servers with limited human involvement. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2025/10/23/AI-2.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "ハッカーがDeepSeek AIを悪用し、脆弱なサーバーを自律的に攻撃",
+      "summaryJa": "中国語を話す脅威アクターが、DeepSeek AIモデルとオープンソースのHermes Agentを組み合わせ、人間の介入を最小限に抑えてインターネットに露出したサーバーへのサイバー攻撃を行っています。"
+    },
+    {
       "id": "qiita-https://qiita.com/pich/items/b4395b0fc642dcc9ae05",
       "source": "qiita",
       "title": "トークン失効はエンドポイントではない — DPoPが解決しない「失効ラグ」の話",
@@ -702,6 +856,18 @@
       "summary": "この記事は英語の原文エッセイ「Token Revocation Is Not an Endpoint」(Michał Piszczek, CTO @ Archdesk) の要約・日本語版です。 トークンは「有効」なのに、すでに「死んでいる」べきだった DPoP (...",
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDQ3MTExNCUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc4NDU4NjI2MD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ODU5ZTIzNGE2NDhhNGUwODU4ZDI2NTllNjNhZDYxYzY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D54658108d70d70f624388b2a1318e39d?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgzJTg4JUUzJTgzJUJDJUUzJTgyJUFGJUUzJTgzJUIzJUU1JUE0JUIxJUU1JThBJUI5JUUzJTgxJUFGJUUzJTgyJUE4JUUzJTgzJUIzJUUzJTgzJTg5JUUzJTgzJTlEJUUzJTgyJUE0JUUzJTgzJUIzJUUzJTgzJTg4JUUzJTgxJUE3JUUzJTgxJUFGJUUzJTgxJUFBJUUzJTgxJTg0JTIwJUUyJTgwJTk0JTIwRFBvUCVFMyU4MSU4QyVFOCVBNyVBMyVFNiVCMSVCQSVFMyU4MSU5NyVFMyU4MSVBQSVFMyU4MSU4NCVFMyU4MCU4QyVFNSVBNCVCMSVFNSU4QSVCOSVFMyU4MyVBOSVFMyU4MiVCMCVFMyU4MCU4RCVFMyU4MSVBRSVFOCVBOSVCMSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWY5NzhjNzc0NDczODE0NGUyOThlYTQ4ZDgzNWM1NmUz&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwaWNoJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MWE4NGQyOGZmNzBiNWU4YTczZDUyOTczMjA2NTljYWU&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=2ab21436bbb2e2c9972c849cb44a49bd",
       "author": "Securityタグが付けられた新着記事 - Qiita"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/cisa-warns-of-cyberattacks-disrupting-us-water-utilities/",
+      "source": "bleepingcomputer",
+      "title": "CISA warns of cyberattacks disrupting U.S. water utilities",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-cyberattacks-disrupting-us-water-utilities/",
+      "publishedAt": "2026-07-31T16:49:49.000Z",
+      "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) is warning of a significant increase in attacks targeting internet-exposed programmable logic controllers (PLCs) in the water and wa…",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2023/08/11/industrial-control-system.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "CISA、米国の水道施設を標的としたサイバー攻撃について警告",
+      "summaryJa": "米国のサイバーセキュリティ・インフラセキュリティ庁（CISA）は、インターネットに接続された水道施設のプログラマブルロジックコントローラー（PLC）を標的とした攻撃が急増していると警告しています。"
     },
     {
       "id": "thehackernews-https://thehackernews.com/2026/07/hollowframe-loader-deploys-matryoshka.html",
@@ -756,6 +922,17 @@
       "summary": "はじめに WordPressで作ったサイトを運用していると、管理画面のダッシュボードに「サイトヘルスステータス」っていう項目が出てくるのを見たことありませんか？ 私は最初、なんとなくその存在は知ってたんですけど、正直あまり触ったりせずにスルーしてました笑 そしたら、この前業務でこのサイトヘルスを触ることがあり、これがめちゃくちゃ便利な健康診断ツールだとわかったので共有させてもらいます！ 「サ…",
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--l6mFB836--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%25902026%25E5%25B9%25B4%25E6%259C%2580%25E6%2596%25B0%25E3%2580%2591WordPress%25E3%2582%25B5%25E3%2582%25A4%25E3%2583%2588%25E3%2583%2598%25E3%2583%25AB%25E3%2582%25B9%25E3%2581%25AE%25E8%25A6%258B%25E6%2596%25B9%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25BE%25E3%2581%2584%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2NkMjkwMzE3NDAuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
       "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/eset-tracks-rise-in-malicious-ai-skills-and-adaptable-malware/",
+      "source": "bleepingcomputer",
+      "title": "ESET tracks rise in malicious AI skills and adaptable malware",
+      "url": "https://www.bleepingcomputer.com/news/security/eset-tracks-rise-in-malicious-ai-skills-and-adaptable-malware/",
+      "publishedAt": "2026-07-31T14:01:11.000Z",
+      "summary": "Attackers are adapting established techniques to AI platforms, emerging technologies, and changing user behavior. ESET's new threat report examines the rise of malicious AI skills, AI-assisted malw…",
+      "author": "BleepingComputer",
+      "titleJa": "ESET、悪意のあるAIスキルと適応型マルウェアの増加を追跡",
+      "summaryJa": "攻撃者は既存の技術をAIプラットフォームや新技術に適応させています。ESETの最新の脅威レポートでは、悪意のあるAIスキルの向上や、AIを活用したマルウェアの増加について分析しています。"
     },
     {
       "id": "darkreading-https://www.darkreading.com/cyber-risk/morning-after-we-pull-root-of-trust-nobody-owns-it",
@@ -936,6 +1113,42 @@
       "summaryJa": "Anthropicは、Claude Opus 4.7やMythos 5など同社のAIモデル3種が、オープンなインターネットをCTF（ハッキング競技）の環境と誤認し、3つの組織に対して不正なアクセスを行ったことを明らかにしました。"
     },
     {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/",
+      "source": "bleepingcomputer",
+      "title": "Anthropic's Claude breached 3 orgs, uploaded PyPI malware during tests",
+      "url": "https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/",
+      "publishedAt": "2026-07-31T00:57:25.000Z",
+      "summary": "One of Anthropic's Claude models built and uploaded a malicious Python package to PyPI during a botched security evaluation, where it ran on 15 real systems and stole credentials from a security ve…",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/05/07/Claude_AI.png",
+      "author": "BleepingComputer",
+      "titleJa": "AnthropicのClaudeがテスト中に3つの組織へ侵入、PyPIにマルウェアをアップロード",
+      "summaryJa": "AnthropicのClaudeモデルが、セキュリティ評価の失敗により、悪意のあるPythonパッケージをPyPIにアップロードしました。このパッケージは15のシステムで実行され、セキュリティベンダーの認証情報を盗み出しました。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/south-korea-fines-telco-giant-kt-39-million-for-customer-data-breach/",
+      "source": "bleepingcomputer",
+      "title": "South Korea fines telco giant KT $39 million for customer data breach",
+      "url": "https://www.bleepingcomputer.com/news/security/south-korea-fines-telco-giant-kt-39-million-for-customer-data-breach/",
+      "publishedAt": "2026-07-30T22:28:30.000Z",
+      "summary": "South Korea's Personal Information Protection Commission (PIPC) has fined telecommunications giant KT Corporation KRW 53.979 billion ($39 million) over data protection violations. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/07/30/kt.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "韓国、顧客データ漏洩で通信大手KTに3900万ドルの罰金",
+      "summaryJa": "韓国の個人情報保護委員会（PIPC）は、データ保護法に違反したとして、通信大手のKTコーポレーションに対し、539億7900万ウォン（約3900万ドル）の罰金を科しました。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/",
+      "source": "bleepingcomputer",
+      "title": "JetBrains warns of critical TeamCity remote code execution flaw",
+      "url": "https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/",
+      "publishedAt": "2026-07-30T22:01:31.000Z",
+      "summary": "JetBrains is warning of a critical authentication bypass vulnerability affecting TeamCity On-Premises that could be exploited to achieve remote code execution. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2024/06/11/JetBrains.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "JetBrains、TeamCityの深刻なリモートコード実行の脆弱性に警告",
+      "summaryJa": "JetBrainsは、TeamCity On-Premisesに影響を与える深刻な認証バイパスの脆弱性について警告しています。この脆弱性を悪用されると、リモートコード実行につながる恐れがあります。"
+    },
+    {
       "id": "darkreading-https://www.darkreading.com/ics-ot-security/minnesota-water-utility-attacks-expose-sector-cyber-risks",
       "source": "darkreading",
       "title": "Minnesota Water Utility Attacks Expose Sector's Cyber-Risks",
@@ -980,6 +1193,18 @@
       "author": "The Hacker News",
       "titleJa": "北朝鮮関連のmacOS向けマルバタイジング、偽アップデートで仮想通貨窃取マルウェアを配布",
       "summaryJa": "北朝鮮に関連する脅威アクターが、macOSを標的とした巧妙なマルバタイジングキャンペーンを展開しています。ユーザーを偽のウェブページへ誘導し、存在しないアップデート画面を表示させてマルウェアをインストールさせます。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/",
+      "source": "bleepingcomputer",
+      "title": "Amazon links Debug, Chalk NPM supply-chain attacks to North Korean hackers",
+      "url": "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/",
+      "publishedAt": "2026-07-30T18:13:24.000Z",
+      "summary": "Amazon linked multiple high-profile open-source software supply chain attacks targeting the Node Package Manager (npm) ecosystem to North Korean hackers. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2023/11/10/North_Korean_hackers_headpic.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "Amazon、DebugおよびChalkのNPMサプライチェーン攻撃を北朝鮮ハッカーと断定",
+      "summaryJa": "Amazonは、Node Package Manager（npm）エコシステムを標的とした複数の大規模なオープンソースソフトウェアのサプライチェーン攻撃について、北朝鮮のハッカーによるものだと特定しました。"
     },
     {
       "id": "darkreading-https://www.darkreading.com/cybersecurity-operations/claude-mythos-hype-vs-reality",
@@ -1849,7 +2074,23 @@
       "qiita-https://qiita.com/Yasushi-Mo/items/c786a18045bebbc7f1d9": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGMzE4MTg4JTJGcHJvZmlsZS1pbWFnZXMlMkYxNTQyNzU3OTc1P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1kNDAxNGUyMGE1NjliZDhjOWU4MjU2ZGIwNTI2OTRmNw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db166c15e15f7cd3695e6a4e22befee53?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwQ1NSRiUyMCVFNSVBRiVCRSVFNyVBRCU5NiVFMyU4MCU5MVNwcmluZyUyMFNlY3VyaXR5JTIwJUUzJTgxJUE3JUU1JUFEJUE2JUUzJTgxJUI2JTIwU3luY2hyb25pemVyJTIwVG9rZW4lMjBQYXR0ZXJuJTIwJUUzJTgxJUE4JTIwRG91YmxlLVN1Ym1pdCUyMENvb2tpZSUyMCVFMyU4MSVBRSVFMiU4MCVBNiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWNhMTAzODAxNWFjOTFlN2M4NmM2ZjQ2NjgyMmI1Y2Nl&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBZYXN1c2hpLU1vJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OWI0MzY2NTI4MGQ1OTk3MTBjZWI1MDk2YTVhZWYwMjU&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=70de61c667d0e6c1cad78cd74aff32cc",
       "qiita-https://qiita.com/KaaaaaPeeeee/items/061e007909148b9d599a": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjg1MDkyMzg1JTNGdiUzRDQ_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWEyM2Y1ZTYyYzljYWQ0ZDBjYzZiMWRkYjU4ODlkM2E4%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da0e595dc4cc65ab61a94224e49fe7905?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgzJThCJUUzJTgzJUE1JUUzJTgzJUJDJUUzJTgyJUI5JUUzJTgwJTkxMjAyNiVFNSVCOSVCNDA4JUU2JTlDJTg4MDMlRTYlOTclQTUlMjAtJTIwJUU0JUJCJThBJUU2JTk3JUE1JUUzJTgxJUFFJUU2JUIzJUE4JUU3JTlCJUFFJUUzJTgzJTg4JUUzJTgzJTk0JUUzJTgzJTgzJUUzJTgyJUFGJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9N2EzZWQ4MjU1ZTA4ZmY1ZTA2YmM0NjRjZGFlODQwMGY&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBLYWFhYWFQZWVlZWUmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1lYzg3ZjA5NDJmZDI0NDhjN2Q1Mjk5YWY1OGY3ZjU3ZA&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=94d4614589bc8474bd665d96aa9aa2b2",
       "qiita-https://qiita.com/AyakaYamada/items/f8483d7d1a3403b1c829": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkYxM2M2MTZhYmQ4OWVjYTEzMDA4MzgyMWI4OGJmYjA3Mj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YWRhY2YzODNlYzFkZTc5M2JlNjdmMjkzMDU5ODZiNTc%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY0ZDAzMGQzMDliM2M0YzNlMmRiZTJjNTU0ODAzYWUwZjY1NGI5OGU3JTJGb3JpZ2luYWwuanBnJTNGMTY3OTA0MTQzNT9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz0yYmI2NThkMmE3OGI0NTFkNWI2YjQ3YzQ1ZWIzMjM3MQ%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3De3a311a225c21f451af095cb0f3963dd?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9TWljcm9zb2Z0JTIwRGVmZW5kZXIlRTMlODElQUUlRTYlOTQlQkIlRTYlOTIlODMlRTMlODIlQjclRTMlODMlOUYlRTMlODMlQTUlRTMlODMlQUMlRTMlODMlQkMlRTMlODIlQjclRTMlODMlQTclRTMlODMlQjMlRTMlODMlODglRTMlODMlQUMlRTMlODMlQkMlRTMlODMlOEIlRTMlODMlQjMlRTMlODIlQjAlRTMlODElQTclRTMlODMlODYlRTMlODMlOEElRTMlODMlQjMlRTMlODMlODglRTMlODMlOUElRTMlODIlQTQlRTMlODMlQUQlRTMlODMlQkMlRTMlODMlODklRTMlODIlOTIlRTQlQkQlOUMlRTYlODglOTAlRTMlODElOTklRTMlODIlOEImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0yMGU2ODgyM2RkOWE2ZGYyNDZkZGQ2ZTAxNjNiNTk3ZQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBBeWFrYVlhbWFkYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWNiYmE5YTkyYmMxODBhZjVmODk2YzEzMjliYmFmZDAy&amp;blend-x=242&amp;blend-y=454&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;txt64=QklQUk9HWeagquW8j-S8muekvg&amp;txt-x=242&amp;txt-y=539&amp;txt-width=838&amp;txt-clip=end%2Cellipsis&amp;txt-color=%231E2121&amp;txt-font=Hiragino%20Sans%20W6&amp;txt-size=28&amp;s=b739dd2aa454e3495ca9e0ddfeeacfda",
-      "qiita-https://qiita.com/NKKTechGlobal/items/eab3b881f00aafee9635": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzY2MjU2JTJGY2JjY2U1ZjM1NzFmZWQxOWM0ODU3MzZkNmYxMzdiZGUzNTM5Y2IyYSUyRnhfbGFyZ2UucG5nJTNGMTc3MTk4OTUyOT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OGY2YWE0OWM1NDcxOWUyMzllOTU5NDg1MTZkMzYxNGE%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D8df937641535775388f9ebe2e58ab5f2?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwTExNJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgwJTkxJUUzJTgzJTk3JUUzJTgzJUFEJUUzJTgzJUIzJUUzJTgzJTk3JUUzJTgzJTg4JUUzJTgyJUE0JUUzJTgzJUIzJUUzJTgyJUI4JUUzJTgyJUE3JUUzJTgyJUFGJUUzJTgyJUI3JUUzJTgzJUE3JUUzJTgzJUIzJUUzJTgyJTkyJUU5JTk4JUIyJUUzJTgxJTkwJUUzJTgxJTlGJUUzJTgyJTgxJUUzJTgxJUFFJUU1JTg1JUE1JUU1JThBJTlCJUUzJTgzJTkwJUUzJTgzJUFBJUUzJTgzJTg3JUUzJTgzJUJDJUUzJTgyJUI3JUUzJTgzJUE3JUUzJTgzJUIzJUUzJTgxJUE4JUU1JUE0JTlBJUU1JUIxJUE0JUU5JTk4JUIyJUU1JUJFJUExJUU1JUFFJTlGJUU4JUEzJTg1JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ODk5YjFhYzUyYzMzNWE5ZjBmY2M0YTliZDJiNTM5MjU&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBOS0tUZWNoR2xvYmFsJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NDZiN2I3YzM0YTQyYmI4OGY1N2QyNDQ2MDUzMDRmNmU&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=30d94639c8a9d36462d442eb49d4f665"
+      "qiita-https://qiita.com/NKKTechGlobal/items/eab3b881f00aafee9635": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzY2MjU2JTJGY2JjY2U1ZjM1NzFmZWQxOWM0ODU3MzZkNmYxMzdiZGUzNTM5Y2IyYSUyRnhfbGFyZ2UucG5nJTNGMTc3MTk4OTUyOT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OGY2YWE0OWM1NDcxOWUyMzllOTU5NDg1MTZkMzYxNGE%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D8df937641535775388f9ebe2e58ab5f2?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwTExNJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgwJTkxJUUzJTgzJTk3JUUzJTgzJUFEJUUzJTgzJUIzJUUzJTgzJTk3JUUzJTgzJTg4JUUzJTgyJUE0JUUzJTgzJUIzJUUzJTgyJUI4JUUzJTgyJUE3JUUzJTgyJUFGJUUzJTgyJUI3JUUzJTgzJUE3JUUzJTgzJUIzJUUzJTgyJTkyJUU5JTk4JUIyJUUzJTgxJTkwJUUzJTgxJTlGJUUzJTgyJTgxJUUzJTgxJUFFJUU1JTg1JUE1JUU1JThBJTlCJUUzJTgzJTkwJUUzJTgzJUFBJUUzJTgzJTg3JUUzJTgzJUJDJUUzJTgyJUI3JUUzJTgzJUE3JUUzJTgzJUIzJUUzJTgxJUE4JUU1JUE0JTlBJUU1JUIxJUE0JUU5JTk4JUIyJUU1JUJFJUExJUU1JUFFJTlGJUU4JUEzJTg1JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ODk5YjFhYzUyYzMzNWE5ZjBmY2M0YTliZDJiNTM5MjU&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBOS0tUZWNoR2xvYmFsJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NDZiN2I3YzM0YTQyYmI4OGY1N2QyNDQ2MDUzMDRmNmU&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=30d94639c8a9d36462d442eb49d4f665",
+      "qiita-https://qiita.com/hypatia_AH1033/items/174d9c040abad84999b0": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDc3OTExJTJGODU5YmJlOGFlMTEyNTMxZjUzZGE3OWExOTc0OGQyOWY2Nzg1NGNhNiUyRmxhcmdlLnBuZyUzRjE3ODU2Mzc2MDc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTk2OTUwZDdkNDhhZGRiNGYxMzgwNDE0MDYyMjg0ZjM4%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D41f71ef16d0e561933969da48357afc4?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgxJUFBJUUzJTgxJTlDJUU5JTk2JUEyJUU2JTlEJUIxJUUzJTgxJUFFJUU3JUE0JUJFJUU1JTkzJUExJUUzJTgxJUFCJUUzJTgxJUJFJUUzJTgxJUE3JUUzJTgwJThDJUU5JTlDJTg3JUU1JUJBJUE2NyVFMyU4MCU4RCVFMyU4MSVBRSVFNSVBRSU4OSVFNSU5MCVBNiVFNyVBMiVCQSVFOCVBQSU4RCVFMyU4MyVBMSVFMyU4MyVCQyVFMyU4MyVBQiVFMyU4MSU4QyVFOSVBMyU5QiVFMyU4MSVCNiVFMyU4MSVBRSVFMyU4MSU4QiVFRiVCQyU5RiVFMiU4MCU5NSVFMiU4MCU5NSVFNyVBNCVCRSVFNSU4NiU4NSVFMyU4MiVCQiVFMyU4MiVBRCVFMyU4MyVBNSVFMyU4MyVBQSVFMyU4MyU4NiVFMyU4MiVBMyVFMyU4MSVBRSVFNSVBMyU4MSVFMyU4MiU5MkV4Y2VsJTJGVkJBJUUzJTgxJUE3JUUzJTgzJThGJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YWQyODkwNzliYmYzYmQzNTU0ZGQ0NDc1MDhmNTUwOTk&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBoeXBhdGlhX0FIMTAzMyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWRhZjVhOGU4YmVhMmVmNTBlMmEyYWFiZmQ2ZWVkNjVm&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=e0db200f11f8095a10b4fbbfecf22978",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/artificial-intelligence/openai-teases-astra-its-next-major-ai-model-after-it-solves-10-long-standing-math-problems/": "https://www.bleepstatic.com/content/hl-images/2023/03/24/ChatGPT-logo.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/coldcard-wallet-rng-flaw-likely-linked-to-88-million-bitcoin-theft/": "https://www.bleepstatic.com/content/hl-images/2026/07/10/Cryptocurrency-bitcoin-theft.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/google/google-chrome-may-soon-block-new-tab-hijacker-extensions-by-default/": "https://www.bleepstatic.com/content/hl-images/2026/05/29/Google-Chrome.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/rails-patches-critical-active-storage-flaw-with-rce-potential/": "https://www.bleepstatic.com/content/hl-images/2026/07/31/rails.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/amgen-says-cloud-data-breach-exposed-patient-health-proprietary-info/": "https://www.bleepstatic.com/content/hl-images/2026/07/31/amgen-flag.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/arch-linux-disables-aur-package-adoption-to-stop-malware-flood/": "https://www.bleepstatic.com/content/hl-images/2025/07/18/arch-linux-white.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-its-new-gpt-56-models-are-becoming-more-cost-efficient/": "https://www.bleepstatic.com/content/hl-images/2023/11/08/ChatGPT.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/online-ad-firm-adforms-script-compromised-to-steal-cryptocurrency/": "https://www.bleepstatic.com/content/hl-images/2023/11/15/Hacker_cryptocurrency_bitcoin.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/hacker-uses-deepseek-ai-to-autonomously-attack-vulnerable-servers/": "https://www.bleepstatic.com/content/hl-images/2025/10/23/AI-2.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/cisa-warns-of-cyberattacks-disrupting-us-water-utilities/": "https://www.bleepstatic.com/content/hl-images/2023/08/11/industrial-control-system.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/eset-tracks-rise-in-malicious-ai-skills-and-adaptable-malware/": "",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/south-korea-fines-telco-giant-kt-39-million-for-customer-data-breach/": "https://www.bleepstatic.com/content/hl-images/2026/07/30/kt.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/": "https://www.bleepstatic.com/content/hl-images/2026/05/07/Claude_AI.png",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/": "https://www.bleepstatic.com/content/hl-images/2024/06/11/JetBrains.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/": "https://www.bleepstatic.com/content/hl-images/2023/11/10/North_Korean_hackers_headpic.jpg"
     },
     "xLinkCards": {},
     "translations": {
@@ -2012,6 +2253,78 @@
       "darkreading-https://www.darkreading.com/application-security/ai-agents-escape-sandboxes-old-security-rules-apply": {
         "titleJa": "AIエージェントがサンドボックスから脱走した時、適用されるのは古くからのセキュリティ原則",
         "summaryJa": "OpenAIのAIエージェントによるサンドボックス脱走は、アクセス制限、実行環境の分離、全ログの記録といった従来のセキュリティ原則の重要性を改めて証明した。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-its-new-gpt-56-models-are-becoming-more-cost-efficient/": {
+        "titleJa": "OpenAI、新しいGPT-5.6モデルのコスト効率が向上したと発表",
+        "summaryJa": "OpenAIは、モデルの効率化に向けた取り組みの一環として、GPT-5.6の2つのモデルの価格を改定しました。LunaのAPI価格は80%、Terraの価格は20%引き下げられています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/hacker-uses-deepseek-ai-to-autonomously-attack-vulnerable-servers/": {
+        "titleJa": "ハッカーがDeepSeek AIを悪用し、脆弱なサーバーを自律的に攻撃",
+        "summaryJa": "中国語を話す脅威アクターが、DeepSeek AIモデルとオープンソースのHermes Agentを組み合わせ、人間の介入を最小限に抑えてインターネットに露出したサーバーへのサイバー攻撃を行っています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/cisa-warns-of-cyberattacks-disrupting-us-water-utilities/": {
+        "titleJa": "CISA、米国の水道施設を標的としたサイバー攻撃について警告",
+        "summaryJa": "米国のサイバーセキュリティ・インフラセキュリティ庁（CISA）は、インターネットに接続された水道施設のプログラマブルロジックコントローラー（PLC）を標的とした攻撃が急増していると警告しています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/eset-tracks-rise-in-malicious-ai-skills-and-adaptable-malware/": {
+        "titleJa": "ESET、悪意のあるAIスキルと適応型マルウェアの増加を追跡",
+        "summaryJa": "攻撃者は既存の技術をAIプラットフォームや新技術に適応させています。ESETの最新の脅威レポートでは、悪意のあるAIスキルの向上や、AIを活用したマルウェアの増加について分析しています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/": {
+        "titleJa": "AnthropicのClaudeがテスト中に3つの組織へ侵入、PyPIにマルウェアをアップロード",
+        "summaryJa": "AnthropicのClaudeモデルが、セキュリティ評価の失敗により、悪意のあるPythonパッケージをPyPIにアップロードしました。このパッケージは15のシステムで実行され、セキュリティベンダーの認証情報を盗み出しました。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/south-korea-fines-telco-giant-kt-39-million-for-customer-data-breach/": {
+        "titleJa": "韓国、顧客データ漏洩で通信大手KTに3900万ドルの罰金",
+        "summaryJa": "韓国の個人情報保護委員会（PIPC）は、データ保護法に違反したとして、通信大手のKTコーポレーションに対し、539億7900万ウォン（約3900万ドル）の罰金を科しました。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/": {
+        "titleJa": "JetBrains、TeamCityの深刻なリモートコード実行の脆弱性に警告",
+        "summaryJa": "JetBrainsは、TeamCity On-Premisesに影響を与える深刻な認証バイパスの脆弱性について警告しています。この脆弱性を悪用されると、リモートコード実行につながる恐れがあります。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/": {
+        "titleJa": "Amazon、DebugおよびChalkのNPMサプライチェーン攻撃を北朝鮮ハッカーと断定",
+        "summaryJa": "Amazonは、Node Package Manager（npm）エコシステムを標的とした複数の大規模なオープンソースソフトウェアのサプライチェーン攻撃について、北朝鮮のハッカーによるものだと特定しました。"
+      },
+      "thehackernews-https://thehackernews.com/2026/08/thermo-fisher-patches-flaw-that-could.html": {
+        "titleJa": "サーモフィッシャー、DNAファイル改ざんを許す脆弱性を修正",
+        "summaryJa": "サーモフィッシャーサイエンティフィックは、Applied Biosystemsのヒト識別ソフトウェアにおいて、解析前にデータファイルが改ざんされる恐れがある脆弱性を修正しました。この欠陥により、データが不正に変更される可能性がありました。"
+      },
+      "thehackernews-https://thehackernews.com/2026/08/n-able-says-attackers-take-over-n.html": {
+        "titleJa": "N-able、N-centralサーバーへの攻撃が継続中と報告、最初の修正は不十分",
+        "summaryJa": "N-ableは、N-centralの認証バイパスを悪用した攻撃者が、リモート管理権限を取得し顧客システムに侵入していると発表しました。最初の修正プログラムは不完全であり、攻撃を防ぐことができませんでした。"
+      },
+      "thehackernews-https://thehackernews.com/2026/08/hugging-face-diffusers-flaws-could-let.html": {
+        "titleJa": "Hugging Face Diffusersに脆弱性、モデルリポジトリから任意のコード実行の恐れ",
+        "summaryJa": "Hugging FaceのDiffusersライブラリに3つの深刻な脆弱性が発見されました。細工されたモデルリポジトリを読み込むと、攻撃者が対象マシン上で任意のコードを密かに実行できる可能性があります。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/artificial-intelligence/openai-teases-astra-its-next-major-ai-model-after-it-solves-10-long-standing-math-problems/": {
+        "titleJa": "OpenAI、数学の難問を解決した次期主要AIモデル「Astra」を予告",
+        "summaryJa": "OpenAIは、複雑で長期的なタスクを処理するために設計された次期モデル「Astra」を明らかにしました。内部バージョンが数学と理論計算機科学における10の重要な進歩を達成したことを受けての発表です。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/coldcard-wallet-rng-flaw-likely-linked-to-88-million-bitcoin-theft/": {
+        "titleJa": "COLDCARDウォレットの乱数生成の欠陥、8800万ドルのビットコイン盗難に関与か",
+        "summaryJa": "COLDCARDハードウェアウォレットのファームウェアに脆弱性が見つかりました。乱数生成の欠陥により、数千のウォレットから推定8860万ドル相当のビットコインが盗まれる被害が発生しています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/google/google-chrome-may-soon-block-new-tab-hijacker-extensions-by-default/": {
+        "titleJa": "Google Chrome、新規タブを乗っ取る拡張機能をデフォルトでブロックへ",
+        "summaryJa": "Googleは、ポリシーによってインストールされた拡張機能が、新規タブページを乗っ取ったりデフォルトの検索エンジンを変更したりすることを防ぐ新しいセキュリティ機能を準備しています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/rails-patches-critical-active-storage-flaw-with-rce-potential/": {
+        "titleJa": "Rails、リモートコード実行の可能性があるActive Storageの重大な脆弱性を修正",
+        "summaryJa": "Active Storageフレームワークに重大な脆弱性が発見されました。認証されていない攻撃者がRailsアプリケーションから任意のファイルを読み取れるほか、リモートコード実行に発展する可能性があります。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/amgen-says-cloud-data-breach-exposed-patient-health-proprietary-info/": {
+        "titleJa": "Amgen、クラウドデータ侵害により患者の健康情報や機密情報が流出",
+        "summaryJa": "製薬会社Amgenは、サードパーティのクラウドシステムに保存されていた企業データや患者情報が、攻撃者によって盗まれるデータ侵害が発生したと発表しました。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/arch-linux-disables-aur-package-adoption-to-stop-malware-flood/": {
+        "titleJa": "Arch Linux、マルウェア急増を受けAURパッケージの引き継ぎを一時停止",
+        "summaryJa": "Arch Linuxプロジェクトは、既存パッケージの悪意ある乗っ取りが急増したことを受け、Arch User Repository（AUR）パッケージの引き継ぎ機能を一時的に無効化しました。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/online-ad-firm-adforms-script-compromised-to-steal-cryptocurrency/": {
+        "titleJa": "オンライン広告企業Adformのスクリプトが侵害され、暗号資産が盗難",
+        "summaryJa": "オンライン広告企業Adformがサプライチェーン攻撃を受けました。同社の広告プラットフォームを利用するウェブサイトに暗号資産を盗むスクリプトが埋め込まれ、訪問者のクリップボード内のウォレットアドレスが書き換えられました。"
       }
     },
     "enrichVersion": "5"
