@@ -17,7 +17,7 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
   X API / Gmail API は使わない。
 - **位置づけ**: 運用者は開発未経験。**個人の学習目的**のサイトであり、特定の組織を代表するものではない。
 
-### 現在有効なソース（6ソース）
+### 現在有効なソース（7ソース）
 
 | source | 内容 | 取得元 |
 | --- | --- | --- |
@@ -27,6 +27,7 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 | `thehackernews` | The Hacker News（**英語**）の脆弱性・インシデント速報 | 公開 RSS（FeedBurner・トークン不要） |
 | `darkreading` | Dark Reading（**英語**）のセキュリティ解説・分析 | 公開 RSS（全体フィード1本・トークン不要） |
 | `bleepingcomputer` | BleepingComputer（**英語**）の脆弱性・マルウェア速報 | 公開 RSS（全体フィード1本・トークン不要） |
+| `theregister` | The Register（**英語**）セキュリティセクションの報道・分析 | 公開 Atom（**セクション限定**・トークン不要） |
 
 ⚠️ 「はてなブログ」は**はてなブックマークとは別サービス**。かつて `hatena`（はてブ人気エントリー）枠もあったが削除済み（後述の「削除したソース」参照）。
 
@@ -58,6 +59,14 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 | `layerx` | Substack の公開 RSS が invite-only で取得不可 → 毎週届くメールを **Gmail REST API**（`GMAIL_CLIENT_ID`/`_SECRET`/`_REFRESH_TOKEN`、scope `gmail.readonly`）で読み、本文の各トピックリンクを1アイテム化していた。OAuth のリフレッシュトークンは失効しうる運用コストがあった |
 | `workspace` | Google Workspace Updates ブログ（Blogger Atom）。`?redirect=false` を付けないと FeedBurner（http）へ 302 する落とし穴があった |
 | `gcloud` | Google Cloud リリースノート Atom。**1エントリ＝1日**でタイトルが日付だけ・本文に全製品の更新がまとまるため、専用パーサで製品名を抽出して見出しにしていた |
+
+### 調査済みだが見送ったソース
+
+フィードは取得できるが、**採用しない判断をした**もの。同じ調査を繰り返さないための記録。
+
+| ソース | フィード | 見送った理由 | 再検討の条件 |
+| --- | --- | --- | --- |
+| **HackRead**（`hackread.com`） | `https://hackread.com/feed/`（10件・約3日分・約3.3件/日・サムネ無し・UA 問わず 200） | **PR配信と SEO 記事が半数近く混ざる。** 実測10件のうちセキュリティ報道は4件程度で、「Top 10 Companies to Hire Power BI Developers in 2026」「Top 7 Enterprise IT Asset Management Software for 2027」のようなセキュリティ無関係の SEO 記事や、**著者が `CyberNewswire`（プレスリリース転載）**の広報記事が並ぶ。件数を増やすより**探すコストを上げない**ことを優先した | **カテゴリ/著者による除外の仕組みを実装したら再検討する。** フィードは `categories` フィールドを持つので絞り込みは技術的に可能。著者 `dc:creator` が `CyberNewswire` のものを除外するだけでも PR 記事は落とせる |
 
 ## Commands
 
@@ -136,7 +145,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 
 > **凡例**: 見出しの【現在は無効】は `feeds.config.ts` で `disabled: true` のソース。
 > 記述は将来の復活・障害記録のため残してある。
-> 有効なのは **Zenn / Qiita / はてなブログ / The Hacker News / Dark Reading / BleepingComputer** の 6 つ。
+> 有効なのは **Zenn / Qiita / はてなブログ / The Hacker News / Dark Reading / BleepingComputer / The Register** の 7 つ。
 
 - **【現在は無効】X**: X API を**叩かない**。自分のデータは basecamp 公開 JSON（`storage.googleapis.com/basecamp-feeds/x-tweets.json`）を読むだけ（トークン・課金不要、basecamp の OAuth と競合しない）。`x.accounts` の外部アカウントのみ X API **App-only Bearer**（`X_BEARER_TOKEN`）+ `since_id` 増分。OGP サムネは `scripts/sources/ogp.ts` で解決し `state.xOgImages` にキャッシュ。**本文が t.co リンクのツイートはリンク先の OGP カードを `linkPreview` として補完**（`enrichXLinks`。両取得経路を横断。後述）。表示は `TweetCard.astro`（ツイート風＋リンクプレビューカード）。
   - **著者アイコン(avatar)/実名/@handle**: basecamp 公開JSON は元ツイートの著者を持たず `author` が `"ブックマーク"` 等の固定ラベルになる。これを **syndication（`scripts/sources/syndication.ts` の `fetchTweet`＝`cdn.syndication.twimg.com`・無料・トークン不要）** で解決し `FeedItem.avatarUrl`（`_400x400`化）/`authorName`/`author=@handle` を補完（`xOgImages` と同じ state永続キャッシュ＋毎回再適用＋新規は `authorMaxNew` 件/run の段階補完＋トリム後 prune パターン、`state.xAuthors`）。外部アカウントは X API の `expansions=author_id&user.fields=profile_image_url,name` で同様取得。`TweetCard.astro` は `avatarUrl` があれば丸枠に `<img>`（`onerror` でイニシャル/Xロゴへフォールバック）、無ければ従来の代替アイコン。**⚠️ syndication 直叩きは residential IP(ローカル)なら解決でき、CI(datacenter IP)では弱い可能性**（datacenter IP からの直叩きという制約。ただし 403 リスクは低い）。ローカル `npm run aggregate` で埋めた `state.xAuthors` は CI でも毎回再適用＝永続化される。
@@ -175,6 +184,14 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
   - ⚠️ **フィードにサムネが無い**（`enclosure` も `media:*` も無い）。他の英語2ソースと違い、**サムネは `enrichArticles` の og:image 補完に完全に依存する**。記事ページは UA 付き fetch で 200・og:image あり・本文 6,600〜9,000字（実測）なので機能するが、ここが失敗すると画像なしのコンパクト行になる。
   - 抜粋は 159〜311字（中央206字）。`dc:creator` に記者名、`categories` にカテゴリが入る（現状は未使用）。
   - **バッジ色は `--color-bleepingcomputer: #d10092`（マゼンタ）**。残った最大の空き（hatenablog 262°→THN 355° の 93°）から 318°。既存6色との最小色差 ΔE=60.1（基準 58.3 超）、白背景コントラスト 5.09:1。
+- **【有効】The Register（`theregister`）**: 英語の総合 IT メディアだが、**セキュリティセクション限定のフィード**を使う。`fetchRss`（`rssUrls` 配列）で取得。
+  - ⚠️ **全体フィードは使わない**。The Register はクラウド・ハードウェア・企業ニュース・宇宙開発まで扱うため、全体フィード（`/headlines.atom`）ではセキュリティ以外が大量に混ざる。**`/security/headlines.atom` がセクション限定**で、実測 50 件すべてがセキュリティ関連だった（タイトル全件を目視確認）。
+  - ⚠️ **設定には `/security/headlines.atom`（人が読めるURL）を書く。** 実際にはこれが `api.theregister.com/api/v1/article?...&query=tag:security` へリダイレクトするが、転送先は `site_id=2` / `remapper=rss` といった**内部パラメータを含み壊れやすい**ので採用しない。（The Hacker News は逆に最終URL＝FeedBurner を直接指定している。あちらの転送先は安定した公開エンドポイントなので判断が違う。）
+  - セクション別フィードの他の形（`/security/feed/`・`/security/rss`・`/security/atom.xml`・`/security/index.atom`）は**すべて 404**。`/security/headlines.rss` のみ同内容を返す。
+  - **フィードが 50 件（約13日分）**返す＝取りこぼしリスクは Dark Reading と並んで最も低い。約3.7件/日。
+  - `media:thumbnail` と `enclosure` に**サムネが付く（50/50 件）**。`author` は無い（`rss.ts` がフィード名を入れる）。抜粋は 20〜171字（中央87字）と短め。
+  - 記事ページは UA 付き fetch で 200・og:image あり・本文 8,700〜11,600字（実測）。CDN ヘッダは無くボット判定の兆候なし（UA 3パターンすべて 200）。
+  - **バッジ色は `--color-theregister: #2a5e6f`（青緑）。⚠️ 暫定色**（後述「バッジ色の限界」参照）。
 
 ## ソースを追加・削除するときのチェックリスト
 
@@ -264,6 +281,12 @@ npm run dev         # 画面（フィルタ・バッジ・説明文）を目視
   - favicon（`public/favicon.svg`）は SVG のまま配信＝ブラウザがレンダリングするので、こちらはフォント差の影響を受けない。**SVG のコメント内に連続ハイフン（`--`）を書くと XML が壊れて画像ごと表示されなくなる**ので注意（`--color-logo` のような変数名を書きたくなる場面で踏みやすい）。
 - **ライト専用サイトなので `globals.css` の `html` に `color-scheme: light` を宣言**。これが無いと Chrome の強制/Auto ダークモードが朝刊テーマを反転させて背景・カードが暗転する（UAの問題ではなくブラウザ設定）。
 - **翻訳が出ない＝Gemini の HTTP 4xx を疑う**（CI は緑のまま titleJa/summaryJa=0 になる）。実例: 使用モデル `gemini-2.0-flash` が 2026-06-01 提供終了→無料枠撤廃で **429**。`feeds.config.ts` の `translate.model` を後継 Flash-Lite（無料枠あり）に切替えて復旧。確認は `gh run view <id> --log | grep '\[translate\]'` と `git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length'`。詳細は memory `todayai-gemini-quota-429`。
+- **⚠️ バッジ色の限界: 8色目（The Register）で個別色の割り当ては限界に達した。次は配色方式そのものを変える。**
+  - これまでソースごとに固有色を割り当て、「**既存どうしの最小色差 ΔE = 58.3（Qiita↔ロゴ）を上回る**」を合格基準にしてきた。7色目（BleepingComputer）までは満たせた（ΔE 59.9〜75.4）。
+  - **8色目は満たせない。** 空いていた色相（Qiita 94°→ロゴ 160° / はてなブログ 262°→BleepingComputer 318°）はどちらも既存の緑・紫と近く、**明度・彩度も動かして全色相を総当たりしても最小 ΔE は 48.3 が上限**だった（明度感を無視して暗色を許しても 50.0）。The Register の `#2a5e6f` は ΔE 48.3 ＝「注意して見れば区別できるが一目では紛らわしい」水準の**暫定色**。
+  - **9色目以降は個別色では成立しない**（色相環は 360°しかなく、AA 4.5:1 を満たす明度帯も限られる）。
+  - **→ 次回、ソース追加とは切り離した独立作業で「グループ配色」へ移行する予定。** 案としては **国内メディア / 海外メディア（/ 将来は公式アドバイザリ）で数色を共有**する方式。すでにある「日本語」フィルタと軸が一致するため利用者の理解が一貫し、ソースが 20 個に増えても破綻しない。移行は `SourceMeta` に `group` を足して `badgeClass` をグループ由来にするだけで、SOURCES 駆動の自動追従の仕組みはそのまま使える。
+  - ソース追加と配色変更を同時にやると問題の切り分けが難しくなるため、**別コミット・別作業**にすること。
 - **ビジュアルは「朝刊（Daily Briefing）」ライトテーマ**（ペーパー白 `#f6f7f9` ＋白カード ＋ インク文字 ＋ コバルト `#2f5fff`）。配色トークンは `globals.css` の `@theme` に集約。見出しは Space Grotesk、時刻・ソース名は IBM Plex Mono（ティッカー風）。
 - **ロゴだけ別系統の色**（`--color-logo` 系＝エメラルドグリーン `#0f9b6c`）: `--color-accent`（コバルト）はフィルタチップ・言語トグル・カード hover が共有しているため、ロゴを変えるとサイト全体が巻き込まれる。**ロゴ専用変数に分けてあるので、ロゴの色を変えるときは `--color-logo` だけを触ること**（使用箇所は `Layout.astro` のバッジ背景＋glow とワードマークの2箇所）。なお Tailwind v4 は**実際に使われている `@theme` 変数しか CSS に出力しない**ので、`--color-logo-bright` / `-deep` は定義済みでもビルド後の CSS には現れない（`--color-accent-deep` も同様。不具合ではない）。
 - **カードはハイブリッド分岐**（`FeedCard.astro`）: X は `TweetCard`、それ以外は `item.thumbnail` の有無で **ヒーローカード** か **コンパクト行** に分かれる。ヒーローはモバイルで画像上＋本文下の縦積み、`sm:` 以上で `flex-row` の**画像左（`sm:w-[14rem]`）＋本文右**の横並びになる。OGP 補完でサムネ網羅率が上がるとヒーローが主役になる。**サムネ枠は全ブレークポイントで `aspect-video`（16:9）固定＋`sm:self-start`（上揃え）**＝カード全高に引き伸ばされない（横長 OGP が縦長クロップで崩れるのを防ぐ）。**カード外枠は `rounded-none`（直角）**＝バッジのピル・X アバターの丸・フィルタチップのピルは丸のまま、カード面だけ角。
