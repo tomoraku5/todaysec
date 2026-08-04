@@ -89,7 +89,11 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
   X API / Gmail API は使わない。
 - **位置づけ**: 運用者は開発未経験。**個人の学習目的**のサイトであり、特定の組織を代表するものではない。
 
-### 現在有効なソース（8ソース）
+### 現在有効なソース
+
+> **この表が「今どのソースを集めているか」の記述上の正**（実装上の正は `src/lib/feed.ts` の
+> `SOURCES` 配列と `feeds.config.ts` の `disabled`）。**件数はあえて書かない**＝
+> 数字を書くと追加のたびに更新漏れが起きるため（実際に4回起きた）。
 
 | source | 内容 | 取得元 |
 | --- | --- | --- |
@@ -122,7 +126,9 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 ### 削除したソース（履歴）
 
 以下4ソースはセキュリティ用途に合わないため **コードごと削除済み**。
-**実装・設計の詳細は削除前のコミット `c5c9547` を参照**（`git show c5c9547:scripts/sources/<name>.ts`）。
+**削除コミットは `0e43fa2`**。実装・設計の詳細はその直前のコミットから読める
+（`git show 0e43fa2^:scripts/sources/<name>.ts`。`0e43fa2^` = `c5c9547`）。
+⚠️ `git show c5c9547` 単体は**OGP 画像の再生成コミット**なので、削除差分を見るなら `git show 0e43fa2`。
 要点だけ残す:
 
 | 削除ソース | 残す価値のある要点 |
@@ -167,7 +173,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 
 - **テストフレームワークは無い。** 検証は `npm run build` / `npm run typecheck` と、`npm run aggregate` の実行ログ（`✅ feed.json 更新: 計N件 (X=.. / Zenn=.. / Qiita=.. / はてなブログ=..)`）で行う。
 - **型チェックの落とし穴**: `npm run build` は Astro が import するファイルしか型検査しない。`scripts/aggregate.ts` と `scripts/sources/*` は Astro グラフ外なので、scripts を変更したら **`npm run typecheck`（astro check）で確認する**こと（tsconfig の `include: ["**/*"]` が拾う）。scripts は `tsx` で実行され、tsx は型を消すだけで検査しない。
-- **現在の構成では `.env` もトークンも不要**（有効な 3 ソースはすべて公開 RSS）。温存している X / 翻訳をローカルで試す場合のみ `cp .env.example .env` してトークン（`X_BEARER_TOKEN` / `GEMINI_API_KEY`）を記入する。
+- **記事の取得にトークンは不要**（有効なソースはすべて公開 RSS）。**翻訳だけ `GEMINI_API_KEY` を使うが、これは GitHub Secrets にのみ置く方針**＝**ローカルに `.env` を作らない**（Public リポジトリでの誤コミットを構造的に排除するため。`docs/decisions.md` 項目6）。ローカルの `npm run aggregate` はキーが無いまま動き、**翻訳だけがスキップされる**（`state.translations` から既存分は再適用されるのでデータは壊れない）。温存している X をローカルで試す場合の `X_BEARER_TOKEN` も同様に常設しない。
 
 ## フォーク元（satory074/todayai）からの変更点
 
@@ -228,7 +234,8 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 
 > **凡例**: 見出しの【現在は無効】は `feeds.config.ts` で `disabled: true` のソース。
 > 記述は将来の復活・障害記録のため残してある。
-> 有効なのは **Zenn / Qiita / はてなブログ / The Hacker News / Dark Reading / BleepingComputer / The Register / HackRead** の 8 つ。
+> **有効なソースの一覧はここに列挙しない**（二重管理になり実際にズレたため）＝
+> 冒頭の「現在有効なソース」表を見ること。
 
 - **【現在は無効】X**: X API を**叩かない**。自分のデータは basecamp 公開 JSON（`storage.googleapis.com/basecamp-feeds/x-tweets.json`）を読むだけ（トークン・課金不要、basecamp の OAuth と競合しない）。`x.accounts` の外部アカウントのみ X API **App-only Bearer**（`X_BEARER_TOKEN`）+ `since_id` 増分。OGP サムネは `scripts/sources/ogp.ts` で解決し `state.xOgImages` にキャッシュ。**本文が t.co リンクのツイートはリンク先の OGP カードを `linkPreview` として補完**（`enrichXLinks`。両取得経路を横断。後述）。表示は `TweetCard.astro`（ツイート風＋リンクプレビューカード）。
   - **著者アイコン(avatar)/実名/@handle**: basecamp 公開JSON は元ツイートの著者を持たず `author` が `"ブックマーク"` 等の固定ラベルになる。これを **syndication（`scripts/sources/syndication.ts` の `fetchTweet`＝`cdn.syndication.twimg.com`・無料・トークン不要）** で解決し `FeedItem.avatarUrl`（`_400x400`化）/`authorName`/`author=@handle` を補完（`xOgImages` と同じ state永続キャッシュ＋毎回再適用＋新規は `authorMaxNew` 件/run の段階補完＋トリム後 prune パターン、`state.xAuthors`）。外部アカウントは X API の `expansions=author_id&user.fields=profile_image_url,name` で同様取得。`TweetCard.astro` は `avatarUrl` があれば丸枠に `<img>`（`onerror` でイニシャル/Xロゴへフォールバック）、無ければ従来の代替アイコン。**⚠️ syndication 直叩きは residential IP(ローカル)なら解決でき、CI(datacenter IP)では弱い可能性**（datacenter IP からの直叩きという制約。ただし 403 リスクは低い）。ローカル `npm run aggregate` で埋めた `state.xAuthors` は CI でも毎回再適用＝永続化される。
@@ -250,8 +257,8 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
   - **サイト側の `/rss.xml`・`/atom.xml`・`/feeds/posts/default` はすべて FeedBurner（`feeds.feedburner.com/TheHackersNews`）へリダイレクトする**（実測）。実質フィードは1本しかないので、リダイレクトを1回減らすため設定には最終 URL を直接書いている。裏を返すと **FeedBurner が止まると代替経路が無い**（サイト固有 URL も同じ先を指すため）。
   - RSS 2.0。`title` / `link` / `isoDate` / `contentSnippet`（約400字）/ `author` に加え、**`enclosure` にサムネイル画像が付く**（Blogger の CDN）。よってはてなブログと違い og:image 補完は不要で、全件がヒーローカードになる。
   - **約10件/日**（実測: 50件が約5日分）。cron 6時間ごと＝1 run あたり ~2.5件なので `limit: 20` で十分な余裕。フィードが50件返すので数 run 落ちても取りこぼさない。
-  - 記事ページは **UA を付けた fetch で 200 が返り、本文も 7,000〜10,000 字抽出できる**（実測）＝将来 `translate` を有効化したときの3行要約も機能する。そのため `enrichArticles` の対象セットに含めてある（サムネ済み item は fetch されないので現状のコストは増えない）。
-  - **唯一の英語ソース**。翻訳が無効な現在は英語の見出しがそのまま日本語記事に混在する。タイトルは 56〜100 字程度で、ヒーローカードの `h2` に `break-words` が効くため折り返しは崩れない。
+  - 記事ページは **UA を付けた fetch で 200 が返り、本文も 7,000〜10,000 字抽出できる**（実測）＝将来3行要約（`translate.summarizeSources`）を有効化したときにも機能する。そのため `enrichArticles` の対象セットに含めてある（サムネ済み item は fetch されないので現状のコストは増えない）。
+  - **最初に入れた英語ソース**（現在は他にも複数ある）。**翻訳が有効なので日本語訳が併記される**（フィルタバー右端の「日本語 / 原文」で切替）。タイトルは 56〜100 字程度で、ヒーローカードの `h2` に `break-words` が効くため折り返しは崩れない。
   - **バッジ色は `--color-thehackernews: #c81e2b`（ブランドの赤）**。色相 355°で最近接の hatenablog（262°）から 93°離れ、白背景コントラストは 5.71:1。
 - **【有効】Dark Reading（`darkreading`）**: 英語のセキュリティ専門メディア。`fetchRss`（`rssUrls` 配列）で取得。
   - **使えるのは全体フィード `https://www.darkreading.com/rss.xml` の1本だけ**。セクション別フィード（`/rss/<section>.xml`）は **404 で存在せず**、旧 `/rss_simple.asp` は **403**、`/feed` はトップページへ飛ぶ（すべて実アクセスで確認）。**セクション単位で絞りたくなっても手段が無い**ので、量を減らすなら `limit` で調整するしかない。
@@ -263,8 +270,8 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 - **【有効】BleepingComputer（`bleepingcomputer`）**: 英語のセキュリティ／IT ニュース。`fetchRss`（`rssUrls` 配列）で取得。
   - **全体フィード `https://www.bleepingcomputer.com/feed/` の1本だけ**。カテゴリ別（`/news/<cat>/feed/`）は **404 で存在しない**（実アクセスで確認）。
   - **Cloudflare 配下**（`cf-ray` ヘッダあり）だが、**フィードは UA を問わず 200**（プロジェクトUA / ブラウザUA / UA無し すべて成功、検証ページも出ない）。記事ページも同じく 200 なので、**CI（datacenter IP）でボット判定される懸念は低い**。ただし Cloudflare の設定はサイト側都合で変わり得るので、取得できなくなったら 403 / 検証ページを疑うこと。
-  - ⚠️ **フィードが 15 件しか返さない**（THN・Dark Reading は 50、はてなブログ 30、Zenn/Qiita 20）。平日 約8件/日なので**約2日分しか遡れない**＝**CI が2日以上止まると取りこぼす**。6時間ごとの cron なら 1 run あたり ~2件で十分。`limit: 20` はフィード件数を上回るので実質「全件取り込む」設定。
-  - ⚠️ **フィードにサムネが無い**（`enclosure` も `media:*` も無い）。他の英語2ソースと違い、**サムネは `enrichArticles` の og:image 補完に完全に依存する**。記事ページは UA 付き fetch で 200・og:image あり・本文 6,600〜9,000字（実測）なので機能するが、ここが失敗すると画像なしのコンパクト行になる。
+  - ⚠️ **フィードが 15 件しか返さない**（多くのソースは 20〜50 件返す。ただし HackRead は 10 件でさらに少ない＝ソース別の件数は `feeds.config.ts` のコメントを見る）。平日 約8件/日なので**約2日分しか遡れない**＝**CI が2日以上止まると取りこぼす**。6時間ごとの cron なら 1 run あたり ~2件で十分。`limit: 20` はフィード件数を上回るので実質「全件取り込む」設定。
+  - ⚠️ **フィードにサムネが無い**（`enclosure` も `media:*` も無い）。フィードにサムネが付くソースと違い、**サムネは `enrichArticles` の og:image 補完に完全に依存する**（HackRead も同じ）。記事ページは UA 付き fetch で 200・og:image あり・本文 6,600〜9,000字（実測）なので機能するが、ここが失敗すると画像なしのコンパクト行になる。
   - 抜粋は 159〜311字（中央206字）。`dc:creator` に記者名、`categories` にカテゴリが入る（現状は未使用）。
   - **バッジ色は `--color-bleepingcomputer: #d10092`（マゼンタ）**。残った最大の空き（hatenablog 262°→THN 355° の 93°）から 318°。既存6色との最小色差 ΔE=60.1（基準 58.3 超）、白背景コントラスト 5.09:1。
 - **【有効】The Register（`theregister`）**: 英語の総合 IT メディアだが、**セキュリティセクション限定のフィード**を使う。`fetchRss`（`rssUrls` 配列）で取得。
@@ -308,8 +315,16 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 
 ### 3. 手で更新が必要なもの（★ ここが漏れやすい）
 
-- [ ] **`README.md`** … 冒頭の説明文、「収集しているソース」の表と**見出しの「有効（N ソース）」の数字**、「構成」の記述
-- [ ] **`CLAUDE.md`** … 「現在有効なソース」の表と**その見出しの「（N ソース）」**、「ソース別の要点」に取得元固有の落とし穴（フィード形式・サムネの有無・URL の癖）、**同節の凡例にある有効ソースの列挙**（`> 有効なのは … の N つ`。ここは自動生成されないので必ずズレる）
+- [ ] **`README.md`** … 冒頭の説明文、「収集しているソース」の表、「構成」の記述。
+      ⚠️ **英語ソースを足したときは「英語サイトはカテゴリ別フィードが無いため…」の注記も見る**
+      （個別列挙をやめて「上の表で英語と書かれているもの」という参照形式にしてあるので、
+      **サイト名や件数を書き足さないこと**）
+- [ ] **`CLAUDE.md`** … 「現在有効なソース」の表、「ソース別の要点」に取得元固有の落とし穴
+      （フィード形式・サムネの有無・URL の癖）
+- **⚠️ ソース数・サイト名の列挙は README / CLAUDE.md の両方から意図的に削除してある。**
+      過去4回この数字だけが取り残された（はてなブログ追加時の README、翻訳有効化時の README など）。
+      **「N ソース」「A / B / C の3つ」といった書き方を新たに増やさない**＝表や `SOURCES` を
+      参照する形にする
 - [ ] **OGP 画像** … `npx tsx scripts/generateOgImage.ts` を実行して `public/og-default.png` を再生成＋コミット。スクリプト自体は `SOURCES` を読むので**文言の修正は不要、実行を忘れないことだけが問題**
 
 ### 4. 無効化したソースを復活させるとき
@@ -346,6 +361,41 @@ npm run dev         # 画面（フィルタ・バッジ・説明文）を目視
 - **設定する URL は事前に実アクセスして 200 と item 取得を確認する**（`rss-parser` は日本語 URL を
   そのままだと拒否する等の癖がある。`rssUrls` に入れる前に確かめる）
 - `npm run aggregate` 後は **ソース別の取得件数**と、他ソースが壊れていないことをログで確認する
+
+## 機能を有効化・無効化するときのチェックリスト
+
+> **なぜこれがあるか**: 翻訳（`translate`）を有効化したとき（`e29e520`）、**コードは正しく直したのに
+> ドキュメントが「無効」のまま8箇所残った**。README には「トークン・API キーは不要です」
+> 「Secrets の設定は不要です」「X API・Gemini API はどちらも無効化」と書かれ続け、
+> **同じ README の中で「Gemini による翻訳が有効なので日本語訳が併記されます」と矛盾していた**。
+> 上のチェックリストは「**ソース**の追加・削除」用で、**機能のフラグを動かしたときの手順が無かった**。
+
+対象になる操作: `feeds.config.ts` の `translate.disabled` / `x.disabled` の切り替え、
+`translate.summarizeSources` の変更、`SHOW_LANG_FILTER_CHIP`（`SourceFilter.astro`）の切り替え、
+`GCS_BUCKET` などリポジトリ変数によるモード切り替え。
+
+| # | 対象 | やること |
+| --- | --- | --- |
+| 1 | `feeds.config.ts` のフラグ | `disabled` を切り替える。**ソースを有効化した場合は `src/lib/feed.ts` の `SOURCES` にも戻す**（フラグだけでは画面に出ない。「無効化したソースを復活させるとき」参照） |
+| 2 | **キャッシュの版**（生成ロジックを変えたときのみ） | `translate.summarizeSources` やプロンプトを変えたら `aggregate.ts` の `ENRICH_VERSION` を上げる。上げないと旧キャッシュが再生成されない |
+| 3 | **`CLAUDE.md` の「現在無効なソース・機能」表** | 有効化したものを表から**外す**。無効化したものは行を足す。⚠️ **表から消しただけでは足りない**＝ 「【現在は無効】」「現在は有効」と書いた**節見出し・本文の注記も同じコミットで直す**（`grep -n "現在は無効\|現在無効\|現在は有効" CLAUDE.md`） |
+| 4 | **`README.md`** | ⚠️ **ここが実際に漏れた。** 機能の要否を書いている箇所を**全部**見る: ①「API キーは必須ではありません」節（キーの必要・不要）②「無効（`disabled: true`）」表 ③フォーク元からの改造を説明した引用ブロック（「X API を…無効化」）④「デプロイ」節の Secrets の説明。<br>**確認方法**: `grep -n "不要\|無効\|API キー\|Secrets\|トークン" README.md` を通し、**ヒットした行が全部同じ結論になっているか**を読む（矛盾したまま残るのが典型的な失敗） |
+| 5 | **`docs/decisions.md`** | その機能に対応する項目の「**再検討すべき条件**」を満たしたということなので、**決定を書き直す**（翻訳＝項目5・6、言語トグル＝項目8、「日本語」フィルタ＝項目9）。判断を変えたのに古い結論が残ると「なぜかそうなっている」状態になる |
+| 6 | **`.env.example` のコメント** | ⚠️ **依頼者の権限設定で読み書きが拒否される。** そのソース／機能のトークンの説明が実態と合っているかを**依頼者に確認してもらう**（勝手に書き換えようとしない。「触ってはいけないもの」参照） |
+| 7 | **Secrets / リポジトリ変数** | キーが必要になったら**依頼者が GitHub の Settings に登録する**（Claude 側では設定できない）。ワークフローの env 側に渡っているかは `.github/workflows/update-and-deploy.yml` を見る。**未設定でも run が緑のまま静かに機能だけ止まる**ものが多いので、有効化後は実際に効いているかをログで確認する |
+
+**有効化後の確認（「設定したのに効いていない」を防ぐ）**:
+
+```bash
+npm run aggregate                    # ローカルで動くか（キーが無い機能はスキップされる）
+gh run view <id> --log | grep '\[translate\]'   # CI で実際に動いたか
+git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length'  # 結果が入ったか
+```
+
+**⚠️ 数字・サイト名の列挙を新たに書き足さないこと。** ソース数「N ソース」や
+「A / B / C の3つ」といった書き方が、これまで**4回**取り残された（はてなブログ追加時の README、
+翻訳有効化時の README、英語ソース追加時の「他の英語2ソース」など）。
+表・`SOURCES`・`feeds.config.ts` を**参照する形**にしておけば、次の変更で勝手に正しくなる。
 
 ## 重要な制約・gotcha
 
@@ -400,12 +450,13 @@ npm run dev         # 画面（フィルタ・バッジ・説明文）を目視
 > ⚠️ **この節はフォーク元 todayai 時代のスナップショット**（7ソース・AI 情報・トークン利用前提）。
 > 上の節と内容が重複しており、**現状と食い違う場合は上の記述が正**。
 > 個々のソースの設計理由・障害記録として価値があるため削除せず残している。
-> 現在有効なのは Zenn / Qiita の 2 ソースのみ、トークンは一切不要、公開 URL は
+> **現在のソース構成・トークンの要否をここに書き写さないこと**（二重管理になり、実際にズレた）＝
+> 冒頭の「現在有効なソース」表と「Commands」節を見る。公開 URL は
 > `https://tomoraku5.github.io/todaysec/`（ローカルは `http://localhost:4321/todaysec/`）。
 
 Astro 5, Tailwind v4, TypeScript, GitHub Pages 静的サイト。
 
-（todayai 時代）X・Zenn「AI」・Qiita「AI」・はてなブックマーク・Google Workspace Updates・LayerX Newsletter(Gmail経由)・Google Cloud リリースノート の7ソースから AI 関連情報を集約していた。**現在はこのうち Zenn / Qiita のみ残し、セキュリティ向けに差し替え＋はてなブログを追加した3ソース構成**。
+（todayai 時代）X・Zenn「AI」・Qiita「AI」・はてなブックマーク・Google Workspace Updates・LayerX Newsletter(Gmail経由)・Google Cloud リリースノート の7ソースから AI 関連情報を集約していた。**現在はこのうち Zenn / Qiita のみ残してセキュリティ向けに差し替え、はてなブログと英語ニュースサイトを追加している**（現行の一覧は冒頭の「現在有効なソース」表）。
 
 ```bash
 npm install
