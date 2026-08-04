@@ -15,10 +15,15 @@
 ソースの取捨選択・Astro のバージョン据え置き・翻訳の使い方など、主要な決定について
 「理由」「却下した案」「どうなったら覆るか」を記録しています。
 
-## トークン・API キーは不要です
+## API キーは必須ではありません（翻訳を使うときだけ必要）
 
 **このサイトの運用に費用はかかりません（完全に 0 円）。**
-取得元はすべて**公開 RSS / Atom** なので、アカウント登録も API キーも認証も要りません。
+
+- **記事の収集に API キーは要りません。** 取得元はすべて**公開 RSS / Atom** なので、
+  アカウント登録も認証も不要です。
+- **英語記事の日本語訳（Gemini）を動かすときだけ `GEMINI_API_KEY` が必要です。**
+  無料枠の範囲で使っており、課金は有効にしていません。キーが無ければ翻訳は
+  スキップされ、カードは原文のまま表示されます（動作は壊れません）。
 
 ```bash
 git clone https://github.com/tomoraku5/todaysec.git
@@ -28,12 +33,15 @@ npm run aggregate   # RSS を取得して src/data/feed.json を生成
 npm run dev         # http://localhost:4321/todaysec/
 ```
 
-`.env` の用意は不要です。`npm run aggregate` を実行しなくても、リポジトリに含まれる
-`src/data/feed.json` の内容で `npm run dev` の表示確認ができます。
+**ローカルでは `.env` を用意しません。** 翻訳は CI（GitHub Actions）でだけ走らせる方針で、
+API キーはローカルに置きません（理由は [`docs/decisions.md`](docs/decisions.md) 項目6）。
+ローカルの `npm run aggregate` はキーが無いまま動き、翻訳だけがスキップされます。
+`npm run aggregate` を実行しなくても、リポジトリに含まれる `src/data/feed.json` の内容で
+`npm run dev` の表示確認ができます。
 
 > このリポジトリは [satory074/todayai](https://github.com/satory074/todayai)（AI 情報の集約サイト）を
-> ベースに、セキュリティ情報向けへ改造したものです。X API・Gemini API を使う機能が実装として
-> 残っていますが、**どちらも無効化**しており、有効化しない限り動きません
+> ベースに、セキュリティ情報向けへ改造したものです。**X API を使う機能は実装として残っていますが
+> 無効化**しており、有効化しない限り動きません。**Gemini API（翻訳）は有効です**
 > （Gmail API を使っていた LayerX ソースは実装ごと削除済みです）。
 
 ## コマンド
@@ -72,7 +80,7 @@ npx tsx scripts/generateOgImage.ts
 
 `feeds.config.ts` で設定します。
 
-### 有効（8ソース）
+### 有効なソース
 
 | source | 取得元 | 設定 |
 |------|------|------|
@@ -94,18 +102,18 @@ npx tsx scripts/generateOgImage.ts
   プログラム側で自動的にエンコードされます
 - 同じ記事が複数のタグに出ても、記事 URL をキーに重複排除されて 1 件になります
 
-> **The Hacker News / Dark Reading / BleepingComputer / The Register / HackRead は英語のニュースサイト**です。
+> **上の表で「英語」と書かれているものは英語のニュースサイト**です。
 > 日本語記事に混じって英語の見出しが並びますが、**Gemini による翻訳が有効なので日本語訳が
-> 併記されます**（フィルタバー右端の「日本語 / 原文」で切り替え）。投稿量は The Hacker News
-> 約10件/日、Dark Reading 約4.6件/日、BleepingComputer 平日 約8件/日、The Register 約3.7件/日、
-> HackRead 約3.3件/日で、`limit` は
-> 「1URLあたり20件」なので取りこぼしません。The Register だけ**セキュリティセクション限定の
-> フィード**があるのでそれを使い（総合IT メディアなので全体フィードは使わない）、他の3サイトは
-> カテゴリ別フィードが無いため全体フィード1本ずつです（The Hacker News はサイトの各 URL が
-> FeedBurner に転送されるので転送先を直接指定）。
+> 併記されます**（フィルタバー右端の「日本語 / 原文」で切り替え）。投稿量はいずれも
+> 数件〜約10件/日で、`limit` は「1URLあたり20件」なので取りこぼしません
+> （ソースごとの実測値は [`feeds.config.ts`](./feeds.config.ts) のコメントに記録しています）。
+> The Register だけ**セキュリティセクション限定のフィード**があるのでそれを使い
+> （総合IT メディアなので全体フィードは使わない）、**他の英語サイトはカテゴリ別フィードが
+> 無いため全体フィード1本ずつ**です（The Hacker News はサイトの各 URL が FeedBurner に
+> 転送されるので転送先を直接指定）。
 >
-> ⚠️ BleepingComputer だけ**フィードが15件しか返しません**（他は20〜50件）。平日は約2日分に
-> あたるので、CI が2日以上止まると取りこぼす可能性があります。
+> ⚠️ BleepingComputer は**フィードが15件しか返しません**（多くのソースは20〜50件）。平日は約2日分に
+> あたるので、CI が2日以上止まると取りこぼす可能性があります（HackRead も同様。下記）。
 
 > ⚠️ **HackRead は PR配信・SEO記事が混ざります。** 実測では10件中セキュリティ報道が4件程度で、
 > 「Top 10 Companies to Hire Power BI Developers」のような無関係な記事も並びます。
@@ -122,18 +130,23 @@ npx tsx scripts/generateOgImage.ts
 
 コードも設定も残してあるので、フラグを戻せば復活できます。
 
-| source / 機能 | 停止理由 |
+| source | 停止理由 |
 |------|------|
 | `x` | 取得元がフォーク元作者の公開データ。X API も有料のため使わない |
-| `translate` | Gemini API キー未設定（原文のまま表示されます） |
 
-画面のフィルタから隠すため `src/lib/feed.ts` の `SOURCES` 配列からも外しています。
-復活させるときは、同ファイルのコメントに書かれた行を配列に戻してください。
+`x` は画面のフィルタから隠すため `src/lib/feed.ts` の `SOURCES` 配列からも外しています。
+復活させるときは、同ファイルのコメントに書かれた行を配列に戻してください
+（`disabled: false` だけでは取得は再開しても画面に出ません）。
+
+> **翻訳（`translate`）は無効ではなく有効です。** かつて無効化していましたが、英語ソースが
+> 増えたため有効化しました（`e29e520`）。ただし3行要約は使わず翻訳だけに絞っています
+> （`summarizeSources` は空。理由は [`docs/decisions.md`](docs/decisions.md) 項目5）。
 
 ### 削除したソース
 
 以下の4つはセキュリティ用途に合わないため**コードごと削除**しました。
-実装の詳細は削除前のコミット `c5c9547` に残っています（`git show c5c9547`）。
+削除したコミットは `0e43fa2`（`refactor: 使わない4ソース（hatena/layerx/workspace/gcloud）を削除`）で、
+差分は `git show 0e43fa2`、削除前の実装は `git show 0e43fa2^:scripts/sources/hatena.ts` のように読めます。
 
 | 削除ソース | 概要と、覚えておく価値のある点 |
 |------|------|
@@ -162,8 +175,16 @@ npx tsx scripts/generateOgImage.ts
 2. **Actions** タブ → 「Update feeds & Deploy」→ **Run workflow** で初回実行
 3. 以降は6時間ごとに自動で更新・デプロイされます
 
-Secrets の設定は不要です（公開 RSS のみを使うため）。
+**Secrets には `GEMINI_API_KEY`（英語記事の翻訳用）だけを登録しています。**
+記事の取得はすべて公開 RSS なので、収集自体に Secrets は要りません。
 
+- **キーが未設定でもワークフローは成功します。** 翻訳がスキップされ、カードが原文のまま
+  表示されるだけです（graceful degradation）。翻訳が急に出なくなったときは、キーではなく
+  Gemini 側の HTTP 4xx を疑ってください（モデル提供終了で 429 になった前例があります）
+- **無料枠の範囲で運用しており、課金は有効にしていません**（英語ソースのみ・1日4〜6リクエスト程度）
+- **キーは Secrets にのみ置き、ローカルの `.env` には置きません。** このリポジトリは Public で、
+  「置かなければ漏れない」という構造的な排除を選んでいます
+  （理由と却下した案は [`docs/decisions.md`](docs/decisions.md) 項目6）
 - 集約が走るのは `schedule`（cron）と `workflow_dispatch`（手動実行）のときだけです。
   `push` では既存の `feed.json` でビルドするだけなので、「コミット → push → 再集約 → …」の
   無限ループになりません
@@ -175,7 +196,7 @@ Secrets の設定は不要です（公開 RSS のみを使うため）。
 ```
 feeds.config.ts            ソース定義（URL / 取得件数 / 保持件数 / 有効・無効）
 scripts/aggregate.ts       集約オーケストレータ（取得→正規化→マージ→重複排除→トリム→書き出し）
-scripts/sources/           ソース別の取得処理（rss.ts が Zenn/Qiita/はてなブログ共通）
+scripts/sources/           ソース別の取得処理（rss.ts が記事系ソース共通。translate.ts が翻訳）
 src/data/feed.json         集約結果（CI がコミット）
 src/lib/feed.ts            FeedItem 型・SOURCES レジストリ・表示ヘルパ
 src/components/            Layout / FeedCard / TweetCard / SourceFilter / BilingualText
