@@ -1,13 +1,15 @@
 /**
  * フィード集約スクリプト。
  *
- * 各ソース（Zenn / Qiita / はてなブログ、および無効化中の X）を取得 → FeedItem に正規化 → 既存キャッシュとマージ
+ * 有効な全ソース（どれが有効かは feeds.config.ts の disabled が正。ここには列挙しない）を
+ * 取得 → FeedItem に正規化 → 既存キャッシュとマージ
  * → 重複排除・ソート・トリム → src/data/feed.json に書き出す。
  *
  * 各ソースは個別に try/catch する。あるソースの取得に失敗した場合、
  * そのソースの「前回キャッシュ分」を維持し、他ソースだけ更新する（graceful degradation）。
  *
- * ローカル実行: `npm run aggregate`（.env を読む）
+ * ローカル実行: `npm run aggregate`（`.env` があれば読むが、API キーはローカルに常設しない
+ *             方針なので通常は翻訳だけスキップされる。docs/decisions.md 項目6）
  * CI 実行    : GitHub Actions が Secrets を env に渡して実行。
  */
 import { config as loadEnv } from "dotenv";

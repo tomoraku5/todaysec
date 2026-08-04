@@ -50,8 +50,9 @@ jobs:
         uses: google-github-actions/setup-gcloud@v2
 
       # 取得は cron / 手動実行時のみ（push 時は既存データでビルドしてループ回避）
-      # 現在稼働している Zenn / Qiita / はてなブログはすべて公開 RSS＝トークン不要。
-      # 下の2つは無効化中の機能用（未設定でもスキップされるだけで動く）。
+      # 記事の収集はすべて公開 RSS＝トークン不要（有効なソースは feeds.config.ts が正）。
+      # 下の env のうち必要なのは GEMINI_API_KEY（翻訳）だけ。どちらも未設定でも
+      # その機能がスキップされるだけで run は成功する。
       - name: Aggregate feeds
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: npm run aggregate
@@ -59,7 +60,8 @@ jobs:
           GCS_BUCKET: ${{ vars.GCS_BUCKET }} # 空ならローカルファイルへ書く（従来挙動）
           # X ソース（disabled のまま温存）。外部アカウント取得に使う
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
-          # 機械翻訳／3行要約（disabled のまま温存）。未設定なら原文のまま表示する
+          # 機械翻訳（有効。3行要約は summarizeSources が空なので使っていない）。
+          # 未設定なら翻訳をスキップして原文のまま表示する
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       # GCS モードのみ: aggregate がローカルに書いた feed.json を GCS へアップロード（正本化）。

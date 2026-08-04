@@ -7,9 +7,9 @@ interface Props {
 const { items } = Astro.props;
 
 // 「日本語 / 原文」トグルは、切り替えられる二言語テキストが1件でもあるときだけ出す。
-// 翻訳（Gemini）が無効な今は0件＝押しても何も変わらないので隠す。
+// 翻訳（Gemini）は有効なので通常は表示される。翻訳を止めた・キーが未設定で訳が0件のときは
+// 押しても何も変わらないので自動で隠れる（＝設定を手で切り替える必要がない）。
 // 判定は BilingualText.astro と同じ hasBilingual を使うので両者がズレない。
-// 翻訳を有効化して titleJa/summaryJa が入れば自動で true に戻り、トグルが復活する。
 const showLangToggle = hasAnyTranslation(items);
 
 /**

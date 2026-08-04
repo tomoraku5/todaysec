@@ -1,17 +1,19 @@
 /**
  * フィード情報源の設定。
  *
- * ★ 実運用前に以下を埋めること:
- *   - x.username : 取得したい X(Twitter) アカウントのユーザー名（@ なし）
- *   - zenn/qiita.rssUrls : 集約したいトピック／タグの RSS フィード URL（配列。複数可）
+ * **記事の収集は公開 RSS / Atom のみでトークン不要**（`rss-parser` で直接取得。課金・失効なし）。
+ * どのソースが有効かは、このファイルの各キーの `disabled` と `src/lib/feed.ts` の `SOURCES` が正
+ * ＝ここにソース名を列挙しない（列挙は取り残されて実態とズレる）。
  *
- * トークン類（X_* / GEMINI_API_KEY）は .env / GitHub Secrets に置く（このファイルには書かない）。
- * 記事系（Zenn / Qiita / はてなブログ）は公開 RSS を rss-parser で直接取得する
- * （トークン・課金・失効なし）＝現在の構成はトークン無しで完結する。
+ * **キーが必要なのは翻訳（`translate`）だけ**で、`GEMINI_API_KEY` を使う。
+ * トークン類（`X_*` / `GEMINI_API_KEY`）はこのファイルには書かず **GitHub Secrets に置く**
+ * （ローカルの `.env` には常設しない方針。`docs/decisions.md` 項目6）。
+ * 未設定なら翻訳をスキップして原文のまま表示する（graceful degradation）。
  *
  * かつて存在した hatena（はてなブックマーク）/ layerx / workspace / gcloud は
- * セキュリティ用途に合わないため削除済み（詳細は削除前のコミット c5c9547 を参照）。
- * x と translate は使っていないが **削除せず disabled: true で温存**している。
+ * セキュリティ用途に合わないため削除済み。**削除コミットは 0e43fa2**
+ * （差分は `git show 0e43fa2`、削除前の実装は `git show 0e43fa2^:scripts/sources/<name>.ts`）。
+ * x は使っていないが **削除せず disabled: true で温存**している（`translate` は有効）。
  */
 
 import type { FeedSource } from "./src/lib/feed";

@@ -2,7 +2,8 @@
 /**
  * `x` は現在 `disabled`（実装・設定とも温存）。それ以外は稼働中のソース。
  * かつて存在した `hatena`（はてなブックマーク）/ `layerx` / `workspace` / `gcloud` は
- * セキュリティ用途に合わないため削除済み（詳細は削除前のコミット c5c9547 を参照）。
+ * セキュリティ用途に合わないため削除済み。**削除コミットは 0e43fa2**
+ * （差分は `git show 0e43fa2`、削除前の実装は `git show 0e43fa2^:scripts/sources/<name>.ts`）。
  */
 export type FeedSource =
   | "x"
@@ -243,8 +244,9 @@ export function isTranslated(item: FeedItem): boolean {
  * フィード全体に「切り替えられる二言語テキスト」が1件でもあるか。
  * 言語トグルを表示するかどうかの判定に使う（1件も無ければトグルは無意味なので隠す）。
  *
- * 翻訳（Gemini）を有効化して titleJa/summaryJa が入れば自動で true に戻り、
- * トグルが復活する＝手作業での復旧が要らない。
+ * 翻訳（Gemini）は有効なので通常は true。訳が0件になった場合（キー未設定・API エラー・
+ * 翻訳を止めた）は自動で false に落ちてトグルが消え、訳が戻れば自動で復活する
+ * ＝どちらの向きにも手作業での切り替えが要らない。
  */
 export function hasAnyTranslation(items: FeedItem[]): boolean {
   return items.some(isTranslated);
