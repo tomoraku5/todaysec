@@ -158,6 +158,88 @@ async function fetchJson(url: string): Promise<Response> {
   }
 }
 
+/** 1ページぶんの取得結果。失敗しても throw せず `ok: false` と `error` で返す。 */
+export interface QiitaPageResult {
+  ok: boolean;
+  /** HTTP ステータス（通信自体が失敗したときは 0） */
+  status: number;
+  items: FeedItem[];
+  rateLimit?: string;
+  rateRemaining?: string;
+  /** 失敗理由（ログ表示用の日本語メッセージ） */
+  error?: string;
+  /** 403/429（レート制限）だったか */
+  rateLimited: boolean;
+}
+
+/**
+ * タグ1ページぶんを取得して `FeedItem[]` に正規化する。
+ *
+ * **集約（`fetchQiitaApi`＝page 1 のみ）と、取りこぼし復元（`scripts/backfillQiita.ts`＝
+ * ページ送り）の両方から使う。** id・概要・著者の生成規則を2箇所に持たないための共通化なので、
+ * どちらか片方だけを別実装にしないこと（id 形式がズレると全件が二重になる）。
+ */
+export async function fetchQiitaTagPage(opts: {
+  tag: string;
+  perPage: number;
+  page: number;
+}): Promise<QiitaPageResult> {
+  const url = `${API_BASE}/tags/${encodeURIComponent(opts.tag)}/items?per_page=${opts.perPage}&page=${opts.page}`;
+  try {
+    const res = await fetchJson(url);
+    const rateLimit = res.headers.get("rate-limit") ?? undefined;
+    const rateRemaining = res.headers.get("rate-remaining") ?? undefined;
+
+    // 403 / 429 はレート制限（Qiita はどちらの形で返すこともある）。
+    // 呼び出し側がフォールバックの理由として区別できるよう rateLimited を立てる。
+    if (res.status === 403 || res.status === 429) {
+      return {
+        ok: false,
+        status: res.status,
+        items: [],
+        rateLimit,
+        rateRemaining,
+        rateLimited: true,
+        error: `HTTP ${res.status}: レート制限（認証なしは 60回/時・IP単位。残り ${rateRemaining ?? "不明"}）`,
+      };
+    }
+    if (!res.ok) {
+      return {
+        ok: false,
+        status: res.status,
+        items: [],
+        rateLimit,
+        rateRemaining,
+        rateLimited: false,
+        error: `HTTP ${res.status}`,
+      };
+    }
+
+    const json: unknown = await res.json();
+    if (!Array.isArray(json)) {
+      return {
+        ok: false,
+        status: res.status,
+        items: [],
+        rateLimit,
+        rateRemaining,
+        rateLimited: false,
+        error: "配列以外のレスポンスが返った",
+      };
+    }
+    const items = (json as QiitaApiItem[])
+      .map(toFeedItem)
+      .filter((i): i is FeedItem => i !== undefined);
+    return { ok: true, status: res.status, items, rateLimit, rateRemaining, rateLimited: false };
+  } catch (e) {
+    const error =
+      (e as Error).name === "AbortError"
+        ? `タイムアウト(${TIMEOUT_MS}ms)`
+        : (e as Error).message;
+    return { ok: false, status: 0, items: [], rateLimited: false, error };
+  }
+}
+
 /**
  * `apiTags` を順に取得して `FeedItem[]` に正規化する。
  *
@@ -174,41 +256,29 @@ export async function fetchQiitaApi(opts: {
   let rateLimited = false;
 
   // 逐次実行（タグは数個なので、並列化の利得より相手サーバへの行儀と失敗の切り分けを優先）。
+  // 集約では最新ページ（page 1）だけ見る＝過去分は前回キャッシュに蓄積されている。
+  // 過去に遡るのは取りこぼし復元（scripts/backfillQiita.ts）の仕事。
   for (const { tag, perPage } of opts.apiTags) {
-    const url = `${API_BASE}/tags/${encodeURIComponent(tag)}/items?per_page=${perPage}&page=1`;
-    try {
-      const res = await fetchJson(url);
-      const rateLimit = res.headers.get("rate-limit") ?? undefined;
-      const rateRemaining = res.headers.get("rate-remaining") ?? undefined;
-
-      // 403 / 429 はレート制限（Qiita はどちらの形で返すこともある）。
-      // 呼び出し側がフォールバックの理由として区別できるよう rateLimited を立てる。
-      if (res.status === 403 || res.status === 429) {
-        rateLimited = true;
-        const message = `HTTP ${res.status}: レート制限（認証なしは 60回/時・IP単位。残り ${rateRemaining ?? "不明"}）`;
-        perTag.push({ tag, count: 0, error: message, rateLimit, rateRemaining });
-        errors.push(`tag:${tag}: ${message}`);
-        continue;
-      }
-      if (!res.ok) {
-        const message = `HTTP ${res.status}`;
-        perTag.push({ tag, count: 0, error: message, rateLimit, rateRemaining });
-        errors.push(`tag:${tag}: ${message}`);
-        continue;
-      }
-
-      const json: unknown = await res.json();
-      if (!Array.isArray(json)) throw new Error("配列以外のレスポンスが返った");
-      const got = (json as QiitaApiItem[])
-        .map(toFeedItem)
-        .filter((i): i is FeedItem => i !== undefined);
-      items.push(...got);
-      perTag.push({ tag, count: got.length, rateLimit, rateRemaining });
-    } catch (e) {
-      const message = (e as Error).name === "AbortError" ? `タイムアウト(${TIMEOUT_MS}ms)` : (e as Error).message;
-      perTag.push({ tag, count: 0, error: message });
-      errors.push(`tag:${tag}: ${message}`);
+    const r = await fetchQiitaTagPage({ tag, perPage, page: 1 });
+    if (r.rateLimited) rateLimited = true;
+    if (!r.ok) {
+      perTag.push({
+        tag,
+        count: 0,
+        error: r.error,
+        rateLimit: r.rateLimit,
+        rateRemaining: r.rateRemaining,
+      });
+      errors.push(`tag:${tag}: ${r.error}`);
+      continue;
     }
+    items.push(...r.items);
+    perTag.push({
+      tag,
+      count: r.items.length,
+      rateLimit: r.rateLimit,
+      rateRemaining: r.rateRemaining,
+    });
   }
 
   return { items, perTag, errors, rateLimited };
