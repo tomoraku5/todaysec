@@ -205,6 +205,37 @@ a {
   display: none;
 }
 
+/* フィルタ列の折りたたみ。既定は開いた状態で、:root.filter-closed のときだけ畳む。
+   ⚠️ **状態の適用は JS ではなくこのクラス＋CSS で行う**＝Layout.astro の <head> インライン
+   スクリプトが body 描画前にクラスを付けるので、「一瞬開いて見えてから閉じる」ちらつきが
+   原理的に起きない。JS（SourceFilter.astro）は localStorage への保存と aria-expanded の
+   同期だけを担当する。 */
+:root.filter-closed #source-filter-body {
+  /* 開いている間は display: contents（Tailwind の .contents）なので、
+     チップと言語トグルは従来どおり #source-filter 直下の flex アイテムとして並ぶ
+     ＝折り返し位置も ml-auto の効き方も変わらない。 */
+  display: none;
+}
+:root.filter-closed #filter-caret {
+  /* シェブロンを下向きに（「押すと開く」ことを示す） */
+  transform: rotate(180deg);
+}
+/* 選択中フィルタの併記は**閉じているときだけ**。開いていればチップの選択状態で分かるので、
+   両方出すと同じ情報が二重になる。空文字のときは :empty で消える＝「すべて」なら出ない。 */
+#filter-summary {
+  display: none;
+}
+:root.filter-closed #filter-summary:not(:empty) {
+  display: inline;
+}
+/* 畳んだうえで絞り込み中のときは、ボタン自体をチップの選択状態と同じ accent 表示にする
+   ＝文字（: Qiita 110）と色の両方で「今絞り込まれている」ことが分かる。 */
+:root.filter-closed #filter-toggle[data-filtered="true"] {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-glow);
+  color: var(--color-accent-bright);
+}
+
 /* 表示言語トグル（日本語 / 原文）。既定は日本語、:root.show-orig で原文を表示 */
 .lang-orig {
   display: none;

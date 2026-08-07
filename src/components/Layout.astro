@@ -64,6 +64,29 @@ const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
         />
       )
     }
+    {
+      /*
+        フィルタ列を畳んだ状態で再訪したときの**ちらつき防止**。
+        静的サイトなので HTML は常に「開いた」状態で出力される。JS で閉じると
+        「一瞬開いて見えてから閉じる」ので、**body 描画前**にここでクラスを付ける。
+        `is:inline` はバンドルされず、この位置（head）でそのまま同期実行される。
+
+        ⚠️ **表示状態の実体はこのクラス＋CSS（globals.css の `:root.filter-closed`）。**
+        `SourceFilter.astro` の JS は保存と `aria-expanded` の同期を担当するだけで、
+        スタイルは触らない（触るとちらつきが復活する）。
+        キーは `SourceFilter.astro` の `FILTER_KEY` と同じ文字列＝**両方直すこと**
+        （localStorage キーの一覧は CLAUDE.md にある）。
+        try/catch はプライベートモード等で localStorage が例外を投げる環境への保険。
+      */
+    }
+    <script is:inline>
+      try {
+        if (localStorage.getItem("todaysec:filter") === "closed")
+          document.documentElement.classList.add("filter-closed");
+      } catch (e) {
+        /* localStorage が使えない環境では既定（開いた状態）のまま */
+      }
+    </script>
   </head>
   <body>
     <!-- pb-6: ページ末尾の余白。以前は画面下端に固定表示していたサイト間ナビ（h-9）に

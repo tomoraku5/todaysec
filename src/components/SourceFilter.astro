@@ -55,8 +55,50 @@ const chips = [
 
 <div
   id="source-filter"
-  class="sticky-surface sticky top-[var(--header-h)] z-10 -mx-4 mb-4 flex flex-wrap gap-2 border-b border-[var(--color-border)] px-4 py-3 sm:-mx-6 sm:px-6"
+  class="sticky-surface sticky top-[var(--header-h)] z-10 -mx-4 mb-4 flex flex-wrap items-center gap-2 border-b border-[var(--color-border)] px-4 py-3 sm:-mx-6 sm:px-6"
 >
+  {
+    /*
+      開閉ボタン。**チップ列の先頭に同じピル形状で混ぜてある**＝開いているときは
+      1行に収まるので**縦幅が増えない**（専用の行を足すと、縦を節約したいという目的と衝突する）。
+      閉じるとこのボタンだけが残る。
+
+      ・見た目の状態は `:root.filter-closed`（CSS）で決める＝ちらつき防止のため
+        `Layout.astro` の `<head>` インラインスクリプトが body 描画前にクラスを付ける。
+        `aria-expanded` は下の JS が合わせる（表示は CSS 側なので、ここは SSR の既定＝開で良い）。
+      ・`#filter-summary` は**閉じているときだけ**選択中フィルタを出す（開いていればチップの
+        選択状態で分かるので二重表示になる）。`data-filtered` が accent 表示の切り替えに使う。
+        いずれも CSS ルールは globals.css 側。
+    */
+  }
+  <button
+    id="filter-toggle"
+    type="button"
+    aria-expanded="true"
+    aria-controls="source-filter-body"
+    data-filtered="false"
+    class="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-1.5 text-[12.5px] font-medium text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
+  >
+    <svg
+      id="filter-caret"
+      class="size-3 transition-transform"
+      viewBox="0 0 12 12"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.75"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M2.5 7.5 6 4l3.5 3.5" />
+    </svg>
+    フィルタ<span id="filter-summary" class="font-normal"></span>
+  </button>
+
+  {/* 折りたたむ対象。`display: contents` なので、開いている間のレイアウトは従来と同一
+      （チップと言語トグルが従来どおり #source-filter の直接の flex アイテムとして並ぶ＝
+      折り返し位置も `ml-auto` の効き方も変わらない）。閉じるときは globals.css が display:none にする。 */}
+  <div id="source-filter-body" class="contents">
   {
     chips.map((c) => (
       <button
@@ -99,6 +141,7 @@ const chips = [
       </div>
     )
   }
+  </div>
 </div>
 
 <script>
@@ -147,12 +190,54 @@ const chips = [
     for (const chip of chips) {
       chip.setAttribute("aria-pressed", chip.dataset.filter === filter ? "true" : "false");
     }
+    updateFilterSummary(filter);
   }
 
   filterBar?.addEventListener("click", (e) => {
     const chip = (e.target as HTMLElement).closest<HTMLButtonElement>(".filter-chip");
     if (!chip?.dataset.filter) return;
     applyFilter(chip.dataset.filter, chip.dataset.filterKind ?? "source");
+  });
+
+  // ===== フィルタ列の折りたたみ（開閉ボタン）=====
+  // 開閉状態だけ localStorage に保存する。**フィルタの選択状態は保存しない**（従来どおり）＝
+  // 再訪時は必ず「すべて」で始まるので、「畳んだまま絞り込みが残っていて記事が少ない」という
+  // 事故はセッションをまたいでは起きない。同一セッション内では起きるので、
+  // 閉じている間はボタンに選択中フィルタを出す（下の updateFilterSummary）。
+  //
+  // 表示の実体は `:root.filter-closed` クラス＋CSS（globals.css）。JS でスタイルを触らないのは、
+  // `Layout.astro` の `<head>` インラインスクリプトが**body 描画前に同じクラスを付ける**ため
+  // ＝「一瞬開いて見えてから閉じる」ちらつきが原理的に起きない。
+  const FILTER_KEY = "todaysec:filter";
+  const filterToggle = document.getElementById("filter-toggle");
+  const filterSummary = document.getElementById("filter-summary");
+
+  /** 閉じているときにボタンへ出す「: Qiita 110」。「すべて」のときは空にする（＝CSS で非表示）。 */
+  function updateFilterSummary(filter: string) {
+    if (!filterToggle || !filterSummary) return;
+    const isAll = filter === "all";
+    const label = chips.find((c) => c.dataset.filter === filter)?.textContent?.trim().replace(/\s+/g, " ");
+    filterSummary.textContent = isAll || !label ? "" : `: ${label}`;
+    // accent 表示（絞り込み中であることを色でも示す）の切り替え。ルールは globals.css。
+    filterToggle.dataset.filtered = isAll ? "false" : "true";
+  }
+
+  function applyFilterOpen(open: boolean) {
+    document.documentElement.classList.toggle("filter-closed", !open);
+    filterToggle?.setAttribute("aria-expanded", open ? "true" : "false");
+    // 折りたたみで高さが変わる＝sticky オフセットを即座に作り直す
+    // （ResizeObserver でも拾えるが、1フレーム遅れて日付見出しがずれるのを避ける）。
+    measureSticky();
+  }
+
+  // 保存済みの状態を復元（既定: 開いている）。head 側で既にクラスは付いているので、
+  // ここは aria-expanded を実態に合わせるのが主目的。
+  applyFilterOpen(localStorage.getItem(FILTER_KEY) !== "closed");
+
+  filterToggle?.addEventListener("click", () => {
+    const willOpen = document.documentElement.classList.contains("filter-closed");
+    localStorage.setItem(FILTER_KEY, willOpen ? "open" : "closed");
+    applyFilterOpen(willOpen);
   });
 
   // ===== 表示言語トグル（日本語 / 原文）。:root.show-orig を切り替える =====
