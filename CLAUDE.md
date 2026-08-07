@@ -509,16 +509,26 @@ git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length
   | キー | 値 | 用途 | 読み書きしている場所 |
   | --- | --- | --- | --- |
   | `todaysec:lang` | `"ja"`（既定） / `"orig"` | 「日本語 / 原文」表示トグル | `SourceFilter.astro` の `<script>` |
-  | `todaysec:filter` | `"open"`（既定） / `"closed"` | フィルタ列の折りたたみ状態 | `SourceFilter.astro` の `<script>`（保存）＋ **`Layout.astro` の `<head>` インラインスクリプト（読み取り）** |
 
-  - ⚠️ **`todaysec:filter` はキー名が2ファイルに書かれている**（ちらつき防止のため `<head>` で先に読む必要があるため）。**変えるときは両方直す。**
-  - ⚠️ **フィルタの「選択状態」は保存していない**（保存しているのは開閉状態だけ）＝再訪時は必ず「すべて」に戻る。これは意図的（`docs/decisions.md` 項目23）。
+  - ⚠️ **フィルタの選択状態は保存していない**＝再訪時は必ず「すべて」に戻る（意図的）。
   - （履歴）旧キー `todayai:lang` は移行せず放置してよい＝読み取らないので影響しない。
-- **フィルタ列は折りたためる**（`SourceFilter.astro` の `#filter-toggle`）。⚠️ **表示状態の実体は `:root.filter-closed` クラス＋CSS**（`globals.css`）で、JS はスタイルを触らない。理由は**ちらつき防止**＝静的サイトなので HTML は常に「開いた」状態で出力され、JS で閉じると一瞬開いて見える。そこで `Layout.astro` の `<head>` に `is:inline` スクリプトを置き、**body 描画前に**クラスを付けている。**JS 側でスタイルを操作する実装に変えるとちらつきが復活する。**
-  - 折りたたむ対象 `#source-filter-body` は **`display: contents`**（Tailwind の `.contents`）。開いている間はチップと言語トグルが**従来どおり `#source-filter` 直下の flex アイテムとして並ぶ**＝折り返し位置も言語トグルの `ml-auto` も変わらない。ここを普通の `flex` コンテナにすると2行目のインデントが崩れる。
-  - 畳んでいる間だけボタンに選択中フィルタを併記する（`#filter-summary`・`data-filtered` で accent 表示）。開いているときはチップの選択状態で分かるので二重に出さない。
-- **sticky オフセットは JS 実測の CSS 変数**（旧来の `top-[57px]`/`top-[112px]` 手書きマジックナンバーは廃止）: `globals.css` の `:root` に `--header-h`/`--stack-h`（= ヘッダー高 / ヘッダー＋フィルタ高）をフォールバック値付きで定義し、`SourceFilter.astro` の `<script>` が `#app-header` と `#source-filter` を実測して上書きする（初回＋`window.resize`＋`document.fonts.ready`＋`ResizeObserver`）。フィルタは `top-[var(--header-h)]`、日付見出し（`index.astro`）は `top-[var(--stack-h)]`。**フィルタは `flex-wrap` で行数が変わる**ので固定値だと幅が狭いと崩れる＝実測必須。ヘッダーに `id="app-header"` が必要。**折りたたみでも高さが変わる**ので、開閉時に `measureSticky()` を直接呼んでいる（`ResizeObserver` でも拾えるが1フレーム遅れて日付見出しがずれる）。
-- **ヘッダー／フィルタの sticky 面は `.sticky-surface`**（`globals.css`）: 既定は不透明 `--color-bg`、`@supports (backdrop-filter)` のときだけ frosted（`color-mix` 半透明＋blur）に格上げ。backdrop-filter 非対応や `prefers-reduced-transparency` でも背後のカードが透けない。**カード `<article>` には `isolate`（`isolation:isolate`）必須**（`FeedCard`/`TweetCard`）: 付けないと内部の `z-10`/`z-20`（オーバーレイ `<a>` と本文 `div`）がルートのスタッキングコンテキストへ漏れ、`z-10` の sticky フィルタの**上に**カード本文が描画されてタイトルがバー上にブリードする。
+    かつて `todaysec:filter`（フィルタ列の折りたたみ状態）を追加したが、
+    折りたたみ機能ごと取りやめたので**このキーは使っていない**（`docs/decisions.md` 項目23）。
+- **⚠️ 固定（sticky）されるのはヘッダーだけ。フィルタバーは sticky にしない**＝スクロールすると
+  画面外へ流れる。チップが9個でスマホ幅では4行前後に折り返すため、固定すると**その分だけ
+  記事の表示領域が常時削られる**（実測 375px 幅で約190px）。**「縦が狭い」と感じたときに
+  フィルタを固定し直さないこと**＝それが狭さの原因だった（`docs/decisions.md` 項目23）。
+- **sticky オフセットは JS 実測の CSS 変数**（旧来の `top-[57px]` 手書きマジックナンバーは廃止）:
+  `globals.css` の `:root` に `--header-h`（ヘッダー高）をフォールバック値付きで定義し、
+  **`Layout.astro` の `<script>`** が `#app-header` を実測して上書きする
+  （初回＋`window.resize`＋`document.fonts.ready`＋`ResizeObserver`）。
+  消費側は日付見出し（`index.astro`）の `top-[var(--header-h)]` だけ。
+  ヘッダーに `id="app-header"` が必要。**フォント読込でヘッダー高が変わる**ので実測必須。
+  - ⚠️ **変数は1つだけ**。かつて `--stack-h`（ヘッダー＋フィルタ高）もあったが、フィルタバーの
+    sticky をやめて不要になったので廃止した。測定も `SourceFilter.astro` から `Layout.astro` へ
+    移してある（フィルタの有無と無関係になったため。フィルタ側に置いたままだと
+    「フィルタを消すと日付見出しがずれる」という無関係な依存が残る）。
+- **ヘッダーの sticky 面は `.sticky-surface`**（`globals.css`）: 既定は不透明 `--color-bg`、`@supports (backdrop-filter)` のときだけ frosted（`color-mix` 半透明＋blur）に格上げ。backdrop-filter 非対応や `prefers-reduced-transparency` でも背後のカードが透けない。**フィルタバーには付けない**（sticky ではないので背後に何も重ならない）。**カード `<article>` には `isolate`（`isolation:isolate`）必須**（`FeedCard`/`TweetCard`）: 付けないと内部の `z-10`/`z-20`（オーバーレイ `<a>` と本文 `div`）がルートのスタッキングコンテキストへ漏れ、**sticky な日付見出し（`z-[5]`）やヘッダー（`z-20`）の上に**カード本文が描画されてタイトルがバー上にブリードする。（元々は `z-10` の sticky フィルタとの間で起きた問題だが、フィルタの sticky をやめても**日付見出しとの間で同じことが起きる**ので `isolate` は今も必須。）
 
 
 ---
