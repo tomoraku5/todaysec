@@ -100,6 +100,7 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 | `qiita` | Qiita「Security」タグ・「認証」タグ | **Qiita API v2**（`api.qiita.com` ではなく `qiita.com/api/v2`・**認証不要**）。⚠️ このソースだけ RSS ではない（理由は後述「ソース別の要点」）。RSS は失敗時のフォールバックとして残してある |
 | `zenn` | Zenn「security」トピック | 公開 RSS（トークン不要） |
 | `hatenablog` | セキュリティ専門のはてなブログ3本（piyolog / Fox on Security / GMO Flatt Security） | 公開 Atom（複数 URL・トークン不要） |
+| `cloudnative` | CloudNative BLOGs（クラウドネイティブ社）の**「セキュリティ」カテゴリのみ** | 公開 RSS（全体フィード1本・トークン不要）＋ **`<category>` による絞り込み**。⚠️ カテゴリ別フィードは存在しない（後述） |
 | `thehackernews` | The Hacker News（**英語**）の脆弱性・インシデント速報 | 公開 RSS（FeedBurner・トークン不要） |
 | `darkreading` | Dark Reading（**英語**）のセキュリティ解説・分析 | 公開 RSS（全体フィード1本・トークン不要） |
 | `bleepingcomputer` | BleepingComputer（**英語**）の脆弱性・マルウェア速報 | 公開 RSS（全体フィード1本・トークン不要） |
@@ -182,6 +183,7 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 | `hatenablog`（piyolog） | 30件 | 0.1件/日 | 約240日 | ◎ |
 | `hatenablog`（Fox） | 30件 | 1.0件/日 | 約29日 | ◎ |
 | `hatenablog`（GMO Flatt） | 30件 | 0.1件/日 | 約435日 | ◎ |
+| `cloudnative` | 50件（絞り込み後16件） | 0.55件/日（全体 1.70件/日） | **約29日** | ◎ 最も余裕がある |
 | `thehackernews` | 50件 | 8.2件/日 | 6.1日 | ◎ |
 | `darkreading` | 50件 | 3.7件/日 | 13.5日 | ◎ |
 | `theregister` | 50件 | 3.6件/日 | 13.7日 | ◎ |
@@ -309,6 +311,13 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
   - ⚠️ **`limit: 20` に対してフィードは30件返す**＝ソース追加時に取り込まれなかった21〜30件目は**今も入っていない**（実測: piyolog は26〜30位、GMO Flatt は22〜30位が未取込）。**新着の取りこぼしではなく初回取り込み時の境界**なので実害はない。過去記事を増やしたいなら `limit` を 30 にする。
   - `contentSnippet` が非常に長い（piyolog は 1万字超）が、`rss.ts` の `snippet()` が 200 字に切るので問題ない。
   - **バッジ色は `--color-hatenablog: #7c3aed`（バイオレット）**。はてブの青 `#1f7fc2`・Zenn の水色・Qiita の黄緑・ロゴのエメラルドのいずれとも色相を 36°以上離してある。
+- **【有効】CloudNative BLOGs（`cloudnative`）**: クラウドネイティブ社の技術ブログ（日本語）。`fetchRss` で取得するが、**このソースだけ `filter.includeCategories` で「セキュリティ」カテゴリに絞っている**。
+  - ⚠️ **カテゴリ別フィードは存在しない。** 依頼時の URL `blog.cloudnative.co.jp/category/security/` はカテゴリページ（HTML）で、**`/category/security/feed/` も `/feed` も HTML（カテゴリページ）へリダイレクトする**。`/category/security/rss`・`/rss.xml`・`/atom.xml` は **404**（いずれも実アクセスで確認）。サイトが `<link rel="alternate">` で示す唯一のフィードが **`/feed.xml`（全体・50件）**。**再検討するときはこの実測から確認し直すこと。**
+  - ⚠️ **絞らないと話題が違う記事が7割入る。** 実測のカテゴリ内訳は **セキュリティ 32% / SaaS 20% / コラム 16% / AI 14% / その他・イベント・働き方・情シス・コンサルティング 18%**。「PMが娘のランドセル選びで学んだこと」「フルリモートの入社初日ってどんな感じ？」のような**質は高いが目的から外れる記事**が混ざる（HackRead の「質が低い SEO 記事」とは別問題＝`docs/decisions.md` 項目24）。
+  - フィードは `<category>` を**1件だけ**持つ（実測: 複数カテゴリの記事は 0件）。`enclosure` に**サムネがある（50/50）**ので og:image 補完は不要＝全件ヒーローカードになる。`dc:creator` に著者名が入るが、`rss.ts` は全 RSS ソース共通でフィード名（`CloudNative BLOGs`）を `author` に入れる。
+  - ⚠️ **抜粋が空の記事がある**（長さ 0〜238字・中央124字）。カードの概要が空になるが表示は崩れない。将来3行要約を有効化すれば埋まる（記事ページは UA 付き fetch で 200・本文 5,800〜11,300字を確認済み。`enrichArticles` の対象に入れてある）。
+  - ⚠️ **サイト側が「セキュリティ」というカテゴリ名を変えると 0 件になる。** そのときは `aggregate` が `⚠️ 絞り込みで全件除外された` と警告し、末尾のエラー集約にも積む（**静かに止まらない**）。この行が出たら `feed.xml` の `<category>` を実際に見てから設定を直す。
+  - **バッジ色は `--color-cloudnative: #7e57b7`（紫）。⚠️ 10色目で ΔE=43.8**（後述「バッジ色の限界」）。
 - **【有効】The Hacker News（`thehackernews`）**: 英語のセキュリティ専門ニュース。これも `fetchRss`（`rssUrls` 配列）で取得する。
   - ⚠️ **Y Combinator の Hacker News（`news.ycombinator.com`）とは別サービス**。key を `hackernews` にしないこと。
   - **サイト側の `/rss.xml`・`/atom.xml`・`/feeds/posts/default` はすべて FeedBurner（`feeds.feedburner.com/TheHackersNews`）へリダイレクトする**（実測）。実質フィードは1本しかないので、リダイレクトを1回減らすため設定には最終 URL を直接書いている。裏を返すと **FeedBurner が止まると代替経路が無い**（サイト固有 URL も同じ先を指すため）。
@@ -358,7 +367,8 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 | 6 | `feeds.config.ts` の `translate.summarizeSources` | ⚠️ **原則さわらない（現在は意図的に空）。** 空＝「非日本語のときだけ翻訳」で、日本語記事は API を呼ばない。ここにソースを足すと**そのソースは原文の言語を問わず3行要約**になり、日本語記事まで Gemini を消費する（入力が記事本文になるためトークンも約16倍）。要約を使いたいと決めたときだけ足し、**同時に `aggregate.ts` の `ENRICH_VERSION` を上げる**（上げないと翻訳済みキャッシュが再生成されない） |
 | 7 | `scripts/sources/enrichArticles.ts` の呼び出し（`aggregate.ts` 内） | **記事系なら基本は対象セットに追加する。** この関数は2役: ①サムネが無い item の og:image 補完、②要約を有効化したときの本文テキスト取得。**フィードにサムネがあっても ② のために入れておく**（サムネ済み item は fetch されないのでコストは増えない）。追加前に**記事ページが UA 付き fetch で 200 を返すか実測する**（拒否するサイトがある） |
 | 8 | `feeds.config.ts` の `retentionMax` | 投稿頻度から決める。既定 1000 は約10件/日なら3ヶ月分（Qiita は API 化で 14〜23件/日 入るので約50日分）。物量が桁違いなソースだけ調整すればよい（ソース別枠なので他を押し出さない） |
-| 9 | **CLAUDE.md「フィードから何日分遡れるか」の表** | ⚠️ **実測して行を足す。** ここが cron 間隔に対して足りているかが、取りこぼしの唯一の判断材料（Qiita で47%失った原因がこれ）。⚠️ **ドキュメントだが「手で更新が必要なもの」ではなく設計判断の一部なので、この表に入れてある** |
+| 9 | `feeds.config.ts` の `filter`（必要なときだけ） | **全体フィードしか無いサイトで、目的以外の記事が多く混ざるとき**に `filter.includeCategories` で絞る（`cloudnative` が実例）。⚠️ **まずフィードの `<category>` を実測する**＝カテゴリが無い／表記が揺れるサイトでは使えない。<br>⚠️ **「ノイズがあるから絞る」と即断しないこと。** 「**話題が違う**（対象外）」なら絞る、「**質が低い**（対象内だが玉石混交）」なら絞らない、が使い分け（`docs/decisions.md` 項目24 と項目11）。<br>絞り込みは `limit` より先に評価される＝`limit` は「残す件数」の窓。除外側（`excludeCategories` / `excludeAuthors`）は**まだ無い**（必要になったら `rss.ts` の `matchesFilter` に足す） |
+| 10 | **CLAUDE.md「フィードから何日分遡れるか」の表** | ⚠️ **実測して行を足す。** ここが cron 間隔に対して足りているかが、取りこぼしの唯一の判断材料（Qiita で47%失った原因がこれ）。⚠️ **ドキュメントだが「手で更新が必要なもの」ではなく設計判断の一部なので、この表に入れてある** |
 
 ### 2. 自動で追従するもの（手を入れない）
 
@@ -493,7 +503,8 @@ git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length
   - フィルタの選択状態は `localStorage` に保存していない（保存しているのは表示言語トグルの `todaysec:lang` だけ）。よって「日本語」を選んだ状態で再訪して壊れる、という経路は存在しない。
 - **⚠️ バッジ色: ΔE の基準は8色目で破綻したが、方針として「個別色を続ける」と決めた。**
   - かつての合格基準は「**既存どうしの最小色差 ΔE = 58.3（Qiita↔ロゴ）を上回る**」。7色目（BleepingComputer）までは満たせた（ΔE 59.9〜75.4）。
-  - **8色目 The Register = ΔE 48.3**（最近接 Zenn）、**9色目 HackRead = ΔE 47.4**（最近接 The Register / BleepingComputer 47.5 / THN 50.1）。**2回連続で基準未達**。明度・彩度も動かして全色相を総当たりしても上限は 48 前後で、**色相環は 360°しかなく AA 4.5:1 を満たす明度帯も限られるため、これは努力で解決できない**。
+  - **8色目 The Register = ΔE 48.3**（最近接 Zenn）、**9色目 HackRead = ΔE 47.4**（最近接 The Register / BleepingComputer 47.5 / THN 50.1）、**10色目 CloudNative = ΔE 43.8**（最近接 HackRead 43.8 / Zenn 44.0 / はてなブログ 44.4 でほぼ等距離）。**3回連続で基準未達**で、しかも**下がり続けている**。明度・彩度も動かして全色相を総当たりしても上限がこの値で、**色相環は 360°しかなく AA 4.5:1 を満たす明度帯も限られるため、これは努力で解決できない**。
+  - **総当たりの計算方法**（次に色を選ぶときはこれを再現する）: sRGB→Lab(D65) 変換して **ΔE は CIE76（Lab のユークリッド距離）**。白背景コントラストは相対輝度から算出。HSL を色相 1°・彩度 5%・明度 1% 刻みで走査し、コントラスト 4.6〜6.6 の範囲で**既存色との最小 ΔE が最大**になる色を選ぶ。⚠️ **この方法で既存の記載値が再現できることを確認済み**（Qiita↔ロゴ 58.3 / The Register 48.3 / HackRead 47.4 が一致）＝別の ΔE 定義（CIEDE2000 等）で計算すると過去の数値と比較できなくなる。
   - **それでも個別色を続ける**（グループ配色へは移行しない）。理由: **バッジには常にソース名の文字が入る**ので、色は「判別の主役」ではなく補助的な手がかりに留めればよい、と割り切った。
   - **新色を選ぶときの実務ルール**（チェックリスト項目2にも記載）: ①AA 4.5:1 以上、②既存の明度感（コントラスト 4.6〜6.6）に収める、③総当たりで最大 ΔE を取り、**何色目で・どの色と・どれだけ近いかをコメントに記録する**。色相が埋まっていたら**彩度で差をつける**（例: HackRead は彩度 30% で、近い色相の THN 74% / BleepingComputer 100% と差別化）。
   - （参考）グループ配色（国内/海外メディアで数色を共有）は検討したが**採用しなかった**。移行するなら `SourceMeta` に `group` を足して `badgeClass` をグループ由来にするだけで済む＝SOURCES 駆動の自動追従はそのまま使える。方針を変えるときの選択肢として記録しておく。

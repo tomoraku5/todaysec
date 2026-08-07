@@ -90,6 +90,7 @@ npx tsx scripts/generateOgImage.ts
 | `zenn` | `zenn.dev/topics/security/feed` | `zenn.rssUrls` |
 | `qiita` | **`qiita.com/api/v2/tags/security/items`**<br>**`qiita.com/api/v2/tags/認証/items`**<br>（⚠️ このソースだけ RSS ではなく **Qiita API v2**。認証不要） | `qiita.apiTags`<br>（フォールバック用に `qiita.rssUrls` も残してあります） |
 | `hatenablog` | `piyolog.hatenadiary.jp/feed`（piyolog）<br>`foxsecurity.hatenablog.com/feed`（Fox on Security）<br>`blog.flatt.tech/feed`（GMO Flatt Security） | `hatenablog.rssUrls` |
+| `cloudnative` | `blog.cloudnative.co.jp/feed.xml`（CloudNative BLOGs）<br>⚠️ **全体フィードを「セキュリティ」カテゴリで絞り込み** | `cloudnative.rssUrls`<br>`cloudnative.filter` |
 | `thehackernews` | `feeds.feedburner.com/TheHackersNews`（The Hacker News・英語） | `thehackernews.rssUrls` |
 | `darkreading` | `www.darkreading.com/rss.xml`（Dark Reading・英語） | `darkreading.rssUrls` |
 | `bleepingcomputer` | `www.bleepingcomputer.com/feed/`（BleepingComputer・英語） | `bleepingcomputer.rssUrls` |
@@ -104,6 +105,14 @@ npx tsx scripts/generateOgImage.ts
   既存フィードの取り込み量は減りません
 - 日本語のタグ名（`認証`）は**そのまま書いて構いません**。プログラム側で自動的にエンコードされます
 - 同じ記事が複数のタグに出ても、記事 URL をキーに重複排除されて 1 件になります
+
+> **CloudNative だけ「カテゴリで絞り込んで」取り込んでいます。** このブログには
+> カテゴリ別のフィードが無く（`/category/security/feed/` はページ本体へ転送されます）、
+> 全体フィードにはセキュリティ以外（SaaS 運用・AI・コラムなど）が7割含まれるためです。
+> `cloudnative.filter.includeCategories` で「セキュリティ」だけを残しています。
+> ⚠️ **絞り込みで何件除外されたかは更新ログに出ます**（例:「フィード 50 件中 34 件を
+> 絞り込みで除外」）。サイト側がカテゴリ名を変えて0件になった場合も警告が出ます。
+> 判断の経緯は [`docs/decisions.md`](docs/decisions.md) 項目24。
 
 > ⚠️ **Qiita だけ RSS を使っていません。** Qiita のタグフィードは**4件しか返さず**
 > （タグを問わず固定・件数を増やすパラメータも効きません）、Security タグは投稿が多いため
