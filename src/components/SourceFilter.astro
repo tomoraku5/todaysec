@@ -53,9 +53,22 @@ const chips = [
 ];
 ---
 
+{
+  /*
+    ⚠️ **このバーは sticky にしない**（スクロールすると画面外へ流れる）。
+    固定するのはヘッダーだけ。理由: チップが9個あってスマホ幅では4行前後に折り返すため、
+    sticky にすると**その分だけ記事の表示領域が常時削られていた**（実測 375px 幅で約190px）。
+    「読みながら頻繁にソースを切り替える」使い方はしていないので、常時見えている必要がない。
+    経緯・却下した案（折りたたみ／ヘッダー常駐／上スクロールで再表示）は `docs/decisions.md` 項目23。
+
+    そのため以下も**意図的に付けていない**:
+    ・`sticky-surface`（背景の不透明化＋ぼかし）… 通常フローに並ぶので背後に何も重ならない
+    ・`z-10` … position が static なので z-index は効かない
+  */
+}
 <div
   id="source-filter"
-  class="sticky-surface sticky top-[var(--header-h)] z-10 -mx-4 mb-4 flex flex-wrap gap-2 border-b border-[var(--color-border)] px-4 py-3 sm:-mx-6 sm:px-6"
+  class="-mx-4 mb-4 flex flex-wrap gap-2 border-b border-[var(--color-border)] px-4 py-3 sm:-mx-6 sm:px-6"
 >
   {
     chips.map((c) => (
@@ -108,22 +121,9 @@ const chips = [
   const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-feed-item]"));
   const daySections = Array.from(document.querySelectorAll<HTMLElement>("[data-day-section]"));
 
-  // ===== sticky オフセットを実測して CSS 変数に反映（手書きマジックナンバー廃止）=====
-  // --header-h = ヘッダー高さ（フィルタの top）、--stack-h = ヘッダー＋フィルタ（日付見出しの top）。
-  // フィルタは flex-wrap で行数が変わるため、リサイズ／フォント読込で追従させる。
-  const header = document.getElementById("app-header");
-  function measureSticky() {
-    const root = document.documentElement.style;
-    if (header) root.setProperty("--header-h", `${header.offsetHeight}px`);
-    if (header && filterBar)
-      root.setProperty("--stack-h", `${header.offsetHeight + filterBar.offsetHeight}px`);
-  }
-  measureSticky();
-  const stickyObserver = new ResizeObserver(measureSticky);
-  if (header) stickyObserver.observe(header);
-  if (filterBar) stickyObserver.observe(filterBar);
-  window.addEventListener("resize", measureSticky);
-  document.fonts?.ready.then(measureSticky);
+  // sticky オフセット（--header-h）の実測は Layout.astro に移した。
+  // フィルタバーが sticky でなくなり、この変数はヘッダーと日付見出しの関係だけを表すため
+  // （ここに置いたままだと「フィルタを消すと日付見出しがずれる」という無関係な依存が残る）。
 
   // チップは排他（常に1つだけ選択）。kind でどの属性を見るか切り替える:
   //   all=絞らない / source=data-source と比較 / lang=data-orig-lang と比較
