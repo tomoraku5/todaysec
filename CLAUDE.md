@@ -84,7 +84,7 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 - **フォーク元**: `satory074/todayai`（AI 情報の集約サイト）。本リポジトリはそれをベースに
   セキュリティ情報向けへ改造したもの。**以下のドキュメントには todayai 時代の設計判断・障害記録が
   そのまま残っている**（将来の復活に備えて意図的に保持。無効化した箇所には「現在は無効」と明記する）。
-- **費用は完全に 0 円**。記事の取得はすべて公開 RSS（トークン不要）。
+- **費用は完全に 0 円**。記事の取得は公開 RSS と Qiita API v2 のみ（いずれもトークン不要）。
   Gemini は**無料枠の範囲で翻訳にだけ使う**（英語ソースのみ・1日4〜6リクエスト程度）。
   X API / Gmail API は使わない。
 - **位置づけ**: 運用者は開発未経験。**個人の学習目的**のサイトであり、特定の組織を代表するものではない。
@@ -97,7 +97,7 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 
 | source | 内容 | 取得元 |
 | --- | --- | --- |
-| `qiita` | Qiita「Security」タグ・「認証」タグ | 公開 RSS（複数 URL・トークン不要） |
+| `qiita` | Qiita「Security」タグ・「認証」タグ | **Qiita API v2**（`api.qiita.com` ではなく `qiita.com/api/v2`・**認証不要**）。⚠️ このソースだけ RSS ではない（理由は後述「ソース別の要点」）。RSS は失敗時のフォールバックとして残してある |
 | `zenn` | Zenn「security」トピック | 公開 RSS（トークン不要） |
 | `hatenablog` | セキュリティ専門のはてなブログ3本（piyolog / Fox on Security / GMO Flatt Security） | 公開 Atom（複数 URL・トークン不要） |
 | `thehackernews` | The Hacker News（**英語**）の脆弱性・インシデント速報 | 公開 RSS（FeedBurner・トークン不要） |
@@ -154,8 +154,42 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
   1. `dc:creator` が `CyberNewswire` のものを除外（PR記事はこれでほぼ落ちる）
   2. `categories` フィールドによる除外（フィードが categories を持つので技術的に可能）
   どちらも `rss.ts` に「ソースごとの除外条件」を持たせる仕組みが必要で、**別作業**とする。
-- フィードは10件（約3日分）しか返さない＝BleepingComputer（約2日分）と並んで
-  取りこぼしリスクが高い部類。
+- フィードは10件しか返さず、実測 5.6件/日 なので**約1.8日分**しか遡れない＝
+  BleepingComputer（約2.4日分）と並んで**取りこぼしリスクが最も高い部類**
+  （ソース別の一覧は後述「フィードから何日分遡れるか」の表）。
+
+### フィードから何日分遡れるか（＝CI が止まったときの取りこぼしリスク）
+
+> **なぜこれがあるか**: Qiita が**投稿の 47% を静かに失っていた**のに、誰も気づかないまま
+> 数週間運用されていた。サイトは正常に見え、CI も緑で、**エラーもログも何も出ない**。
+> 「フィードが何件返すか ÷ 1日の投稿件数」を把握していれば机上で気づけた。
+> ⚠️ **各ソースの節に散らばっていた数字をここに集約している**（重複させない）。
+
+**「遡れる日数」が cron 間隔（6時間＝0.25日）を大きく上回っていれば安全**。
+下回ると毎 run 取りこぼす（＝Qiita で起きたこと）。実測値:
+
+| source | フィード/API の返却件数 | 実測ペース | 遡れる日数 | 判定 |
+| --- | --- | --- | --- | --- |
+| `qiita`（security） | **API 50件**（旧 RSS は4件） | 14〜23件/日 | **約2.2日**（旧 RSS は約0.14日＝3.3時間） | ✅ API 化で解決 |
+| `qiita`（認証） | **API 20件**（旧 RSS は4件） | 1.6件/日 | 約17日 | ✅ |
+| `zenn` | 20件 | 12.7件/日 | 1.5日（＋CDN の12時間遅延） | ○ 損失0・遅延あり |
+| `hatenablog`（piyolog） | 30件 | 0.1件/日 | 約240日 | ◎ |
+| `hatenablog`（Fox） | 30件 | 1.0件/日 | 約29日 | ◎ |
+| `hatenablog`（GMO Flatt） | 30件 | 0.1件/日 | 約435日 | ◎ |
+| `thehackernews` | 50件 | 8.2件/日 | 6.1日 | ◎ |
+| `darkreading` | 50件 | 3.7件/日 | 13.5日 | ◎ |
+| `theregister` | 50件 | 3.6件/日 | 13.7日 | ◎ |
+| `bleepingcomputer` | 15件 | 6.3件/日 | **2.4日** | ⚠️ 余裕が薄い |
+| `hackread` | 10件 | 5.6件/日 | **1.8日** | ⚠️ **最も薄い** |
+
+- ⚠️ **BleepingComputer（2.4日）と HackRead（1.8日）は、CI が2日止まると記事が消える。**
+  どちらもフィードの件数が少なく**設定では増やせない**（`limit` を上げても相手が返さない）＝
+  対策は cron 短縮しかない。**現状は cron 6時間のまま許容している。**
+- **数字を更新するとき**: フィードの返却件数と最古のエントリの日付から計算する
+  （`件数 ÷ ((now - 最古) を日数換算)` がペース）。**ソースを追加したらこの表に行を足す**
+  （チェックリストの「3. 手で更新が必要なもの」に入れてある）。
+- ⚠️ **「1日あたりの投稿件数」は季節変動する。** Qiita Security タグは調査時点で
+  日別 9〜29件とばらついた。**余裕が2倍を切っているソースは定期的に見直す。**
 
 ## Commands
 
@@ -173,7 +207,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 
 - **テストフレームワークは無い。** 検証は `npm run build` / `npm run typecheck` と、`npm run aggregate` の実行ログ（`✅ feed.json 更新: 計N件 (X=.. / Zenn=.. / Qiita=.. / はてなブログ=..)`）で行う。
 - **型チェックの落とし穴**: `npm run build` は Astro が import するファイルしか型検査しない。`scripts/aggregate.ts` と `scripts/sources/*` は Astro グラフ外なので、scripts を変更したら **`npm run typecheck`（astro check）で確認する**こと（tsconfig の `include: ["**/*"]` が拾う）。scripts は `tsx` で実行され、tsx は型を消すだけで検査しない。
-- **記事の取得にトークンは不要**（有効なソースはすべて公開 RSS）。**翻訳だけ `GEMINI_API_KEY` を使うが、これは GitHub Secrets にのみ置く方針**＝**ローカルに `.env` を作らない**（Public リポジトリでの誤コミットを構造的に排除するため。`docs/decisions.md` 項目6）。ローカルの `npm run aggregate` はキーが無いまま動き、**翻訳だけがスキップされる**（`state.translations` から既存分は再適用されるのでデータは壊れない）。温存している X をローカルで試す場合の `X_BEARER_TOKEN` も同様に常設しない。
+- **記事の取得にトークンは不要**（公開 RSS と、Qiita だけ認証不要の Qiita API v2）。**翻訳だけ `GEMINI_API_KEY` を使うが、これは GitHub Secrets にのみ置く方針**＝**ローカルに `.env` を作らない**（Public リポジトリでの誤コミットを構造的に排除するため。`docs/decisions.md` 項目6）。ローカルの `npm run aggregate` はキーが無いまま動き、**翻訳だけがスキップされる**（`state.translations` から既存分は再適用されるのでデータは壊れない）。温存している X をローカルで試す場合の `X_BEARER_TOKEN` も同様に常設しない。
 
 ## フォーク元（satory074/todayai）からの変更点
 
@@ -239,17 +273,29 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 
 - **【現在は無効】X**: X API を**叩かない**。自分のデータは basecamp 公開 JSON（`storage.googleapis.com/basecamp-feeds/x-tweets.json`）を読むだけ（トークン・課金不要、basecamp の OAuth と競合しない）。`x.accounts` の外部アカウントのみ X API **App-only Bearer**（`X_BEARER_TOKEN`）+ `since_id` 増分。OGP サムネは `scripts/sources/ogp.ts` で解決し `state.xOgImages` にキャッシュ。**本文が t.co リンクのツイートはリンク先の OGP カードを `linkPreview` として補完**（`enrichXLinks`。両取得経路を横断。後述）。表示は `TweetCard.astro`（ツイート風＋リンクプレビューカード）。
   - **著者アイコン(avatar)/実名/@handle**: basecamp 公開JSON は元ツイートの著者を持たず `author` が `"ブックマーク"` 等の固定ラベルになる。これを **syndication（`scripts/sources/syndication.ts` の `fetchTweet`＝`cdn.syndication.twimg.com`・無料・トークン不要）** で解決し `FeedItem.avatarUrl`（`_400x400`化）/`authorName`/`author=@handle` を補完（`xOgImages` と同じ state永続キャッシュ＋毎回再適用＋新規は `authorMaxNew` 件/run の段階補完＋トリム後 prune パターン、`state.xAuthors`）。外部アカウントは X API の `expansions=author_id&user.fields=profile_image_url,name` で同様取得。`TweetCard.astro` は `avatarUrl` があれば丸枠に `<img>`（`onerror` でイニシャル/Xロゴへフォールバック）、無ければ従来の代替アイコン。**⚠️ syndication 直叩きは residential IP(ローカル)なら解決でき、CI(datacenter IP)では弱い可能性**（datacenter IP からの直叩きという制約。ただし 403 リスクは低い）。ローカル `npm run aggregate` で埋めた `state.xAuthors` は CI でも毎回再適用＝永続化される。
-- **【有効】Zenn / Qiita**: 公開 RSS を共有ヘルパー `scripts/sources/rss.ts` の `fetchRss({rssUrls, source, limit})` で直接取得（`rss-parser`、トークン不要）。**現在の取得先はセキュリティ関連**:
-  - Zenn = `zenn.dev/topics/security/feed`（`zenn.rssUrls`）
-  - Qiita = `qiita.com/tags/security/feed` ＋ `qiita.com/tags/認証/feed`（`qiita.rssUrls`）
-
-  **`rssUrls` は配列**＝1ソースに複数タグ/トピックを束ねられる（改造で `rssUrl` から拡張）。**URL ごとに個別 try/catch** するので1本が 404 等で落ちても残りは取り込まれる。全 URL が失敗しても throw せず、`aggregate.ts` がブロック先頭で積んだ前回キャッシュがそのまま残る。**`limit` は「1 URL あたり」**の取得窓（合計ではない）＝ URL を足しても既存フィードの取り込み量が痩せない。それぞれ独立タブ `source: "zenn"` / `"qiita"`。
-  - ⚠️ **日本語タグ URL の扱い**: `qiita.com/tags/認証/feed` を生のまま渡すと rss-parser は `Request path contains unescaped characters` で失敗する（ブラウザや `fetch` と違い Node の http クライアントは自動エンコードしない）。`rss.ts` の `toRequestUrl()` が WHATWG `URL` に通してパーセントエンコードするので、**設定ファイルには読みやすい生の日本語のまま書いてよい**。
-  - （履歴）todayai 時代は Zenn「AI」トピック／Qiita「AI」タグだった。さらにその前の「Feedly」（AI 関連 RSS 8本まとめ集約）は廃止済み。
-- **【有効】はてなブログ（`hatenablog`）**: セキュリティ専門のはてなブログの公開 Atom を、**Zenn/Qiita と同じ `fetchRss`（`rssUrls` 配列）で取得**する（設定構造が同一なので専用パーサは作らず `aggregate.ts` の同じループに相乗り）。
+- **【有効】Zenn（`zenn.dev/topics/security/feed`）**: 公開 RSS を共有ヘルパー `scripts/sources/rss.ts` の `fetchRss({rssUrls, source, limit})` で直接取得（`rss-parser`、トークン不要）。`zenn.rssUrls`。
+  **`rssUrls` は配列**＝1ソースに複数トピックを束ねられる（改造で `rssUrl` から拡張）。**URL ごとに個別 try/catch** するので1本が 404 等で落ちても残りは取り込まれる。全 URL が失敗しても throw せず、`aggregate.ts` がブロック先頭で積んだ前回キャッシュがそのまま残る。**`limit` は「1 URL あたり」**の取得窓（合計ではない）＝ URL を足しても既存フィードの取り込み量が痩せない。
+  - ⚠️ **フィードは CDN で最大12時間キャッシュされる**（`Cache-Control: public, s-maxage=43200`。実測で `Age: 13712`＝3.8時間前の内容が返り、キャッシュバスター付きだと2.7時間新しい内容が返った）。**結果として掲載が最大12時間遅れる。** ただし20件の窓が約1.5日分あるため**記事の損失は 0%**（実測: 未取込9件はすべて直近12時間以内の投稿＝遅延であって損失ではない）。
+  - **キャッシュバスター（`?_=<run id>`）は検討したうえで採用しなかった。** 解決するのは遅延だけ（損失は 0）なのに、Zenn 側の実装変更で空を返すようになったとき **run が緑のまま Zenn だけ静かに止まる**という壊れ方をする。判断の詳細は `docs/decisions.md` 項目20。**「遅れている」と気づいたときにこの節を読み直すこと**（不具合ではない）。
+  - （履歴）todayai 時代は Zenn「AI」トピックだった。さらにその前の「Feedly」（AI 関連 RSS 8本まとめ集約）は廃止済み。
+- **【有効】Qiita（`qiita.com/api/v2/tags/<tag>/items`）**: ⚠️ **記事系で唯一 RSS ではなく API を使う**（`scripts/sources/qiitaApi.ts`、認証不要・`fetch` のみで依存追加なし）。`qiita.apiTags`。**`aggregate.ts` の共通 RSS ループには含まれず、専用ブロックがある。**
+  - ⚠️ **なぜ RSS をやめたか: Qiita のタグフィードは4件しか返さない。** タグを問わず固定（security / 認証 / python / aws / javascript すべて4件・3回連続取得でも4件）で、**`?page` / `?per_page` は無視される**。`feed.atom` 形式でも同じ。**したがって `limit: 20` は Qiita に対して一度も効いたことがない。**
+  - **その結果 実測 47% を取りこぼしていた**（5.8日で132件中62件）。Security タグは 14〜23件/日 投稿されるので、4件の窓は**中央値 3.3 時間**しかなく、cron 6時間（実測 5.4〜7.1時間間隔）では毎 run 溢れていた。feed.json のコミット履歴でも**毎 run きっちり +4件**だった。⚠️ **投稿量が少ないタグでは問題が出ない**（認証タグは 1.6件/日＝4件で約2.5日分あり取りこぼし 0%）＝「Qiita は大丈夫」と誤認しやすい。
+  - **cron 短縮では解決しない**（実測: 1時間間隔にしても4件窓を超過する区間が17%残る）。判断の経緯は `docs/decisions.md` 項目19。
+  - **API 側の値**: 1リクエスト最大100件。`per_page` は security=50（約2.2日分・1.3MB）/ 認証=20（約17日分・0.8MB）にしてある。100件は 2.8MB になり Qiita 側への負荷が大きいので採らない。
+  - **レート制限は 60回/時・IP 単位**（レスポンスヘッダ `Rate-Limit` / `Rate-Remaining`。aggregate のログに「レート残 54/60」の形で出る）。使うのは 1 run あたりタグ数（＝2回）だけ。⚠️ **CI は共有データセンター IP なので他の利用者と合算されて当たる可能性が残る** → 429/403 は**RSS 経路へフォールバック**する（＝失敗しても現状より悪くならない）。恒常化するなら **Qiita のアクセストークン（無料・1000回/時）を Secrets に追加**する。
+  - ⚠️ **フォールバックが発動したら必ずログに出る**（`[qiita] ⚠️ RSS フォールバック発動: <理由>` ＋ 末尾の `⚠️ N 件のソースでエラー` にも積まれる）。**「常時フォールバックして実質何も改善していない」状態を見逃さないための仕掛けなので、この行が出ていたら原因を潰すまで放置しない。**
+  - **API の一覧は created_at の厳密降順ではない**＝**後からタグを追加された過去記事も現れる**（実測: 最新300件中5件が `created_at` 数週間前 / `updated_at` 直近）。RSS では構造的に拾えなかった分。ただし `publishedAt` は元の投稿日なのでタイムラインの奥に入るだけで、トップには出ない（アーカイブの完全性が上がるだけ）。
+  - **id は RSS 経路と同一形式（`qiita-<記事URL>`）**。ここを変えると RSS 時代の蓄積分とフォールバック取得分が別アイテム扱いになり全件二重になる。
+  - **著者は投稿者（`@ユーザーID`）**。RSS 時代はフィード名（`Securityタグが付けられた新着記事 - Qiita`）で、2タグ取得しているのに常に「Securityタグ」と出ており不正確だった。⚠️ **RSS 時代に蓄積した過去分の `author` は古い文字列のまま残る**（dedup は `publishedAt` が同じなら既存を優先するため上書きされない）＝`retentionMax` で入れ替わるまで表示が混在する。不具合ではない。
+  - サムネは **API にも RSS にも無い**＝`enrichArticles` の og:image 補完に依存する（Qiita は記事ごとに OGP 画像を自動生成するのでほぼ必ず解決する）。概要は `rendered_body`（HTML）からタグを落として200字＝`rss.ts` の `snippet()` と同じ仕様に揃えてあるので、フォールバック時も見た目が変わらない。
+  - ⚠️ **日本語タグの扱い**: `apiTags` には生の日本語（`認証`）で書いてよい（`qiitaApi.ts` が `encodeURIComponent` する）。RSS フォールバック側も `rss.ts` の `toRequestUrl()` が WHATWG `URL` に通すので同様（生のまま Node の http クライアントに渡すと `Request path contains unescaped characters` で失敗する）。
+  - （履歴）todayai 時代は Qiita「AI」タグを RSS で取得していた。API へ切り替えたのは上記の取りこぼし発覚後。
+- **【有効】はてなブログ（`hatenablog`）**: セキュリティ専門のはてなブログの公開 Atom を、**Zenn と同じ `fetchRss`（`rssUrls` 配列）で取得**する（設定構造が同一なので専用パーサは作らず `aggregate.ts` の同じループに相乗り。Qiita だけがこのループから外れている）。
   - ⚠️ **はてなブログには「全ブログ横断で特定タグの新着を取る」フィードが存在しない**。`hatenablog.com/tag/<tag>` は `hatena.blog/tag/<tag>` へ 301 したうえで **404**。`/feed`・`?mode=rss`・`.rss`・`/tags/`・`/topic/`・`/g/`・`blog.hatena.ne.jp/-/search` もすべて 404（実アクセスで確認済み）。横断で取れるのは **はてなブックマークの検索 RSS**（`b.hatena.ne.jp/q/<word>?mode=rss`・RSS 1.0・40件）だけだが、これはブログ記事ではなくブックマーク＝別サービスの `hatena` 枠と同じもの。**タグ横断を再検討するときは、この 404 の事実から確認し直すこと。**
   - そのため**個別ブログのフィードを列挙**している（`feeds.config.ts` の `hatenablog.rssUrls`）。ブログを増やすときは配列に足すだけ。候補探しは「はてブ検索 RSS でセキュリティ関連語を引き、はてなブログ系ドメインのホストを集計する」方法が有効（推測より確実）。
-  - フィードは Atom で `title` / `link` / `isoDate` / `contentSnippet` / `author` を持つが、**`enclosure` も `media:thumbnail` も無い**＝サムネはフィードから取れない。よって `enrichArticles` の対象に含め、記事ページの og:image から補完している（Zenn/Qiita と同じ）。
+  - フィードは Atom で `title` / `link` / `isoDate` / `contentSnippet` / `author` を持つが、**`enclosure` も `media:thumbnail` も無い**＝サムネはフィードから取れない。よって `enrichArticles` の対象に含め、記事ページの og:image から補完している（Zenn / Qiita と同じ）。
+  - ⚠️ **`limit: 20` に対してフィードは30件返す**＝ソース追加時に取り込まれなかった21〜30件目は**今も入っていない**（実測: piyolog は26〜30位、GMO Flatt は22〜30位が未取込）。**新着の取りこぼしではなく初回取り込み時の境界**なので実害はない。過去記事を増やしたいなら `limit` を 30 にする。
   - `contentSnippet` が非常に長い（piyolog は 1万字超）が、`rss.ts` の `snippet()` が 200 字に切るので問題ない。
   - **バッジ色は `--color-hatenablog: #7c3aed`（バイオレット）**。はてブの青 `#1f7fc2`・Zenn の水色・Qiita の黄緑・ロゴのエメラルドのいずれとも色相を 36°以上離してある。
 - **【有効】The Hacker News（`thehackernews`）**: 英語のセキュリティ専門ニュース。これも `fetchRss`（`rssUrls` 配列）で取得する。
@@ -270,7 +316,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 - **【有効】BleepingComputer（`bleepingcomputer`）**: 英語のセキュリティ／IT ニュース。`fetchRss`（`rssUrls` 配列）で取得。
   - **全体フィード `https://www.bleepingcomputer.com/feed/` の1本だけ**。カテゴリ別（`/news/<cat>/feed/`）は **404 で存在しない**（実アクセスで確認）。
   - **Cloudflare 配下**（`cf-ray` ヘッダあり）だが、**フィードは UA を問わず 200**（プロジェクトUA / ブラウザUA / UA無し すべて成功、検証ページも出ない）。記事ページも同じく 200 なので、**CI（datacenter IP）でボット判定される懸念は低い**。ただし Cloudflare の設定はサイト側都合で変わり得るので、取得できなくなったら 403 / 検証ページを疑うこと。
-  - ⚠️ **フィードが 15 件しか返さない**（多くのソースは 20〜50 件返す。ただし HackRead は 10 件でさらに少ない＝ソース別の件数は `feeds.config.ts` のコメントを見る）。平日 約8件/日なので**約2日分しか遡れない**＝**CI が2日以上止まると取りこぼす**。6時間ごとの cron なら 1 run あたり ~2件で十分。`limit: 20` はフィード件数を上回るので実質「全件取り込む」設定。
+  - ⚠️ **フィードが 15 件しか返さない**（多くのソースは 20〜50 件返す。ただし HackRead は 10 件でさらに少ない＝ソース別の一覧は後述「フィードから何日分遡れるか」の表）。実測 6.3件/日なので**約2.4日分しか遡れない**＝**CI が2日以上止まると取りこぼす**。6時間ごとの cron なら 1 run あたり ~2件で十分。`limit: 20` はフィード件数を上回るので実質「全件取り込む」設定。
   - ⚠️ **フィードにサムネが無い**（`enclosure` も `media:*` も無い）。フィードにサムネが付くソースと違い、**サムネは `enrichArticles` の og:image 補完に完全に依存する**（HackRead も同じ）。記事ページは UA 付き fetch で 200・og:image あり・本文 6,600〜9,000字（実測）なので機能するが、ここが失敗すると画像なしのコンパクト行になる。
   - 抜粋は 159〜311字（中央206字）。`dc:creator` に記者名、`categories` にカテゴリが入る（現状は未使用）。
   - **バッジ色は `--color-bleepingcomputer: #d10092`（マゼンタ）**。残った最大の空き（hatenablog 262°→THN 355° の 93°）から 318°。既存6色との最小色差 ΔE=60.1（基準 58.3 超）、白背景コントラスト 5.09:1。
@@ -296,11 +342,12 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 | 1 | `src/lib/feed.ts` | `FeedSource` ユニオンに `"<key>"` を追加 ＋ `SOURCES` にエントリ（`key`/`label`/`badgeClass`/`description`）。**ここが中心レジストリ**で、下の「自動で追従するもの」はすべてこの配列を見ている |
 | 2 | `src/styles/globals.css` | `@theme` に `--color-<key>` / `--color-<key>-bg`、続けて `.src-<key>` クラス。**既存ソースの色と色相が近すぎないか数値で確認する**（`--color-hatenablog` のコメントに選定根拠の書き方の例がある）。<br>**満たせないときの指針**: かつての合格基準「既存どうしの最小色差 ΔE 58.3 を上回る」は**8色目以降は数学的に満たせない**（色相環は360°しかなく AA 4.5:1 を満たす明度帯も限られる）。**基準未達でも個別色を続ける**方針を採用済み＝バッジには常にソース名の文字が入るので、**色は判別の主役ではなく補助的な手がかり**と割り切る。したがって新色は次の3点だけ満たせばよい: ①白背景コントラスト **AA 4.5:1 以上**、②既存の明度感（コントラスト **4.6〜6.6**）に収める、③**最大の ΔE を取る色を総当たりで選び、何色目で・どの色と・どれだけ近いかをコメントに記録する**。色相が埋まっていたら**彩度で差をつける**（例: `--color-hackread` は近い赤系と彩度 30% vs 74〜100% で差別化）。**グループ配色（国内/海外で色を共有する方式）へは移行しない**と決めた |
 | 3 | `feeds.config.ts` | `FeedsConfig` インターフェース ＋ `feedsConfig` に設定。トークン類はここに書かず env/Secrets |
-| 4 | `scripts/sources/<key>.ts` | 取得して `FeedItem[]` を返す関数。**公開 RSS/Atom なら新規作成は不要**で、`rss.ts` の `fetchRss({rssUrls, source, limit})` をそのまま流用できる（設定を `rssUrls` 配列にすれば `aggregate.ts` の既存ループに相乗りするだけで済む） |
-| 5 | `scripts/aggregate.ts` | 取得ブロック（`rssUrls` 形式なら既存ループの配列に `<key>` を足すだけ）。**末尾の `counts` オブジェクトと完了ログにも `<key>` を追加**（忘れると集計に出ない） |
+| 4 | `scripts/sources/<key>.ts` | 取得して `FeedItem[]` を返す関数。**公開 RSS/Atom なら新規作成は不要**で、`rss.ts` の `fetchRss({rssUrls, source, limit})` をそのまま流用できる（設定を `rssUrls` 配列にすれば `aggregate.ts` の既存ループに相乗りするだけで済む）。<br>⚠️ **ただし「RSS があるから RSS を使う」で即決しないこと。** Qiita はフィードが4件しか返さず**投稿の47%を失っていた**＝**フィードの返却件数 ÷ 投稿ペース＝何日分遡れるか**を先に実測し、cron 間隔（6時間）に対して余裕があるか確かめる（「フィードから何日分遡れるか」の表）。足りなければ **API を使う専用実装**にする（`qiitaApi.ts` が実例。この場合 `aggregate.ts` の共通ループから外れ、フォールバックとログの設計も必要になる） |
+| 5 | `scripts/aggregate.ts` | 取得ブロック（`rssUrls` 形式なら既存ループの配列に `<key>` を足すだけ。専用実装なら Qiita のブロックが手本）。**末尾の `counts` オブジェクトと完了ログにも `<key>` を追加**（忘れると集計に出ない） |
 | 6 | `feeds.config.ts` の `translate.summarizeSources` | ⚠️ **原則さわらない（現在は意図的に空）。** 空＝「非日本語のときだけ翻訳」で、日本語記事は API を呼ばない。ここにソースを足すと**そのソースは原文の言語を問わず3行要約**になり、日本語記事まで Gemini を消費する（入力が記事本文になるためトークンも約16倍）。要約を使いたいと決めたときだけ足し、**同時に `aggregate.ts` の `ENRICH_VERSION` を上げる**（上げないと翻訳済みキャッシュが再生成されない） |
 | 7 | `scripts/sources/enrichArticles.ts` の呼び出し（`aggregate.ts` 内） | **記事系なら基本は対象セットに追加する。** この関数は2役: ①サムネが無い item の og:image 補完、②要約を有効化したときの本文テキスト取得。**フィードにサムネがあっても ② のために入れておく**（サムネ済み item は fetch されないのでコストは増えない）。追加前に**記事ページが UA 付き fetch で 200 を返すか実測する**（拒否するサイトがある） |
-| 8 | `feeds.config.ts` の `retentionMax` | 投稿頻度から決める。既定 1000 は約10件/日なら3ヶ月分。物量が桁違いなソースだけ調整すればよい（ソース別枠なので他を押し出さない） |
+| 8 | `feeds.config.ts` の `retentionMax` | 投稿頻度から決める。既定 1000 は約10件/日なら3ヶ月分（Qiita は API 化で 14〜23件/日 入るので約50日分）。物量が桁違いなソースだけ調整すればよい（ソース別枠なので他を押し出さない） |
+| 9 | **CLAUDE.md「フィードから何日分遡れるか」の表** | ⚠️ **実測して行を足す。** ここが cron 間隔に対して足りているかが、取りこぼしの唯一の判断材料（Qiita で47%失った原因がこれ）。⚠️ **ドキュメントだが「手で更新が必要なもの」ではなく設計判断の一部なので、この表に入れてある** |
 
 ### 2. 自動で追従するもの（手を入れない）
 
@@ -320,7 +367,7 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
       （個別列挙をやめて「上の表で英語と書かれているもの」という参照形式にしてあるので、
       **サイト名や件数を書き足さないこと**）
 - [ ] **`CLAUDE.md`** … 「現在有効なソース」の表、「ソース別の要点」に取得元固有の落とし穴
-      （フィード形式・サムネの有無・URL の癖）
+      （フィード形式・サムネの有無・URL の癖）、**「フィードから何日分遡れるか」の表に実測値**
 - **⚠️ ソース数・サイト名の列挙は README / CLAUDE.md の両方から意図的に削除してある。**
       過去4回この数字だけが取り残された（はてなブログ追加時の README、翻訳有効化時の README など）。
       **「N ソース」「A / B / C の3つ」といった書き方を新たに増やさない**＝表や `SOURCES` を
@@ -423,7 +470,12 @@ git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length
 - **ライト専用サイトなので `globals.css` の `html` に `color-scheme: light` を宣言**。これが無いと Chrome の強制/Auto ダークモードが朝刊テーマを反転させて背景・カードが暗転する（UAの問題ではなくブラウザ設定）。
 - **翻訳が出ない＝Gemini の HTTP 4xx を疑う**（CI は緑のまま titleJa/summaryJa=0 になる）。実例: 使用モデル `gemini-2.0-flash` が 2026-06-01 提供終了→無料枠撤廃で **429**。`feeds.config.ts` の `translate.model` を後継 Flash-Lite（無料枠あり）に切替えて復旧。確認は `gh run view <id> --log | grep '\[translate\]'` と `git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length'`。詳細は memory `todayai-gemini-quota-429`。
 - **「日本語」フィルタチップは現在非表示（実装は残してある）。** 英語ソースが増えて日本語記事が埋没する問題への対策として追加したが、使ってみて不要と判断した。**削除ではなく `SourceFilter.astro` の `SHOW_LANG_FILTER_CHIP = false` で表示だけ止めている＝`true` にすれば復活する**（他の変更は不要）。
-  - 残してある理由: 英語ソースの新着比率が約80%あり、蓄積が進んで日本語記事が埋没したときに再び必要になりうる。作り直しを避けたい。
+  - 残してある理由: 蓄積が進んで日本語記事が埋没したときに再び必要になりうる。作り直しを避けたい。
+  - ⚠️ **追加時の根拠だった「英語ソースの新着比率が約80%」は誤り。実測 51%**（取り込み件数ベース。
+    **Qiita の API 化後は約44%**＝日本語が過半数になる）。**80% という数字が測られたことはない**ので、
+    どこから来たか不明（Qiita/Zenn が取りこぼしていた影響で体感が偏った可能性がある）。
+    **非表示のままでよい**＝日本語が過半数なら埋没対策としての必要性はむしろ下がる。
+    前提の数字だけ直してある（`docs/decisions.md` 項目9 も同様）。
   - 一緒に残っている実装: 判定 `isTranslated(item)`（`src/lib/feed.ts`）、記事側の目印 `data-orig-lang="ja" | "translated"`（`index.astro` の行ラッパ）、フィルタ JS の `kind === "lang"` 分岐（`SourceFilter.astro`）。**チップが無くても副作用はない**（JS はチップの `data-filter-kind` を見るだけで、「日本語」チップの存在を前提にしていない）。
   - ⚠️ **`isTranslated` / `hasAnyTranslation` はこのチップ専用ではない。** 「日本語 / 原文」トグルの表示条件（`hasAnyTranslation`）と `BilingualText` の表示判定（`hasBilingual`）に使われているので消さないこと。
   - フィルタの選択状態は `localStorage` に保存していない（保存しているのは表示言語トグルの `todaysec:lang` だけ）。よって「日本語」を選んだ状態で再訪して壊れる、という経路は存在しない。
@@ -449,7 +501,8 @@ git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length
 ## 補足（親インデックス `../CLAUDE.md` から移行、2026-07-14）
 
 > ⚠️ **この節はフォーク元 todayai 時代のスナップショット**（7ソース・AI 情報・トークン利用前提）。
-> 上の節と内容が重複しており、**現状と食い違う場合は上の記述が正**。
+> 上の節と内容が重複しており、**現状と食い違う場合は上の記述が正**
+> （例: この節は Qiita を「公開 RSS で取得」と書いているが、**現在は Qiita API v2 が主経路**）。
 > 個々のソースの設計理由・障害記録として価値があるため削除せず残している。
 > **現在のソース構成・トークンの要否をここに書き写さないこと**（二重管理になり、実際にズレた）＝
 > 冒頭の「現在有効なソース」表と「Commands」節を見る。公開 URL は

@@ -19,8 +19,11 @@
 
 **このサイトの運用に費用はかかりません（完全に 0 円）。**
 
-- **記事の収集に API キーは要りません。** 取得元はすべて**公開 RSS / Atom** なので、
-  アカウント登録も認証も不要です。
+- **記事の収集に API キーは要りません。** 取得元は**公開 RSS / Atom** と、Qiita だけ
+  **Qiita API v2（認証不要）** です。どちらもアカウント登録も認証も不要です。
+  - Qiita の API は**認証なしで 60回/時（IP 単位）** の制限があります。使うのは1回の更新で
+    2リクエストなので余裕がありますが、制限に当たった場合は自動で RSS に切り替わります
+    （そのときはログに警告が出ます。詳細は [`CLAUDE.md`](./CLAUDE.md) の Qiita の節）
 - **英語記事の日本語訳（Gemini）を動かすときだけ `GEMINI_API_KEY` が必要です。**
   無料枠の範囲で使っており、課金は有効にしていません。キーが無ければ翻訳は
   スキップされ、カードは原文のまま表示されます（動作は壊れません）。
@@ -85,7 +88,7 @@ npx tsx scripts/generateOgImage.ts
 | source | 取得元 | 設定 |
 |------|------|------|
 | `zenn` | `zenn.dev/topics/security/feed` | `zenn.rssUrls` |
-| `qiita` | `qiita.com/tags/security/feed`<br>`qiita.com/tags/認証/feed` | `qiita.rssUrls` |
+| `qiita` | **`qiita.com/api/v2/tags/security/items`**<br>**`qiita.com/api/v2/tags/認証/items`**<br>（⚠️ このソースだけ RSS ではなく **Qiita API v2**。認証不要） | `qiita.apiTags`<br>（フォールバック用に `qiita.rssUrls` も残してあります） |
 | `hatenablog` | `piyolog.hatenadiary.jp/feed`（piyolog）<br>`foxsecurity.hatenablog.com/feed`（Fox on Security）<br>`blog.flatt.tech/feed`（GMO Flatt Security） | `hatenablog.rssUrls` |
 | `thehackernews` | `feeds.feedburner.com/TheHackersNews`（The Hacker News・英語） | `thehackernews.rssUrls` |
 | `darkreading` | `www.darkreading.com/rss.xml`（Dark Reading・英語） | `darkreading.rssUrls` |
@@ -93,32 +96,41 @@ npx tsx scripts/generateOgImage.ts
 | `theregister` | `www.theregister.com/security/headlines.atom`（The Register・英語・**セキュリティセクション限定**） | `theregister.rssUrls` |
 | `hackread` | `hackread.com/feed/`（HackRead・英語） | `hackread.rssUrls` |
 
-**`rssUrls` は配列**なので、タグ・トピック・ブログを増やしたいときは URL を足すだけです。
+**`rssUrls` は配列**なので、トピック・ブログを増やしたいときは URL を足すだけです
+（Qiita はタグ名を `apiTags` に足します）。
 
 - URL ごとに個別にエラー処理するため、**1本が落ちても残りは取り込まれます**
 - `limit` は「**1 URL あたり**」の取得件数です（合計ではありません）。URL を足しても
   既存フィードの取り込み量は減りません
-- 日本語のタグ URL（`.../tags/認証/feed`）は**そのまま書いて構いません**。
-  プログラム側で自動的にエンコードされます
+- 日本語のタグ名（`認証`）は**そのまま書いて構いません**。プログラム側で自動的にエンコードされます
 - 同じ記事が複数のタグに出ても、記事 URL をキーに重複排除されて 1 件になります
+
+> ⚠️ **Qiita だけ RSS を使っていません。** Qiita のタグフィードは**4件しか返さず**
+> （タグを問わず固定・件数を増やすパラメータも効きません）、Security タグは投稿が多いため
+> **記事の 47% を取りこぼしていました**（実測）。そのため Qiita API v2（認証不要・1リクエストで
+> 最大100件）に切り替えています。経緯は [`docs/decisions.md`](docs/decisions.md) 項目19、
+> 仕組みは [`CLAUDE.md`](./CLAUDE.md) の Qiita の節にあります。
 
 > **上の表で「英語」と書かれているものは英語のニュースサイト**です。
 > 日本語記事に混じって英語の見出しが並びますが、**Gemini による翻訳が有効なので日本語訳が
-> 併記されます**（フィルタバー右端の「日本語 / 原文」で切り替え）。投稿量はいずれも
-> 数件〜約10件/日で、`limit` は「1URLあたり20件」なので取りこぼしません
-> （ソースごとの実測値は [`feeds.config.ts`](./feeds.config.ts) のコメントに記録しています）。
+> 併記されます**（フィルタバー右端の「日本語 / 原文」で切り替え）。
+> ⚠️ **`limit` を 20 にしていても「取りこぼさない」とは限りません**＝相手のフィードが
+> 何件返すかと投稿ペースの兼ね合いで決まります（Qiita はこれで失敗しました）。
+> **ソースごとに「何日分遡れるか」を実測した表を [`CLAUDE.md`](./CLAUDE.md) に置いています。**
 > The Register だけ**セキュリティセクション限定のフィード**があるのでそれを使い
 > （総合IT メディアなので全体フィードは使わない）、**他の英語サイトはカテゴリ別フィードが
 > 無いため全体フィード1本ずつ**です（The Hacker News はサイトの各 URL が FeedBurner に
 > 転送されるので転送先を直接指定）。
 >
-> ⚠️ BleepingComputer は**フィードが15件しか返しません**（多くのソースは20〜50件）。平日は約2日分に
-> あたるので、CI が2日以上止まると取りこぼす可能性があります（HackRead も同様。下記）。
+> ⚠️ BleepingComputer は**フィードが15件しか返しません**（多くのソースは20〜50件）。実測で
+> **約2.4日分**にあたるので、CI が2日以上止まると取りこぼす可能性があります（HackRead はさらに
+> 薄く約1.8日分。下記）。
 
 > ⚠️ **HackRead は PR配信・SEO記事が混ざります。** 実測では10件中セキュリティ報道が4件程度で、
 > 「Top 10 Companies to Hire Power BI Developers」のような無関係な記事も並びます。
 > 承知の上で採用しており、除外の仕組みは今のところ入れていません（運用しながら判断する方針）。
-> フィードは10件（約3日分）しか返さない点も BleepingComputer と同様の注意点です。
+> フィードが10件（実測 約1.8日分）しか返さず、**全ソースで最も取りこぼしリスクが高い**点も
+> BleepingComputer と同様の注意点です。
 
 > **はてなブログだけ「個別ブログのURLを並べる」方式**にしています。はてなブログには
 > Zenn/Qiita のような「全ブログ横断で特定タグの新着を取るフィード」が存在せず、
@@ -176,7 +188,7 @@ npx tsx scripts/generateOgImage.ts
 3. 以降は6時間ごとに自動で更新・デプロイされます
 
 **Secrets には `GEMINI_API_KEY`（英語記事の翻訳用）だけを登録しています。**
-記事の取得はすべて公開 RSS なので、収集自体に Secrets は要りません。
+記事の取得は公開 RSS と認証不要の Qiita API v2 だけなので、収集自体に Secrets は要りません。
 
 - **キーが未設定でもワークフローは成功します。** 翻訳がスキップされ、カードが原文のまま
   表示されるだけです（graceful degradation）。翻訳が急に出なくなったときは、キーではなく
@@ -196,7 +208,8 @@ npx tsx scripts/generateOgImage.ts
 ```
 feeds.config.ts            ソース定義（URL / 取得件数 / 保持件数 / 有効・無効）
 scripts/aggregate.ts       集約オーケストレータ（取得→正規化→マージ→重複排除→トリム→書き出し）
-scripts/sources/           ソース別の取得処理（rss.ts が記事系ソース共通。translate.ts が翻訳）
+scripts/sources/           ソース別の取得処理（rss.ts が記事系ソース共通。qiitaApi.ts が Qiita
+                           API v2。translate.ts が翻訳）
 src/data/feed.json         集約結果（CI がコミット）
 src/lib/feed.ts            FeedItem 型・SOURCES レジストリ・表示ヘルパ
 src/components/            Layout / FeedCard / TweetCard / SourceFilter / BilingualText
