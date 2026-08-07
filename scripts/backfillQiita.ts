@@ -13,7 +13,13 @@
  * ```bash
  * npm run backfill:qiita -- --since 2026-07-31            # 既定は dry-run（件数を出すだけ）
  * npm run backfill:qiita -- --since 2026-07-31 --apply    # 実際に feed.json へ書き込む
+ *
+ * # RSS 時代の item に残っている古い author（フィード名）を @ユーザーID に揃える
+ * npm run backfill:qiita -- --since 2026-07-31 --normalize-authors --apply
  * ```
+ *
+ * ⚠️ **`--normalize-authors` は復元とは別の変更。** 片方だけ revert したいことがあるので、
+ * **コミットも分けること**（復元で1コミット、正規化で1コミット）。
  *
  * ⚠️ **`--since` は必須。** 「feed.json の qiita 最古日」を既定にしてはいけない
  * （設計時にこの案を採ろうとして危険だと分かった）。API の一覧には**後からタグを追加された
@@ -54,6 +60,24 @@ interface Args {
   apply: boolean;
   maxPages: number;
   maxAdd: number;
+  normalizeAuthors: boolean;
+}
+
+/**
+ * 記事 URL から投稿者を導出する（`https://qiita.com/<ユーザーID>/items/<記事ID>` → `@<ユーザーID>`）。
+ *
+ * **RSS 時代に蓄積した item の `author` を直すために使う。** 当時は `author` にフィード名
+ * （`Securityタグが付けられた新着記事 - Qiita`）が入っており、2タグ取得しているのに常に
+ * 「Securityタグ」と表示されていた＝もともと不正確だった。API 化後の新着は `@ユーザーID` に
+ * なるので、直さないと `retentionMax` で入れ替わるまで（約50日）表示が混在する。
+ *
+ * **API を叩かずに URL だけで導出できる**ことを実測で確認済み
+ * （API 由来の26件すべてで `@user.id` と URL の1セグメント目が一致。
+ * 旧 author の84件すべてがこの URL 形式）。
+ */
+function authorFromUrl(url: string): string | undefined {
+  const m = /^https:\/\/qiita\.com\/([^/]+)\/items\//.exec(url);
+  return m ? `@${m[1]}` : undefined;
 }
 
 function parseArgs(argv: string[]): Args {
@@ -82,6 +106,7 @@ function parseArgs(argv: string[]): Args {
     apply: argv.includes("--apply"),
     maxPages: Number(get("max-pages")) || DEFAULT_MAX_PAGES,
     maxAdd: Number(get("max-add")) || DEFAULT_MAX_ADD,
+    normalizeAuthors: argv.includes("--normalize-authors"),
   };
 }
 
@@ -160,15 +185,41 @@ async function run(): Promise<void> {
 
   if (missing.length === 0) {
     console.log("\n✅ 復元対象はありません（取りこぼしなし）");
-    return;
+  } else {
+    const dates = missing.map((i) => i.publishedAt).sort();
+    console.log(`\n★ 復元対象: ${missing.length} 件（${dates[0]} 〜 ${dates[dates.length - 1]}）`);
+    console.log("  新しい順に最大10件:");
+    for (const i of [...missing]
+      .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+      .slice(0, 10)) {
+      console.log(`    ${i.publishedAt} ${i.author ?? "(著者なし)"} ${i.title.slice(0, 40)}`);
+    }
   }
 
-  const dates = missing.map((i) => i.publishedAt).sort();
-  console.log(`\n★ 復元対象: ${missing.length} 件（${dates[0]} 〜 ${dates[dates.length - 1]}）`);
-  console.log("  新しい順に最大10件:");
-  for (const i of [...missing].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)).slice(0, 10)) {
-    console.log(`    ${i.publishedAt} ${i.author ?? "(著者なし)"} ${i.title.slice(0, 40)}`);
+  // ---- 著者名の正規化（--normalize-authors）----
+  // 復元とは独立した変更なので、フラグで明示的に有効化する（片方だけ revert できるように）。
+  const toNormalize = args.normalizeAuthors
+    ? cache.items.filter(
+        (i) =>
+          i.source === "qiita" &&
+          !i.author?.startsWith("@") &&
+          authorFromUrl(i.url) !== undefined,
+      )
+    : [];
+  if (args.normalizeAuthors) {
+    const unparsable = cache.items.filter(
+      (i) => i.source === "qiita" && !i.author?.startsWith("@") && !authorFromUrl(i.url),
+    );
+    console.log(`\n★ 著者名を正規化する対象: ${toNormalize.length} 件`);
+    for (const i of toNormalize.slice(0, 5)) {
+      console.log(`    ${i.author ?? "(なし)"} → ${authorFromUrl(i.url)}  (${i.title.slice(0, 28)})`);
+    }
+    if (unparsable.length) {
+      console.warn(`  ⚠️ URL から著者を導出できず据え置くもの: ${unparsable.length} 件`);
+    }
   }
+
+  if (missing.length === 0 && toNormalize.length === 0) return;
 
   if (missing.length > args.maxAdd) {
     console.error(
@@ -184,8 +235,13 @@ async function run(): Promise<void> {
   }
 
   // ---- マージ → dedup → ソート → ソース別トリム（aggregate.ts と同じ順序）----
+  // 著者名の正規化は immutable に行う（既存オブジェクトを書き換えない）。
+  const normalizedIds = new Set(toNormalize.map((i) => i.id));
+  const base = cache.items.map((i) =>
+    normalizedIds.has(i.id) ? { ...i, author: authorFromUrl(i.url) } : i,
+  );
   const byId = new Map<string, FeedItem>();
-  for (const item of [...cache.items, ...missing]) {
+  for (const item of [...base, ...missing]) {
     if (!byId.has(item.id)) byId.set(item.id, item);
   }
   let items = [...byId.values()].sort(
@@ -204,7 +260,10 @@ async function run(): Promise<void> {
   await writeFeed({ updatedAt: new Date().toISOString(), items, state: cache.state ?? {} });
 
   const afterQiita = items.filter((i) => i.source === "qiita").length;
-  console.log(`\n✅ feed.json を更新: Qiita ${beforeQiita} → ${afterQiita} 件（計 ${items.length} 件）`);
+  console.log(
+    `\n✅ feed.json を更新: Qiita ${beforeQiita} → ${afterQiita} 件（計 ${items.length} 件）` +
+      (toNormalize.length ? ` / 著者名を ${toNormalize.length} 件正規化` : ""),
+  );
   console.log(
     "   ⚠️ サムネは付いていません。次回の cron で enrichArticles が og:image を補完します。\n" +
       "   ⚠️ cron と衝突しないよう、確認したら早めに push してください。",
