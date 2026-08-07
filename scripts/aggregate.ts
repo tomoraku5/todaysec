@@ -149,6 +149,7 @@ async function run(): Promise<void> {
   for (const source of [
     "zenn",
     "hatenablog",
+    "cloudnative",
     "thehackernews",
     "darkreading",
     "bleepingcomputer",
@@ -162,7 +163,10 @@ async function run(): Promise<void> {
       continue;
     }
     try {
-      const r = await fetchRss({ rssUrls: cfg.rssUrls, source, limit: cfg.limit });
+      // filter は「全体フィードしか無いサイトから目的の記事だけ取る」ための任意設定
+      // （現在の利用者は cloudnative のみ）。未設定のソースは従来どおり全件取り込む。
+      const filter = "filter" in cfg ? cfg.filter : undefined;
+      const r = await fetchRss({ rssUrls: cfg.rssUrls, source, limit: cfg.limit, filter });
       collected.push(...r.items);
       // URL 単位の失敗は他 URL を巻き込まない（fetchRss が握る）。理由だけ集計へ回す。
       for (const e of r.errors) errors.push(`${source}: ${e}`);
@@ -173,7 +177,21 @@ async function run(): Promise<void> {
           (dup > 0 ? ` ※URL間の重複 ${dup} 件は dedup で1件に集約` : ""),
       );
       for (const p of r.perUrl) {
-        console.log(`  └ ${p.url}: ${p.error ? `失敗 (${p.error})` : `${p.count} 件`}`);
+        // 絞り込みを設定した URL は「取得 → 残った件数」を出す＝条件が意図どおり効いているか、
+        // あとからログで確認できるようにするため。
+        const detail = p.error
+          ? `失敗 (${p.error})`
+          : p.fetched !== undefined
+            ? `${p.count} 件（フィード ${p.fetched} 件中 ${p.filtered} 件を絞り込みで除外）`
+            : `${p.count} 件`;
+        console.log(`  └ ${p.url}: ${detail}`);
+        // ⚠️ フィードは返しているのに条件で全件落ちた＝サイト側がカテゴリ名を変えた等の疑い。
+        // 放置すると「run は緑のままソースだけ静かに止まる」ので警告として表面化させる。
+        if (p.allFiltered) {
+          const msg = `絞り込みで全件除外された（フィード ${p.fetched} 件 → 0 件）。条件がサイトの実態と合っていない可能性: ${p.url}`;
+          console.warn(`     ⚠️ ${msg}`);
+          errors.push(`${source}: ${msg}`);
+        }
       }
     } catch (e) {
       const msg = (e as Error).message;
@@ -310,6 +328,7 @@ async function run(): Promise<void> {
         "zenn",
         "qiita",
         "hatenablog",
+        "cloudnative",
         "thehackernews",
         "darkreading",
         "bleepingcomputer",
@@ -392,6 +411,7 @@ async function run(): Promise<void> {
     zenn: 0,
     qiita: 0,
     hatenablog: 0,
+    cloudnative: 0,
     thehackernews: 0,
     darkreading: 0,
     bleepingcomputer: 0,
@@ -402,7 +422,7 @@ async function run(): Promise<void> {
   const withThumb = items.filter((i) => i.thumbnail).length;
   const withJa = items.filter((i) => i.titleJa).length;
   console.log(
-    `\n✅ feed.json 更新: 計 ${items.length} 件 (X=${counts.x} / Zenn=${counts.zenn} / Qiita=${counts.qiita} / はてなブログ=${counts.hatenablog} / THN=${counts.thehackernews} / DarkReading=${counts.darkreading} / Bleeping=${counts.bleepingcomputer} / TheRegister=${counts.theregister} / HackRead=${counts.hackread}) サムネ ${withThumb} 件 / 翻訳 ${withJa} 件`,
+    `\n✅ feed.json 更新: 計 ${items.length} 件 (X=${counts.x} / Zenn=${counts.zenn} / Qiita=${counts.qiita} / はてなブログ=${counts.hatenablog} / CloudNative=${counts.cloudnative} / THN=${counts.thehackernews} / DarkReading=${counts.darkreading} / Bleeping=${counts.bleepingcomputer} / TheRegister=${counts.theregister} / HackRead=${counts.hackread}) サムネ ${withThumb} 件 / 翻訳 ${withJa} 件`,
   );
   if (errors.length) {
     console.warn(`⚠️  ${errors.length} 件のソースでエラー:\n  - ${errors.join("\n  - ")}`);

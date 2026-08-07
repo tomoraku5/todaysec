@@ -21,6 +21,7 @@
 
 import type { FeedSource } from "./src/lib/feed";
 import type { QiitaApiTagConfig } from "./scripts/sources/qiitaApi";
+import type { RssItemFilter } from "./scripts/sources/rss";
 
 export type XCategory = "post" | "like" | "bookmark";
 
@@ -214,6 +215,33 @@ export interface FeedsConfig {
     retentionMax: number;
     disabled?: boolean;
   };
+  /**
+   * CloudNative BLOGs（クラウドネイティブ社の技術ブログ・日本語）の公開 RSS。トークン不要。
+   *
+   * ⚠️ **カテゴリ別フィードは存在しない。** 依頼時の URL
+   * `blog.cloudnative.co.jp/category/security/` はカテゴリページ（HTML）で、
+   * `/category/security/feed/` も **HTML へリダイレクトする**（`/rss.xml`・`/atom.xml` は 404）。
+   * サイトが `<link rel="alternate">` で示す唯一のフィードが `/feed.xml`（全体・50件）。
+   *
+   * ⚠️ **そのため全体フィードを `filter.includeCategories` で絞っている。**
+   * 実測のカテゴリ内訳は セキュリティ 32% / SaaS 20% / コラム 16% / AI 14% / その他 18% で、
+   * 絞らないと「PMが娘のランドセル選びで学んだこと」のような**話題が違う記事が7割**入る
+   * （質は高いがこのサイトの目的から外れる。判断は `docs/decisions.md` 項目24）。
+   *
+   * フィードは `<category>` を1件だけ持つ（実測: 複数カテゴリの記事は 0件）。
+   * `enclosure` にサムネがあり（50/50）、`dc:creator` に著者名が入る。
+   * 抜粋は中央124字と短く、**空のものもある**（カードの概要が空になるが表示は崩れない）。
+   */
+  cloudnative: {
+    rssUrls: string[];
+    /** 1回に取り込む最大件数（**1 URL あたり**・**絞り込み後**の件数に対する窓） */
+    limit?: number;
+    /** 保持上限件数（全期間アーカイブの安全弁） */
+    retentionMax: number;
+    /** ソース別の絞り込み（このソースが初の利用者。`scripts/sources/rss.ts` 参照） */
+    filter?: RssItemFilter;
+    disabled?: boolean;
+  };
   translate: {
     /**
      * 集約時の機械翻訳（原文→日本語）。Gemini REST API を使う。
@@ -358,6 +386,19 @@ export const feedsConfig: FeedsConfig = {
     limit: 20,
     // 約3.3件/日なので 1000 件 ≒ 10ヶ月分。既定のままで足りる。
     retentionMax: 1000,
+    disabled: false,
+  },
+  cloudnative: {
+    // ⚠️ カテゴリ別フィードは存在しない（上のコメント参照）。全体フィードを filter で絞る。
+    rssUrls: ["https://blog.cloudnative.co.jp/feed.xml"],
+    // 全体で 1.70件/日・フィードは50件（約29日分）返す＝全ソースで最も余裕がある。
+    // 「セキュリティ」に絞ると 0.55件/日 なので、limit 20 は実質「条件に合う全件」。
+    limit: 20,
+    // 絞り込み後 0.55件/日 → 1000件 ≒ 5年分。既定のままで十分。
+    retentionMax: 1000,
+    // ⚠️ この値はサイトのカテゴリ名と完全一致で照合する。サイト側が改名すると 0 件になるが、
+    // その場合は aggregate が「⚠️ 絞り込みで全件落ちた」と警告を出す（静かに止まらない）。
+    filter: { includeCategories: ["セキュリティ"] },
     disabled: false,
   },
   translate: {

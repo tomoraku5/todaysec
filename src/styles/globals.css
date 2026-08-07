@@ -83,6 +83,19 @@
      既存の濃いバッジ（5.06〜5.71）と明度感もそろう。 */
   --color-hackread: #9c546e;
   --color-hackread-bg: rgba(156, 84, 110, 0.12);
+  /* CloudNative BLOGs。**10色目**。Lab 色相 309°（紫）。
+     ⚠️ 既存9色（8ソース＋ロゴ）との最小色差は ΔE=43.8 で、**3回連続で基準未達**
+     （7色目まで守っていた基準は「既存どうしの最小ペア Qiita↔ロゴ = 58.3 を上回る」。
+     8色目 The Register 48.3 → 9色目 HackRead 47.4 → 本色 43.8 と下がり続けている）。
+     最近接は HackRead 43.8 / Zenn 44.0 / はてなブログ 44.4 でほぼ等距離。
+     白背景コントラスト 4.6〜6.6 の帯で全色相・全彩度を総当たりした結果の**最大値**が 43.8
+     ＝ これ以上離せる色は存在しない（色相環と可読な明度帯が埋まっているため）。
+     **それでも個別色を続ける判断**は `docs/decisions.md` 項目10 のまま
+     （バッジには常にソース名の文字が入るので、色は補助的な手がかりに留める）。
+     同じ紫系のはてなブログ（#7c3aed・彩度84%）とは**彩度で差をつけている**（本色は58%）。
+     白背景コントラストは 5.34:1（WCAG AA クリア）で、既存の濃いバッジ（5.06〜5.71）と明度感もそろう。 */
+  --color-cloudnative: #7e57b7;
+  --color-cloudnative-bg: rgba(126, 87, 183, 0.12);
 
   /* X ツイート風カード（朝刊ライトに合わせた配色） */
   --color-tweet-bg: #ffffff;
@@ -201,6 +214,10 @@ a {
 .src-hackread {
   color: var(--color-hackread);
   background: var(--color-hackread-bg);
+}
+.src-cloudnative {
+  color: var(--color-cloudnative);
+  background: var(--color-cloudnative-bg);
 }
 
 /* フィルタ非表示用 */

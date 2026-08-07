@@ -14,7 +14,8 @@ export type FeedSource =
   | "darkreading"
   | "bleepingcomputer"
   | "theregister"
-  | "hackread";
+  | "hackread"
+  | "cloudnative";
 
 export interface FeedItem {
   /** 一意キー（X: tweet id / 記事系(zenn/qiita/hatenablog): `<source>-<記事URL>`） */
@@ -158,6 +159,12 @@ export const SOURCES: SourceMeta[] = [
     label: "はてなブログ",
     badgeClass: "src-hatenablog",
     description: "セキュリティ専門ブログ（piyolog / Fox on Security / GMO Flatt Security）の新着記事。",
+  },
+  {
+    key: "cloudnative",
+    label: "CloudNative",
+    badgeClass: "src-cloudnative",
+    description: "CloudNative BLOGs（クラウドネイティブ社）の「セキュリティ」カテゴリの記事。",
   },
   {
     // ⚠️ Y Combinator の Hacker News（news.ycombinator.com）とは**別サービス**。
