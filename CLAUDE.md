@@ -364,7 +364,8 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 
 `SOURCES` 配列を直せば、以下は**放っておいても正しくなる**。ここを手で書き換えると二重管理になる。
 
-- **トップの説明文 / フッター / `<meta name="description">`** … `sourceListText()` が `SOURCES` の label を連結する
+- **フッター / `<meta name="description">` / RSS の description / OGP 画像** … `sourceListText()` が `SOURCES` の label を連結する
+  - ⚠️ **トップ（`index.astro`）の見出し下の説明文は例外で、自動生成をやめた**（ソースが8つで長すぎたため「公開フィードから自動集約。」の固定文にした）。**`sourceListText()` を短くして解決しないこと**＝上の4箇所を巻き込む。判断は `docs/decisions.md` 項目23
 - **フィルタチップ**（`SourceFilter.astro`）… `SOURCES` を map している
 - **about ページの情報源カード** … `SOURCES` の `label` / `badgeClass` / `description` から生成
 - **RSS（`rss.xml.ts`）の description とアイテムのソース名** … 同上
@@ -503,7 +504,20 @@ git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length
 - **コンテナ幅**は `Layout.astro` の `max-w-[46rem] lg:max-w-[58rem]`（モバイル～タブレットは 46rem、`lg:`≥1024px で 58rem に広げて PC で横を使う）。ヘッダー/フィルタ/日付見出しもこの幅に従う。
 - **二言語表示（日本語／原文トグル）**: 翻訳が有効なので**英語ソースには日本語訳が付き、トグルが機能する**（日本語記事は訳が無いので素のまま＝トグルの影響を受けない）。トグル自体は `hasAnyTranslation(items)` が true のときだけ描画される。`FeedItem` の `titleJa`/`summaryJa`（集約時に Gemini 補完）が原文と別に入る。表示は `BilingualText.astro`（`ja!==orig` のとき `.lang-ja` と `.lang-orig` の両 span を出力、翻訳なしは素テキスト）。`SourceFilter.astro` 右端の「日本語／原文」トグルが `:root.show-orig` クラスを切り替え、CSS（`globals.css` の `.lang-orig`/`:root.show-orig .lang-ja`）で全カードを一斉に出し分ける。選択は `localStorage("todayai:lang")` に永続。**フィルタ（`.is-hidden`）とは独立したクラストグルで競合しない。** 既定は日本語（クラス無し）。
 - **`index.astro` は日付グルーピング＋タイムレール**: 各アイテムを `grid-cols-[auto_1fr]` で包み、左列に等幅 `HH:MM`＋縦ヘアライン（シグネチャ）。**この包み `div` に `data-feed-item`＋`data-source` を付け、フィルタ（`SourceFilter.astro` の `<script>`）はこのラッパに `.is-hidden` をトグルする**（`article` 単体ではなく行ごと出し分けるため。`[data-source].is-hidden{display:none}` がラッパも拾う）。
-- **sticky オフセットは JS 実測の CSS 変数**（旧来の `top-[57px]`/`top-[112px]` 手書きマジックナンバーは廃止）: `globals.css` の `:root` に `--header-h`/`--stack-h`（= ヘッダー高 / ヘッダー＋フィルタ高）をフォールバック値付きで定義し、`SourceFilter.astro` の `<script>` が `#app-header` と `#source-filter` を実測して上書きする（初回＋`window.resize`＋`document.fonts.ready`＋`ResizeObserver`）。フィルタは `top-[var(--header-h)]`、日付見出し（`index.astro`）は `top-[var(--stack-h)]`。**フィルタは `flex-wrap` で行数が変わる**ので固定値だと幅が狭いと崩れる＝実測必須。ヘッダーに `id="app-header"` が必要。
+- **`localStorage` に保存しているものの一覧**（増やすときはここに1行足す。**キー名は必ず `todaysec:` 接頭辞**）:
+
+  | キー | 値 | 用途 | 読み書きしている場所 |
+  | --- | --- | --- | --- |
+  | `todaysec:lang` | `"ja"`（既定） / `"orig"` | 「日本語 / 原文」表示トグル | `SourceFilter.astro` の `<script>` |
+  | `todaysec:filter` | `"open"`（既定） / `"closed"` | フィルタ列の折りたたみ状態 | `SourceFilter.astro` の `<script>`（保存）＋ **`Layout.astro` の `<head>` インラインスクリプト（読み取り）** |
+
+  - ⚠️ **`todaysec:filter` はキー名が2ファイルに書かれている**（ちらつき防止のため `<head>` で先に読む必要があるため）。**変えるときは両方直す。**
+  - ⚠️ **フィルタの「選択状態」は保存していない**（保存しているのは開閉状態だけ）＝再訪時は必ず「すべて」に戻る。これは意図的（`docs/decisions.md` 項目23）。
+  - （履歴）旧キー `todayai:lang` は移行せず放置してよい＝読み取らないので影響しない。
+- **フィルタ列は折りたためる**（`SourceFilter.astro` の `#filter-toggle`）。⚠️ **表示状態の実体は `:root.filter-closed` クラス＋CSS**（`globals.css`）で、JS はスタイルを触らない。理由は**ちらつき防止**＝静的サイトなので HTML は常に「開いた」状態で出力され、JS で閉じると一瞬開いて見える。そこで `Layout.astro` の `<head>` に `is:inline` スクリプトを置き、**body 描画前に**クラスを付けている。**JS 側でスタイルを操作する実装に変えるとちらつきが復活する。**
+  - 折りたたむ対象 `#source-filter-body` は **`display: contents`**（Tailwind の `.contents`）。開いている間はチップと言語トグルが**従来どおり `#source-filter` 直下の flex アイテムとして並ぶ**＝折り返し位置も言語トグルの `ml-auto` も変わらない。ここを普通の `flex` コンテナにすると2行目のインデントが崩れる。
+  - 畳んでいる間だけボタンに選択中フィルタを併記する（`#filter-summary`・`data-filtered` で accent 表示）。開いているときはチップの選択状態で分かるので二重に出さない。
+- **sticky オフセットは JS 実測の CSS 変数**（旧来の `top-[57px]`/`top-[112px]` 手書きマジックナンバーは廃止）: `globals.css` の `:root` に `--header-h`/`--stack-h`（= ヘッダー高 / ヘッダー＋フィルタ高）をフォールバック値付きで定義し、`SourceFilter.astro` の `<script>` が `#app-header` と `#source-filter` を実測して上書きする（初回＋`window.resize`＋`document.fonts.ready`＋`ResizeObserver`）。フィルタは `top-[var(--header-h)]`、日付見出し（`index.astro`）は `top-[var(--stack-h)]`。**フィルタは `flex-wrap` で行数が変わる**ので固定値だと幅が狭いと崩れる＝実測必須。ヘッダーに `id="app-header"` が必要。**折りたたみでも高さが変わる**ので、開閉時に `measureSticky()` を直接呼んでいる（`ResizeObserver` でも拾えるが1フレーム遅れて日付見出しがずれる）。
 - **ヘッダー／フィルタの sticky 面は `.sticky-surface`**（`globals.css`）: 既定は不透明 `--color-bg`、`@supports (backdrop-filter)` のときだけ frosted（`color-mix` 半透明＋blur）に格上げ。backdrop-filter 非対応や `prefers-reduced-transparency` でも背後のカードが透けない。**カード `<article>` には `isolate`（`isolation:isolate`）必須**（`FeedCard`/`TweetCard`）: 付けないと内部の `z-10`/`z-20`（オーバーレイ `<a>` と本文 `div`）がルートのスタッキングコンテキストへ漏れ、`z-10` の sticky フィルタの**上に**カード本文が描画されてタイトルがバー上にブリードする。
 
 
