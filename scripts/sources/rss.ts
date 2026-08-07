@@ -26,7 +26,38 @@ type RssItem = {
   enclosure?: { url?: string };
   mediaThumbnail?: { $?: { url?: string } };
   mediaContent?: { $?: { url?: string } };
+  /** `<category>` の値（rss-parser が配列で入れる）。ソース別の絞り込みに使う */
+  categories?: string[];
 };
+
+/**
+ * ソース別の絞り込み条件。**全体フィードしか無いサイトから目的の記事だけを取るための仕組み。**
+ *
+ * 最初の利用者は CloudNative BLOGs＝カテゴリ別フィードが存在せず、全体フィードは
+ * 「セキュリティ」32% / SaaS・AI・コラム 68% だったため、`<category>` で絞る必要があった
+ * （`docs/decisions.md` 項目24）。
+ *
+ * ⚠️ **意図的に「含める条件」だけにしてある。** 除外側（`excludeCategories` /
+ * `excludeAuthors`）は**必要になってから足す**方針＝ HackRead の PR記事除外（項目11）は
+ * まだ「除外するか自体が未決」なので、条件を推測で実装しない。
+ * 足すときはこの型にフィールドを1つ増やし、下の `matchesFilter` に数行加えるだけで済む
+ * （`dc:creator` で絞るなら `RssItem` に `creator` の取り込みも要る）。
+ */
+export interface RssItemFilter {
+  /**
+   * `<category>` のいずれかがこの配列に含まれる item だけを残す（完全一致・大文字小文字は区別する）。
+   * 未指定なら絞らない。⚠️ **サイト側がカテゴリ名を変えると 0 件になる**ので、
+   * `fetchRss` は「全件フィルタで落ちた」場合を検出して呼び出し側に伝える（`allFiltered`）。
+   */
+  includeCategories?: string[];
+}
+
+/** 1 item が絞り込み条件を満たすか。条件が無ければ常に true。 */
+function matchesFilter(item: RssItem, filter?: RssItemFilter): boolean {
+  if (!filter?.includeCategories?.length) return true;
+  const categories = item.categories ?? [];
+  return categories.some((c) => filter.includeCategories!.includes(c.trim()));
+}
 
 const parser: Parser<{ title?: string }, RssItem> = new Parser({
   timeout: 15000,
@@ -82,8 +113,19 @@ function toRequestUrl(rssUrl: string): string {
 /** URL 1本ぶんの取得結果（ログ・診断用）。失敗した URL は `error` を持ち `count` は 0。 */
 export interface RssUrlResult {
   url: string;
+  /** 最終的に取り込んだ件数（絞り込み後・limit 適用後） */
   count: number;
   error?: string;
+  /** フィードが返した件数（絞り込み前）。絞り込みを設定したときだけ入る */
+  fetched?: number;
+  /** 絞り込みで落とした件数。条件が意図どおり効いているかをログで確認するため */
+  filtered?: number;
+  /**
+   * フィードは件数を返したのに**絞り込みで全件落ちた**か。
+   * ⚠️ サイト側がカテゴリ名を変えたときに**run が緑のまま静かにソースが止まる**のを防ぐため、
+   * 呼び出し側（aggregate.ts）はこれを警告として表面化させる。
+   */
+  allFiltered?: boolean;
 }
 
 export interface RssFetchResult {
@@ -96,11 +138,23 @@ export interface RssFetchResult {
 }
 
 /** RSS 1本を取得して FeedItem に正規化する（失敗は呼び出し元の fetchRss が URL 単位で握る）。 */
-async function fetchOne(rssUrl: string, source: FeedSource, limit?: number): Promise<FeedItem[]> {
+async function fetchOne(
+  rssUrl: string,
+  source: FeedSource,
+  limit?: number,
+  filter?: RssItemFilter,
+): Promise<{ items: FeedItem[]; fetched: number; filtered: number }> {
   const feed = await parser.parseURL(toRequestUrl(rssUrl));
   const feedName = feed.title?.trim();
   const items: FeedItem[] = [];
+  let filtered = 0;
   for (const it of feed.items) {
+    // ⚠️ 絞り込みは limit より**先**に評価する。逆にすると「新しい20件のうち条件に合うもの」
+    // になり、条件が厳しいソースで取り込み量が痩せる（limit は「残す件数」の窓であるべき）。
+    if (!matchesFilter(it, filter)) {
+      filtered++;
+      continue;
+    }
     if (limit !== undefined && items.length >= limit) break;
     const link = it.link ?? it.guid;
     if (!link) continue;
@@ -117,7 +171,7 @@ async function fetchOne(rssUrl: string, source: FeedSource, limit?: number): Pro
       author: feedName,
     });
   }
-  return items;
+  return { items, fetched: feed.items.length, filtered };
 }
 
 export async function fetchRss(opts: {
@@ -129,16 +183,33 @@ export async function fetchRss(opts: {
    * URL を増やしても既存フィードの取り込み量が痩せないようにするため。未指定なら全件。
    */
   limit?: number;
+  /**
+   * ソース別の絞り込み条件（全体フィードから目的の記事だけを取る）。
+   * 未指定なら絞らない＝従来どおり全件取り込む。
+   */
+  filter?: RssItemFilter;
 }): Promise<RssFetchResult> {
   const items: FeedItem[] = [];
   const perUrl: RssUrlResult[] = [];
   const errors: string[] = [];
+  const filtering = !!opts.filter?.includeCategories?.length;
   // 逐次実行（フィードは数本なので並列化の利得より、相手サーバへの行儀と失敗切り分けを優先）。
   for (const rssUrl of opts.rssUrls) {
     try {
-      const got = await fetchOne(rssUrl, opts.source, opts.limit);
-      items.push(...got);
-      perUrl.push({ url: rssUrl, count: got.length });
+      const got = await fetchOne(rssUrl, opts.source, opts.limit, opts.filter);
+      items.push(...got.items);
+      perUrl.push({
+        url: rssUrl,
+        count: got.items.length,
+        ...(filtering
+          ? {
+              fetched: got.fetched,
+              filtered: got.filtered,
+              // フィードは返しているのに全件落ちた＝条件がサイトの実態と合っていない疑い。
+              allFiltered: got.fetched > 0 && got.items.length === 0,
+            }
+          : {}),
+      });
     } catch (e) {
       const message = (e as Error).message;
       perUrl.push({ url: rssUrl, count: 0, error: message });
