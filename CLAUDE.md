@@ -202,6 +202,10 @@ npm run typecheck   # astro check。tsconfig が **/* を含むので scripts/ �
 npm run enrich:xlinks           # X 項目の t.co をリンクプレビュー（OGP カード）に補完（他ソース非取得・トークン不要。後述）
 npm run enrich:xlinks -- --fresh  # 負キャッシュ（null）を一掃して未補完分を再試行
 
+npm run backfill:qiita -- --since 2026-07-31   # Qiita の取りこぼしを API 履歴から復元（既定は dry-run）
+                                               # ⚠️ 現在は使わない方針（docs/decisions.md 項目21）。
+                                               #    --since は必須。既定値にしてよい値は無い（項目21 の罠を読む）
+
 npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生成（後述）
 ```
 
@@ -287,7 +291,8 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
   - ⚠️ **フォールバックが発動したら必ずログに出る**（`[qiita] ⚠️ RSS フォールバック発動: <理由>` ＋ 末尾の `⚠️ N 件のソースでエラー` にも積まれる）。**「常時フォールバックして実質何も改善していない」状態を見逃さないための仕掛けなので、この行が出ていたら原因を潰すまで放置しない。**
   - **API の一覧は created_at の厳密降順ではない**＝**後からタグを追加された過去記事も現れる**（実測: 最新300件中5件が `created_at` 数週間前 / `updated_at` 直近）。RSS では構造的に拾えなかった分。ただし `publishedAt` は元の投稿日なのでタイムラインの奥に入るだけで、トップには出ない（アーカイブの完全性が上がるだけ）。
   - **id は RSS 経路と同一形式（`qiita-<記事URL>`）**。ここを変えると RSS 時代の蓄積分とフォールバック取得分が別アイテム扱いになり全件二重になる。
-  - **著者は投稿者（`@ユーザーID`）**。RSS 時代はフィード名（`Securityタグが付けられた新着記事 - Qiita`）で、2タグ取得しているのに常に「Securityタグ」と出ており不正確だった。⚠️ **RSS 時代に蓄積した過去分の `author` は古い文字列のまま残る**（dedup は `publishedAt` が同じなら既存を優先するため上書きされない）＝`retentionMax` で入れ替わるまで表示が混在する。不具合ではない。
+  - **著者は投稿者（`@ユーザーID`）**。RSS 時代はフィード名（`Securityタグが付けられた新着記事 - Qiita`）で、2タグ取得しているのに常に「Securityタグ」と出ており不正確だった。⚠️ **RSS 時代に蓄積した過去分の `author` は古い文字列のまま残る**（dedup は `publishedAt` が同じなら既存を優先するため上書きされない）＝`retentionMax` で入れ替わるまで（**約50日**）表示が混在する。**不具合ではなく、直さない方針**（`docs/decisions.md` 項目21）。
+  - ⚠️ **API 化より前に取りこぼした64件は復元していない**（`2026-07-31` 以降の欠落）。**復元手段は `npm run backfill:qiita` として残してあるが、現在は使わない方針**＝理由と再検討条件（検索機能を実装したとき）は `docs/decisions.md` 項目21。**⚠️ 使うときは `--since` の罠を必ず読むこと**（既定値にしてよい値が無い）。
   - サムネは **API にも RSS にも無い**＝`enrichArticles` の og:image 補完に依存する（Qiita は記事ごとに OGP 画像を自動生成するのでほぼ必ず解決する）。概要は `rendered_body`（HTML）からタグを落として200字＝`rss.ts` の `snippet()` と同じ仕様に揃えてあるので、フォールバック時も見た目が変わらない。
   - ⚠️ **日本語タグの扱い**: `apiTags` には生の日本語（`認証`）で書いてよい（`qiitaApi.ts` が `encodeURIComponent` する）。RSS フォールバック側も `rss.ts` の `toRequestUrl()` が WHATWG `URL` に通すので同様（生のまま Node の http クライアントに渡すと `Request path contains unescaped characters` で失敗する）。
   - （履歴）todayai 時代は Qiita「AI」タグを RSS で取得していた。API へ切り替えたのは上記の取りこぼし発覚後。
