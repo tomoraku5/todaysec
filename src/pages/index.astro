@@ -8,7 +8,6 @@ import {
   isKnownSource,
   isTranslated,
   relativeTime,
-  sourceListText,
   timeOfDay,
   type FeedData,
   type FeedItem,
@@ -46,8 +45,18 @@ const updatedRel = feed.updatedAt ? relativeTime(feed.updatedAt) : "";
     <h1 class="font-display text-[26px] font-bold tracking-tight text-[var(--color-text)]">
       セキュリティ情報フィード
     </h1>
+    {/*
+      ⚠️ **ここだけ意図的に `sourceListText()` を使っていない**（＝ソース名を列挙しない）。
+      ソースが8つに増えて説明文が長すぎたため、トップは短い固定文にした。
+      h1 が「何を」、この文が「どうやって」を担う役割分担。
+
+      **`sourceListText()` 自体を短くしてはいけない。** フッター / `<meta name="description">` /
+      RSS / OGP 画像が同じ関数を共有しており、そこからソース名が消えると検索結果や SNS 上の
+      説明が痩せる（＝ここだけ上書きするのが正しい）。判断は `docs/decisions.md` 項目23。
+      ソース一覧はフッター・about ページ・RSS・OGP 画像に残っている。
+    */}
     <p class="mt-1.5 text-[13px] text-[var(--color-text-muted)]">
-      {sourceListText()} から自動集約。
+      公開フィードから自動集約。
       {updatedRel && <span class="font-mono text-[var(--color-text-subtle)]">更新 {updatedRel}</span>}
     </p>
   </section>
