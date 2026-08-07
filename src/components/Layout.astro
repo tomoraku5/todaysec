@@ -118,5 +118,28 @@ const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
         </p>
       </footer>
     </div>
+
+    <script>
+      // ===== sticky オフセットを実測して CSS 変数に反映（手書きマジックナンバー廃止）=====
+      // `--header-h` = このヘッダーの高さ。**唯一の sticky 要素がヘッダーなので変数も1つだけ。**
+      // 消費側は index.astro の日付見出し（`top-[var(--header-h)]`）＝ヘッダーの直下に貼り付く。
+      //
+      // なぜ固定値ではなく実測か: フォント読み込み（`document.fonts.ready`）でヘッダーの
+      // テキスト高さが変わるため。ズレるとビルドは緑のまま見出しが数 px 潜る／浮く。
+      //
+      // ⚠️ **以前は SourceFilter.astro にあり `--stack-h`（ヘッダー＋フィルタ）も出していた。**
+      // フィルタバーの sticky をやめたので `--stack-h` は廃止し、測定もヘッダーを持つこの
+      // コンポーネントへ移した（フィルタの有無と無関係になった＝`docs/decisions.md` 項目23）。
+      const header = document.getElementById("app-header");
+      function measureSticky() {
+        if (header) {
+          document.documentElement.style.setProperty("--header-h", `${header.offsetHeight}px`);
+        }
+      }
+      measureSticky();
+      if (header) new ResizeObserver(measureSticky).observe(header);
+      window.addEventListener("resize", measureSticky);
+      document.fonts?.ready.then(measureSticky);
+    </script>
   </body>
 </html>
