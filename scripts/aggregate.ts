@@ -20,6 +20,7 @@ import { readFeed } from "../src/lib/feedStore";
 import { writeFeed } from "./lib/feedWrite";
 import { fetchX, fetchXAccounts } from "./sources/x";
 import { fetchRss } from "./sources/rss";
+import { fetchQiitaApi } from "./sources/qiitaApi";
 import { enrichArticles } from "./sources/enrichArticles";
 import { enrichXLinks } from "./sources/xLinkCard";
 import { enrichTranslations } from "./sources/translate";
@@ -136,17 +137,17 @@ async function run(): Promise<void> {
     collected.push(...xItems);
   }
 
-  // ---- 記事系すべて（Zenn / Qiita / はてなブログ / THN / Dark Reading / BleepingComputer / The Register / HackRead）----
-  // いずれも公開 RSS・トークン不要。
-  // いずれも設定が `rssUrls`（配列）で構造が同じなので、専用実装を作らず同じループで扱う。
-  // 1ソースにつき複数 URL（rssUrls）を束ねられる（例: Qiita = Security タグ＋認証タグ、
-  // はてなブログ = 個別ブログ3本）。
+  // ---- 記事系のうち「公開 RSS / Atom」で取るソース ----
+  // いずれもトークン不要。設定が `rssUrls`（配列）で構造が同じなので、専用実装を作らず同じループで扱う。
+  // 1ソースにつき複数 URL（rssUrls）を束ねられる（例: はてなブログ = 個別ブログ3本）。
   // limit は「1 URL あたり」の取得窓なので、URL を足しても既存フィードの取り込みは痩せない。
   // 取得窓が狭く RSS は最新数十件しか返さないので、前回分を土台に蓄積して過去分を保持する
   // （全期間アーカイブ。dedup=id で重複は集約）。取得失敗/disabled でも蓄積済みの過去分は残る。
+  //
+  // ⚠️ **Qiita はここに含まれない**（このループの下に専用ブロックがある）。Qiita のタグフィードは
+  // 4件しか返さず取りこぼしが激しいため、API v2 を主経路にしている（RSS はフォールバック）。
   for (const source of [
     "zenn",
-    "qiita",
     "hatenablog",
     "thehackernews",
     "darkreading",
@@ -178,6 +179,82 @@ async function run(): Promise<void> {
       const msg = (e as Error).message;
       errors.push(`${source}: ${msg}`);
       console.error(`[${source}] 取得失敗（前回キャッシュを維持）:`, msg);
+    }
+  }
+
+  // ---- Qiita（API v2 が主経路 / RSS はフォールバック）----
+  // 他の記事系と違って専用ブロックなのは、Qiita のタグフィードが **4件しか返さない**ため
+  // （タグ問わず固定・page/per_page は無視）。Security タグは 14〜23件/日 なので窓が約3時間しかなく、
+  // 6時間ごとの cron では実測 47% を取りこぼしていた。詳細は scripts/sources/qiitaApi.ts の冒頭。
+  //
+  // API が 429/403（レート制限。CI は共有 IP なので可能性が残る）や障害で失敗したときは
+  // RSS へ落として「現状より悪くしない」。ただし **RSS に落ちたことは必ずログと末尾の警告に出す**
+  // ＝「常時フォールバックして実質何も改善していない」状態に気づけるようにするため。
+  {
+    const cfg = feedsConfig.qiita;
+    const cachedQiita = cachedFor(cache, "qiita");
+    collected.push(...cachedQiita);
+    if (cfg.disabled) {
+      console.log("[qiita] disabled");
+    } else {
+      let apiItems = 0;
+      let needFallback = true;
+      let fallbackReason = "API 経路で例外";
+      try {
+        const r = await fetchQiitaApi({ apiTags: cfg.apiTags });
+        collected.push(...r.items);
+        apiItems = r.items.length;
+        for (const e of r.errors) errors.push(`qiita(api): ${e}`);
+        const dup = r.items.length - new Set(r.items.map((i) => i.id)).size;
+        console.log(
+          `[qiita] API v2: ${r.items.length} items (＋過去 ${cachedQiita.length} 件を保持)` +
+            (dup > 0 ? ` ※タグ間の重複 ${dup} 件は dedup で1件に集約` : ""),
+        );
+        for (const t of r.perTag) {
+          const rate = t.rateLimit ? `（レート残 ${t.rateRemaining ?? "?"}/${t.rateLimit}）` : "";
+          console.log(`  └ tag:${t.tag}: ${t.error ? `失敗 (${t.error})` : `${t.count} 件`}${rate}`);
+        }
+        // 1タグでも失敗したらフォールバックも走らせる（取れた分は dedup で共存する）。
+        const failed = r.perTag.filter((t) => t.error);
+        needFallback = failed.length > 0 || r.items.length === 0;
+        if (needFallback) {
+          fallbackReason = r.rateLimited
+            ? "レート制限 (429/403)"
+            : failed.length > 0
+              ? `${failed.length} タグが失敗`
+              : "API から 0 件";
+        }
+      } catch (e) {
+        fallbackReason = (e as Error).message;
+        console.error("[qiita] API 経路で例外:", fallbackReason);
+      }
+
+      if (needFallback) {
+        // ⚠️ ここが出続けているなら API 化の効果が出ていない。対処は CLAUDE.md（Qiita の節）参照。
+        console.warn(
+          `[qiita] ⚠️ RSS フォールバック発動: ${fallbackReason}\n` +
+            "         ⚠️ Qiita の RSS はタグあたり4件しか返さないため、この状態が続くと取りこぼしが再発します。\n" +
+            "            恒常化するなら Qiita アクセストークン（無料・1000回/時）の追加を検討（CLAUDE.md 参照）。",
+        );
+        errors.push(
+          `qiita: RSS フォールバック発動 (${fallbackReason}) ＝ 取りこぼしが再発する状態。API 経路の確認が必要`,
+        );
+        try {
+          const r = await fetchRss({ rssUrls: cfg.rssUrls, source: "qiita", limit: cfg.limit });
+          collected.push(...r.items);
+          for (const e of r.errors) errors.push(`qiita(rss): ${e}`);
+          console.log(`[qiita] RSS フォールバック: ${r.items.length} items`);
+          for (const p of r.perUrl) {
+            console.log(`  └ ${p.url}: ${p.error ? `失敗 (${p.error})` : `${p.count} 件`}`);
+          }
+        } catch (e) {
+          const msg = (e as Error).message;
+          errors.push(`qiita(rss): ${msg}`);
+          console.error("[qiita] RSS フォールバックも失敗（前回キャッシュを維持）:", msg);
+        }
+      } else {
+        console.log(`[qiita] ✅ API 経路で取得できています（RSS フォールバックなし・${apiItems} 件）`);
+      }
     }
   }
 

@@ -1,7 +1,10 @@
 /**
  * フィード情報源の設定。
  *
- * **記事の収集は公開 RSS / Atom のみでトークン不要**（`rss-parser` で直接取得。課金・失効なし）。
+ * **記事の収集はすべてトークン不要**（課金・失効なし）。取得方式は2種類:
+ * - 公開 RSS / Atom を `rss-parser` で直接取得（`rssUrls` を持つソース）
+ * - **Qiita だけ Qiita API v2**（認証不要）。理由はフィードが4件しか返さないため（下の `qiita` 参照）
+ *
  * どのソースが有効かは、このファイルの各キーの `disabled` と `src/lib/feed.ts` の `SOURCES` が正
  * ＝ここにソース名を列挙しない（列挙は取り残されて実態とズレる）。
  *
@@ -17,6 +20,7 @@
  */
 
 import type { FeedSource } from "./src/lib/feed";
+import type { QiitaApiTagConfig } from "./scripts/sources/qiitaApi";
 
 export type XCategory = "post" | "like" | "bookmark";
 
@@ -48,6 +52,12 @@ export interface FeedsConfig {
   /**
    * Zenn トピックの公開 RSS（rss-parser で直接取得。トークン不要）。
    * 複数トピックを束ねられる（URL ごとに個別 try/catch＝1本落ちても残りは取り込む）。
+   *
+   * ⚠️ **このフィードは CDN で最大12時間キャッシュされる**（`Cache-Control: public, s-maxage=43200`。
+   * 実測で `Age: 13712`＝3.8時間前の内容が返った）。そのため**サイトへの掲載が最大12時間遅れる**。
+   * ただし 20件の窓が約1.5日分あるので**記事の損失は 0%**（遅れて必ず入る）。
+   * **キャッシュバスター（`?_=<run id>`）は意図的に採用していない**＝理由は
+   * `docs/decisions.md` 項目20（サイレント停止リスクと行儀）。
    */
   zenn: {
     rssUrls: string[];
@@ -58,13 +68,29 @@ export interface FeedsConfig {
     disabled?: boolean;
   };
   /**
-   * Qiita タグの公開 RSS（rss-parser で直接取得。トークン不要）。
-   * 複数タグを束ねられる。複数タグに跨る記事は id（= source-記事URL）が同一になるので
-   * 集約時の dedup で1件にまとまる。
+   * Qiita のタグ別新着。**このソースだけ公開 RSS ではなく Qiita API v2 を主経路にする**
+   * （認証不要・トークン不要。`scripts/sources/qiitaApi.ts`）。
+   *
+   * ⚠️ **理由: Qiita のタグフィードは 4 件しか返さない**（タグを問わず固定。`?page`/`?per_page` は
+   * 無視される）。Security タグは 14〜23件/日 投稿されるため窓が**中央値 3.3 時間**しかなく、
+   * 6時間ごとの cron では**実測 47% を取りこぼしていた**。詳しい経緯は `qiitaApi.ts` の
+   * 冒頭コメントと `docs/decisions.md` 項目19。
+   *
+   * 複数タグに跨る記事は id（= `qiita-<記事URL>`）が同一になるので集約時の dedup で1件にまとまる。
    */
   qiita: {
+    /** 主経路: API v2 で取得するタグと件数。日本語タグは生のまま書いてよい */
+    apiTags: QiitaApiTagConfig[];
+    /**
+     * フォールバック用の公開 RSS（API が 429/403 等で失敗したときだけ使う）。
+     * ⚠️ **4 件しか返さないので、これが常用されると取りこぼしが再発する**
+     * （発動したら aggregate のログと末尾の警告に出る）。
+     */
     rssUrls: string[];
-    /** 1回に取り込む最大件数（**1 URL あたり**の取得窓。蓄積は retentionMax まで） */
+    /**
+     * RSS フォールバック時の 1 URL あたり取得件数。
+     * ⚠️ **Qiita に対しては効いたことがない**（フィードが 4 件しか返さないため上限に届かない）。
+     */
     limit?: number;
     /** 保持上限件数（全期間アーカイブの安全弁） */
     retentionMax: number;
@@ -127,8 +153,9 @@ export interface FeedsConfig {
    * Cloudflare 配下（`cf-ray` ヘッダあり）だが、フィードは **UA を問わず 200**（UA 無しでも通る）
    * ＝ CI（datacenter IP）でもボット判定される可能性は低い。実アクセスで確認済み。
    *
-   * ⚠️ **フィードが 15 件しか返さない**（他ソースは 20〜50 件）。平日は約8件/日なので
-   * 約2日分しか遡れない。6時間ごとの cron なら十分だが、**CI が2日以上止まると取りこぼす**。
+   * ⚠️ **フィードが 15 件しか返さない**（他ソースは 20〜50 件）。実測 6.3件/日 なので
+   * **約2.4日分**しか遡れない。6時間ごとの cron なら十分だが、**CI が2日以上止まると取りこぼす**
+   * （HackRead 約1.8日分に次いで余裕が薄い。ソース別の一覧は CLAUDE.md の表）。
    */
   bleepingcomputer: {
     rssUrls: string[];
@@ -171,8 +198,10 @@ export interface FeedsConfig {
    * **ノイズを承知の上で採用**しており、除外の仕組みは意図的に作っていない
    * （1週間ほど運用して実態を見てから判断する方針。詳細は CLAUDE.md）。
    *
-   * ⚠️ **フィードが 10 件しか返さない**（約3日分）。BleepingComputer（15件・約2日分）と
-   * 並んで取りこぼしリスクが高い部類＝CI が3日以上止まると記事が消える。
+   * ⚠️ **フィードが 10 件しか返さない**。実測 5.6件/日 なので**約1.8日分**しか遡れず、
+   * **全ソースで最も余裕が薄い**（BleepingComputer 15件＝約2.4日分がその次）。
+   * ＝ CI が2日ほど止まると記事が消える。ソース別の余裕は CLAUDE.md の
+   * 「フィードから何日分遡れるか」の表が正。
    *
    * Cloudflare 配下だがフィードは UA を問わず 200（UA 無しでも通る）。
    * サムネはフィードに無く、`enrichArticles` の og:image 補完に依存する。
@@ -234,19 +263,33 @@ export const feedsConfig: FeedsConfig = {
     rssUrls: [
       "https://zenn.dev/topics/security/feed", // Zenn Securityトピック
     ],
+    // 実測 12.7件/日・フィードは20件（約1.5日分）返す。CDN の12時間キャッシュ（上の注記）を
+    // 差し引いても cron 6時間に対して余裕があるので損失は 0%（遅延のみ）。
     limit: 20,
     retentionMax: 1000, // 取りこぼしが激しかった主対象。数ヶ月〜相当
     disabled: false,
   },
   qiita: {
-    // タグを増やしたいときはこの配列に URL を足すだけ。複数タグに跨る記事は dedup で1件になる。
-    // 日本語タグは生のまま書いてよい（rss.ts の toRequestUrl がパーセントエンコードする）。
+    // 主経路（API v2）。タグを増やしたいときはこの配列に足す。日本語タグは生のままでよい。
+    //
+    // perPage の決め方 = 「投稿ペース」と「1リクエストのサイズ」のバランス。
+    // 上限は 100 だが、100 は 2.8MB になり Qiita 側への負荷が大きい（RSS は 3KB だった）。
+    // cron 6時間＋GitHub の遅延に対して 2 日分あれば十分な余裕があるので抑えている。
+    apiTags: [
+      // 実測 14〜23件/日 → 50件で約2.2日分・1.3MB。
+      { tag: "security", perPage: 50 },
+      // 実測 1.6件/日 → 20件で約17日分・0.8MB（security と同じ 50 にしても無駄に重いだけ）。
+      { tag: "認証", perPage: 20 },
+    ],
+    // フォールバック専用（API が 429/403 のときだけ使う）。4件しか返らないので常用は不可。
     rssUrls: [
       "https://qiita.com/tags/security/feed", // Qiita Securityタグ
       "https://qiita.com/tags/認証/feed", // Qiita 認証タグ
     ],
-    limit: 20,
-    retentionMax: 1000, // 取りこぼしが激しかった主対象。数ヶ月〜相当
+    limit: 20, // ⚠️ RSS フォールバック用。Qiita のフィードは4件しか返さないので実際には効かない
+    // 取りこぼしが激しかった主対象。API 化で取り込みが 4件/run → 実質全件になり、
+    // Security タグだけで 14〜23件/日 入る＝1000件は約 50 日分。
+    retentionMax: 1000,
     disabled: false,
   },
   hatenablog: {
