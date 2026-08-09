@@ -514,7 +514,38 @@ git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length
 - **カードはハイブリッド分岐**（`FeedCard.astro`）: X は `TweetCard`、それ以外は `item.thumbnail` の有無で **ヒーローカード** か **コンパクト行** に分かれる。ヒーローはモバイルで画像上＋本文下の縦積み、`sm:` 以上で `flex-row` の**画像左（`sm:w-[14rem]`）＋本文右**の横並びになる。OGP 補完でサムネ網羅率が上がるとヒーローが主役になる。**サムネ枠は全ブレークポイントで `aspect-video`（16:9）固定＋`sm:self-start`（上揃え）**＝カード全高に引き伸ばされない（横長 OGP が縦長クロップで崩れるのを防ぐ）。**カード外枠は `rounded-none`（直角）**＝バッジのピル・X アバターの丸・フィルタチップのピルは丸のまま、カード面だけ角。
 - **コンテナ幅**は `Layout.astro` の `max-w-[46rem] lg:max-w-[58rem]`（モバイル～タブレットは 46rem、`lg:`≥1024px で 58rem に広げて PC で横を使う）。ヘッダー/フィルタ/日付見出しもこの幅に従う。
 - **二言語表示（日本語／原文トグル）**: 翻訳が有効なので**英語ソースには日本語訳が付き、トグルが機能する**（日本語記事は訳が無いので素のまま＝トグルの影響を受けない）。トグル自体は `hasAnyTranslation(items)` が true のときだけ描画される。`FeedItem` の `titleJa`/`summaryJa`（集約時に Gemini 補完）が原文と別に入る。表示は `BilingualText.astro`（`ja!==orig` のとき `.lang-ja` と `.lang-orig` の両 span を出力、翻訳なしは素テキスト）。`SourceFilter.astro` 右端の「日本語／原文」トグルが `:root.show-orig` クラスを切り替え、CSS（`globals.css` の `.lang-orig`/`:root.show-orig .lang-ja`）で全カードを一斉に出し分ける。選択は `localStorage("todayai:lang")` に永続。**フィルタ（`.is-hidden`）とは独立したクラストグルで競合しない。** 既定は日本語（クラス無し）。
-- **`index.astro` は日付グルーピング＋タイムレール**: 各アイテムを `grid-cols-[auto_1fr]` で包み、左列に等幅 `HH:MM`＋縦ヘアライン（シグネチャ）。**この包み `div` に `data-feed-item`＋`data-source` を付け、フィルタ（`SourceFilter.astro` の `<script>`）はこのラッパに `.is-hidden` をトグルする**（`article` 単体ではなく行ごと出し分けるため。`[data-source].is-hidden{display:none}` がラッパも拾う）。
+- **`index.astro` は日付グルーピング＋タイムレール**: 各アイテムを `grid-cols-[2.75rem_minmax(0,1fr)]`（`sm:` で `3.5rem`）で包み、左列に等幅 `HH:MM`＋縦ヘアライン（シグネチャ）。**この包み `div` に `data-feed-item`＋`data-source` を付け、フィルタ（`SourceFilter.astro` の `<script>`）はこのラッパに `.is-hidden` をトグルする**（`article` 単体ではなく行ごと出し分けるため。`[data-source].is-hidden{display:none}` がラッパも拾う）。
+- **⚠️ グリッド／フレックスの伸びる列は `1fr` ではなく `minmax(0,1fr)`。あわせて中の item に `min-w-0`。**
+  **`1fr` は `minmax(auto,1fr)` の略**で、この `auto`（＝ automatic minimum size）は「中身がこれ以上縮められない幅」を下回らない。
+  その最小幅を決めるのは**折り返せない最長トークン**（URL・長い英単語・`truncate` の `white-space:nowrap` テキスト）で、
+  **日本語や空白区切りの英文は関係ない**（どこでも折り返せるため）。結果、**長い URL を含む記事の行だけ**が
+  列ごと横に伸び、**スマホでその行のカードだけ右にはみ出して横スクロールが出る**。PC では列幅に余裕があるので出ない。
+  - **実際に起きたこと**（2026-08-09 に報告）: Zenn「AIに渡す前の秘密情報チェックからセキュリティ対策の可視化まで
+    できるデスクトップアプリを作ってみた（shk Desktop）」の抜粋に **51文字の URL**
+    （`https://zenn.dev/kazuki_tam/articles/6a8217c5418cc4`）が入っていた。375px 幅で本文の枠は約255px しかないので
+    約90px はみ出した。同時に **Qiita の「YYYY/M/D主にITとかセキュリティの記事」連載**（リンク集なので
+    ほぼ毎日 生 URL を含む）でも発生し、**最悪ケースは98文字の URL でページ横幅が約782px** になっていた。
+  - **稀ではない**: 全614件中12件（2.0%）だが、**直近9日のうち7日で発生**していた。抜粋は各サイトの
+    記事本文からの機械的な切り出しなので、**URL が混ざるのを止める手段は無い＝CSS 側で受け止めるしかない**。
+  - **修正の内訳と役割**（どちらか一方では足りない）:
+    | 直したもの | 何を防ぐか |
+    | --- | --- |
+    | `grid-cols-[…_minmax(0,1fr)]`（`index.astro`） | **トラック（列）**が中身の最小幅まで広がるのを止める |
+    | ラッパ `div` の `min-w-0`（`index.astro`） | **グリッド item 自身**が `min-width:auto` でトラックを超えて広がるのを止める |
+    | 抜粋 `<p>` / コンパクトの `<h2>` の `break-words`（`FeedCard`・`TweetCard`） | 枠内で URL を途中改行させる。**無いと `line-clamp` の `overflow:hidden` に黙って切り取られる**（はみ出しは止まるが読めなくなる） |
+  - ⚠️ **`break-words`（`overflow-wrap:break-word`）だけでは列の伸びは止まらない。** これは「行に収まらない語を
+    やむを得ず折る」指定で、**要素の min-content 幅（＝列の最小幅の計算）を下げない**。`hero` の `<h2>` には
+    以前から `break-words` が付いていたのに、はみ出しは起きていた。**幅を止めるのは `minmax(0,…)` と `min-w-0` の側。**
+  - ⚠️ **`truncate` は安全弁ではない。** `white-space:nowrap` を含むので、**文字列全体が1個の折り返せないトークン**に
+    なる（例: HackRead の `author` は57文字）。`overflow:hidden` のおかげで実害は出ていないが、
+    新しく `truncate` を足すときは**祖先に `min-w-0` があるか**を確認すること。
+  - **新しくカード／レイアウトを足すときは、375px で「抜粋に URL が入った記事」を1件見て、
+    横スクロールが出ないことを確かめる。** 判定用のクエリ:
+    ```bash
+    # 抜粋に38文字以上の折り返せない塊（URL 等）を含む記事＝375px の hero で桁溢れする条件。
+    # jq はこの環境に入っていないので node で書いてある。
+    node -e "JSON.parse(require('fs').readFileSync('src/data/feed.json','utf8')).items.filter(i=>i.thumbnail&&/[!-~]{38,}/.test(i.summary||'')).forEach(i=>console.log(i.source,'|',i.title.slice(0,40)))"
+    ```
 - **`localStorage` に保存しているものの一覧**（増やすときはここに1行足す。**キー名は必ず `todaysec:` 接頭辞**）:
 
   | キー | 値 | 用途 | 読み書きしている場所 |
