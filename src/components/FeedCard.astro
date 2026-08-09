@@ -58,8 +58,10 @@ const variant = item.source === "x" ? "tweet" : item.thumbnail ? "hero" : "compa
           <BilingualText orig={item.title} ja={item.titleJa} />
         </h2>
 
+        {/* break-words: 抜粋に折り返せない長い文字列（URL 等）が入っても、
+            はみ出さず途中で改行させる。h2 と揃える。 */}
         {item.summary && (
-          <p class="mt-2 line-clamp-4 text-[13px] leading-relaxed text-[var(--color-text-muted)]">
+          <p class="mt-2 line-clamp-4 break-words text-[13px] leading-relaxed text-[var(--color-text-muted)]">
             <BilingualText orig={item.summary} ja={item.summaryJa} />
           </p>
         )}
@@ -85,11 +87,13 @@ const variant = item.source === "x" ? "tweet" : item.thumbnail ? "hero" : "compa
           {meta.label}
         </span>
         <div class="min-w-0 flex-1">
-          <h2 class="line-clamp-2 text-[14px] font-medium leading-snug text-[var(--color-text)] transition-colors group-hover:text-[var(--color-accent-bright)]">
+          {/* break-words: hero 側と同じ理由（長い URL・英単語での桁溢れ防止）。
+              line-clamp の overflow:hidden は「隠す」だけで折り返しはしないため別途必要。 */}
+          <h2 class="line-clamp-2 break-words text-[14px] font-medium leading-snug text-[var(--color-text)] transition-colors group-hover:text-[var(--color-accent-bright)]">
             <BilingualText orig={item.title} ja={item.titleJa} />
           </h2>
           {item.summary && (
-            <p class="mt-0.5 line-clamp-3 text-[13px] leading-relaxed text-[var(--color-text-muted)]">
+            <p class="mt-0.5 line-clamp-3 break-words text-[13px] leading-relaxed text-[var(--color-text-muted)]">
               <BilingualText orig={item.summary} ja={item.summaryJa} />
             </p>
           )}
