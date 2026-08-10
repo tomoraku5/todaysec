@@ -34,6 +34,12 @@ export interface TranslateResult {
   attempted: number;
   /** 実行したバッチ数 */
   batches: number;
+  /** 応答不良で1回だけ送り直したバッチ数 */
+  retried: number;
+  /** 送り直して回復したバッチ数 */
+  recovered: number;
+  /** 諦めた（原文のまま残る）アイテム件数。次回 run で再試行される */
+  failed: number;
 }
 
 /** かな・カタカナ・漢字を含めば日本語とみなす（翻訳不要）。 */
@@ -139,9 +145,33 @@ export async function enrichTranslations(
   }
 
   let translated = 0;
+  let retried = 0;
+  let recovered = 0;
+  let failed = 0;
   await mapLimit(batches, opts.concurrency, async (batch) => {
-    const out = await translateBatch(batch, apiKey, opts.model);
-    if (!out) return; // バッチ失敗 → 次回 run で再試行
+    let res = await translateBatch(batch, apiKey, opts.model);
+    // 応答不良（JSON が途中で切れる等）は**確率的**に起きるので、同じ入力でも送り直すと
+    // 大半は回復する。実測: 生成が繰り返しループに陥り 13万字を返して途中で切れていた。
+    // ⚠️ レート制限（429/403）は再送すると追い打ちになるので retryable=false にしてある。
+    if (!res.ok && res.retryable) {
+      retried++;
+      console.warn(`[translate] 応答不良のため1回だけ再送します（${batch.length} 件）: ${res.reason}`);
+      res = await translateBatch(batch, apiKey, opts.model);
+      if (res.ok) {
+        recovered++;
+        console.log(`[translate] 再送で回復しました（${batch.length} 件）`);
+      }
+    }
+    if (!res.ok) {
+      // ⚠️ 諦めた分は原文（英語）のまま公開される。次回 run で再試行されるが、
+      // 「静かに減っている」ことに気づけるよう件数と理由を必ず残す。
+      failed += batch.length;
+      console.error(
+        `[translate] このバッチは諦めます（${batch.length} 件は原文のまま・次回 run で再試行）: ${res.reason}`,
+      );
+      return;
+    }
+    const out = res.data;
     for (let i = 0; i < batch.length; i++) {
       const { item } = batch[i];
       const t = out[i];
@@ -169,7 +199,14 @@ export async function enrichTranslations(
     }
   });
 
-  return { translated, attempted: targets.length, batches: batches.length };
+  return {
+    translated,
+    attempted: targets.length,
+    batches: batches.length,
+    retried,
+    recovered,
+    failed,
+  };
 }
 
 interface BatchTranslation {
@@ -179,12 +216,21 @@ interface BatchTranslation {
   linkDescJa?: string;
 }
 
-/** 1バッチを Gemini で翻訳/要約。失敗時は null（呼び出し側でスキップ）。 */
+/**
+ * 1バッチの結果。失敗時は「送り直す価値があるか（retryable）」を返す。
+ * - retryable=true : 応答が壊れている / 一時的な障害 → 同じ入力で送り直すと回復しうる
+ * - retryable=false: レート制限（429/403）→ 送り直すと追い打ちになるだけなので諦める
+ */
+type BatchOutcome =
+  | { ok: true; data: BatchTranslation[] }
+  | { ok: false; retryable: boolean; reason: string };
+
+/** 1バッチを Gemini で翻訳/要約。失敗理由は呼び出し側でまとめてログに出す。 */
 async function translateBatch(
   batch: Target[],
   apiKey: string,
   model: string,
-): Promise<BatchTranslation[] | null> {
+): Promise<BatchOutcome> {
   const entries = batch.map(({ titleInput, input, summarize, linkTitle, linkDesc }, i) => ({
     i,
     title: titleInput,
@@ -238,24 +284,42 @@ async function translateBatch(
       body: JSON.stringify(body),
     });
     if (!res.ok) {
-      console.error(`[translate] Gemini ${res.status}: ${(await res.text()).slice(0, 200)}`);
-      return null;
+      const detail = (await res.text()).slice(0, 200);
+      // 429/403 = レート制限。ここで送り直しても状況を悪くするだけなので再送しない。
+      // それ以外（5xx 等）はサーバ側の一時障害なので送り直す価値がある。
+      const rateLimited = res.status === 429 || res.status === 403;
+      return {
+        ok: false,
+        retryable: !rateLimited,
+        reason: `Gemini ${res.status}${rateLimited ? "（レート制限・再送しない）" : ""}: ${detail}`,
+      };
     }
     const data = (await res.json()) as {
       candidates?: { content?: { parts?: { text?: string }[] } }[];
     };
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!text) return null;
-    const parsed = JSON.parse(text) as BatchTranslation[];
-    if (!Array.isArray(parsed) || parsed.length !== batch.length) {
-      console.error(
-        `[translate] 件数不一致（in ${batch.length} / out ${Array.isArray(parsed) ? parsed.length : "?"}）`,
-      );
-      return null;
+    if (!text) return { ok: false, retryable: true, reason: "応答に本文が無い" };
+    let parsed: BatchTranslation[];
+    try {
+      parsed = JSON.parse(text) as BatchTranslation[];
+    } catch (e) {
+      // 生成が繰り返しループに陥り出力上限で切れると、閉じていない JSON が届いてここに来る。
+      // **応答の文字数を必ず出す**（正常時は数百〜数千字。桁違いなら暴走と判別できる）。
+      return {
+        ok: false,
+        retryable: true,
+        reason: `応答の JSON が壊れている（応答 ${text.length} 文字）: ${(e as Error).message}`,
+      };
     }
-    return parsed;
+    if (!Array.isArray(parsed) || parsed.length !== batch.length) {
+      return {
+        ok: false,
+        retryable: true,
+        reason: `件数不一致（in ${batch.length} / out ${Array.isArray(parsed) ? parsed.length : "?"}）`,
+      };
+    }
+    return { ok: true, data: parsed };
   } catch (e) {
-    console.error("[translate] バッチ失敗:", (e as Error).message);
-    return null;
+    return { ok: false, retryable: true, reason: `通信失敗: ${(e as Error).message}` };
   }
 }

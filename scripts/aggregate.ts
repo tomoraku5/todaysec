@@ -381,8 +381,12 @@ async function run(): Promise<void> {
         summarizeSources: feedsConfig.translate.summarizeSources,
         summaryMinLen: feedsConfig.translate.summaryMinLen,
       });
+      // ⚠️ 再送・失敗は必ず1行に出す。翻訳の失敗は run を落とさない（原文のまま公開する）ので、
+      //    ここに出しておかないと「緑のまま英語記事が混ざる」状態に気づけない。
       console.log(
-        `[translate] +${r.translated} 翻訳/要約 (試行 ${r.attempted}, バッチ ${r.batches})`,
+        `[translate] +${r.translated} 翻訳/要約 (試行 ${r.attempted}, バッチ ${r.batches})` +
+          (r.retried > 0 ? ` ※応答不良で再送 ${r.retried} バッチ → ${r.recovered} 回復` : "") +
+          (r.failed > 0 ? ` ⚠️ ${r.failed} 件は原文のまま（次回 run で再試行）` : ""),
       );
       state.enrichVersion = ENRICH_VERSION;
     } catch (e) {
