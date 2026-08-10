@@ -5,3 +5,7 @@ dist/
 .env.local
 .DS_Store
 *.log
+
+# Claude Code のローカル設定（共有しない）。
+# ⚠️ このリポジトリは Public。除外しないと allow ルールがそのまま公開される。
+.claude/settings.local.json
