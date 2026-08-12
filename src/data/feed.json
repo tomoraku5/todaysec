@@ -1,6 +1,188 @@
 {
-  "updatedAt": "2026-08-11T19:11:18.471Z",
+  "updatedAt": "2026-08-12T02:10:39.874Z",
   "items": [
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/google-says-chrome-cuts-7-billion-unwanted-android-notifications-a-day-to-fight-abuse/",
+      "source": "bleepingcomputer",
+      "title": "Google says Chrome cuts 7 billion unwanted Android notifications a day to fight abuse",
+      "url": "https://www.bleepingcomputer.com/news/security/google-says-chrome-cuts-7-billion-unwanted-android-notifications-a-day-to-fight-abuse/",
+      "publishedAt": "2026-08-12T01:15:55.000Z",
+      "summary": "Google says Chrome's anti-abuse systems reduced unwanted notifications on Android by more than 7 billion per day during the first quarter of 2026. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2025/09/02/Google.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "Google、Chromeが1日あたり70億件の不要なAndroid通知を削減し悪用に対抗と発表",
+      "summaryJa": "Googleは、Chromeの不正防止システムにより、2026年第1四半期にAndroid上の不要な通知を1日あたり70億件以上削減したと発表しました。この取り組みは、ユーザーを迷惑な通知から保護することを目的としています。"
+    },
+    {
+      "id": "qiita-https://qiita.com/Maku-Inc/items/d582b0993cb5fb2bffdf",
+      "source": "qiita",
+      "title": "踏み台サーバーのセキュリティを極めるSSH鍵管理：エンジニア必携のベストプラクティス",
+      "url": "https://qiita.com/Maku-Inc/items/d582b0993cb5fb2bffdf",
+      "publishedAt": "2026-08-11T22:31:33.000Z",
+      "summary": "踏み台サーバーのセキュリティを極めるSSH鍵管理：エンジニア必携のベストプラクティス クラウド環境やオンプレミスを問わず、システムへのアクセスゲートウェイとして重要な役割を果たす「踏み台サーバー（Bastion Host）」。そのセキュリティは全体のシステムを守る上で極めて重要です。本記事では、踏み台サーバーの安全な運用を支えるSSH鍵管理のベストプラクティスを、エンジニアの皆さんがすぐに実…",
+      "author": "@Maku-Inc",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MDU1Nzc4JTJGNWZkYjM1MjEyZWZmOGZjZjJhNTFlY2FkYTZlZDkyZTM1OTc1ZmYyNyUyRmxhcmdlLnBuZyUzRjE3ODI3NDM1NzI_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTEwYzhmMWYzNDkzMTQxNjQ2ZGMzYTNiMTAyYjQzOTli%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D708ad4aa3fb7ebe64e03f6185490ebaa?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU4JUI4JThGJUUzJTgxJUJGJUU1JThGJUIwJUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkwJUUzJTgzJUJDJUUzJTgxJUFFJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgyJTkyJUU2JUE1JUI1JUUzJTgyJTgxJUUzJTgyJThCU1NIJUU5JThEJUI1JUU3JUFFJUExJUU3JTkwJTg2JUVGJUJDJTlBJUUzJTgyJUE4JUUzJTgzJUIzJUUzJTgyJUI4JUUzJTgzJThCJUUzJTgyJUEyJUU1JUJGJTg1JUU2JTkwJUJBJUUzJTgxJUFFJUUzJTgzJTk5JUUzJTgyJUI5JUUzJTgzJTg4JUUzJTgzJTk3JUUzJTgzJUE5JUUzJTgyJUFGJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgyJUI5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YjRlMzhjODU0OTQxYjhkZmViMDJkZGZmM2JmYmNkMjM&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBNYWt1LUluYyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWI0MzEzYTM5NDUzZWIwY2JhNTU4MWE3Yjg4MTJmZTY2&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=4591a19de95571230627923448a237f2"
+    },
+    {
+      "id": "qiita-https://qiita.com/jiis-sasaki/items/b9af6a365db98ad95d9d",
+      "source": "qiita",
+      "title": "CDNのJS改ざんを検知するSRI設定と運用(integrity属性・HTML/WordPress対応)",
+      "url": "https://qiita.com/jiis-sasaki/items/b9af6a365db98ad95d9d",
+      "publishedAt": "2026-08-11T22:30:00.000Z",
+      "summary": "外部のCDNから読み込んでいるJavaScriptやCSSは、 自分のサーバーには一切手を加えなくても、配信元が書き換わればそのまま実行されてしまいます 。2024年のpolyfill.io事件では、CDN(コンテンツ配信ネットワーク=世界中のサーバーからファイルを配る仕組み)経由で配られるスクリプトに悪意あるコードが混入し、10万を超えるサイトが巻き込まれました。 この記事は、 外部CDN…",
+      "author": "@jiis-sasaki",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDQzNjQwJTJGNTFlMTk3MTk0Mzg0YjhlYmE3ZmE5M2JjOGRhZTE3ZjA4ZWZjM2IzZSUyRnhfbGFyZ2UucG5nJTNGMTc4MDYzOTY2ND9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NWI3ZGMyMWNjN2MyNjVjZGZkNmE4MTc0NDk5Y2M2NGI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D683aa7ed29701ffb01177d4edbd11507?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q0ROJUUzJTgxJUFFSlMlRTYlOTQlQjklRTMlODElOTYlRTMlODIlOTMlRTMlODIlOTIlRTYlQTQlOUMlRTclOUYlQTUlRTMlODElOTklRTMlODIlOEJTUkklRTglQTglQUQlRTUlQUUlOUElRTMlODElQTglRTklODElOEIlRTclOTQlQTglMjhpbnRlZ3JpdHklRTUlQjElOUUlRTYlODAlQTclRTMlODMlQkJIVE1MJTJGV29yZFByZXNzJUU1JUFGJUJFJUU1JUJGJTlDJTI5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZmNmMTdiMGVkM2FkM2RhMjc4MWNiYTgwMjhmMjc4YjA&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBqaWlzLXNhc2FraSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWRjZDE3ZmZiZDY4ZjIxN2Q2MTQ5YjExYTlmNjE0ODFk&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=b53b54ef7a2472eff3bc3d730ad20176"
+    },
+    {
+      "id": "hatenablog-https://piyolog.hatenadiary.jp/entry/2026/08/12/072307",
+      "source": "hatenablog",
+      "title": "Eストアーのショップサーブへの不正アクセスについてまとめてみた",
+      "url": "https://piyolog.hatenadiary.jp/entry/2026/08/12/072307",
+      "publishedAt": "2026-08-11T22:23:07.000Z",
+      "summary": "2026年8月1日、株式会社Eストアーは、同社が運営するECサイト構築サービス「ショップサーブ」のサーバーが外部から不正アクセスを受け、利用店舗の購入者情報が外部に漏えいしたと公表しました。翌8月2日には対象期間や漏えい項目を拡大・訂正した第2報を公表しています。その後、ショップサーブを利用する多数の店舗が、自社の顧客が漏えいの対象に含まれるかについて相次いで公表しています。ここでは関連する…",
+      "thumbnail": "https://ogimage.blog.st-hatena.com/10257846132616586766/14945776032063898916/1786486987",
+      "author": "piyolog"
+    },
+    {
+      "id": "qiita-https://qiita.com/mame_hiro416/items/91cc19e3b9df396a6af2",
+      "source": "qiita",
+      "title": "自宅サーバーからメールを直接送れないのはなぜ？ポート25制限とメール送信リレーサービスの基礎",
+      "url": "https://qiita.com/mame_hiro416/items/91cc19e3b9df396a6af2",
+      "publishedAt": "2026-08-11T22:20:35.000Z",
+      "summary": "はじめに 自作アプリから「パスワード再設定メール」や「通知メール」を送りたいとき、自宅回線・自宅サーバーから直接メールを送信しようとすると、高確率で相手に届かない、あるいはそもそも接続すらできないという壁にぶつかります。本記事では、その原因と、一般的に用いられる回避策である「メール送信リレーサービス」の考え方を整理します。 メール送信の基本：SMTPとポート25 メールの配送には SMTP(…",
+      "author": "@mame_hiro416",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhLSUyRkFPaDE0R2k4NkxkN1dSREUwZHlJakpjSmdmVlJkQjNIZ2k0ZEszTk45RnMlM0RzNTA_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWMzYzgzZGUwYWE1NzgzMmQwZWMwY2UyYmNhOTEzZWE4%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D0d2e1ea94e8e2d6f44049f2bafc643a3?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU4JTg3JUFBJUU1JUFFJTg1JUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkwJUUzJTgzJUJDJUUzJTgxJThCJUUzJTgyJTg5JUUzJTgzJUExJUUzJTgzJUJDJUUzJTgzJUFCJUUzJTgyJTkyJUU3JTlCJUI0JUU2JThFJUE1JUU5JTgwJTgxJUUzJTgyJThDJUUzJTgxJUFBJUUzJTgxJTg0JUUzJTgxJUFFJUUzJTgxJUFGJUUzJTgxJUFBJUUzJTgxJTlDJUVGJUJDJTlGJUUzJTgzJTlEJUUzJTgzJUJDJUUzJTgzJTg4MjUlRTUlODglQjYlRTklOTklOTAlRTMlODElQTglRTMlODMlQTElRTMlODMlQkMlRTMlODMlQUIlRTklODAlODElRTQlQkYlQTElRTMlODMlQUElRTMlODMlQUMlRTMlODMlQkMlRTMlODIlQjUlRTMlODMlQkMlRTMlODMlOTMlRTMlODIlQjklRTMlODElQUUlRTUlOUYlQkElRTclQTQlOEUmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1jOTVmM2UwYzUzYjViNmUxMzc0ZDY1YjZmZmMzYzFhZQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtYW1lX2hpcm80MTYmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz00NjMwMGJkMjZhNGNlNzczZTUwNWJkNjNmMWVhMjljYQ&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=8b45afed3cf9e4fe5ab2ee5f959133b8"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/deadlock-ransomware-uses-blockchain-to-resist-infrastructure-takedown/",
+      "source": "bleepingcomputer",
+      "title": "DeadLock ransomware uses blockchain to resist infrastructure takedown",
+      "url": "https://www.bleepingcomputer.com/news/security/deadlock-ransomware-uses-blockchain-to-resist-infrastructure-takedown/",
+      "publishedAt": "2026-08-11T22:15:22.000Z",
+      "summary": "The DeadLock ransomware operation is using a decentralized infrastructure that relies on blockchain-backed services to protect its communication with victims and data-leak activity. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/04/28/ransomware.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "DeadLockランサムウェア、インフラの遮断を防ぐためにブロックチェーンを利用",
+      "summaryJa": "DeadLockランサムウェアは、被害者との通信やデータ漏洩活動を保護するために、ブロックチェーン技術を活用した分散型インフラを採用しています。これにより、当局によるサーバー遮断への耐性を高めています。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/08/11/signal-adds-an-extra-layer-of-security-to-make-sure-youre-actually-chatting-with-the-right-person/5286461",
+      "source": "theregister",
+      "title": "Signal adds an extra layer of security to make sure you're actually chatting with the right person",
+      "url": "https://www.theregister.com/security/2026/08/11/signal-adds-an-extra-layer-of-security-to-make-sure-youre-actually-chatting-with-the-right-person/5286461",
+      "publishedAt": "2026-08-11T21:45:00.000Z",
+      "summary": "One big caveat, though: You need your contact's phone number",
+      "thumbnail": "https://image.theregister.com/?imageId=227546&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "Signal、相手が本人であることを確認するセキュリティ層を追加",
+      "summaryJa": "Signalは、チャット相手が本人であることを確認するための新たなセキュリティ機能を追加しました。ただし、利用には連絡先の電話番号が必要となる点が注意点です。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/application-security/microsofts-patch-tuesday-deluge-continues",
+      "source": "darkreading",
+      "title": "Microsoft's Patch Tuesday Deluge Continues With August Updates",
+      "url": "https://www.darkreading.com/application-security/microsofts-patch-tuesday-deluge-continues",
+      "publishedAt": "2026-08-11T21:42:34.000Z",
+      "summary": "Security experts say prioritization should be the main focus for the August updates, not the massive CVE volume.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltff4a30148731b710/6a7b8cee356eb8abac637ca4/patch_tomeqs_shutterstock.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "Microsoftのパッチチューズデー、8月の更新プログラムが大量にリリース",
+      "summaryJa": "Microsoftの8月の月例セキュリティ更新プログラムが公開されました。セキュリティ専門家は、修正対象となる脆弱性の数が非常に多いため、優先順位を付けて対応することが重要であると指摘しています。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/08/11/421-bugs-in-microsofts-patch-tuesday-release-and-the-norks-have-already-attacked-one/5286483",
+      "source": "theregister",
+      "title": "421 bugs in Microsoft's Patch Tuesday release, and the Norks have already attacked one",
+      "url": "https://www.theregister.com/security/2026/08/11/421-bugs-in-microsofts-patch-tuesday-release-and-the-norks-have-already-attacked-one/5286483",
+      "publishedAt": "2026-08-11T21:31:00.000Z",
+      "summary": "Sysadmins, welcome to your new norm",
+      "thumbnail": "https://image.theregister.com/?imageId=1683286&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "Microsoftのパッチチューズデーで421件の脆弱性を修正、北朝鮮関連グループが既に悪用",
+      "summaryJa": "Microsoftの月例更新で421件もの脆弱性が修正されました。そのうち1件は、既に北朝鮮に関連する攻撃者によって悪用されていることが確認されており、システム管理者は迅速な対応を求められています。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa",
+      "source": "darkreading",
+      "title": "Gunra Ransomware Gang Exploits Fortinet Flaws, Bypasses MFA",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa",
+      "publishedAt": "2026-08-11T21:16:25.000Z",
+      "summary": "The ransomware-as-a-service operation is finding success against critical infrastructure targets with leaked Conti code and old flaws in firewalls and VPN appliances.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt468a31de0930ebef/6a7b87a0f0b097cbb1a7bb39/ransomware-jittawit.21-Getty-2178699306.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "Gunraランサムウェア集団、Fortinetの脆弱性を悪用しMFAを回避",
+      "summaryJa": "ランサムウェア・アズ・ア・サービス（RaaS）を展開するGunraは、流出したContiのコードやファイアウォール・VPN機器の古い脆弱性を悪用し、多要素認証（MFA）を回避して重要インフラを攻撃しています。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/sandworm-hackers-target-it-pros-with-trojanized-wireguard-vpn-client/",
+      "source": "bleepingcomputer",
+      "title": "Sandworm hackers target IT pros with trojanized WireGuard VPN client",
+      "url": "https://www.bleepingcomputer.com/news/security/sandworm-hackers-target-it-pros-with-trojanized-wireguard-vpn-client/",
+      "publishedAt": "2026-08-11T21:07:24.000Z",
+      "summary": "Hackers associated with the Russian threat group Sandworm have been targeting system administrators and IT professionals through fake job offers since at least May. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/08/11/apt44.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "Sandwormハッカー、トロイの木馬化したWireGuard VPNクライアントでIT専門家を標的に",
+      "summaryJa": "ロシアの脅威グループSandwormに関連するハッカーが、少なくとも5月以降、偽の求人情報を利用してシステム管理者やIT専門家を標的にしています。攻撃には、トロイの木馬を仕込んだWireGuard VPNクライアントが使われています。"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/08/microsoft-patches-398-flaws-including.html",
+      "source": "thehackernews",
+      "title": "Microsoft Patches 398 Flaws Including a Windows Driver Zero-Day Under Active Attack",
+      "url": "https://thehackernews.com/2026/08/microsoft-patches-398-flaws-including.html",
+      "publishedAt": "2026-08-11T20:10:55.000Z",
+      "summary": "Microsoft released its monthly security updates on Tuesday, and one of the flaws it closed is already being used in attacks. The bug sits in a core Windows kernel driver that handles network socket…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4HtkIdWjqoYaSkO4edq9d5ZotqTE-LNMM14UlVoPaVKw2hwBahFYrPkB3jttURH0gcBXxCDtyHhiGMAIrxCX74gYCb_ivX4INmfRzt7HRb-bPTNt1lV-nUQm_pHQQHrhUwx4JWS7DtAzOZ1etx-yjPAVrNJXGBltqXjHPSI5NcfnWQqYurz0LK-dRRMo/s1600/aug-ms-patch.jpg",
+      "author": "The Hacker News",
+      "titleJa": "Microsoft、Windowsドライバーのゼロデイ脆弱性を含む398件の欠陥を修正",
+      "summaryJa": "Microsoftは月例セキュリティ更新プログラムを公開し、398件の脆弱性を修正しました。その中には、既に攻撃に悪用されているWindowsカーネルドライバーのゼロデイ脆弱性が含まれています。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/",
+      "source": "bleepingcomputer",
+      "title": "Cisco warns of ASA and FTD VPN flaw exploited to crash devices",
+      "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/",
+      "publishedAt": "2026-08-11T19:45:31.000Z",
+      "summary": "Cisco is warning that a high-severity denial-of-service vulnerability in Secure Firewall ASA and Threat Defense (FTD) software is being actively exploited in attacks to remotely crash affected devi…",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2025/03/04/Cisco_headpic.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "Cisco、ASAおよびFTD VPNの脆弱性を警告、デバイスをクラッシュさせる攻撃を確認",
+      "summaryJa": "Ciscoは、Secure Firewall ASAおよびThreat Defense（FTD）ソフトウェアに存在する深刻度の高いサービス拒否（DoS）脆弱性について警告しました。この脆弱性は、リモートからデバイスをクラッシュさせる攻撃に悪用されています。"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/08/kimwolf-v7-android-botnet-makes-http2.html",
+      "source": "thehackernews",
+      "title": "Kimwolf v7 Android Botnet Makes HTTP/2 DDoS Traffic Look Like Legitimate Browsing",
+      "url": "https://thehackernews.com/2026/08/kimwolf-v7-android-botnet-makes-http2.html",
+      "publishedAt": "2026-08-11T19:36:37.000Z",
+      "summary": "Cybersecurity researchers have discovered a new version of the Kimwolf/AISURU Android and Internet of Things (IoT) botnet that comes with significant improvements to improve its operational resilie…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieGDZmdQhY70KqvppH4w5wMVhbs804WeageCN1UXtRK4KpFkYWNk-wkTeTv9CUSNGYQMsaZ04XYWimXsIQmfl0uYSFgNJe7uBbXsg1xPw-cukXwJY3O3TAHUpWiiYmleWgDpu4PLMRfjgIQtOxb6Wq2yFjvqyb6lpoCOcOyWOpZoURLpddzyGkmc8soRHe/s1600/android-botnet.jpg",
+      "author": "The Hacker News",
+      "titleJa": "Androidボットネット「Kimwolf v7」、HTTP/2 DDoSトラフィックを正規のブラウジングに見せかける",
+      "summaryJa": "サイバーセキュリティ研究者は、AndroidおよびIoTデバイスを標的とするボットネット「Kimwolf/AISURU」の新バージョンを発見しました。このバージョンでは、DDoS攻撃のトラフィックを正規のブラウジング通信に見せかける機能が強化されています。"
+    },
+    {
+      "id": "qiita-https://qiita.com/pitopito/items/34a004a4f150d4a93cdc",
+      "source": "qiita",
+      "title": "2026/8/12主にITとかセキュリティの記事",
+      "url": "https://qiita.com/pitopito/items/34a004a4f150d4a93cdc",
+      "publishedAt": "2026-08-11T19:12:57.000Z",
+      "summary": "XSS2Shell：WordPressの新たな脆弱性がPHPコード実行につながる恐れ（CVE-2026-64638）(8/10) https://codebook.machinarecord.com/threatreport/silobreaker-cyber-alert/47150/ WordPressにXSS2Shell、全バージョン影響 公式が緊急更新を呼びかけ(8/10) https…",
+      "author": "@pitopito",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZkMzAxZWM0MjcyODUyNDU0ODNjZmY2ZDFjOGY0ZmIzYz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MDBhODNkNGNhZTViMjZjY2Y4ZTg3ZWRjNzhjM2MxN2U%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db26a49cd4e665ea23e67fdfa079183e5?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9MjAyNiUyRjglMkYxMiVFNCVCOCVCQiVFMyU4MSVBQklUJUUzJTgxJUE4JUUzJTgxJThCJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgxJUFFJUU4JUE4JTk4JUU0JUJBJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MGE2NjAyNDE0NTYyZmI1N2Y0MzhiYjA0MTBlNTQ4Njc&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwaXRvcGl0byZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTRiOTYyYWNlZTBhODcyODhkYWViZDVlNzVmNWI3MDkx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=0cb1e7d19dad6cc0d4fe62d83d436b4d"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/08/zoom-annotation-flaws-could-let-meeting.html",
+      "source": "thehackernews",
+      "title": "Zoom Annotation Flaws Could Let a Meeting Participant Hijack Another Attendee's Client",
+      "url": "https://thehackernews.com/2026/08/zoom-annotation-flaws-could-let-meeting.html",
+      "publishedAt": "2026-08-11T19:08:47.000Z",
+      "summary": "Anyone sharing their screen on a Zoom call could have taken over the computers of everyone watching, and anyone watching could have taken over the presenter's. The flaw sat in the annotation tool, …",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIX-dcsP7VVws3iI-g-myaz7Wyt8fgrlR9U3CtweEsSriOayyy8r9uyB_1mVcMhSBPyulDXj47SOLsWhl7XQjgMpLYGSjF79fiMTw7zEVOAceKqtAlHCVAMs38paehT0bmDN1zdAyMjHgvdUfYzqRCGEU1StMPyrYW5xIkJzG6DIHh9R9gemNCus_Mwlc/s1600/zoomsday.jpg",
+      "author": "The Hacker News",
+      "titleJa": "Zoomの注釈機能の欠陥により、会議参加者が他の出席者のクライアントを乗っ取れる可能性",
+      "summaryJa": "Zoomの画面共有機能における注釈ツールに、参加者間で互いのコンピュータを乗っ取ることが可能な脆弱性が存在していました。共有者と視聴者の双方が攻撃対象となり得る深刻な欠陥です。"
+    },
     {
       "id": "thehackernews-https://thehackernews.com/2026/08/sandworm-linked-uac-0145-uses-fake-job.html",
       "source": "thehackernews",
@@ -9,7 +191,9 @@
       "publishedAt": "2026-08-11T18:36:47.000Z",
       "summary": "The Computer Emergency Response Team of Ukraine (CERT-UA) has disclosed details of a new social engineering campaign orchestrated by Russian nation-state threat actors targeting IT workers in the c…",
       "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiP9vK0AfjfbpQDa7i5il113N22qO5N-mxuOw7qoNVnvUOnQIYRjhuKA8rxdRhaZ13t0r5jZtsj1bjQQatdbdxi3L1Fso99wsDJIAKkw6NVklb6S2PBfipUtUm6qNdGofjKrmSAHUc0P4qgPRK2tDoGftkwyD17KQHQm6cYP80rT4dUH-tg0rnd5SSfQBJl/s1600/interview.jpg",
-      "author": "The Hacker News"
+      "author": "The Hacker News",
+      "titleJa": "Sandwormに関連するUAC-0145、偽の採用面接を利用してコマンド実行可能なVPNを配布",
+      "summaryJa": "ウクライナのCERT-UAは、ロシアの国家支援型攻撃者がIT労働者を標的にした新たなソーシャルエンジニアリング攻撃を明らかにしました。偽の採用面接を通じて、コマンド実行が可能なVPNソフトをインストールさせます。"
     },
     {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/delta-probes-wi-fi-deauth-attack-on-flight-carrying-def-con-attendees/",
@@ -19,7 +203,9 @@
       "publishedAt": "2026-08-11T18:34:23.000Z",
       "summary": "Delta Air Lines is investigating an unauthorized Wi-Fi network that appeared aboard a flight from Las Vegas to Atlanta carrying passengers who had attended the DEF CON hacker convention. [...]",
       "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/08/11/DeltaAirLine.png",
-      "author": "BleepingComputer"
+      "author": "BleepingComputer",
+      "titleJa": "デルタ航空、DEF CON参加者が搭乗した便でのWi-Fi認証解除攻撃を調査",
+      "summaryJa": "デルタ航空は、ラスベガスからアトランタへ向かう便の機内で、不正なWi-Fiネットワークが確認された件を調査しています。この便にはDEF CONハッカー会議の参加者が多数搭乗していました。"
     },
     {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/windows-10-kb5120249-cumulative-update-released-with-fixes/",
@@ -29,7 +215,9 @@
       "publishedAt": "2026-08-11T18:26:03.000Z",
       "summary": "Microsoft has released Windows 10 KB5120249 Extended Security Updates for versions 22H2 and 21H2 to fix security vulnerabilities and bugs. [...]",
       "thumbnail": "https://www.bleepstatic.com/content/hl-images/2024/09/10/windows-10-gradient.jpg",
-      "author": "BleepingComputer"
+      "author": "BleepingComputer",
+      "titleJa": "Microsoft、Windows 10向け拡張セキュリティ更新プログラム「KB5120249」をリリース",
+      "summaryJa": "Microsoftは、Windows 10のバージョン22H2および21H2向けに、セキュリティ脆弱性とバグを修正する拡張セキュリティ更新プログラム「KB5120249」を公開しました。"
     },
     {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/microsoft-august-2026-patch-tuesday-fixes-400-flaws-3-zero-days/",
@@ -39,7 +227,9 @@
       "publishedAt": "2026-08-11T18:08:50.000Z",
       "summary": "Today is Microsoft's August 2026 Patch Tuesday, and with it comes security updates for a massive 400 flaws, including one actively exploited and two publicly disclosed zero-day vulnerabilities. [...]",
       "thumbnail": "https://www.bleepstatic.com/content/hl-images/2024/10/08/patch_tuesday_microsoft.jpg",
-      "author": "BleepingComputer"
+      "author": "BleepingComputer",
+      "titleJa": "Microsoftの2026年8月の月例パッチ、400件の脆弱性と3件のゼロデイを修正",
+      "summaryJa": "Microsoftは2026年8月の月例パッチを公開し、400件もの脆弱性を修正しました。これには、既に悪用が確認されているもの1件と、公開済みのゼロデイ脆弱性2件が含まれています。"
     },
     {
       "id": "qiita-https://qiita.com/leomarokun/items/9f972f3f59506d59d33a",
@@ -59,7 +249,9 @@
       "publishedAt": "2026-08-11T17:38:42.000Z",
       "summary": "Microsoft has released Windows 11 KB5121003 and KB5120240 cumulative updates for versions 25H2/24H2 and 23H2 to fix security vulnerabilities, bugs, and add new features. [...]",
       "thumbnail": "https://www.bleepstatic.com/content/hl-images/2024/07/18/Windows11.jpg",
-      "author": "BleepingComputer"
+      "author": "BleepingComputer",
+      "titleJa": "Windows 11向け累積更新プログラム「KB5121003」および「KB5120240」がリリース",
+      "summaryJa": "Microsoftは、Windows 11のバージョン25H2/24H2および23H2向けに、セキュリティ脆弱性やバグの修正、新機能の追加を含む累積更新プログラムを公開しました。"
     },
     {
       "id": "thehackernews-https://thehackernews.com/2026/08/researchers-disclose-ai-assisted.html",
@@ -69,7 +261,9 @@
       "publishedAt": "2026-08-11T16:47:44.000Z",
       "summary": "Security researchers found a way to enter Microsoft SharePoint servers as any user, including an administrator, with no valid account. A significant part of the work that found it was done through …",
       "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbDSDTAbeeAZ8pykGFRAGcCDs_3LZBuD8tYUJfh0jG35r_o84zM_bNo7q3TWcoEMPmZqvhzucujEF72b2c2HnzfDjowsj4Iw4psQEwcgADR_rVMCXVw18arcpSB0WLblkZeypa-bgJPsD0qwrqBUk2umKezFZTtuDpbi_kQlsGUSiveb2suBMRyc3oZhQ/s1600/admin.jpg",
-      "author": "The Hacker News"
+      "author": "The Hacker News",
+      "titleJa": "研究者がAIを活用したSharePointの脆弱性連鎖を公開、認証なしでRCEに到達",
+      "summaryJa": "セキュリティ研究者が、Microsoft SharePointサーバーに対し、アカウントなしで管理者権限を含む任意のユーザーとして侵入する手法を発見しました。AIを活用して脆弱性の連鎖を特定しています。"
     },
     {
       "id": "thehackernews-https://thehackernews.com/2026/08/deadlock-ransomware-uses-polygon-smart.html",
@@ -79,7 +273,21 @@
       "publishedAt": "2026-08-11T16:35:27.000Z",
       "summary": "The ransomware group known as DeadLock has been observed using decentralized infrastructure to facilitate victim communications and data leak operations in a bid to improve operational resilience. …",
       "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHe7Kt8X_4eEC2ICocbCp-eg1Vs7xknMUYEnZzepw5j6mg7v7C7DmPvzf4S-Z4wGhofTJco3eW95xPm3x7nDEzdfF9dpJAEriyIAGsXqNcLT02br6Em30kPnD5vYp4CrHHAR8TvvNr6glr8mIeRwhPANZqTSG7w_tR1-8QUNgYWg4AXgVPrmob7CFzwLmA/s1600/deadlock.jpg",
-      "author": "The Hacker News"
+      "author": "The Hacker News",
+      "titleJa": "DeadLockランサムウェア、Polygonスマートコントラクトを利用して恐喝インフラを強化",
+      "summaryJa": "ランサムウェアグループ「DeadLock」が、被害者との通信やデータ漏洩操作に分散型インフラを利用していることが確認されました。運用の耐性を高め、妨害を困難にする狙いがあります。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/08/11/def-con-dingus-suspected-of-trying-to-take-over-delta-in-flight-wi-fi/5286331",
+      "source": "theregister",
+      "title": "DEF CON dingus suspected of trying to take over Delta in-flight Wi-Fi",
+      "url": "https://www.theregister.com/security/2026/08/11/def-con-dingus-suspected-of-trying-to-take-over-delta-in-flight-wi-fi/5286331",
+      "publishedAt": "2026-08-11T16:27:57.000Z",
+      "summary": "This is why we can't have nice things, people",
+      "thumbnail": "https://image.theregister.com/?imageId=260314&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "DEF CON参加者がデルタ航空の機内Wi-Fiの乗っ取りを試みた疑い",
+      "summaryJa": "DEF CONハッカー会議の参加者が、デルタ航空の機内Wi-Fiネットワークの乗っ取りを試みた疑いが持たれています。"
     },
     {
       "id": "qiita-https://qiita.com/Ikechom/items/bc200bff53d4c088afbd",
@@ -102,6 +310,16 @@
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzU0MTk3JTJGNzY4MGMzNmI0MjExOWM0NTJhZGE3NTg4MmZmYTdiZGY2YWM5OWY5MSUyRmxhcmdlLnBuZyUzRjE3NzM1OTE5OTU_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWMzNGYyNGM0YWYxNTlkZTgyZTNmODg3NDE5YmZhMDUz%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D37216015e08ec9269277f1ac729b92fb?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU1JUFFJTg5JUU1JTg1JUE4JUUzJTgzJTk1JUUzJTgzJTgzJUUzJTgyJUFGJUUzJTgxJUFCJUUzJTgwJThDJUU2JTk3JUE5JUUzJTgxJThGJUU2JThBJTlDJUUzJTgxJTkxJUUzJTgyJThCJUU5JTgxJTkzJUUzJTgwJThEJUUzJTgyJTkyJUU4JUI2JUIzJUUzJTgxJTk3JUUzJTgxJTlGJUUzJTgyJTg5JUUzJTgwJTgxJUU1JUFFJTg4JUUzJTgyJThBJUUzJTgxJThDJUU3JUI3JUE5JUUzJTgyJTkzJUUzJTgxJUEwJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZjEzZDk1ZDgwZjVjZDM0ZTgwNTgwZWRkODdlYWU5NGY&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB5dXJ1a3VzYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTk1MGY3NWQ2ZWE5NjYzY2RhMzc4ZGE1MWUzNGM2ZGQ4&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=ea3b42a397b2f49e3b1d495621343cbb"
     },
     {
+      "id": "zenn-https://zenn.dev/ankoma/articles/447fb875c4c1e0",
+      "source": "zenn",
+      "title": "Veryl入門：Keccak書いてみる",
+      "url": "https://zenn.dev/ankoma/articles/447fb875c4c1e0",
+      "publishedAt": "2026-08-11T16:06:05.000Z",
+      "summary": "いま話題の？ VerylでKeccakを書いてみる。使ってみた感想は当然だけどSystemVerilogのトランスパイラだなという感触。なのである程度HDLというかSystemVerilog触ったことがある人じゃないと使えないかなーと思った。 総評としてはSystemVerilogの冗長な記述が楽に書けるのは確か。ただしいまのところ劇的に効率が上がるってわけじゃないかなって感想。ただvery…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--6lUgZ3oS--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Veryl%25E5%2585%25A5%25E9%2596%2580%25EF%25BC%259AKeccak%25E6%259B%25B8%25E3%2581%2584%25E3%2581%25A6%25E3%2581%25BF%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:ankoma%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUFUWEFKd1dvTVgxSy1NSnZQLW92eUoxU1pnQ1ZyQUhBcTBOT0dpeFl6cy09czk2LWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/wesco-confirms-security-incident-after-exfilsquad-claims-data-theft/",
       "source": "bleepingcomputer",
       "title": "Wesco confirms security incident after ExfilSquad claims data theft",
@@ -109,7 +327,21 @@
       "publishedAt": "2026-08-11T15:59:35.000Z",
       "summary": "Global supply chain and distribution giant Wesco has confirmed in a statement for BleepingComputer that it is investigating a cybersecurity incident. [...]",
       "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/08/11/wesco.jpg",
-      "author": "BleepingComputer"
+      "author": "BleepingComputer",
+      "titleJa": "Wescoがセキュリティインシデントを確認、ExfilSquadがデータ窃取を主張",
+      "summaryJa": "世界的なサプライチェーン企業であるWescoは、サイバーセキュリティインシデントが発生したことを認め、調査中であると発表しました。ハッカー集団ExfilSquadがデータの窃取を主張しています。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/08/11/two-wars-and-a-world-cup-lead-to-epic-ddos-attacks-on-publishers/5286278",
+      "source": "theregister",
+      "title": "Two wars and a World Cup lead to epic DDoS attacks on publishers",
+      "url": "https://www.theregister.com/security/2026/08/11/two-wars-and-a-world-cup-lead-to-epic-ddos-attacks-on-publishers/5286278",
+      "publishedAt": "2026-08-11T15:33:00.000Z",
+      "summary": "Ukraine, Iran, and football inspire geopolitically motivated DDoS attacks, while 1 Tbps traffic jams up 519 percent",
+      "thumbnail": "https://image.theregister.com/?imageId=254502&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "2つの戦争とワールドカップが、パブリッシャーに対する大規模なDDoS攻撃を誘発",
+      "summaryJa": "ウクライナ、イラン、サッカーに関連した地政学的な動機によるDDoS攻撃が発生し、1Tbps規模のトラフィックが519％増加しました。"
     },
     {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/mozilla-updates-gpg-key-for-signing-firefox-thunderbird-releases-after-exposure/",
@@ -119,7 +351,9 @@
       "publishedAt": "2026-08-11T13:20:28.000Z",
       "summary": "Mozilla announced today that it updated the GPG key used to sign Firefox and Thunderbird releases after it was accidentally exposed on GitHub. [...]",
       "thumbnail": "https://www.bleepstatic.com/content/hl-images/2023/09/12/Mozilla.jpg",
-      "author": "BleepingComputer"
+      "author": "BleepingComputer",
+      "titleJa": "Mozilla、Firefoxリリース用GPG署名鍵の漏洩を受け更新",
+      "summaryJa": "Mozillaは、FirefoxとThunderbirdのリリースに使用するGPG鍵がGitHub上で誤って公開されたため、鍵を更新したと発表しました。"
     },
     {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/vague-task-total-access-when-ai-delegation-becomes-a-security-risk/",
@@ -129,7 +363,9 @@
       "publishedAt": "2026-08-11T13:15:24.000Z",
       "summary": "AI agents can improvise beyond the intended scope of a task when they are given broad access to enterprise systems and data. Token Security explains why organizations need to define agent intent an…",
       "thumbnail": "https://www.bleepstatic.com/content/posts/2026/08/10/token-ai-vaugeness.jpg",
-      "author": "BleepingComputer"
+      "author": "BleepingComputer",
+      "titleJa": "曖昧なタスクと完全なアクセス権：AIへの委任がセキュリティリスクとなる時",
+      "summaryJa": "AIエージェントに企業システムやデータへの広範なアクセス権を与えると、意図した範囲を超えて自律的に行動するリスクがあります。Token Securityは、組織がエージェントの意図を定義する必要性を説いています。"
     },
     {
       "id": "qiita-https://qiita.com/YushiYamamoto/items/422fdc61e9d8ac0711ef",
@@ -8797,7 +9033,16 @@
       "qiita-https://qiita.com/yurukusa/items/b69a4f80c87f1fee703a": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzU0MTk3JTJGNzY4MGMzNmI0MjExOWM0NTJhZGE3NTg4MmZmYTdiZGY2YWM5OWY5MSUyRmxhcmdlLnBuZyUzRjE3NzM1OTE5OTU_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWMzNGYyNGM0YWYxNTlkZTgyZTNmODg3NDE5YmZhMDUz%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D37216015e08ec9269277f1ac729b92fb?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU1JUFFJTg5JUU1JTg1JUE4JUUzJTgzJTk1JUUzJTgzJTgzJUUzJTgyJUFGJUUzJTgxJUFCJUUzJTgwJThDJUU2JTk3JUE5JUUzJTgxJThGJUU2JThBJTlDJUUzJTgxJTkxJUUzJTgyJThCJUU5JTgxJTkzJUUzJTgwJThEJUUzJTgyJTkyJUU4JUI2JUIzJUUzJTgxJTk3JUUzJTgxJTlGJUUzJTgyJTg5JUUzJTgwJTgxJUU1JUFFJTg4JUUzJTgyJThBJUUzJTgxJThDJUU3JUI3JUE5JUUzJTgyJTkzJUUzJTgxJUEwJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZjEzZDk1ZDgwZjVjZDM0ZTgwNTgwZWRkODdlYWU5NGY&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB5dXJ1a3VzYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTk1MGY3NWQ2ZWE5NjYzY2RhMzc4ZGE1MWUzNGM2ZGQ4&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=ea3b42a397b2f49e3b1d495621343cbb",
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/wesco-confirms-security-incident-after-exfilsquad-claims-data-theft/": "https://www.bleepstatic.com/content/hl-images/2026/08/11/wesco.jpg",
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/vague-task-total-access-when-ai-delegation-becomes-a-security-risk/": "https://www.bleepstatic.com/content/posts/2026/08/10/token-ai-vaugeness.jpg",
-      "qiita-https://qiita.com/Ikechom/items/bc200bff53d4c088afbd": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkY2NWYxYzlmMmJlYmI0NzliNTc1ZmNjYTQwYmQyYWY1MD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NTdmZDZiMzZmYTRlODQxOWMyZGNmMjRhYWFlZmQ0M2Y%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D91229a713a24497a8fe5eb172c4e53ab?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9RE5TJUUzJTgzJUJCJUUzJTgzJUFEJUUzJTgyJUIwJUU3JUFFJUExJUU3JTkwJTg2JUUzJTgzJUJCJUU3JUFCJUFGJUU2JTlDJUFCJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgxJUFCJUUzJTgxJUE0JUUzJTgxJTg0JUUzJTgxJUE2JUU1JUFEJUE2JUU3JUJGJTkyJUUzJTgxJTk3JUUzJTgxJTlGJUU4JUE5JUIxJTI4RE5TU0VDJUUzJTgzJUJCVFBNJUUzJTgzJUJCQllPRCVFMyU4MyVCQklvVCVFMyU4MSVCRSVFMyU4MSVBNyUyOSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWNjZWQxZjEzYTQxMTYyZGY1MTIzZGIwMDZjNTczOTAw&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBJa2VjaG9tJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MjUyOWIxYmJhYWFkOGU0MjRjMWM4NWI4MDVlZGJhNWE&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=9e54d23d0e51d0cb1d8698bf5f17d2f0"
+      "qiita-https://qiita.com/Ikechom/items/bc200bff53d4c088afbd": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkY2NWYxYzlmMmJlYmI0NzliNTc1ZmNjYTQwYmQyYWY1MD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NTdmZDZiMzZmYTRlODQxOWMyZGNmMjRhYWFlZmQ0M2Y%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D91229a713a24497a8fe5eb172c4e53ab?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9RE5TJUUzJTgzJUJCJUUzJTgzJUFEJUUzJTgyJUIwJUU3JUFFJUExJUU3JTkwJTg2JUUzJTgzJUJCJUU3JUFCJUFGJUU2JTlDJUFCJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgxJUFCJUUzJTgxJUE0JUUzJTgxJTg0JUUzJTgxJUE2JUU1JUFEJUE2JUU3JUJGJTkyJUUzJTgxJTk3JUUzJTgxJTlGJUU4JUE5JUIxJTI4RE5TU0VDJUUzJTgzJUJCVFBNJUUzJTgzJUJCQllPRCVFMyU4MyVCQklvVCVFMyU4MSVCRSVFMyU4MSVBNyUyOSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWNjZWQxZjEzYTQxMTYyZGY1MTIzZGIwMDZjNTczOTAw&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBJa2VjaG9tJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MjUyOWIxYmJhYWFkOGU0MjRjMWM4NWI4MDVlZGJhNWE&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=9e54d23d0e51d0cb1d8698bf5f17d2f0",
+      "qiita-https://qiita.com/Maku-Inc/items/d582b0993cb5fb2bffdf": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MDU1Nzc4JTJGNWZkYjM1MjEyZWZmOGZjZjJhNTFlY2FkYTZlZDkyZTM1OTc1ZmYyNyUyRmxhcmdlLnBuZyUzRjE3ODI3NDM1NzI_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTEwYzhmMWYzNDkzMTQxNjQ2ZGMzYTNiMTAyYjQzOTli%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D708ad4aa3fb7ebe64e03f6185490ebaa?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU4JUI4JThGJUUzJTgxJUJGJUU1JThGJUIwJUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkwJUUzJTgzJUJDJUUzJTgxJUFFJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgyJTkyJUU2JUE1JUI1JUUzJTgyJTgxJUUzJTgyJThCU1NIJUU5JThEJUI1JUU3JUFFJUExJUU3JTkwJTg2JUVGJUJDJTlBJUUzJTgyJUE4JUUzJTgzJUIzJUUzJTgyJUI4JUUzJTgzJThCJUUzJTgyJUEyJUU1JUJGJTg1JUU2JTkwJUJBJUUzJTgxJUFFJUUzJTgzJTk5JUUzJTgyJUI5JUUzJTgzJTg4JUUzJTgzJTk3JUUzJTgzJUE5JUUzJTgyJUFGJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgyJUI5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YjRlMzhjODU0OTQxYjhkZmViMDJkZGZmM2JmYmNkMjM&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBNYWt1LUluYyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWI0MzEzYTM5NDUzZWIwY2JhNTU4MWE3Yjg4MTJmZTY2&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=4591a19de95571230627923448a237f2",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/google-says-chrome-cuts-7-billion-unwanted-android-notifications-a-day-to-fight-abuse/": "https://www.bleepstatic.com/content/hl-images/2025/09/02/Google.jpg",
+      "qiita-https://qiita.com/jiis-sasaki/items/b9af6a365db98ad95d9d": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDQzNjQwJTJGNTFlMTk3MTk0Mzg0YjhlYmE3ZmE5M2JjOGRhZTE3ZjA4ZWZjM2IzZSUyRnhfbGFyZ2UucG5nJTNGMTc4MDYzOTY2ND9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NWI3ZGMyMWNjN2MyNjVjZGZkNmE4MTc0NDk5Y2M2NGI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D683aa7ed29701ffb01177d4edbd11507?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q0ROJUUzJTgxJUFFSlMlRTYlOTQlQjklRTMlODElOTYlRTMlODIlOTMlRTMlODIlOTIlRTYlQTQlOUMlRTclOUYlQTUlRTMlODElOTklRTMlODIlOEJTUkklRTglQTglQUQlRTUlQUUlOUElRTMlODElQTglRTklODElOEIlRTclOTQlQTglMjhpbnRlZ3JpdHklRTUlQjElOUUlRTYlODAlQTclRTMlODMlQkJIVE1MJTJGV29yZFByZXNzJUU1JUFGJUJFJUU1JUJGJTlDJTI5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZmNmMTdiMGVkM2FkM2RhMjc4MWNiYTgwMjhmMjc4YjA&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBqaWlzLXNhc2FraSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWRjZDE3ZmZiZDY4ZjIxN2Q2MTQ5YjExYTlmNjE0ODFk&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=b53b54ef7a2472eff3bc3d730ad20176",
+      "qiita-https://qiita.com/mame_hiro416/items/91cc19e3b9df396a6af2": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhLSUyRkFPaDE0R2k4NkxkN1dSREUwZHlJakpjSmdmVlJkQjNIZ2k0ZEszTk45RnMlM0RzNTA_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWMzYzgzZGUwYWE1NzgzMmQwZWMwY2UyYmNhOTEzZWE4%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D0d2e1ea94e8e2d6f44049f2bafc643a3?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU4JTg3JUFBJUU1JUFFJTg1JUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkwJUUzJTgzJUJDJUUzJTgxJThCJUUzJTgyJTg5JUUzJTgzJUExJUUzJTgzJUJDJUUzJTgzJUFCJUUzJTgyJTkyJUU3JTlCJUI0JUU2JThFJUE1JUU5JTgwJTgxJUUzJTgyJThDJUUzJTgxJUFBJUUzJTgxJTg0JUUzJTgxJUFFJUUzJTgxJUFGJUUzJTgxJUFBJUUzJTgxJTlDJUVGJUJDJTlGJUUzJTgzJTlEJUUzJTgzJUJDJUUzJTgzJTg4MjUlRTUlODglQjYlRTklOTklOTAlRTMlODElQTglRTMlODMlQTElRTMlODMlQkMlRTMlODMlQUIlRTklODAlODElRTQlQkYlQTElRTMlODMlQUElRTMlODMlQUMlRTMlODMlQkMlRTMlODIlQjUlRTMlODMlQkMlRTMlODMlOTMlRTMlODIlQjklRTMlODElQUUlRTUlOUYlQkElRTclQTQlOEUmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1jOTVmM2UwYzUzYjViNmUxMzc0ZDY1YjZmZmMzYzFhZQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtYW1lX2hpcm80MTYmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz00NjMwMGJkMjZhNGNlNzczZTUwNWJkNjNmMWVhMjljYQ&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=8b45afed3cf9e4fe5ab2ee5f959133b8",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/deadlock-ransomware-uses-blockchain-to-resist-infrastructure-takedown/": "https://www.bleepstatic.com/content/hl-images/2026/04/28/ransomware.jpg",
+      "hatenablog-https://piyolog.hatenadiary.jp/entry/2026/08/12/072307": "https://ogimage.blog.st-hatena.com/10257846132616586766/14945776032063898916/1786486987",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/sandworm-hackers-target-it-pros-with-trojanized-wireguard-vpn-client/": "https://www.bleepstatic.com/content/hl-images/2026/08/11/apt44.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/": "https://www.bleepstatic.com/content/hl-images/2025/03/04/Cisco_headpic.jpg",
+      "qiita-https://qiita.com/pitopito/items/34a004a4f150d4a93cdc": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZkMzAxZWM0MjcyODUyNDU0ODNjZmY2ZDFjOGY0ZmIzYz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MDBhODNkNGNhZTViMjZjY2Y4ZTg3ZWRjNzhjM2MxN2U%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db26a49cd4e665ea23e67fdfa079183e5?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9MjAyNiUyRjglMkYxMiVFNCVCOCVCQiVFMyU4MSVBQklUJUUzJTgxJUE4JUUzJTgxJThCJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgxJUFFJUU4JUE4JTk4JUU0JUJBJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MGE2NjAyNDE0NTYyZmI1N2Y0MzhiYjA0MTBlNTQ4Njc&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwaXRvcGl0byZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTRiOTYyYWNlZTBhODcyODhkYWViZDVlNzVmNWI3MDkx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=0cb1e7d19dad6cc0d4fe62d83d436b4d"
     },
     "xLinkCards": {},
     "translations": {
@@ -10022,6 +10267,98 @@
       "thehackernews-https://thehackernews.com/2026/08/hackers-breach-polish-power-plant.html": {
         "titleJa": "ハッカーがプライベートセルラーネットワーク経由でポーランドの発電所制御システムに侵入し、タービンを停止",
         "summaryJa": "攻撃者が電力網運営会社が使用するプライベートセルラーネットワークに侵入し、ポーランドの火力発電所の蒸気タービンと水処理システムを停止させた。"
+      },
+      "theregister-https://www.theregister.com/security/2026/08/11/two-wars-and-a-world-cup-lead-to-epic-ddos-attacks-on-publishers/5286278": {
+        "titleJa": "2つの戦争とワールドカップが、パブリッシャーに対する大規模なDDoS攻撃を誘発",
+        "summaryJa": "ウクライナ、イラン、サッカーに関連した地政学的な動機によるDDoS攻撃が発生し、1Tbps規模のトラフィックが519％増加しました。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/mozilla-updates-gpg-key-for-signing-firefox-thunderbird-releases-after-exposure/": {
+        "titleJa": "Mozilla、Firefoxリリース用GPG署名鍵の漏洩を受け更新",
+        "summaryJa": "Mozillaは、FirefoxとThunderbirdのリリースに使用するGPG鍵がGitHub上で誤って公開されたため、鍵を更新したと発表しました。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/vague-task-total-access-when-ai-delegation-becomes-a-security-risk/": {
+        "titleJa": "曖昧なタスクと完全なアクセス権：AIへの委任がセキュリティリスクとなる時",
+        "summaryJa": "AIエージェントに企業システムやデータへの広範なアクセス権を与えると、意図した範囲を超えて自律的に行動するリスクがあります。Token Securityは、組織がエージェントの意図を定義する必要性を説いています。"
+      },
+      "thehackernews-https://thehackernews.com/2026/08/zoom-annotation-flaws-could-let-meeting.html": {
+        "titleJa": "Zoomの注釈機能の欠陥により、会議参加者が他の出席者のクライアントを乗っ取れる可能性",
+        "summaryJa": "Zoomの画面共有機能における注釈ツールに、参加者間で互いのコンピュータを乗っ取ることが可能な脆弱性が存在していました。共有者と視聴者の双方が攻撃対象となり得る深刻な欠陥です。"
+      },
+      "thehackernews-https://thehackernews.com/2026/08/sandworm-linked-uac-0145-uses-fake-job.html": {
+        "titleJa": "Sandwormに関連するUAC-0145、偽の採用面接を利用してコマンド実行可能なVPNを配布",
+        "summaryJa": "ウクライナのCERT-UAは、ロシアの国家支援型攻撃者がIT労働者を標的にした新たなソーシャルエンジニアリング攻撃を明らかにしました。偽の採用面接を通じて、コマンド実行が可能なVPNソフトをインストールさせます。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/delta-probes-wi-fi-deauth-attack-on-flight-carrying-def-con-attendees/": {
+        "titleJa": "デルタ航空、DEF CON参加者が搭乗した便でのWi-Fi認証解除攻撃を調査",
+        "summaryJa": "デルタ航空は、ラスベガスからアトランタへ向かう便の機内で、不正なWi-Fiネットワークが確認された件を調査しています。この便にはDEF CONハッカー会議の参加者が多数搭乗していました。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/windows-10-kb5120249-cumulative-update-released-with-fixes/": {
+        "titleJa": "Microsoft、Windows 10向け拡張セキュリティ更新プログラム「KB5120249」をリリース",
+        "summaryJa": "Microsoftは、Windows 10のバージョン22H2および21H2向けに、セキュリティ脆弱性とバグを修正する拡張セキュリティ更新プログラム「KB5120249」を公開しました。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/microsoft-august-2026-patch-tuesday-fixes-400-flaws-3-zero-days/": {
+        "titleJa": "Microsoftの2026年8月の月例パッチ、400件の脆弱性と3件のゼロデイを修正",
+        "summaryJa": "Microsoftは2026年8月の月例パッチを公開し、400件もの脆弱性を修正しました。これには、既に悪用が確認されているもの1件と、公開済みのゼロデイ脆弱性2件が含まれています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5121003-and-kb5120240-cumulative-updates-released/": {
+        "titleJa": "Windows 11向け累積更新プログラム「KB5121003」および「KB5120240」がリリース",
+        "summaryJa": "Microsoftは、Windows 11のバージョン25H2/24H2および23H2向けに、セキュリティ脆弱性やバグの修正、新機能の追加を含む累積更新プログラムを公開しました。"
+      },
+      "thehackernews-https://thehackernews.com/2026/08/researchers-disclose-ai-assisted.html": {
+        "titleJa": "研究者がAIを活用したSharePointの脆弱性連鎖を公開、認証なしでRCEに到達",
+        "summaryJa": "セキュリティ研究者が、Microsoft SharePointサーバーに対し、アカウントなしで管理者権限を含む任意のユーザーとして侵入する手法を発見しました。AIを活用して脆弱性の連鎖を特定しています。"
+      },
+      "thehackernews-https://thehackernews.com/2026/08/deadlock-ransomware-uses-polygon-smart.html": {
+        "titleJa": "DeadLockランサムウェア、Polygonスマートコントラクトを利用して恐喝インフラを強化",
+        "summaryJa": "ランサムウェアグループ「DeadLock」が、被害者との通信やデータ漏洩操作に分散型インフラを利用していることが確認されました。運用の耐性を高め、妨害を困難にする狙いがあります。"
+      },
+      "theregister-https://www.theregister.com/security/2026/08/11/def-con-dingus-suspected-of-trying-to-take-over-delta-in-flight-wi-fi/5286331": {
+        "titleJa": "DEF CON参加者がデルタ航空の機内Wi-Fiの乗っ取りを試みた疑い",
+        "summaryJa": "DEF CONハッカー会議の参加者が、デルタ航空の機内Wi-Fiネットワークの乗っ取りを試みた疑いが持たれています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/wesco-confirms-security-incident-after-exfilsquad-claims-data-theft/": {
+        "titleJa": "Wescoがセキュリティインシデントを確認、ExfilSquadがデータ窃取を主張",
+        "summaryJa": "世界的なサプライチェーン企業であるWescoは、サイバーセキュリティインシデントが発生したことを認め、調査中であると発表しました。ハッカー集団ExfilSquadがデータの窃取を主張しています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/google-says-chrome-cuts-7-billion-unwanted-android-notifications-a-day-to-fight-abuse/": {
+        "titleJa": "Google、Chromeが1日あたり70億件の不要なAndroid通知を削減し悪用に対抗と発表",
+        "summaryJa": "Googleは、Chromeの不正防止システムにより、2026年第1四半期にAndroid上の不要な通知を1日あたり70億件以上削減したと発表しました。この取り組みは、ユーザーを迷惑な通知から保護することを目的としています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/deadlock-ransomware-uses-blockchain-to-resist-infrastructure-takedown/": {
+        "titleJa": "DeadLockランサムウェア、インフラの遮断を防ぐためにブロックチェーンを利用",
+        "summaryJa": "DeadLockランサムウェアは、被害者との通信やデータ漏洩活動を保護するために、ブロックチェーン技術を活用した分散型インフラを採用しています。これにより、当局によるサーバー遮断への耐性を高めています。"
+      },
+      "theregister-https://www.theregister.com/security/2026/08/11/signal-adds-an-extra-layer-of-security-to-make-sure-youre-actually-chatting-with-the-right-person/5286461": {
+        "titleJa": "Signal、相手が本人であることを確認するセキュリティ層を追加",
+        "summaryJa": "Signalは、チャット相手が本人であることを確認するための新たなセキュリティ機能を追加しました。ただし、利用には連絡先の電話番号が必要となる点が注意点です。"
+      },
+      "darkreading-https://www.darkreading.com/application-security/microsofts-patch-tuesday-deluge-continues": {
+        "titleJa": "Microsoftのパッチチューズデー、8月の更新プログラムが大量にリリース",
+        "summaryJa": "Microsoftの8月の月例セキュリティ更新プログラムが公開されました。セキュリティ専門家は、修正対象となる脆弱性の数が非常に多いため、優先順位を付けて対応することが重要であると指摘しています。"
+      },
+      "theregister-https://www.theregister.com/security/2026/08/11/421-bugs-in-microsofts-patch-tuesday-release-and-the-norks-have-already-attacked-one/5286483": {
+        "titleJa": "Microsoftのパッチチューズデーで421件の脆弱性を修正、北朝鮮関連グループが既に悪用",
+        "summaryJa": "Microsoftの月例更新で421件もの脆弱性が修正されました。そのうち1件は、既に北朝鮮に関連する攻撃者によって悪用されていることが確認されており、システム管理者は迅速な対応を求められています。"
+      },
+      "darkreading-https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa": {
+        "titleJa": "Gunraランサムウェア集団、Fortinetの脆弱性を悪用しMFAを回避",
+        "summaryJa": "ランサムウェア・アズ・ア・サービス（RaaS）を展開するGunraは、流出したContiのコードやファイアウォール・VPN機器の古い脆弱性を悪用し、多要素認証（MFA）を回避して重要インフラを攻撃しています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/sandworm-hackers-target-it-pros-with-trojanized-wireguard-vpn-client/": {
+        "titleJa": "Sandwormハッカー、トロイの木馬化したWireGuard VPNクライアントでIT専門家を標的に",
+        "summaryJa": "ロシアの脅威グループSandwormに関連するハッカーが、少なくとも5月以降、偽の求人情報を利用してシステム管理者やIT専門家を標的にしています。攻撃には、トロイの木馬を仕込んだWireGuard VPNクライアントが使われています。"
+      },
+      "thehackernews-https://thehackernews.com/2026/08/microsoft-patches-398-flaws-including.html": {
+        "titleJa": "Microsoft、Windowsドライバーのゼロデイ脆弱性を含む398件の欠陥を修正",
+        "summaryJa": "Microsoftは月例セキュリティ更新プログラムを公開し、398件の脆弱性を修正しました。その中には、既に攻撃に悪用されているWindowsカーネルドライバーのゼロデイ脆弱性が含まれています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/": {
+        "titleJa": "Cisco、ASAおよびFTD VPNの脆弱性を警告、デバイスをクラッシュさせる攻撃を確認",
+        "summaryJa": "Ciscoは、Secure Firewall ASAおよびThreat Defense（FTD）ソフトウェアに存在する深刻度の高いサービス拒否（DoS）脆弱性について警告しました。この脆弱性は、リモートからデバイスをクラッシュさせる攻撃に悪用されています。"
+      },
+      "thehackernews-https://thehackernews.com/2026/08/kimwolf-v7-android-botnet-makes-http2.html": {
+        "titleJa": "Androidボットネット「Kimwolf v7」、HTTP/2 DDoSトラフィックを正規のブラウジングに見せかける",
+        "summaryJa": "サイバーセキュリティ研究者は、AndroidおよびIoTデバイスを標的とするボットネット「Kimwolf/AISURU」の新バージョンを発見しました。このバージョンでは、DDoS攻撃のトラフィックを正規のブラウジング通信に見せかける機能が強化されています。"
       }
     },
     "enrichVersion": "5"
