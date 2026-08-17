@@ -1,8 +1,8 @@
 # today.security — セキュリティ情報フィード集約サイト
 
-**Zenn**「security」トピック、**Qiita**「Security」「認証」タグ、**はてなブログ**の
-セキュリティ専門ブログ、**The Hacker News** / **Dark Reading** / **BleepingComputer** / **The Register** / **HackRead**（英語）から
-セキュリティ関連情報を自動集約し、時系列の統合タイムラインとして表示する静的サイト（GitHub Pages）。
+国内外のセキュリティ情報を公開フィードから自動集約し、時系列の統合タイムラインとして表示する
+静的サイト（GitHub Pages）。**集めているソースは下の「有効なソース」の表が正です**
+（⚠️ ここにサイト名を並べないこと。ソースを増減するたび、この列挙だけが取り残されるため）。
 
 - 公開URL: <https://tomoraku5.github.io/todaysec/>
 - 基盤: Astro 5 + Tailwind v4 + TypeScript
@@ -95,7 +95,6 @@ npx tsx scripts/generateOgImage.ts
 | `darkreading` | `www.darkreading.com/rss.xml`（Dark Reading・英語） | `darkreading.rssUrls` |
 | `bleepingcomputer` | `www.bleepingcomputer.com/feed/`（BleepingComputer・英語） | `bleepingcomputer.rssUrls` |
 | `theregister` | `www.theregister.com/security/headlines.atom`（The Register・英語・**セキュリティセクション限定**） | `theregister.rssUrls` |
-| `hackread` | `hackread.com/feed/`（HackRead・英語） | `hackread.rssUrls` |
 
 **`rssUrls` は配列**なので、トピック・ブログを増やしたいときは URL を足すだけです
 （Qiita はタグ名を `apiTags` に足します）。
@@ -132,14 +131,7 @@ npx tsx scripts/generateOgImage.ts
 > 転送されるので転送先を直接指定）。
 >
 > ⚠️ BleepingComputer は**フィードが15件しか返しません**（多くのソースは20〜50件）。実測で
-> **約2.4日分**にあたるので、CI が2日以上止まると取りこぼす可能性があります（HackRead はさらに
-> 薄く約1.8日分。下記）。
-
-> ⚠️ **HackRead は PR配信・SEO記事が混ざります。** 実測では10件中セキュリティ報道が4件程度で、
-> 「Top 10 Companies to Hire Power BI Developers」のような無関係な記事も並びます。
-> 承知の上で採用しており、除外の仕組みは今のところ入れていません（運用しながら判断する方針）。
-> フィードが10件（実測 約1.8日分）しか返さず、**全ソースで最も取りこぼしリスクが高い**点も
-> BleepingComputer と同様の注意点です。
+> **約2.4日分**にあたるので、CI が2日以上止まると取りこぼす可能性があります。
 
 > **はてなブログだけ「個別ブログのURLを並べる」方式**にしています。はてなブログには
 > Zenn/Qiita のような「全ブログ横断で特定タグの新着を取るフィード」が存在せず、
@@ -154,10 +146,24 @@ npx tsx scripts/generateOgImage.ts
 | source | 停止理由 |
 |------|------|
 | `x` | 取得元がフォーク元作者の公開データ。X API も有料のため使わない |
+| `hackread` | **2026-08-06 以降、サイト側にアクセスを拒否されている**（`403`）。2026-08-17 に停止 |
 
-`x` は画面のフィルタから隠すため `src/lib/feed.ts` の `SOURCES` 配列からも外しています。
-復活させるときは、同ファイルのコメントに書かれた行を配列に戻してください
-（`disabled: false` だけでは取得は再開しても画面に出ません）。
+⚠️ **この2つは扱いが違います。**
+
+- **`x` は画面からも隠しています**（`src/lib/feed.ts` の `SOURCES` 配列からも外してあります）。
+  復活させるときは、同ファイルのコメントに書かれた行を配列に戻してください
+  （`disabled: false` だけでは取得は再開しても画面に出ません）。
+- **`hackread` は画面に残しています**（`SOURCES` にあるまま）。**停止前に集めた記事は
+  そのまま表示され続けます。** 復活は `disabled: false` に戻すだけです。
+
+> ⚠️ **HackRead は「取得できなくなった」ので止めました**（品質を理由に外したのではありません）。
+> サイト側が **JavaScript の実行を求める関門**を出しており、プログラムからは通れません
+> （フィードだけでなくトップページも同じ）。**User-Agent を変えても通らないことは実測済みです。**
+> **回避策を思いつく前に [`docs/decisions.md`](docs/decisions.md) 項目22 を読んでください。**
+> 何を試して何が駄目だったかが記録してあります（同じ調査を繰り返さないため）。
+>
+> なお HackRead には **PR配信・SEO記事が混ざる**問題（実測10件中セキュリティ報道は4件程度）も
+> あり、除外するかは未決のままです。**403 で運用が止まったため判断材料が溜まっていません。**
 
 > **翻訳（`translate`）は無効ではなく有効です。** かつて無効化していましたが、英語ソースが
 > 増えたため有効化しました（`e29e520`）。ただし3行要約は使わず翻訳だけに絞っています
