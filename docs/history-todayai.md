@@ -34,3 +34,20 @@ npm run build      # 本番ビルド（型チェック込み）
 - Secret: `GEMINI_API_KEY`（機械翻訳。**現在有効**。未設定ならスキップされ原文表示になる）、`X_BEARER_TOKEN`（X 用。現在は無効化中の機能向け）。記事の取得元はすべて公開 RSS なのでトークン不要。
 - `push` 時は取得＋コミットをスキップ（既存キャッシュでビルド）しコミットループを回避。
 - Tailwind v4 + Astro 型不一致は `astro.config.mjs` で `any` キャスト。内部リンクは `src/lib/url.ts` の `siteLink()` 必須（base path は現在 `/todaysec`）。
+
+---
+
+## 削除した4ソースの実装上の要点（2026-08-10 に CLAUDE.md から移動）
+
+**削除コミットは `0e43fa2`**。実装・設計の詳細はその直前のコミットから読める
+（`git show 0e43fa2^:scripts/sources/<name>.ts`。`0e43fa2^` = `c5c9547`）。
+⚠️ **`git show c5c9547` 単体は OGP 画像の再生成コミット**なので、削除差分を見るなら `git show 0e43fa2`。
+
+削除の**判断と理由**は [`decisions.md` 項目2](decisions.md) にある。ここには**実装固有の落とし穴**だけ残す。
+
+| 削除ソース | 実装上の要点 |
+| --- | --- |
+| `hatena`（はてなブックマーク） | 人気エントリー RSS は**「今まさに人気の約30件」しか返さない**。フレッシュ取得分だけだとランキングから外れた記事が消えるため、**前回分を土台に蓄積する設計が必須**だった。この蓄積方式は今も全ソース共通の仕組みとして残っている |
+| `layerx` | Substack の公開 RSS が invite-only で取得不可 → 毎週届くメールを **Gmail REST API**（`GMAIL_CLIENT_ID`/`_SECRET`/`_REFRESH_TOKEN`、scope `gmail.readonly`）で読み、本文の各トピックリンクを1アイテム化していた。OAuth のリフレッシュトークンは失効しうる運用コストがあった |
+| `workspace` | Google Workspace Updates ブログ（Blogger Atom）。**`?redirect=false` を付けないと FeedBurner（http）へ 302 する**落とし穴があった |
+| `gcloud` | Google Cloud リリースノート Atom。**1エントリ＝1日**でタイトルが日付だけ・本文に全製品の更新がまとまるため、専用パーサで製品名を抽出して見出しにしていた |

@@ -40,9 +40,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 | 対象 | 理由 |
 | --- | --- |
-| `src/data/feed.json` を**コミットしない** | cron が6時間ごとに更新するため競合する。動作確認で `npm run aggregate` するのは構わないが、**確認後は `git checkout -- src/data/feed.json` で破棄する** |
+| `src/data/feed.json` を**コミットしない** | cron が6時間ごとに更新するため競合する。動作確認で `npm run aggregate` するのは構わないが、**確認後は `git checkout -- src/data/feed.json` で破棄する**。⚠️ **会話が圧縮されるときに自動コミットが走ることがある**（後述「6. この環境で効いている制約」）＝破棄は**早めに**行う |
 | `translate` の設定（`summarizeSources: []` / `disabled: false`） | `summarizeSources` に追加すると**日本語記事も要約対象**になり、入力が記事本文になるため**トークン消費が約16倍**になる（詳細はチェックリスト項目6） |
-| `x` ソース（`disabled: true` で温存中） | 削除しない。フラグを戻せば復活する状態を維持する |
+| `x` ソース（`disabled: true` で温存中） | 削除しない。フラグを戻せば復活する状態を維持する（設計と実装は [`docs/x-source.md`](docs/x-source.md)） |
 | `SHOW_LANG_FILTER_CHIP = false`（`src/components/SourceFilter.astro`） | 「日本語」フィルタチップの非表示フラグ。実装ごと残してある（詳細は「重要な制約・gotcha」） |
 | サイト名（`today.security`）・ロゴ色（エメラルド `#0f9b6c`） | ロゴ色は `--color-logo` 系のみ。サイト全体のアクセント（コバルト）とは別系統 |
 | `.env` / `.env.example` | **書き込みできない。** 修正が必要な場合は勝手に試さず、**依頼者に内容を伝えて手作業で対応してもらう** |
@@ -53,18 +53,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   esbuild の脆弱性が**開発サーバー実行中のみ**影響するため。過去に停止し忘れて
   **複数ポートに開発サーバーが溜まる問題が実際に起きている**。
 
-### 4. 検証の標準セット（完了報告の前に通す）
+### 4. 検証（変更したものによって通すものが違う）
 
-```bash
-npm run typecheck   # 型エラー 0。scripts/ はここでしか検査されない
-npm run build       # 本番ビルド
-npm run aggregate   # 収集に関わる変更のときだけ。ソース別件数を報告する
-npm run dev         # 表示確認（レイアウト崩れ・コンソールエラー）→ 確認後に停止
-```
+⚠️ **「毎回全部通す」ではない。** 無条件の一覧だったころ、**Markdown だけの変更で `typecheck` と
+`build` を通して実質何も検証していない**ということが実際に起きた（`CLAUDE.md` と `docs/` は
+`src/` の外にあり、型検査もビルドの対象に入らない）。
 
+| 変更したもの | `typecheck` | `build` | `aggregate` | 表示確認 |
+| --- | --- | --- | --- | --- |
+| Markdown・`docs/` のみ | — | — | — | — |
+| `scripts/`（収集ロジック） | ✅ | — | ✅ | — |
+| `src/`（画面・スタイル） | ✅ | ✅ | — | 依頼者 |
+| `feeds.config.ts`・ソースの追加/削除 | ✅ | ✅ | ✅ | 依頼者 |
+| `astro.config.mjs`・依存の更新 | ✅ | ✅ | — | 依頼者 |
+
+- **`typecheck`（astro check）は `scripts/` を検査する唯一の手段**（`build` は Astro が import する
+  ファイルしか見ない）。**`aggregate` を通したらソース別件数を報告し、確認後に
+  `git checkout -- src/data/feed.json` で破棄する。**
+- **表示確認は依頼者が行う**＝`npm run dev` は Claude 側から実行できない
+  （後述「6. この環境で効いている制約」）。**完了報告には「未実施」と正直に書くこと。**
+- ⚠️ 1行目（Markdown のみ）は **`src/content/` に `.md` を置く構成に変えたら見直す**
+  （現在 content collection は使っていないので `.md` はビルドに入らない）。
 - ソースの追加・削除・復活の場合は、これに加えて
   **「ソースを追加・削除するときのチェックリスト」を最初から最後まで通す**（後述）。
-  特に「3. 手で更新が必要なもの」（README.md / CLAUDE.md / OGP 画像）は自動追従しない。
+  特に「3. 手で更新が必要なもの」は自動追従しない。
 
 ### 5. 報告に含めること
 
@@ -73,6 +85,20 @@ npm run dev         # 表示確認（レイアウト崩れ・コンソールエ�
 - 検証の**実際の結果**（通っていないものは通っていないと書く）
 - **チェックリストや既存ドキュメントに不備を見つけたら指摘する。**
   過去3回、この指摘で実害を防げている。黙って直すのではなく、まず指摘すること。
+
+### 6. この環境で効いている制約（コードでも設定でも変えられない）
+
+⚠️ **以下は Claude Code の環境側の設定によるもので、このリポジトリのコードや設定では回避できない。**
+**理由と詳細は `CLAUDE.local.md`**（このリポジトリには含まれない。`.gitignore` 対象）。
+
+| 制約 | このリポジトリでの扱い |
+| --- | --- |
+| **`npm run dev` は Claude 側から実行できない**（環境側で止められる） | 表示確認は**依頼者が自分で実行する**。完了報告には「未実施」と正直に書く |
+| **会話が圧縮されるとき、作業中の変更が自動でコミットされることがある** | ⚠️ **`src/data/feed.json` の破棄（`git checkout --`）を後回しにしない。** 圧縮が起きた時点で巻き込まれる |
+
+- ⚠️ **`git log` に `checkpoint:` で始まるコミットが現れたら、自動コミットが起きたということ。**
+  内容（特に `src/data/feed.json` が入っていないか）を確認する。
+- **この制約に気づいたときは、回避策を作る前に依頼者へ報告する**（詳細は `CLAUDE.local.md`）。
 
 ## What this is
 
@@ -126,43 +152,27 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 
 ### 削除したソース（履歴）
 
-以下4ソースはセキュリティ用途に合わないため **コードごと削除済み**。
-**削除コミットは `0e43fa2`**。実装・設計の詳細はその直前のコミットから読める
-（`git show 0e43fa2^:scripts/sources/<name>.ts`。`0e43fa2^` = `c5c9547`）。
-⚠️ `git show c5c9547` 単体は**OGP 画像の再生成コミット**なので、削除差分を見るなら `git show 0e43fa2`。
-要点だけ残す:
+`hatena`（はてなブックマーク）/ `layerx` / `workspace` / `gcloud` の4ソースは、セキュリティ用途に
+合わないため **コードごと削除済み**（削除コミット `0e43fa2`）。
 
-| 削除ソース | 残す価値のある要点 |
-| --- | --- |
-| `hatena`（はてなブックマーク） | 人気エントリー RSS は**「今まさに人気の約30件」しか返さない**。フレッシュ取得分だけだとランキングから外れた記事が消えるため、**前回分を土台に蓄積する設計が必須**だった。この蓄積方式は今も全ソース共通の仕組みとして残っている |
-| `layerx` | Substack の公開 RSS が invite-only で取得不可 → 毎週届くメールを **Gmail REST API**（`GMAIL_CLIENT_ID`/`_SECRET`/`_REFRESH_TOKEN`、scope `gmail.readonly`）で読み、本文の各トピックリンクを1アイテム化していた。OAuth のリフレッシュトークンは失効しうる運用コストがあった |
-| `workspace` | Google Workspace Updates ブログ（Blogger Atom）。`?redirect=false` を付けないと FeedBurner（http）へ 302 する落とし穴があった |
-| `gcloud` | Google Cloud リリースノート Atom。**1エントリ＝1日**でタイトルが日付だけ・本文に全製品の更新がまとまるため、専用パーサで製品名を抽出して見出しにしていた |
+- **判断と理由**（なぜ X だけ温存したか、却下した案も）: `docs/decisions.md` 項目2
+- **実装上の落とし穴**（Gmail API の scope、`?redirect=false` を付けないと 302、1エントリ＝1日の
+  専用パーサ、はてブ RSS が約30件しか返さないこと、削除差分を読むときのコミットの罠）:
+  [`docs/history-todayai.md`](docs/history-todayai.md)
+
+⚠️ **はてブで得た「前回分を土台に蓄積する」設計は、今も全ソース共通の仕組みとして生きている。**
+この由来が分からなくなると、蓄積をやめる変更を安易にしてしまう。
 
 ### ノイズを承知の上で採用したソース
 
-**HackRead**（`hackread.com/feed/`）は、調査時に一度**見送った**あと、方針を変えて採用した。
-経緯と実測値を残す（除外の是非を後で判断するための材料）。
+**HackRead** はノイズ（セキュリティ無関係の SEO 記事・`CyberNewswire` のプレスリリース転載で、
+取得10件のうちセキュリティ報道は4件程度）を**承知のうえで採用**し、
+**除外の仕組みは意図的に作っていない**。経緯・実測値・除外の実装候補・再検討条件は
+`docs/decisions.md` 項目11（⚠️ **「近いうちに必ず再検討する」項目**）。
 
-- **実測されたノイズ**: 取得10件のうち**セキュリティ報道は4件程度**。残りは
-  「Top 10 Companies to Hire Power BI Developers in 2026」「Top 7 Enterprise IT Asset
-  Management Software for 2027」のような**セキュリティ無関係の SEO 記事**と、
-  著者 `dc:creator` が **`CyberNewswire`（プレスリリース転載）** の広報記事。
-- **一度見送った理由**: 「件数を増やす」より「探すコストを上げない」を優先したため。
-- **採用に転じた理由**: 除外が本当に必要か・どの条件が適切かは、**実際に1週間ほど運用して
-  実態を見てから判断する**方針にした。ノイズを含んだまま入れて様子を見る。
-- **⚠️ 除外の仕組みは意図的に作っていない。** 実装するときの候補は2つ:
-  1. `dc:creator` が `CyberNewswire` のものを除外（PR記事はこれでほぼ落ちる）
-  2. `categories` フィールドによる除外（フィードが categories を持つので技術的に可能）
-  どちらも `rss.ts` に「ソースごとの除外条件」を持たせる仕組みが必要で、**別作業**とする。
-- フィードは10件しか返さず、実測 5.6件/日 なので**約1.8日分**しか遡れない＝
-  BleepingComputer（約2.4日分）と並んで**取りこぼしリスクが最も高い部類**
-  （ソース別の一覧は後述「フィードから何日分遡れるか」の表）。
-- ⚠️ **現在フィードが `Status code 403` で取得できていない**（Cloudflare の判定変動と見られる。
-  前日は同じ UA で 10 件取得できていた）。**`disabled` にせず、回避も調査もしない方針**
-  ＝自然復旧の可能性があり、過去28件は保持されていて実害が限定的なため
-  （判断と再検討条件は `docs/decisions.md` 項目22）。**復旧すれば自動で取得が再開する。**
-  ⚠️ `feeds.config.ts` の「フィードは UA を問わず 200」というコメントは**この 403 と矛盾している**
+- ⚠️ **現在フィードが `Status code 403` で取得できていない。** **`disabled` にせず、回避も調査も
+  しない方針**（判断と再検討条件は `docs/decisions.md` 項目22）。**復旧すれば自動で取得が再開する。**
+- ⚠️ `feeds.config.ts` の「フィードは UA を問わず 200」というコメントは**この 403 と矛盾している**
   （403 はローカル実行で観測。CI でも起きているかは run ログ未確認）。
 
 ### フィードから何日分遡れるか（＝CI が止まったときの取りこぼしリスク）
@@ -202,13 +212,10 @@ Astro 5 + Tailwind v4 の静的サイト（GitHub Pages、base path `/todaysec`�
 ## Commands
 
 ```bash
-npm install
-npm run aggregate   # 有効なソースを取得 → src/data/feed.json を再生成（disabled のソースはスキップ）
-npm run dev         # http://localhost:4321/todaysec/（feed.json をそのまま表示。集約はしない）
-npm run build       # 本番ビルド。Astro グラフの型チェック込み
-npm run typecheck   # astro check。tsconfig が **/* を含むので scripts/ も型検査される
-npm run enrich:xlinks           # X 項目の t.co をリンクプレビュー（OGP カード）に補完（他ソース非取得・トークン不要。後述）
-npm run enrich:xlinks -- --fresh  # 負キャッシュ（null）を一掃して未補完分を再試行
+npm run aggregate   # 有効なソースを取得 → feed.json を再生成（disabled のソースはスキップ）
+npm run dev         # ⚠️ Claude 側からは実行できない（上述「6. この環境で効いている制約」）
+npm run build
+npm run typecheck   # astro check。scripts/ はここでしか型検査されない（下の「型チェックの落とし穴」）
 
 npm run backfill:qiita -- --since 2026-07-31   # Qiita の取りこぼしを API 履歴から復元（既定は dry-run）
                                                # ⚠️ 現在は使わない方針（docs/decisions.md 項目21）。
@@ -217,6 +224,7 @@ npm run backfill:qiita -- --since 2026-07-31   # Qiita の取りこぼしを API
 npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生成（後述）
 ```
 
+- **【無効】X 関連のコマンド（`npm run enrich:xlinks`）は [`docs/x-source.md`](docs/x-source.md)。**
 - **テストフレームワークは無い。** 検証は `npm run build` / `npm run typecheck` と、`npm run aggregate` の実行ログ（`✅ feed.json 更新: 計N件 (X=.. / Zenn=.. / Qiita=.. / はてなブログ=..)`）で行う。
 - **型チェックの落とし穴**: `npm run build` は Astro が import するファイルしか型検査しない。`scripts/aggregate.ts` と `scripts/sources/*` は Astro グラフ外なので、scripts を変更したら **`npm run typecheck`（astro check）で確認する**こと（tsconfig の `include: ["**/*"]` が拾う）。scripts は `tsx` で実行され、tsx は型を消すだけで検査しない。
 - **記事の取得にトークンは不要**（公開 RSS と、Qiita だけ認証不要の Qiita API v2）。**翻訳だけ `GEMINI_API_KEY` を使うが、これは GitHub Secrets にのみ置く方針**＝**ローカルに `.env` を作らない**（Public リポジトリでの誤コミットを構造的に排除するため。`docs/decisions.md` 項目6）。ローカルの `npm run aggregate` はキーが無いまま動き、**翻訳だけがスキップされる**（`state.translations` から既存分は再適用されるのでデータは壊れない）。温存している X をローカルで試す場合の `X_BEARER_TOKEN` も同様に常設しない。
@@ -241,21 +249,20 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 1. **集約（Node/tsx、ビルド前）**: GitHub Actions の cron（6時間ごと、`.github/workflows/update-and-deploy.yml`）が `scripts/aggregate.ts` を実行。7ソースを `FeedItem` に正規化 → 既存 feed.json とマージ → id で重複排除 → publishedAt 降順ソート → **ソース別 `retentionMax` でトリム**（後述の全期間アーカイブ）→ **トリム後の最終アイテムに OGP サムネ補完 → 機械翻訳で日本語補完（いずれも後述）** → feed.json を上書き。
 2. **表示（Astro、完全静的）**: `src/pages/index.astro`（と `rss.xml.ts`）が **ビルド時に** feed.json を読み込んで描画する。サイトは**実行時には**一切フェッチしない（SSG）。feed.json がレンダリングの単一の真実。
 
-**feed.json の保管先（`src/lib/feedStore.ts` 読み / `scripts/lib/feedWrite.ts` 書き）**: `GCS_BUCKET` 環境変数で2モードを透過切替（basecamp の `feed-storage.ts` と同方式）。
-**【現在はローカルモード】** リポジトリ変数 `GCS_BUCKET` を設定していないため、常に下の「ローカルモード」で動く。GCS モードの記述は将来使う可能性があるため残す（セットアップ手順は `docs/gcs-storage-setup.md`。ただし手順内の GCP プロジェクト名・バケット名はフォーク元のもの＝流用するなら自分の環境で作り直すこと）。
-- **ローカルモード（`GCS_BUCKET` 未設定・既定/開発）**: `src/data/feed.json` を fs で読み書き。従来どおり CI（feed-bot）が main にコミット。
-- **GCS モード（`GCS_BUCKET` 設定）**: feed.json は **GCS（`gs://<bucket>/feed.json`）が正本**。集約は GCS の public URL を読んでマージ→**ローカルに書き**、ワークフローが **`gcloud storage cp` で GCS へアップロード**（runner プリインストールの gcloud＋`google-github-actions/auth` の WIF。**@google-cloud/storage SDK は使わない**＝SDK の WIF→STS トークン交換が CI の node-fetch で `ERR_STREAM_PREMATURE_CLOSE` するため）。**git にはコミットしない**（6時間ごとのコミットループが消える＝履歴を git の外で全期間保持）。ビルドは GCS の public URL を fetch（読みは認証不要）。`src/data/feed.json`（committed）は GCS 404/障害時の**フォールバック種**として残す。`readFeed` は書き込み直後の読みで `?t=$GITHUB_RUN_ID` を付けて古いエッジキャッシュ（`Cache-Control: max-age=300`）を回避。**ワークフローは全 GCS ステップを `vars.GCS_BUCKET` でゲート**＝リポジトリ変数 `GCS_BUCKET`/`GCP_WIF_PROVIDER`/`GCP_SERVICE_ACCOUNT` を設定するまで現状（ローカルモード）のまま。
+**feed.json の保管先（`src/lib/feedStore.ts` 読み / `scripts/lib/feedWrite.ts` 書き）**: `GCS_BUCKET` 環境変数で2モードを透過切替。
+**【現在はローカルモード】** リポジトリ変数 `GCS_BUCKET` を設定していないため、`src/data/feed.json` を fs で読み書きし、CI（feed-bot）が main にコミットする。
+- **GCS モードは実装があるが有効化しない。** 判断は `docs/decisions.md` 項目13、セットアップ手順と設計上の注意（`gcloud` を使い SDK を使わない理由・エッジキャッシュの罠・ロールバック手順）は [`docs/gcs-storage-setup.md`](docs/gcs-storage-setup.md)。⚠️ 手順内の GCP プロジェクト名・バケット名は**フォーク元のもの**＝流用するなら自分の環境で作り直す。
 
 **保持ポリシー（全期間アーカイブ・ソース別枠）**: **全ソースがブロック先頭で `cachedFor(cache, source)` を無条件に積んで前回分を土台に蓄積**し、取得できた新着を追記 → dedup（id）で集約する。取得窓が狭い RSS（Zenn/Qiita は `limit:20`）でも過去分が失われない。**年齢トリム（旧 `maxAgeDays`）は廃止**し、各ソースの `retentionMax`（`feeds.config.ts`。newest を残す件数上限）が唯一の上限＝**ソース別枠なので物量の多いソースが他ソースを押し出さない**。トリム区間（`aggregate.ts` 末尾）は items をソース別バケットに分けて各 `slice(0, retentionMax)`（`retentionMaxFor()` ヘルパー）→ 再統合。**X も全キャッシュ保持でアーカイブ化**（旧来のブックマーク毎回フレッシュ置換＝上流削除分の purge は廃止）。
 
 **graceful degradation**: 各ソースは `aggregate.ts` 内で個別 try/catch。失敗 or トークン未設定でも、先頭で積んだ前回キャッシュ分がそのまま残り、他ソースだけ更新される。1ソースが落ちても run 全体は成功する。
 
-**`feed.json` の `state`**: run をまたいで持ち越す状態。X 外部アカウントの `since_id`（重複課金回避）、`userIds` キャッシュ、`xOgImages`（X由来 OGP画像の解決キャッシュ）、`xAuthors`（X item id→`{name,handle,avatar?}` の著者解決キャッシュ。`null`＝確認済み著者なしの負キャッシュ。fetch 失敗時は記録せず次回再試行）、`ogImages`（X以外 OGP画像の解決キャッシュ。`""`＝確認済み画像なしの負キャッシュ含む）、`xLinkCards`（X item id→リンクプレビューカード `{url,title?,description?,image?,domain}` / `null`＝確認済み・カードなしの負キャッシュ。t.co 先の OGP 解決結果。後述）、`translations`（id→`{titleJa?, summaryJa?, linkTitleJa?, linkDescJa?}` の翻訳/要約キャッシュ。`linkTitleJa`/`linkDescJa` は linkPreview の翻訳。毎回フレッシュ取得されるソースでも再生成しないための永続化）、`enrichVersion`（translations の生成ロジック版。`aggregate.ts` の `ENRICH_VERSION` と不一致なら旧キャッシュを破棄して作り直す＝プロンプト/挙動変更を即反映）。
+**`feed.json` の `state`**: run をまたいで持ち越す状態。`ogImages`（OGP画像の解決キャッシュ。`""`＝確認済み画像なしの負キャッシュ含む）、`translations`（id→`{titleJa?, summaryJa?, linkTitleJa?, linkDescJa?}` の翻訳/要約キャッシュ。毎回フレッシュ取得されるソースでも再生成しないための永続化）、`enrichVersion`（translations の生成ロジック版。`aggregate.ts` の `ENRICH_VERSION` と不一致なら旧キャッシュを破棄して作り直す＝プロンプト/挙動変更を即反映）。**⚠️ 負キャッシュ（`""` / `null`）は「確認済みで存在しなかった」の意味＝未確認と区別している。** X 由来のキー（`since_id` / `userIds` / `xOgImages` / `xAuthors` / `xLinkCards`）は [`docs/x-source.md`](docs/x-source.md)。
 
 **OGP サムネ補完（記事系: `scripts/sources/enrichArticles.ts`）**: `feed.json` 全体でサムネ付きは少数のため、トリム後の最終アイテムのうち**サムネが無いもの**を、記事 URL から og:image を `resolveOgImage()`（`scripts/sources/ogp.ts` を再利用、リダイレクト follow 済み）で解決して補完する。`state.ogImages` で既知分は再取得せず（負キャッシュ込み）、実行後に現存 id 分だけへ prune。**X は basecamp 公開JSON 経由で `xOgImages` により補完済み**なので対象外。記事系（`zenn`/`qiita`/`hatenablog`）は**上限なし**（少量）。並列プールは `scripts/sources/util.ts` の `mapLimit`（x.ts と共有）。
 
-
-**【現在は無効（X ソース停止中のため実質no-op）】X リンクプレビュー（`scripts/sources/xLinkCard.ts` の `enrichXLinks`）**: 本文が t.co リンクだけ / 末尾リンクの X ツイートに、リンク先の OGP カード（画像＋タイトル＋説明＋ドメイン）を `item.linkPreview` として補完する。**なぜ必要か**: 外部アカウント（`x.accounts`）は X API 経路（`fetchXAccounts`）で取得され、これは**添付メディアのサムネしか拾わず t.co を一切解決しない**＝link-card ツイートは無プレビューだった。そこで**両経路（fetchX / fetchXAccounts）の X 項目を横断**して補完する（enrichArticles と同じ「state 永続キャッシュ＋毎回再適用＋トリム後対象＋未確認のみ取得＋maxNew 段階補完＋prune」パターン。負キャッシュ=`null`）。解決は `resolveThumb` と同じ**ハイブリッド**: t.co を `resolvePage` で追跡し、**①最終URLが x.com/status → syndication でツイートのメディア画像＋本文（title）＋著者（description）**、**②外部サイト → `extractOgImage`/`extractOgTitle`/`extractOgDescription`**（`ogp.ts` に title/description 抽出を追加。`<title>` フォールバック込み）。**CI（datacenter IP）でも多くの外部サイトが解決できる** → `aggregate.ts` は既定で走らせる（`X_LINK_MAX_NEW` 既定40/run・env で上書き可）。Cloudflare 等で 403 になる分は負キャッシュ＋再適用で吸収し、`npm run enrich:xlinks`（`scripts/enrichXLinksLocal.ts`・residential IP・トークン不要）でバックフィルできる（`--fresh` で負キャッシュ一掃）。表示は `TweetCard.astro` が入れ子 `<a>`（`z-30`＞カード全面オーバーレイ `z-20`）でカードを描画＝カードのタップは**リンク先へ**、カード外はツイートへ遷移。本文からは t.co を落として生 URL を隠す（空になれば本文非表示）。title/description は translate ステップで日本語補完（`linkPreview.titleJa`/`descriptionJa`・`BilingualText` で日本語/原文トグル対応）。
+**【現在は無効】X リンクプレビュー（`enrichXLinks`）**: X ソース停止中のため実質 no-op。
+仕組みと落とし穴は [`docs/x-source.md`](docs/x-source.md)。
 
 **【現在は有効。ただし `summarizeSources` が空なので「3行要約」ではなく「非日本語のみ翻訳」】機械翻訳／要約で日本語補完（`scripts/sources/translate.ts` の `enrichTranslations`）**: `enrichArticles.ts` と同じ「state 永続キャッシュ＋毎回再適用＋トリム後対象」パターン。Gemini REST API（`generateContent`、`fetch` のみで依存追加なし）で **`titleJa` と `summaryJa` を1回のバッチ呼び出しで同時補完**する。`titleJa`=title が非日本語なら翻訳（日本語ならスキップ／空文字）。`summaryJa` は**ソースで分岐**: `feeds.config.ts` の `translate.summarizeSources`（**現在は空**）＆ summary が `summaryMinLen`（既定40字）以上のものは**原文の言語を問わず3行要約**（朝刊カードの概要が読みやすくなる。日本語記事も要約対象）、それ以外（X 等）は従来どおり summary を翻訳（非日本語のみ）。**X の `linkPreview`（リンクカード）がある項目は title/description も同じバッチで翻訳**し `linkPreview.titleJa`/`descriptionJa` に載せる（linkPreview は maxNew で本文と別ライフサイクルなので、cached があっても未翻訳の link だけ都度再翻訳＝キャッシュはマージ更新）。バッチ入力に per-entry `summarize` フラグを載せ1プロンプトで分岐。日本語判定は `isJapanese()`。`translate.batchSize` ごとに1回 API 呼び出し（`responseSchema` で JSON 配列を堅牢に受け取る）、`mapLimit` で `translate.concurrency` 並列。バッチ失敗（network/parse/件数不一致）はそのバッチをスキップし次回 run で再試行。結果は `state.translations` に保存し実行後に現存 id 分だけへ prune。**`GEMINI_API_KEY` 未設定なら丸ごとスキップ＝カードは原文のまま（graceful degradation）。** 毎回フレッシュ取得されるソースが `titleJa`/`summaryJa` を失っても `state.translations` から再適用するので再生成しない。**生成ロジック（プロンプト・翻訳↔要約の切替）を変えたら `aggregate.ts` の `ENRICH_VERSION` を上げる**＝`state.enrichVersion` と不一致なら旧キャッシュを破棄して即作り直す（アイテムが `retentionMax` で自然に入れ替わるのを待たない）。表示は `BilingualText.astro` がそのまま機能し、日本語＝AI要約 / 原文＝元の抜粋、として出し分く。
 
@@ -272,8 +279,8 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
 > **有効なソースの一覧はここに列挙しない**（二重管理になり実際にズレたため）＝
 > 冒頭の「現在有効なソース」表を見ること。
 
-- **【現在は無効】X**: X API を**叩かない**。自分のデータは basecamp 公開 JSON（`storage.googleapis.com/basecamp-feeds/x-tweets.json`）を読むだけ（トークン・課金不要、basecamp の OAuth と競合しない）。`x.accounts` の外部アカウントのみ X API **App-only Bearer**（`X_BEARER_TOKEN`）+ `since_id` 増分。OGP サムネは `scripts/sources/ogp.ts` で解決し `state.xOgImages` にキャッシュ。**本文が t.co リンクのツイートはリンク先の OGP カードを `linkPreview` として補完**（`enrichXLinks`。両取得経路を横断。後述）。表示は `TweetCard.astro`（ツイート風＋リンクプレビューカード）。
-  - **著者アイコン(avatar)/実名/@handle**: basecamp 公開JSON は元ツイートの著者を持たず `author` が `"ブックマーク"` 等の固定ラベルになる。これを **syndication（`scripts/sources/syndication.ts` の `fetchTweet`＝`cdn.syndication.twimg.com`・無料・トークン不要）** で解決し `FeedItem.avatarUrl`（`_400x400`化）/`authorName`/`author=@handle` を補完（`xOgImages` と同じ state永続キャッシュ＋毎回再適用＋新規は `authorMaxNew` 件/run の段階補完＋トリム後 prune パターン、`state.xAuthors`）。外部アカウントは X API の `expansions=author_id&user.fields=profile_image_url,name` で同様取得。`TweetCard.astro` は `avatarUrl` があれば丸枠に `<img>`（`onerror` でイニシャル/Xロゴへフォールバック）、無ければ従来の代替アイコン。**⚠️ syndication 直叩きは residential IP(ローカル)なら解決でき、CI(datacenter IP)では弱い可能性**（datacenter IP からの直叩きという制約。ただし 403 リスクは低い）。ローカル `npm run aggregate` で埋めた `state.xAuthors` は CI でも毎回再適用＝永続化される。
+- **【現在は無効】X**: X API を**叩かない**設計（basecamp 公開 JSON ＋ syndication）。
+  取得経路・著者解決・リンクプレビュー・`state` のキーは [`docs/x-source.md`](docs/x-source.md) に移した。
 - **【有効】Zenn（`zenn.dev/topics/security/feed`）**: 公開 RSS を共有ヘルパー `scripts/sources/rss.ts` の `fetchRss({rssUrls, source, limit})` で直接取得（`rss-parser`、トークン不要）。`zenn.rssUrls`。
   **`rssUrls` は配列**＝1ソースに複数トピックを束ねられる（改造で `rssUrl` から拡張）。**URL ごとに個別 try/catch** するので1本が 404 等で落ちても残りは取り込まれる。全 URL が失敗しても throw せず、`aggregate.ts` がブロック先頭で積んだ前回キャッシュがそのまま残る。**`limit` は「1 URL あたり」**の取得窓（合計ではない）＝ URL を足しても既存フィードの取り込み量が痩せない。
   - ⚠️ **フィードは CDN で最大12時間キャッシュされる**（`Cache-Control: public, s-maxage=43200`。実測で `Age: 13712`＝3.8時間前の内容が返り、キャッシュバスター付きだと2.7時間新しい内容が返った）。**結果として掲載が最大12時間遅れる。** ただし20件の窓が約1.5日分あるため**記事の損失は 0%**（実測: 未取込9件はすべて直近12時間以内の投稿＝遅延であって損失ではない）。
@@ -383,6 +390,14 @@ npx tsx scripts/generateOgImage.ts  # OGP 画像 public/og-default.png を再生
       過去4回この数字だけが取り残された（はてなブログ追加時の README、翻訳有効化時の README など）。
       **「N ソース」「A / B / C の3つ」といった書き方を新たに増やさない**＝表や `SOURCES` を
       参照する形にする
+- [ ] **`docs/decisions.md`** … **ソースの採否は「判断」なので項目を足す。**
+      ⚠️ **「再検討すべき条件」を必ず書く**（これが無いと後から覆せない）。
+      **運用では守られてきたがルールとして書かれていなかった**＝HackRead は項目11、
+      The Register は項目12、CloudNative は項目24 として記録済み
+- [ ] **`docs/` の該当ファイル** … 無効化中のソース専用のファイル
+      （例: [`docs/x-source.md`](docs/x-source.md)）があれば更新する。
+      ⚠️ **常時ロードから外して `docs/` へ移すたび、この行の面積が広がる**＝
+      移動を決めるときに「ここへ追記が必要か」を毎回考える
 - [ ] **OGP 画像** … `npx tsx scripts/generateOgImage.ts` を実行して `public/og-default.png` を再生成＋コミット。スクリプト自体は `SOURCES` を読むので**文言の修正は不要、実行を忘れないことだけが問題**
 
 ### 4. 無効化したソースを復活させるとき
@@ -575,6 +590,13 @@ git show origin/main:src/data/feed.json | jq '[.items[]|select(.titleJa)]|length
 - [`docs/fork-changes.md`](docs/fork-changes.md) — フォーク元 `satory074/todayai` からの変更点の一覧。
   **フォーク元の URL やアカウント名のハードコードが複数あった**ので、同種の残骸を見つけたら
   同じ方針（自分のリポジトリを指すよう修正）で直す。
+- [`docs/x-source.md`](docs/x-source.md) — **温存中の `x` ソース**の設計・実装・`state` のキー・
+  リンクプレビューの仕組み。⚠️ **復活させるときは `disabled: false` だけでは画面に出ない**
+  （下の「無効化したソースを復活させるとき」の4手順が必要）。
+- [`docs/gcs-storage-setup.md`](docs/gcs-storage-setup.md) — **未使用**の GCS 保管モードの手順と
+  設計上の注意（判断は `docs/decisions.md` 項目13）。
+- [`docs/decisions.md`](docs/decisions.md) — **なぜそう決めたか・何を却下したか・どうなったら覆るか**。
+  ⚠️ 現状の記述に納得がいかないとき、方針を変えようとするときは**先にここの「再検討すべき条件」を読む**。
 
 ---
 

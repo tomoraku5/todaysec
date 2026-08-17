@@ -86,6 +86,15 @@ gcloud storage cp src/data/feed.json gs://todayai-feeds/feed.json \
 > CI の node-fetch 経路で `ERR_STREAM_PREMATURE_CLOSE` を起こすため。gcloud は ADC を
 > native 解決するので堅牢（バケット作成に使ったのと同じ CLI）。
 
+## エッジキャッシュの罠（GCS モードのときだけ効く）
+
+GCS の public URL は `Cache-Control: max-age=300` で配信されるため、**書き込んだ直後に読むと
+古い内容が返る**。`readFeed` は書き込み直後の読みに `?t=$GITHUB_RUN_ID` を付けてこれを回避している。
+
+⚠️ 同じ理由で、**調査のために手で fetch するときもキャッシュバスターを付ける**こと
+（`?cb=<何か一意な値>`）。付け忘れると「書いたのに反映されない」と誤診する。
+committed feed の確認は `git show origin/main:src/data/feed.json` が確実。
+
 ## ロールバック
 
 GitHub Variables の `GCS_BUCKET` を削除（空に）するだけで、次回 run から従来のローカルファイル

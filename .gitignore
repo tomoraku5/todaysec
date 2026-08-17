@@ -9,3 +9,7 @@ dist/
 # Claude Code のローカル設定（共有しない）。
 # ⚠️ このリポジトリは Public。除外しないと allow ルールがそのまま公開される。
 .claude/settings.local.json
+
+# Claude Code のローカル指示（共有しない）。CLAUDE.md と同じように毎セッション読み込まれる。
+# ⚠️ 個人・環境に関する記述は、Public な CLAUDE.md ではなく必ずこちらに書く。
+CLAUDE.local.md
