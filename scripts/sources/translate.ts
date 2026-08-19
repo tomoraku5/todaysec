@@ -13,9 +13,70 @@
  * Gemini REST API（generateContent）を fetch のみで叩く（依存追加なし）。
  * responseMimeType=application/json + responseSchema で配列 JSON を堅牢に受け取る。
  * バッチ失敗（network / parse / 件数不一致）はそのバッチをスキップし run 全体は落とさない。
+ *
+ * 失敗への備えは3段構え（いずれも 2026-08-17〜18 の実測で必要性が確認できたもの）:
+ * 1. **待ってから複数回再送**（RETRY_DELAYS_MS）。503 は待つ以外に手が無い。
+ * 2. **出力上限**（maxOutputTokensFor）。暴走生成を早く打ち切って再送の余地を作る。
+ * 3. **リクエストのタイムアウト**（REQUEST_TIMEOUT_MS）。応答が返らないまま居座るのを防ぐ。
  */
 import type { FeedItem, FeedSource } from "../../src/lib/feed";
 import { mapLimit } from "./util";
+
+/** 指定ミリ秒待つ（再送の前に間を置くため）。 */
+const sleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
+
+/**
+ * 再送の待ち時間（ミリ秒）。**配列の長さ＝最大再送回数**。
+ *
+ * ⚠️ **待たずに投げ直してはいけない。** Gemini の 503 は
+ * `This model is currently experiencing high demand.（Spikes in demand are usually temporary）`
+ * ＝「時間を置いて再試行せよ」という意味で、0 秒で再送しても同じ答えが返る。
+ * 実測（2026-08-17〜18 の CI・即座に1回だけ再送する実装）: **3 バッチ全滅・回復 0**。
+ */
+const RETRY_DELAYS_MS = [5_000, 20_000, 60_000];
+
+/**
+ * バッチ index ごとにずらす待ち時間。
+ * ⚠️ `concurrency` 本を同時に投げているので、**失敗したら同時に投げ直す**ことになる
+ * （過負荷のモデルへの一斉再送）。index 分ずらして山を崩す。並列3なら 0 / 1.5 / 3 秒。
+ */
+const BACKOFF_STAGGER_MS = 1_500;
+
+/** 1 リクエストのタイムアウト。出力上限を入れたので正常な応答はこれより十分速い。 */
+const REQUEST_TIMEOUT_MS = 120_000;
+
+/**
+ * 1 リクエストの出力上限（トークン）。件数に比例させる。
+ *
+ * **目的は「暴走生成を早く打ち切る」こと**（訳の品質を絞るためではない）。実測で
+ * **129,848 文字**を生成してから途中で切れ、1 バッチで数分を消費していた。
+ *
+ * 見積り: 1 件あたり titleJa 約70字 + summaryJa 約350字 + JSON の記号 約60字 ≒ 480字。
+ * 日本語はおおむね 1 文字 1 トークンなので約 480 トークン。**700 で約45%の余裕**。
+ *
+ * ⚠️ **小さすぎると正常な応答が切れて「毎回失敗して永久に訳が付かない」状態になる。**
+ * 余裕を削らないこと。上限に当たった場合は `finishReason=MAX_TOKENS` がログに出る。
+ * ⚠️ `batchSize` を 10 より大きくするときは、モデルの出力上限を超えないか確認する
+ * （10 件で 7,512 トークン）。増やすなら batchSize ではなくバッチ数で稼ぐ。
+ */
+function maxOutputTokensFor(count: number): number {
+  return 512 + 700 * count;
+}
+
+/**
+ * HTTP ステータスから「送り直す価値があるか」と、人が読む分類名を決める。
+ *
+ * ⚠️ **かつて 403 を 429 と同じ「レート制限」と表示していた**ため、**キーの失効を
+ * レート制限と誤診する**状態だった（原因の切り分けができない）。必ず分けて出す。
+ */
+function classifyStatus(status: number): { retryable: boolean; label: string } {
+  if (status === 429) return { retryable: false, label: "レート制限・再送しない" };
+  if (status === 403) return { retryable: false, label: "キーが無効か権限不足の可能性・再送しない" };
+  if (status === 400)
+    return { retryable: false, label: "リクエストが不正（プロンプト/スキーマ側）・再送しない" };
+  if (status >= 500) return { retryable: true, label: "サーバ側の一時障害・待って再送" };
+  return { retryable: false, label: "再送しない" };
+}
 
 export interface TranslateOptions {
   model: string;
@@ -34,7 +95,7 @@ export interface TranslateResult {
   attempted: number;
   /** 実行したバッチ数 */
   batches: number;
-  /** 応答不良で1回だけ送り直したバッチ数 */
+  /** 応答不良で送り直した（1回以上）バッチ数。回数ではなくバッチ数 */
   retried: number;
   /** 送り直して回復したバッチ数 */
   recovered: number;
@@ -148,19 +209,31 @@ export async function enrichTranslations(
   let retried = 0;
   let recovered = 0;
   let failed = 0;
-  await mapLimit(batches, opts.concurrency, async (batch) => {
+  // ⚠️ index が必要（再送の待ち時間をバッチごとにずらすため）。mapLimit は他のソースと
+  //    共有しているので引数を増やさず、ここで index を持たせた要素を渡す。
+  const jobs = batches.map((batch, i) => ({ batch, i }));
+  await mapLimit(jobs, opts.concurrency, async ({ batch, i }) => {
     let res = await translateBatch(batch, apiKey, opts.model);
-    // 応答不良（JSON が途中で切れる等）は**確率的**に起きるので、同じ入力でも送り直すと
-    // 大半は回復する。実測: 生成が繰り返しループに陥り 13万字を返して途中で切れていた。
-    // ⚠️ レート制限（429/403）は再送すると追い打ちになるので retryable=false にしてある。
-    if (!res.ok && res.retryable) {
-      retried++;
-      console.warn(`[translate] 応答不良のため1回だけ再送します（${batch.length} 件）: ${res.reason}`);
+    // 応答不良は**確率的**なもの（生成がループして途中で切れる等）と、**時間で解決するもの**
+    // （503 = モデル過負荷）の2種類がある。どちらも「間を置いて送り直す」のが正解なので、
+    // RETRY_DELAYS_MS の回数だけ待って再送する。
+    // ⚠️ レート制限（429）・キー不正（403）・リクエスト不正（400）は待っても直らないので
+    //    classifyStatus() が retryable=false を返す＝ここには入らない。
+    let attempts = 0;
+    while (!res.ok && res.retryable && attempts < RETRY_DELAYS_MS.length) {
+      if (attempts === 0) retried++;
+      const wait = RETRY_DELAYS_MS[attempts] + i * BACKOFF_STAGGER_MS;
+      console.warn(
+        `[translate] 応答不良のため ${Math.round(wait / 1000)} 秒待って再送します` +
+          `（${batch.length} 件・${attempts + 1}/${RETRY_DELAYS_MS.length} 回目）: ${res.reason}`,
+      );
+      await sleep(wait);
       res = await translateBatch(batch, apiKey, opts.model);
-      if (res.ok) {
-        recovered++;
-        console.log(`[translate] 再送で回復しました（${batch.length} 件）`);
-      }
+      attempts++;
+    }
+    if (res.ok && attempts > 0) {
+      recovered++;
+      console.log(`[translate] 再送 ${attempts} 回で回復しました（${batch.length} 件）`);
     }
     if (!res.ok) {
       // ⚠️ 諦めた分は原文（英語）のまま公開される。次回 run で再試行されるが、
@@ -218,8 +291,9 @@ interface BatchTranslation {
 
 /**
  * 1バッチの結果。失敗時は「送り直す価値があるか（retryable）」を返す。
- * - retryable=true : 応答が壊れている / 一時的な障害 → 同じ入力で送り直すと回復しうる
- * - retryable=false: レート制限（429/403）→ 送り直すと追い打ちになるだけなので諦める
+ * - retryable=true : 応答が壊れている / 5xx / タイムアウト → 間を置いて送り直せば回復しうる
+ * - retryable=false: 429（レート制限）/ 403（キー不正）/ 400（リクエスト不正）→ 待っても直らない
+ * 判定は classifyStatus() に集約してある（**403 を 429 と混ぜないこと**＝誤診の元）。
  */
 type BatchOutcome =
   | { ok: true; data: BatchTranslation[] }
@@ -260,6 +334,8 @@ async function translateBatch(
     contents: [{ parts: [{ text: prompt }] }],
     generationConfig: {
       temperature: 0.2,
+      // 暴走生成の打ち切り用（品質を絞る意図ではない）。詳細は maxOutputTokensFor のコメント。
+      maxOutputTokens: maxOutputTokensFor(batch.length),
       responseMimeType: "application/json",
       responseSchema: {
         type: "ARRAY",
@@ -282,33 +358,36 @@ async function translateBatch(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
+      // 応答が返らないまま居座るのを防ぐ（実測で `fetch failed` が出ていた）。Node 18+。
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
     });
     if (!res.ok) {
-      const detail = (await res.text()).slice(0, 200);
-      // 429/403 = レート制限。ここで送り直しても状況を悪くするだけなので再送しない。
-      // それ以外（5xx 等）はサーバ側の一時障害なので送り直す価値がある。
-      const rateLimited = res.status === 429 || res.status === 403;
-      return {
-        ok: false,
-        retryable: !rateLimited,
-        reason: `Gemini ${res.status}${rateLimited ? "（レート制限・再送しない）" : ""}: ${detail}`,
-      };
+      // ⚠️ 改行を潰して**1行に収める**。Gemini のエラーは複数行 JSON で返るため、
+      //    そのまま出すと並列実行中の他のログと混ざって読めなくなる（実際に読みにくかった）。
+      const detail = (await res.text()).replace(/\s+/g, " ").slice(0, 200);
+      const { retryable, label } = classifyStatus(res.status);
+      return { ok: false, retryable, reason: `Gemini ${res.status}（${label}）: ${detail}` };
     }
     const data = (await res.json()) as {
-      candidates?: { content?: { parts?: { text?: string }[] } }[];
+      candidates?: { finishReason?: string; content?: { parts?: { text?: string }[] } }[];
     };
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!text) return { ok: false, retryable: true, reason: "応答に本文が無い" };
+    const cand = data.candidates?.[0];
+    // finishReason は原因の切り分けに要る。MAX_TOKENS なら出力上限に当たったということ
+    // （暴走生成を打ち切れた、または上限が小さすぎる）。
+    const finish = cand?.finishReason ?? "不明";
+    const text = cand?.content?.parts?.[0]?.text;
+    if (!text) return { ok: false, retryable: true, reason: `応答に本文が無い（finishReason=${finish}）` };
     let parsed: BatchTranslation[];
     try {
       parsed = JSON.parse(text) as BatchTranslation[];
     } catch (e) {
       // 生成が繰り返しループに陥り出力上限で切れると、閉じていない JSON が届いてここに来る。
-      // **応答の文字数を必ず出す**（正常時は数百〜数千字。桁違いなら暴走と判別できる）。
+      // **応答の文字数と finishReason を必ず出す**（正常時は数百〜数千字。桁違いなら暴走）。
+      // ⚠️ MAX_TOKENS が続くなら maxOutputTokensFor の見積りを疑う（小さすぎると永久に失敗する）。
       return {
         ok: false,
         retryable: true,
-        reason: `応答の JSON が壊れている（応答 ${text.length} 文字）: ${(e as Error).message}`,
+        reason: `応答の JSON が壊れている（応答 ${text.length} 文字 / finishReason=${finish}）: ${(e as Error).message}`,
       };
     }
     if (!Array.isArray(parsed) || parsed.length !== batch.length) {
@@ -320,6 +399,16 @@ async function translateBatch(
     }
     return { ok: true, data: parsed };
   } catch (e) {
-    return { ok: false, retryable: true, reason: `通信失敗: ${(e as Error).message}` };
+    const err = e as Error;
+    // AbortSignal.timeout は TimeoutError を投げる。`通信失敗` と区別しておく
+    // （タイムアウトが続くなら REQUEST_TIMEOUT_MS か出力上限を見直す手がかりになる）。
+    const timedOut = err.name === "TimeoutError" || err.name === "AbortError";
+    return {
+      ok: false,
+      retryable: true,
+      reason: timedOut
+        ? `タイムアウト（${REQUEST_TIMEOUT_MS / 1000} 秒で応答なし）`
+        : `通信失敗: ${err.message}`,
+    };
   }
 }
