@@ -14,10 +14,14 @@
  * responseMimeType=application/json + responseSchema で配列 JSON を堅牢に受け取る。
  * バッチ失敗（network / parse / 件数不一致）はそのバッチをスキップし run 全体は落とさない。
  *
- * 失敗への備えは3段構え（いずれも 2026-08-17〜18 の実測で必要性が確認できたもの）:
+ * 失敗への備え（いずれも 2026-08-17〜20 の実測で必要性が確認できたもの）:
  * 1. **待ってから複数回再送**（RETRY_DELAYS_MS）。503 は待つ以外に手が無い。
- * 2. **出力上限**（maxOutputTokensFor）。暴走生成を早く打ち切って再送の余地を作る。
- * 3. **リクエストのタイムアウト**（REQUEST_TIMEOUT_MS）。応答が返らないまま居座るのを防ぐ。
+ * 2. **再送のたびに temperature を上げる**（ATTEMPT_TEMPERATURES）。暴走ループは
+ *    低温度だと同じ入力で毎回再現するため、待つだけでは抜けられない。
+ * 3. **出力上限**（maxOutputTokensFor）。暴走生成を早く打ち切って再送の余地を作る。
+ * 4. **リクエストのタイムアウト**（REQUEST_TIMEOUT_MS）。応答が返らないまま居座るのを防ぐ。
+ * 5. **それでも使えないバッチは1件ずつに分割**して再送。問題の1件の道連れで
+ *    残りが全滅するのを防ぐ（503 等の相手側の障害では分割しない）。
  */
 import type { FeedItem, FeedSource } from "../../src/lib/feed";
 import { mapLimit } from "./util";
@@ -41,6 +45,29 @@ const RETRY_DELAYS_MS = [5_000, 20_000, 60_000];
  * （過負荷のモデルへの一斉再送）。index 分ずらして山を崩す。並列3なら 0 / 1.5 / 3 秒。
  */
 const BACKOFF_STAGGER_MS = 1_500;
+
+/**
+ * 試行ごとの temperature（生成のランダムさ）。index＝何回目の送信か（0=初回）。
+ * 再送回数（RETRY_DELAYS_MS.length）より1つ多く持ち、分割再送（1件ずつ）は末尾を使う。
+ *
+ * ⚠️ **待つだけでは抜けられない失敗がある。** 暴走ループ（同じ内容を延々と生成して
+ * MAX_TOKENS で切られ JSON が壊れる）は低温度だとほぼ決定的＝**同じ入力を送り直すと
+ * 同じループが再現する**（2026-08-19〜20 実測: 同一バッチが再送3回とも
+ * 「応答の JSON が壊れている / finishReason=MAX_TOKENS」で全滅。翌 run でも同じ10件が全滅）。
+ * 再送のたびに揺らぎを足してループの再現を崩す。初回は従来どおり 0.2（訳の安定を優先）。
+ */
+const ATTEMPT_TEMPERATURES = [0.2, 0.5, 0.8, 1.0];
+
+/** attempt（0=初回）に使う temperature。配列を超えたら末尾で頭打ち。 */
+const temperatureFor = (attempt: number): number =>
+  ATTEMPT_TEMPERATURES[Math.min(attempt, ATTEMPT_TEMPERATURES.length - 1)];
+
+/**
+ * 分割再送（1件ずつ）の呼び出し間隔。バッチ1回分が最大 batchSize 回の連続呼び出しに
+ * 化けるので、無料枠の RPM（1分あたりのリクエスト回数制限）に当てないよう間を置く。
+ * 10件の分割でも +20 秒程度＝run 全体への影響は小さい。
+ */
+const SPLIT_STAGGER_MS = 2_000;
 
 /** 1 リクエストのタイムアウト。出力上限を入れたので正常な応答はこれより十分速い。 */
 const REQUEST_TIMEOUT_MS = 120_000;
@@ -209,45 +236,13 @@ export async function enrichTranslations(
   let retried = 0;
   let recovered = 0;
   let failed = 0;
-  // ⚠️ index が必要（再送の待ち時間をバッチごとにずらすため）。mapLimit は他のソースと
-  //    共有しているので引数を増やさず、ここで index を持たせた要素を渡す。
-  const jobs = batches.map((batch, i) => ({ batch, i }));
-  await mapLimit(jobs, opts.concurrency, async ({ batch, i }) => {
-    let res = await translateBatch(batch, apiKey, opts.model);
-    // 応答不良は**確率的**なもの（生成がループして途中で切れる等）と、**時間で解決するもの**
-    // （503 = モデル過負荷）の2種類がある。どちらも「間を置いて送り直す」のが正解なので、
-    // RETRY_DELAYS_MS の回数だけ待って再送する。
-    // ⚠️ レート制限（429）・キー不正（403）・リクエスト不正（400）は待っても直らないので
-    //    classifyStatus() が retryable=false を返す＝ここには入らない。
-    let attempts = 0;
-    while (!res.ok && res.retryable && attempts < RETRY_DELAYS_MS.length) {
-      if (attempts === 0) retried++;
-      const wait = RETRY_DELAYS_MS[attempts] + i * BACKOFF_STAGGER_MS;
-      console.warn(
-        `[translate] 応答不良のため ${Math.round(wait / 1000)} 秒待って再送します` +
-          `（${batch.length} 件・${attempts + 1}/${RETRY_DELAYS_MS.length} 回目）: ${res.reason}`,
-      );
-      await sleep(wait);
-      res = await translateBatch(batch, apiKey, opts.model);
-      attempts++;
-    }
-    if (res.ok && attempts > 0) {
-      recovered++;
-      console.log(`[translate] 再送 ${attempts} 回で回復しました（${batch.length} 件）`);
-    }
-    if (!res.ok) {
-      // ⚠️ 諦めた分は原文（英語）のまま公開される。次回 run で再試行されるが、
-      // 「静かに減っている」ことに気づけるよう件数と理由を必ず残す。
-      failed += batch.length;
-      console.error(
-        `[translate] このバッチは諦めます（${batch.length} 件は原文のまま・次回 run で再試行）: ${res.reason}`,
-      );
-      return;
-    }
-    const out = res.data;
-    for (let i = 0; i < batch.length; i++) {
-      const { item } = batch[i];
-      const t = out[i];
+
+  /** 応答をアイテムと transCache に反映し、反映できた件数を返す（バッチ／分割再送で共用）。 */
+  const applyResults = (applied: Target[], out: BatchTranslation[]): number => {
+    let count = 0;
+    for (let j = 0; j < applied.length; j++) {
+      const { item } = applied[j];
+      const t = out[j];
       if (!t) continue;
       const titleJa = t.titleJa?.trim() || undefined; // 原文が日本語なら空文字で返る
       const summaryJa = t.summaryJa?.trim() || undefined;
@@ -268,8 +263,80 @@ export async function enrichTranslations(
         linkTitleJa: linkTitleJa ?? prev.linkTitleJa,
         linkDescJa: linkDescJa ?? prev.linkDescJa,
       };
-      translated++;
+      count++;
     }
+    return count;
+  };
+
+  // ⚠️ index が必要（再送の待ち時間をバッチごとにずらすため）。mapLimit は他のソースと
+  //    共有しているので引数を増やさず、ここで index を持たせた要素を渡す。
+  const jobs = batches.map((batch, i) => ({ batch, i }));
+  await mapLimit(jobs, opts.concurrency, async ({ batch, i }) => {
+    let res = await translateBatch(batch, apiKey, opts.model, temperatureFor(0));
+    // 応答不良は**確率的**なもの（生成がループして途中で切れる等）と、**時間で解決するもの**
+    // （503 = モデル過負荷）の2種類がある。どちらも「間を置いて送り直す」で対処するが、
+    // 前者は待つだけでは再現し続けるので temperature も段階的に上げる（ATTEMPT_TEMPERATURES）。
+    // ⚠️ レート制限（429）・キー不正（403）・リクエスト不正（400）は待っても直らないので
+    //    classifyStatus() が retryable=false を返す＝ここには入らない。
+    let attempts = 0;
+    while (!res.ok && res.retryable && attempts < RETRY_DELAYS_MS.length) {
+      if (attempts === 0) retried++;
+      const wait = RETRY_DELAYS_MS[attempts] + i * BACKOFF_STAGGER_MS;
+      console.warn(
+        `[translate] 応答不良のため ${Math.round(wait / 1000)} 秒待って再送します` +
+          `（${batch.length} 件・${attempts + 1}/${RETRY_DELAYS_MS.length} 回目）: ${res.reason}`,
+      );
+      await sleep(wait);
+      res = await translateBatch(batch, apiKey, opts.model, temperatureFor(attempts + 1));
+      attempts++;
+    }
+    if (res.ok && attempts > 0) {
+      recovered++;
+      console.log(`[translate] 再送 ${attempts} 回で回復しました（${batch.length} 件）`);
+    }
+    if (!res.ok) {
+      // 応答は返るのに毎回使えない（JSON 破損・件数不一致・本文なし）＝バッチ内の特定の
+      // 記事が暴走ループ等を誘発している可能性が高い（2026-08-19〜20 実測: 問題の記事と
+      // 同じバッチに入った残り9件が道連れで全滅し続けた）。1件ずつに分割して切り分ける。
+      // ⚠️ 503・タイムアウト・通信失敗（相手側の障害）では分割しない＝過負荷の相手への
+      //    リクエストを増やすだけで逆効果。
+      if (res.contentSuspect && batch.length > 1) {
+        console.warn(
+          `[translate] バッチのままでは回復しないため 1 件ずつに分割して再送します（${batch.length} 件）: ${res.reason}`,
+        );
+        let rescued = 0;
+        for (const target of batch) {
+          await sleep(SPLIT_STAGGER_MS);
+          const single = await translateBatch(
+            [target],
+            apiKey,
+            opts.model,
+            temperatureFor(RETRY_DELAYS_MS.length),
+          );
+          if (single.ok) {
+            translated += applyResults([target], single.data);
+            rescued++;
+          } else {
+            failed++;
+            // どの記事が失敗し続けているか追えるよう、タイトルを必ず残す。
+            console.error(
+              `[translate] 分割再送でも失敗（原文のまま・次回 run で再試行）: ` +
+                `「${(target.item.title ?? target.item.id).slice(0, 60)}」 ${single.reason}`,
+            );
+          }
+        }
+        console.log(`[translate] 分割再送の結果: ${rescued}/${batch.length} 件を救出`);
+        return;
+      }
+      // ⚠️ 諦めた分は原文（英語）のまま公開される。次回 run で再試行されるが、
+      // 「静かに減っている」ことに気づけるよう件数と理由を必ず残す。
+      failed += batch.length;
+      console.error(
+        `[translate] このバッチは諦めます（${batch.length} 件は原文のまま・次回 run で再試行）: ${res.reason}`,
+      );
+      return;
+    }
+    translated += applyResults(batch, res.data);
   });
 
   return {
@@ -290,20 +357,25 @@ interface BatchTranslation {
 }
 
 /**
- * 1バッチの結果。失敗時は「送り直す価値があるか（retryable）」を返す。
+ * 1バッチの結果。失敗時は「送り直す価値があるか（retryable）」と
+ * 「分割する価値があるか（contentSuspect）」を返す。
  * - retryable=true : 応答が壊れている / 5xx / タイムアウト → 間を置いて送り直せば回復しうる
  * - retryable=false: 429（レート制限）/ 403（キー不正）/ 400（リクエスト不正）→ 待っても直らない
+ * - contentSuspect=true: 応答自体は返ったのに使えなかった（本文なし / JSON 破損 / 件数不一致）
+ *   ＝バッチ内の特定の記事が原因の可能性がある → 呼び出し側が1件ずつに分割して切り分ける。
+ *   5xx・タイムアウト・通信失敗は相手側の障害なので false（分割しても意味がない）。
  * 判定は classifyStatus() に集約してある（**403 を 429 と混ぜないこと**＝誤診の元）。
  */
 type BatchOutcome =
   | { ok: true; data: BatchTranslation[] }
-  | { ok: false; retryable: boolean; reason: string };
+  | { ok: false; retryable: boolean; contentSuspect: boolean; reason: string };
 
 /** 1バッチを Gemini で翻訳/要約。失敗理由は呼び出し側でまとめてログに出す。 */
 async function translateBatch(
   batch: Target[],
   apiKey: string,
   model: string,
+  temperature: number,
 ): Promise<BatchOutcome> {
   const entries = batch.map(({ titleInput, input, summarize, linkTitle, linkDesc }, i) => ({
     i,
@@ -333,7 +405,9 @@ async function translateBatch(
   const body = {
     contents: [{ parts: [{ text: prompt }] }],
     generationConfig: {
-      temperature: 0.2,
+      // 初回 0.2（訳の安定を優先）。再送では段階的に上げる＝低温度だと暴走ループが
+      // 同じ入力で毎回再現するため（ATTEMPT_TEMPERATURES のコメント参照）。
+      temperature,
       // 暴走生成の打ち切り用（品質を絞る意図ではない）。詳細は maxOutputTokensFor のコメント。
       maxOutputTokens: maxOutputTokensFor(batch.length),
       responseMimeType: "application/json",
@@ -366,7 +440,12 @@ async function translateBatch(
       //    そのまま出すと並列実行中の他のログと混ざって読めなくなる（実際に読みにくかった）。
       const detail = (await res.text()).replace(/\s+/g, " ").slice(0, 200);
       const { retryable, label } = classifyStatus(res.status);
-      return { ok: false, retryable, reason: `Gemini ${res.status}（${label}）: ${detail}` };
+      return {
+        ok: false,
+        retryable,
+        contentSuspect: false,
+        reason: `Gemini ${res.status}（${label}）: ${detail}`,
+      };
     }
     const data = (await res.json()) as {
       candidates?: { finishReason?: string; content?: { parts?: { text?: string }[] } }[];
@@ -376,7 +455,13 @@ async function translateBatch(
     // （暴走生成を打ち切れた、または上限が小さすぎる）。
     const finish = cand?.finishReason ?? "不明";
     const text = cand?.content?.parts?.[0]?.text;
-    if (!text) return { ok: false, retryable: true, reason: `応答に本文が無い（finishReason=${finish}）` };
+    if (!text)
+      return {
+        ok: false,
+        retryable: true,
+        contentSuspect: true,
+        reason: `応答に本文が無い（finishReason=${finish}）`,
+      };
     let parsed: BatchTranslation[];
     try {
       parsed = JSON.parse(text) as BatchTranslation[];
@@ -387,6 +472,7 @@ async function translateBatch(
       return {
         ok: false,
         retryable: true,
+        contentSuspect: true,
         reason: `応答の JSON が壊れている（応答 ${text.length} 文字 / finishReason=${finish}）: ${(e as Error).message}`,
       };
     }
@@ -394,6 +480,7 @@ async function translateBatch(
       return {
         ok: false,
         retryable: true,
+        contentSuspect: true,
         reason: `件数不一致（in ${batch.length} / out ${Array.isArray(parsed) ? parsed.length : "?"}）`,
       };
     }
@@ -406,6 +493,7 @@ async function translateBatch(
     return {
       ok: false,
       retryable: true,
+      contentSuspect: false,
       reason: timedOut
         ? `タイムアウト（${REQUEST_TIMEOUT_MS / 1000} 秒で応答なし）`
         : `通信失敗: ${err.message}`,
