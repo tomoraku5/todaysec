@@ -276,9 +276,28 @@ async function run(): Promise<void> {
     }
   }
 
+  // ---- 未来日付ガード ----
+  // フィードが「公開日時」に未来の日付を載せてくることがある。実例: Dark Reading のイベント告知
+  // （/events/ の [Virtual Event] item）は pubDate を持たず dc:date に**開催日**が入っており、
+  // 2026-08 時点で 10/9・11/13 の項目がタイムライン先頭に貼り付いた（docs/decisions.md 項目25）。
+  // 時系列タイムラインに未来日付の項目は載せない＝ソースを問わず共通で除外する。
+  // ⚠️ マージ後の collected に適用するのが要点: 新規取得分だけでなく前回キャッシュ分も通るため、
+  // 蓄積済みの未来日付アイテムも次回 run で自動的に消える（feed.json の手修正が不要）。
+  // 猶予30分はフィード側の時計ずれの許容。誤って除外しても、未来でなくなった後の run で
+  // 再取得されるだけ（全ソースのフィード窓は cron 間隔より広い＝損失にならない）。
+  // 日付が壊れていて解釈できない（NaN）アイテムは除外しない（このガードの守備範囲外）。
+  const futureCutoff = Date.now() + 30 * 60 * 1000;
+  const isFutureDated = (i: FeedItem) => new Date(i.publishedAt).getTime() > futureCutoff;
+  // 正当な記事を誤除外していないか後から確認できるよう、除外は必ず1件ずつログに出す
+  // （同一 id がキャッシュ分と新規取得分で重複するので、ログは id 単位にまとめる）。
+  for (const i of new Map(collected.filter(isFutureDated).map((x) => [x.id, x])).values()) {
+    console.warn(`[guard] 未来日付のため除外: ${i.publishedAt} [${i.source}] ${i.title}`);
+  }
+  const present = collected.filter((i) => !isFutureDated(i));
+
   // ---- 重複排除 → ソート → トリム ----
   const byId = new Map<string, FeedItem>();
-  for (const item of collected) {
+  for (const item of present) {
     // 同一IDは新しい publishedAt のものを優先
     const prev = byId.get(item.id);
     if (!prev || new Date(item.publishedAt) > new Date(prev.publishedAt)) {
