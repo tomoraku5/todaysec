@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-09-07T17:42:41.853Z",
+  "updatedAt": "2026-09-07T21:19:49.563Z",
   "items": [
+    {
+      "id": "zenn-https://zenn.dev/hach/articles/chat-agent-deprovisioning-design",
+      "source": "zenn",
+      "title": "常駐型AIエージェントで退職者・異動者のアクセス権限を即座に失効させる設計",
+      "url": "https://zenn.dev/hach/articles/chat-agent-deprovisioning-design",
+      "publishedAt": "2026-09-07T21:13:17.000Z",
+      "summary": "Slack / Teams / Chatworkなどに常駐して働くAIエージェントは、ユーザー本人になり代わって過去の会話・議事録・タスクを横断的に参照します。導入初期はメンバーの入れ替わりが少なく気にならないのですが、運用が長くなるほど「退職した人・異動した人の権限がいつまで生きているか」が事故の温床になります。この記事では、常駐エージェントの権限管理を設計する中で固めた、失効(デプロビジ…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--EvsG6J5T--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%25B8%25B8%25E9%25A7%2590%25E5%259E%258BAI%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25A7%25E9%2580%2580%25E8%2581%25B7%25E8%2580%2585%25E3%2583%25BB%25E7%2595%25B0%25E5%258B%2595%25E8%2580%2585%25E3%2581%25AE%25E3%2582%25A2%25E3%2582%25AF%25E3%2582%25BB%25E3%2582%25B9%25E6%25A8%25A9%25E9%2599%2590%25E3%2582%2592%25E5%258D%25B3%25E5%25BA%25A7%25E3%2581%25AB%25E5%25A4%25B1%25E5%258A%25B9%25E3%2581%2595%25E3%2581%259B%25E3%2582%258B%25E8%25A8%25AD%25E8%25A8%2588%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:HACH%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzNhZTVlMWI3OTguanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "qiita-https://qiita.com/pitopito/items/b5ea142726c16c9e503e",
+      "source": "qiita",
+      "title": "2026/9/8主にITとかセキュリティの記事",
+      "url": "https://qiita.com/pitopito/items/b5ea142726c16c9e503e",
+      "publishedAt": "2026-09-07T19:07:14.000Z",
+      "summary": "約3954万件、全アカウント情報に重要ソースコードが流出 大手動画配信サービスTVINGの杜撰管理(9/6) https://topics.smt.docomo.ne.jp/article/sportsseoulweb/entertainment/sportsseoulweb-158551?utm_medium=article 実業家のマイキー佐野氏が、AIによる攻防激化で刻々と塗り替わるサ…",
+      "author": "@pitopito",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZkMzAxZWM0MjcyODUyNDU0ODNjZmY2ZDFjOGY0ZmIzYz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MDBhODNkNGNhZTViMjZjY2Y4ZTg3ZWRjNzhjM2MxN2U%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db26a49cd4e665ea23e67fdfa079183e5?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9MjAyNiUyRjklMkY4JUU0JUI4JUJCJUUzJTgxJUFCSVQlRTMlODElQTglRTMlODElOEIlRTMlODIlQkIlRTMlODIlQUQlRTMlODMlQTUlRTMlODMlQUElRTMlODMlODYlRTMlODIlQTMlRTMlODElQUUlRTglQTglOTglRTQlQkElOEImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0zYTczY2NjM2FkOWU2NjY3MTgwOTdmMjczNjlhMGJlYQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwaXRvcGl0byZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTRiOTYyYWNlZTBhODcyODhkYWViZDVlNzVmNWI3MDkx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=426557d1b998a808af2b55a9f68e78e7"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/09/peep-turns-chrome-and-edge-into-post.html",
+      "source": "thehackernews",
+      "title": "PEEP Turns Chrome and Edge Into Post-Compromise Backdoors for Host Command Execution",
+      "url": "https://thehackernews.com/2026/09/peep-turns-chrome-and-edge-into-post.html",
+      "publishedAt": "2026-09-07T18:12:09.000Z",
+      "summary": "Cybersecurity researchers have disclosed details of a complex Chromium-based post-exploitation toolkit called PEEP that masquerades as a bookmarks extension for the web browser. \"Requiring prior ad…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA3-5bNylOMc_s8MAT2ibQnV33cnJXadwKPRXjYgAL0GcZWOXuwtM-s5HS4ryVu5ewnhfAqBtOiuSseLcUSyDIfxf5XKF6mAwrpyG-v3Y-siqjJY8I5zVEMXwfkKPwBNAqaO2sQFI-q2oA4MWiagZFUlknIPKADDfvOo8s2Ifsa_xBAojg1rD5ZGUErC85/s1600/chrome-malware.jpg",
+      "author": "The Hacker News",
+      "titleJa": "PEEP、ChromeとEdgeを侵害後のバックドアに変えホストコマンドを実行可能に",
+      "summaryJa": "セキュリティ研究者が、ブラウザのブックマーク拡張機能になりすますChromiumベースの侵害後エクスプロイトツールキット「PEEP」の詳細を公開した。このツールは、侵入後のホストコマンド実行を可能にするものだ。"
+    },
+    {
+      "id": "zenn-https://zenn.dev/kipcop/articles/b42-go-28-rbac",
+      "source": "zenn",
+      "title": "42日でバックエンドエンジニアの基礎を完全に理解する #28 - RBAC（ロールベースアクセス制御）",
+      "url": "https://zenn.dev/kipcop/articles/b42-go-28-rbac",
+      "publishedAt": "2026-09-07T17:24:25.000Z",
+      "summary": "この記事で学ぶこと 前回の #27 のQ5で、管理者ページの認可を userID != \"1\" と書きました。動きはしますが、自分で書いていて嫌な予感がしたはずです。管理者が2人になったら？「記事は書けるが削除はできない」という中間の立場が増えたら？ ユーザーIDと操作の組み合わせを個別に管理し始めると、コードは条件分岐の沼になります。 この沼への定番の答えが RBAC（ロールベースアクセス…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s---Y35JYZM--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:42%25E6%2597%25A5%25E3%2581%25A7%25E3%2583%2590%25E3%2583%2583%25E3%2582%25AF%25E3%2582%25A8%25E3%2583%25B3%25E3%2583%2589%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%25AE%25E5%259F%25BA%25E7%25A4%258E%25E3%2582%2592%25E5%25AE%258C%25E5%2585%25A8%25E3%2581%25AB%25E7%2590%2586%25E8%25A7%25A3%25E3%2581%2599%25E3%2582%258B%2520%252328%2520-%2520RBAC%25EF%25BC%2588%25E3%2583%25AD%25E3%2583%25BC%25E3%2583%25AB%25E3%2583%2599%25E3%2583%25BC%25E3%2582%25B9%25E3%2582%25A2%25E3%2582%25AF%25E3%2582%25BB%25E3%2582%25B9%25E5%2588%25B6%25E5%25BE%25A1%25EF%25BC%2589%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:k.ike%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSzB5X0dHdXdYN0R2NUdXamlMU0FaLTI5OHhBcFBSLW9pMEhMY2lEZ2dBSHVVdDdESHM9czI1MC1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
     {
       "id": "zenn-https://zenn.dev/clopy/articles/claude-read-deny-redirect-boundary",
       "source": "zenn",
@@ -27497,7 +27539,8 @@
       "qiita-https://qiita.com/mt_caddi/items/b23d2623d22992f0018d": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkY5ZDFhNjQ2ZjBlOTY1YzliYWJhZTE1YWFhNTc1NGU3ND9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NGJlMjc5OTZiNzljZGQ3ZjFmMzUyYjUxYWVkOTAxNTk%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D8ee243f6f1bdd4788cdd25c312543fd8?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwJUU0JUJCJThBJUUzJTgxJTk1JUUzJTgyJTg5JUU4JTgxJTlFJUUzJTgxJTkxJUUzJTgxJUFBJUUzJTgxJTg0JUUzJTgwJTkxU2FhUyVFMyU4MSVBRSVFNSU5RiVCQSVFNyVBNCU4RSVFMyU4MiU5MiVFMyU4MyU4RCVFMyU4MyU4MyVFMyU4MyU4OCVFMyU4MyVBRiVFMyU4MyVCQyVFMyU4MiVBRiVFOCVBNiU5NiVFNyU4MiVCOSVFMyU4MSVBNyVFNSVCRSVCOSVFNSVCQSU5NSVFOCVBNyVBMyVFOCVBQSVBQyVFMiU5NCU4MCVFMiU5NCU4MCVFOCVCMiVBQyVFNCVCQiVCQiVFNSU4NSVCMSVFNiU5QyU4OSVFMyU4MyVBMiVFMyU4MyU4NyVFMyU4MyVBQiVFMyU4MyVCQlNMQSVFMyU4MyVCQiVFMyU4MyVBRCVFMyU4MyVCQyVFMyU4MiVBQiVFMyU4MyVBQiVFMyU4MyU5NiVFMyU4MyVBQyVFMyU4MiVBNCVFMiU4MCVBNiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWRiOGQ0ODM4NjkyODgwOWNkZjMyYTQxYzE5YmY4NGQz&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtdF9jYWRkaSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTU0MWVjZGE2OTBkMDk4ZjlhNDk5NTI1Y2MwMWE5YjMw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=509f7c3dd22e3035f38052555f39fac1",
       "qiita-https://qiita.com/toyz757/items/a4299585a3680c58e7ed": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMzLmdpdGh1YnVzZXJjb250ZW50LmNvbSUyRnUlMkY2NzYyNTE2NCUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz05M2IyODRhNWM0ODg2ZDc3MjA4NDAwMDc2Nzc2NWU1NQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D6aeb6db96acb1caf0db2b9d45a3ccc88?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUFGJUUzJTgzJUE5JUUzJTgyJUE2JUUzJTgzJTg5V2ViJUUzJTgyJUEyJUUzJTgzJTk3JUUzJTgzJUFBJUUzJTgxJUFFJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUU5JTgxJThCJUU3JTk0JUE4JUUzJTgyJTkyJTIyJUU3JUI1JThDJUU1JTk2JUI2JUU3JTlBJTg0JUU0JUJFJUExJUU1JTgwJUE0JTIyJUUzJTgxJThCJUUzJTgyJTg5JUU5JTgwJTg2JUU3JUFFJTk3JUUzJTgxJTk3JUUzJTgxJUE2JUU4JTgwJTgzJUUzJTgxJTg4JUUzJTgxJUE2JUUzJTgxJUJGJUUzJTgxJTlGJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZjYxNzhhMDVmMjA1ZWY0M2QxYWUwMDEyZGEyM2NjYTU&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB0b3l6NzU3JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9Yzc2NjNlMTgyZDRjMWE5NGY5NjcxNTY1NzllODA2ZTU&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=0b18c24ca066e99b69acc442ceabd20a",
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/trezor-data-breach-impact-now-reaches-81-000-customers/": "https://www.bleepstatic.com/content/hl-images/2026/09/07/Trezor.jpg",
-      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/mathspace-discloses-data-breach-affecting-over-1-million-people/": "https://www.bleepstatic.com/content/hl-images/2026/09/07/0_Mathspace.jpg"
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/mathspace-discloses-data-breach-affecting-over-1-million-people/": "https://www.bleepstatic.com/content/hl-images/2026/09/07/0_Mathspace.jpg",
+      "qiita-https://qiita.com/pitopito/items/b5ea142726c16c9e503e": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZkMzAxZWM0MjcyODUyNDU0ODNjZmY2ZDFjOGY0ZmIzYz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MDBhODNkNGNhZTViMjZjY2Y4ZTg3ZWRjNzhjM2MxN2U%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db26a49cd4e665ea23e67fdfa079183e5?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9MjAyNiUyRjklMkY4JUU0JUI4JUJCJUUzJTgxJUFCSVQlRTMlODElQTglRTMlODElOEIlRTMlODIlQkIlRTMlODIlQUQlRTMlODMlQTUlRTMlODMlQUElRTMlODMlODYlRTMlODIlQTMlRTMlODElQUUlRTglQTglOTglRTQlQkElOEImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0zYTczY2NjM2FkOWU2NjY3MTgwOTdmMjczNjlhMGJlYQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwaXRvcGl0byZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTRiOTYyYWNlZTBhODcyODhkYWViZDVlNzVmNWI3MDkx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=426557d1b998a808af2b55a9f68e78e7"
     },
     "xLinkCards": {},
     "translations": {
@@ -31196,6 +31239,10 @@
       "thehackernews-https://thehackernews.com/2026/09/telerik-ui-padding-oracle-bug-chained.html": {
         "titleJa": "Telerik UIのパディングオラクル脆弱性を悪用した認証不要のRCE、公開エクスプロイトがリリース",
         "summaryJa": "Telerik UI for ASP.NET AJAXのAES-CBCパディングオラクル脆弱性を利用し、認証なしでリモートコードを実行する概念実証コードが公開されました。ただし、これは特定の非デフォルト設定のアプリケーションにのみ影響します。"
+      },
+      "thehackernews-https://thehackernews.com/2026/09/peep-turns-chrome-and-edge-into-post.html": {
+        "titleJa": "PEEP、ChromeとEdgeを侵害後のバックドアに変えホストコマンドを実行可能に",
+        "summaryJa": "セキュリティ研究者が、ブラウザのブックマーク拡張機能になりすますChromiumベースの侵害後エクスプロイトツールキット「PEEP」の詳細を公開した。このツールは、侵入後のホストコマンド実行を可能にするものだ。"
       }
     },
     "enrichVersion": "5"
