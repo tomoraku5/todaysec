@@ -1,6 +1,312 @@
 {
-  "updatedAt": "2026-09-08T10:54:29.862Z",
+  "updatedAt": "2026-09-08T16:20:41.711Z",
   "items": [
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/09/08/boston-scientific-left-nursing-its-bottom-line-after-cyberattack/5295026",
+      "source": "theregister",
+      "title": "Boston Scientific left nursing its bottom line after cyberattack",
+      "url": "https://www.theregister.com/security/2026/09/08/boston-scientific-left-nursing-its-bottom-line-after-cyberattack/5295026",
+      "publishedAt": "2026-09-08T15:45:00.000Z",
+      "summary": "Medical device giant warns August intrusion will hit Q3 and full-year sales and earnings as recovery drags on",
+      "thumbnail": "https://image.theregister.com/?imageId=227731&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "ボストン・サイエンティフィック、サイバー攻撃の影響で業績に打撃",
+      "summaryJa": "医療機器大手のボストン・サイエンティフィックは、8月に発生したシステム侵入の影響により、第3四半期および通期の売上高と利益が減少する見通しであると警告しました。復旧作業が長引いています。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/august-updates-trigger-0xc0000409-errors-on-windows-server-2016/",
+      "source": "bleepingcomputer",
+      "title": "August updates trigger 0xc0000409 errors on Windows Server 2016",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/august-updates-trigger-0xc0000409-errors-on-windows-server-2016/",
+      "publishedAt": "2026-09-08T15:22:33.000Z",
+      "summary": "Microsoft says the August 2026 security update may trigger 0xc0000409 errors on Windows Server 2016 systems where the Compatibility Appraiser diagnostic service is enabled. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2025/03/27/Windows_Server.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "8月の更新プログラムがWindows Server 2016で0xc0000409エラーを引き起こす",
+      "summaryJa": "Microsoftは、2026年8月のセキュリティ更新プログラムを適用した際、Compatibility Appraiser診断サービスが有効なWindows Server 2016環境で0xc0000409エラーが発生する可能性があると発表しました。"
+    },
+    {
+      "id": "zenn-https://zenn.dev/kazusa_nakagawa/articles/article16_aws_readonly_iam_user",
+      "source": "zenn",
+      "title": "強すぎる IAM ユーザで調査するのをやめる — MFA 必須の read-only 調査用ユーザを CLI で作る",
+      "url": "https://zenn.dev/kazusa_nakagawa/articles/article16_aws_readonly_iam_user",
+      "publishedAt": "2026-09-08T15:10:53.000Z",
+      "summary": "要点 個人開発の AWS アカウントで、PowerUserAccess + IAMFullAccess を持つ IAM ユーザ 1 つだけで作業していた ただ、障害調査や機能拡張の下調べでも同じユーザを使うのはよろしくない。 ReadOnlyAccess を付けた調査専用の IAM グループ + ユーザを作り、AWS CLI プロファイルを分離した MFA 強制ポリシーには sts:GetS…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--IQgl5ujG--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%25BC%25B7%25E3%2581%2599%25E3%2581%258E%25E3%2582%258B%2520IAM%2520%25E3%2583%25A6%25E3%2583%25BC%25E3%2582%25B6%25E3%2581%25A7%25E8%25AA%25BF%25E6%259F%25BB%25E3%2581%2599%25E3%2582%258B%25E3%2581%25AE%25E3%2582%2592%25E3%2582%2584%25E3%2582%2581%25E3%2582%258B%2520%25E2%2580%2594%2520MFA%2520%25E5%25BF%2585%25E9%25A0%2588%25E3%2581%25AE%2520read-only%2520%25E8%25AA%25BF%25E6%259F%25BB%25E7%2594%25A8%25E3%2583%25A6%25E3%2583%25BC%25E3%2582%25B6%25E3%2582%2592%2520CLI%2520%25E3%2581%25A7%25E4%25BD%259C%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25AA%25E3%2581%258B%25E3%2581%258C%25E3%2582%258F%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzU5YjZhYjk5NDAuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "qiita-https://qiita.com/securoi_koyama/items/d7d74a822686280e2978",
+      "source": "qiita",
+      "title": "予算をかけずに「改ざんできない」ログ保全を作る——最小構成と、その限界",
+      "url": "https://qiita.com/securoi_koyama/items/d7d74a822686280e2978",
+      "publishedAt": "2026-09-08T15:10:03.000Z",
+      "summary": "「ログは残していますか」と「改ざんできない形で残していますか」は、別の質問です。 前者にはたいていの会社が「はい」と答えられます。 問題は後者で、ここで詰まります。 ログが本番環境のストレージに置かれていて、本番の管理者権限で消せる状態なら、それは記録ではあっても証跡としては弱い。 消せる人がいる記録は、「消していないこと」を自分で証明できないからです。 この記事では、クラウドの標準機能だけ…",
+      "author": "@securoi_koyama",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjE5Mjk0NDk3NyUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0wYzQ2ZjBlYzE4MTUxN2FhZmU3YTI4ODc4MzI3NWQxMw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dccf715ff03089ff41f3fb7405d1ec437?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU0JUJBJTg4JUU3JUFFJTk3JUUzJTgyJTkyJUUzJTgxJThCJUUzJTgxJTkxJUUzJTgxJTlBJUUzJTgxJUFCJUUzJTgwJThDJUU2JTk0JUI5JUUzJTgxJTk2JUUzJTgyJTkzJUUzJTgxJUE3JUUzJTgxJThEJUUzJTgxJUFBJUUzJTgxJTg0JUUzJTgwJThEJUUzJTgzJUFEJUUzJTgyJUIwJUU0JUJGJTlEJUU1JTg1JUE4JUUzJTgyJTkyJUU0JUJEJTlDJUUzJTgyJThCJUUyJTgwJTk0JUUyJTgwJTk0JUU2JTlDJTgwJUU1JUIwJThGJUU2JUE3JThCJUU2JTg4JTkwJUUzJTgxJUE4JUUzJTgwJTgxJUUzJTgxJTlEJUUzJTgxJUFFJUU5JTk5JTkwJUU3JTk1JThDJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZjM5ZjEwMjAxZTk3ZDRmMmZjYmQzMmEwY2M4OGUwYmM&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzZWN1cm9pX2tveWFtYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTE1ZTJjYjFjOTZlODg0YWRmNzc2OGZjYWVjYjYxMTlh&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=319f0a7c0bd4b0fded308f4f10e47744"
+    },
+    {
+      "id": "zenn-https://zenn.dev/loki_sudo/articles/tryhackme-hashing-basics",
+      "source": "zenn",
+      "title": "TryHackMe「Hashing Basics」学習ノート",
+      "url": "https://zenn.dev/loki_sudo/articles/tryhackme-hashing-basics",
+      "publishedAt": "2026-09-08T15:06:07.000Z",
+      "summary": "この記事について TryHackMe の「Hashing Basics」というルームで学んだ内容を、Task 単位でまとめたノートです。Cyber Security 101 の「Cryptography」モジュールにあるルームで、ハッシュ関数（hash function）の性質と、その2大用途であるパスワード保管（password storage）と完全性チェック（integrity che…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s---YCi4dNW--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:TryHackMe%25E3%2580%258CHashing%2520Basics%25E3%2580%258D%25E5%25AD%25A6%25E7%25BF%2592%25E3%2583%258E%25E3%2583%25BC%25E3%2583%2588%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:loki%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS0k5UVNGVkR3S0xlckoyODNmaG1mZGxfd1QwZ0lWWXBlOFUtaHowZTNTa2swYVZRPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/09/08/sponsored-how-to-secure-hybrid-meeting-rooms-without-sacrificing-user-experience/5294440",
+      "source": "theregister",
+      "title": "How to secure hybrid meeting rooms without sacrificing user experience",
+      "url": "https://www.theregister.com/security/2026/09/08/sponsored-how-to-secure-hybrid-meeting-rooms-without-sacrificing-user-experience/5294440",
+      "publishedAt": "2026-09-08T15:00:00.000Z",
+      "summary": "SPONSORED FEATURE: With regulators tightening rules and attack surfaces widening, meeting-room kit must bake in security without pushing users toward workarounds",
+      "thumbnail": "https://image.theregister.com/?imageId=5294442&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "ユーザー体験を損なわずにハイブリッド会議室を保護する方法",
+      "summaryJa": "規制の強化と攻撃対象の拡大に伴い、会議室用機器には、ユーザーが回避策を講じる必要のない、セキュリティが組み込まれた設計が求められています。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/sap-warns-of-maximum-severity-overpass-kernel-vulnerability/",
+      "source": "bleepingcomputer",
+      "title": "SAP warns of maximum severity 'OVERPASS' kernel vulnerability",
+      "url": "https://www.bleepingcomputer.com/news/security/sap-warns-of-maximum-severity-overpass-kernel-vulnerability/",
+      "publishedAt": "2026-09-08T14:55:20.000Z",
+      "summary": "SAP has addressed 20 vulnerabilities across multiple products in its September 2026 security updates, including a maximum-severity memory corruption flaw in the SAP Kernel code. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/08/14/SAP.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "SAPが最大深刻度のカーネル脆弱性「OVERPASS」について警告",
+      "summaryJa": "SAPは9月のセキュリティ更新で、SAPカーネルコードの深刻なメモリ破損の欠陥を含む、製品群の20件の脆弱性を修正しました。"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/09/liquid-hackers-return-3400-bitcoin.html",
+      "source": "thehackernews",
+      "title": "Liquid Hackers Return 3,400 Bitcoin Taken via Elements Bug, Still Holding $47M in BTC",
+      "url": "https://thehackernews.com/2026/09/liquid-hackers-return-3400-bitcoin.html",
+      "publishedAt": "2026-09-08T14:54:30.000Z",
+      "summary": "Whoever took nearly 4,000 bitcoin from the Liquid Network on Sunday, September 6, returned 3,400 of it the next day, Bitcoin's public record shows. About 598.5 bitcoin has not come back. Liquid is …",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwlEWa8ED8DuOxP9Vi4gKvvtQeWC12LKU4yrjFMJYIczxkqLbjqcHpBHMu4hOHp7zjSLNzbQW8SXMR-3YS0PNgVlVEe-ZgYFfaOPdFYkduxEMls-mRWHx85_WNm8Xli0sGVifFjz4mZ1YjEzHs1DNHFZzzY16ZBZxvi77GmI-mtE3_xiilQo7pfRM_0g8M/s1600/liquid.jpg",
+      "author": "The Hacker News",
+      "titleJa": "Liquidのハッカーが盗んだ3,400ビットコインを返還、依然として4,700万ドル相当を保持",
+      "summaryJa": "9月6日にLiquidネットワークから約4,000ビットコインが盗まれた事件で、翌日に3,400ビットコインが返還されました。約598.5ビットコインは未返還のままです。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-gpt-6-astra-can-find-zero-days-but-is-also-harder-to-monitor/",
+      "source": "bleepingcomputer",
+      "title": "OpenAI says GPT-6 Astra can find zero-days, but is also harder to monitor",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-gpt-6-astra-can-find-zero-days-but-is-also-harder-to-monitor/",
+      "publishedAt": "2026-09-08T14:40:32.000Z",
+      "summary": "OpenAI confirmed that GPT-6 Astra is the first model it has broadly deployed to reach the \"Critical level\" for cybersecurity capabilities. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/07/29/openai-cyberattack.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "OpenAI、GPT-6 Astraはゼロデイ攻撃を発見できるが監視も困難と明かす",
+      "summaryJa": "OpenAIは、GPT-6 Astraがサイバーセキュリティ能力において「クリティカルレベル」に達した初のモデルであることを確認しました。"
+    },
+    {
+      "id": "qiita-https://qiita.com/Kerdy/items/677bf9dc8c81ca086948",
+      "source": "qiita",
+      "title": "9/8、今日のセキュリティニュース",
+      "url": "https://qiita.com/Kerdy/items/677bf9dc8c81ca086948",
+      "publishedAt": "2026-09-08T14:28:40.000Z",
+      "summary": "この記事は、 note掲載記事 の転載です。 おはようございます、かーでぃです。 本記事は、様々なネットニュースサイトからセキュリティ記事を集めて提供している” セキュリティ関連ニュースRSS ”から、気になったニュースをピックアップして紹介しています。 情シスさんやサイバーセキュリティを担当されている方、逆に私のようにセキュリティ商材を取り扱う営業の皆様などに活用頂けると幸いです。 30秒…",
+      "author": "@Kerdy",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjk1MjkyNSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTczMzA2NjEzOT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NjU4ZmRhZmFhN2MwYTlhZTJlMzhmYjNmNDI0NzcyNGY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df672aad81a7384f0de68f42e53607ac2?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9OSUyRjglRTMlODAlODElRTQlQkIlOEElRTYlOTclQTUlRTMlODElQUUlRTMlODIlQkIlRTMlODIlQUQlRTMlODMlQTUlRTMlODMlQUElRTMlODMlODYlRTMlODIlQTMlRTMlODMlOEIlRTMlODMlQTUlRTMlODMlQkMlRTMlODIlQjkmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1jODA1YmE4NmNkNWEwZWVmNTI5MTk1MjJjZTNlYjJhZg&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBLZXJkeSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTZlZmEyOGNiOTU1MjliZGQxNWExY2NkNzA3Yzg0YmY4&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=8a3be21e36c5094ebd5b552c0d4df341"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/09/chatgpt-flaw-let-planted-prompt-send.html",
+      "source": "thehackernews",
+      "title": "ChatGPT Flaw Let a Planted Prompt Send a Victim's Gmail Data to Another Account",
+      "url": "https://thehackernews.com/2026/09/chatgpt-flaw-let-planted-prompt-send.html",
+      "publishedAt": "2026-09-08T14:19:17.000Z",
+      "summary": "Check Point Research said in a report published today that a single instruction planted in a ChatGPT conversation could cause ChatGPT to quietly work for an attacker while answering the user's ques…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0jB-6O69dYNeqBTcSFXPcSQCqwabmHwmdGzC_ne5LyuUH-9v0MpLbJ1cgApFSqTuGG0Z_fKAD4A7gLcBcTdw6oUIv0nh_Pmyb5Obv7XhRY0jVGwPQ50S7rUnYZR8FUvYntVxL03GYJ010-iagkPkeZJ8oV6gvbEaVJPGw-L2rabD5pqOOu2HYW9g_nFcT/s1600/chatgpt-gmail.jpg",
+      "author": "The Hacker News",
+      "titleJa": "ChatGPTの欠陥により、仕込まれたプロンプトでGmailデータが他アカウントへ送信される恐れ",
+      "summaryJa": "Check Point Researchの報告によると、ChatGPTの会話に単一の指示を埋め込むことで、攻撃者がユーザーの質問に回答する過程でChatGPTを密かに操作できることが判明しました。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/09/08/lg-accused-of-egregious-invasion-of-privacy-over-tv-data-collection/5294956",
+      "source": "theregister",
+      "title": "LG accused of 'egregious invasion of privacy' over TV data collection",
+      "url": "https://www.theregister.com/security/2026/09/08/lg-accused-of-egregious-invasion-of-privacy-over-tv-data-collection/5294956",
+      "publishedAt": "2026-09-08T14:15:00.000Z",
+      "summary": "Claims follow scrutiny over monitors installing adware without user consent",
+      "thumbnail": "https://image.theregister.com/?imageId=246573&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "LG、テレビのデータ収集をめぐり「甚だしいプライバシー侵害」と非難される",
+      "summaryJa": "ユーザーの同意なしにモニターへアドウェアをインストールする行為が精査されたことを受け、プライバシー侵害の疑いが浮上しています。"
+    },
+    {
+      "id": "zenn-https://zenn.dev/schutzz/articles/e70595f7dbd230",
+      "source": "zenn",
+      "title": "ゼロから学ぶ「信用できる」セキュリティ検証 #08 — 実験runに「戸籍」と「死亡届」を作る",
+      "url": "https://zenn.dev/schutzz/articles/e70595f7dbd230",
+      "publishedAt": "2026-09-08T13:52:58.000Z",
+      "summary": "はじめに 前回は、失敗したrunほど身元情報が必要になることを学びました。 Git HEAD、working tree state、artifact digestなどをrunの最後にまとめて記録する設計では、runが途中で失敗したときに、その記録処理まで到達できないことがあります。そこで、実験処理へ入る前にrun identityと開始時点のprovenanceを記録し、その後にexperi…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--yTTncmFS--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25BC%25E3%2583%25AD%25E3%2581%258B%25E3%2582%2589%25E5%25AD%25A6%25E3%2581%25B6%25E3%2580%258C%25E4%25BF%25A1%25E7%2594%25A8%25E3%2581%25A7%25E3%2581%258D%25E3%2582%258B%25E3%2580%258D%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3%25E6%25A4%259C%25E8%25A8%25BC%2520%252308%2520%25E2%2580%2594%2520%25E5%25AE%259F%25E9%25A8%2593run%25E3%2581%25AB%25E3%2580%258C%25E6%2588%25B8%25E7%25B1%258D%25E3%2580%258D%25E3%2581%25A8%25E3%2580%258C%25E6%25AD%25BB%25E4%25BA%25A1%25E5%25B1%258A%25E3%2580%258D%25E3%2582%2592%25E4%25BD%259C%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Daichi%2520Terayama%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzNjOWY3MWZlN2MuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/09/autonomous-ai-agents-compromise.html",
+      "source": "thehackernews",
+      "title": "Autonomous AI Agents Compromise Thousands of Credentials in Under Six Hours",
+      "url": "https://thehackernews.com/2026/09/autonomous-ai-agents-compromise.html",
+      "publishedAt": "2026-09-08T13:48:16.000Z",
+      "summary": "Threat actors are continuing to leverage artificial intelligence (AI) to streamline their operations, with one financially motivated hacking group employing an autonomous, multi-agent attack framew…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdVKt_UmqEYNHNt0K516skza4MoV47hITqzcoC3WLLI3QkQ_jUEffHvaL7VHVtzRqvdt6k2bZwGAFVif-hRkoiTQva6JM95w3NgNRU_WpuTaZfhLGXAcOdLQXy_sMWU1dxAunMAsf7J8PEDG2AKvkFuXbOFyOmIQcaocMIBhNpaYscCUeJElKDXu6xGhkX/s1600/ai-agent.jpg",
+      "author": "The Hacker News",
+      "titleJa": "自律型AIエージェントが6時間以内に数千件の認証情報を侵害",
+      "summaryJa": "金銭目的のハッカー集団が、自律的なマルチエージェント攻撃フレームワークを採用し、AIを活用して攻撃活動を効率化させています。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/adobe-fixes-critical-magento-zero-day-exploited-to-backdoor-servers/",
+      "source": "bleepingcomputer",
+      "title": "Adobe fixes critical Magento zero-day exploited to backdoor servers",
+      "url": "https://www.bleepingcomputer.com/news/security/adobe-fixes-critical-magento-zero-day-exploited-to-backdoor-servers/",
+      "publishedAt": "2026-09-08T13:34:47.000Z",
+      "summary": "Adobe has released an emergency fix for CVE-2026-75650, an actively exploited max-severity zero-day vulnerability dubbed StyleSmuggler, that impacts multiple versions of Magento and Adobe Commerce.…",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/04/13/Adobe.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "Adobe、Magentoで悪用されていた深刻なゼロデイ脆弱性を修正",
+      "summaryJa": "Adobeは、MagentoおよびAdobe Commerceの複数バージョンに影響を与える、悪用が確認された深刻なゼロデイ脆弱性「StyleSmuggler（CVE-2026-75650）」に対する緊急修正プログラムを公開しました。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/09/08/bigbear-phishing-crew-nets-thousands-of-microsoft-365-credentials/5294944",
+      "source": "theregister",
+      "title": "BigBear phishing crew nets thousands of Microsoft 365 credentials",
+      "url": "https://www.theregister.com/security/2026/09/08/bigbear-phishing-crew-nets-thousands-of-microsoft-365-credentials/5294944",
+      "publishedAt": "2026-09-08T13:26:00.000Z",
+      "summary": "Researchers got inside the crooks' admin panel and found 5,137 stolen records tied to 461 organizations",
+      "thumbnail": "https://image.theregister.com/?imageId=5294968&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "フィッシング集団「BigBear」、数千件のMicrosoft 365認証情報を窃取",
+      "summaryJa": "研究者が攻撃者の管理パネルに侵入した結果、461組織に関連する5,137件の盗難データが発見されました。"
+    },
+    {
+      "id": "qiita-https://qiita.com/itbibouroku/items/353d3f402ba843cf2e65",
+      "source": "qiita",
+      "title": "Message Traceで限界を感じたら。Advanced HuntingとKQLで一歩踏み込んだメール調査をする",
+      "url": "https://qiita.com/itbibouroku/items/353d3f402ba843cf2e65",
+      "publishedAt": "2026-09-08T13:11:44.000Z",
+      "summary": "はじめに 「不審メールが届いた」という報告を受けたとき、Message Trace(メッセージ追跡)で配送状況までは確認できても、「誰がそのメール内のURLをクリックしたか」までは追えない。そんなもどかしさを感じたことはないでしょうか。 そこで役立つのが、Microsoft Defender XDRに搭載されているAdvanced Hunting(高度なハンティング) です。KQL(Kust…",
+      "author": "@itbibouroku",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnBicy50d2ltZy5jb20lMkZwcm9maWxlX2ltYWdlcyUyRjE5MTk3NjA0ODk4ODgwMDYxNDQlMkZWcnFaSmVrRF9iaWdnZXIuanBnP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz00YTA5ZWZmNmExMThmM2EzZDFkZDI2YmE1OTdkNWM0Ng%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db09f8131d1d3deb7313ea76e5682c439?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9TWVzc2FnZSUyMFRyYWNlJUUzJTgxJUE3JUU5JTk5JTkwJUU3JTk1JThDJUUzJTgyJTkyJUU2JTg0JTlGJUUzJTgxJTk4JUUzJTgxJTlGJUUzJTgyJTg5JUUzJTgwJTgyQWR2YW5jZWQlMjBIdW50aW5nJUUzJTgxJUE4S1FMJUUzJTgxJUE3JUU0JUI4JTgwJUU2JUFEJUE5JUU4JUI4JThGJUUzJTgxJUJGJUU4JUJFJUJDJUUzJTgyJTkzJUUzJTgxJUEwJUUzJTgzJUExJUUzJTgzJUJDJUUzJTgzJUFCJUU4JUFBJUJGJUU2JTlGJUJCJUUzJTgyJTkyJUUzJTgxJTk5JUUzJTgyJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZDQ4Mjg1MzYzMmEyNmNiMzY4NGE1ZjUwNmE3NTM2ZjE&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBpdGJpYm91cm9rdSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTVkODc2ZWRhNTg0ZTgwNzgxNGI1OTRiODBhYWI5N2Nj&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=5737063192b1e7caf0de540e6d65ce4e"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/webinar-the-forgotten-google-workspace-access-that-can-lead-to-a-breach/",
+      "source": "bleepingcomputer",
+      "title": "Webinar: The forgotten Google Workspace access that can lead to a breach",
+      "url": "https://www.bleepingcomputer.com/news/security/webinar-the-forgotten-google-workspace-access-that-can-lead-to-a-breach/",
+      "publishedAt": "2026-09-08T12:40:48.000Z",
+      "summary": "Third-party applications connected to Google Workspace can retain access long after their original purpose is forgotten. This webinar examines how overly permissive integrations contribute to breac…",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/09/08/google-workspace-hacker.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "ウェビナー：侵害につながるGoogle Workspaceの忘れられたアクセス権",
+      "summaryJa": "Google Workspaceに接続されたサードパーティ製アプリは、本来の目的が終わった後もアクセス権を保持し続けることがあります。本ウェビナーでは、過度な権限付与がどのように侵害を招くかを解説します。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/hackers-build-ai-frameworks-for-widescale-credential-theft/",
+      "source": "bleepingcomputer",
+      "title": "Hackers build AI frameworks for widescale credential theft",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-build-ai-frameworks-for-widescale-credential-theft/",
+      "publishedAt": "2026-09-08T12:03:03.000Z",
+      "summary": "Threat actors are increasingly switching from AI-powered coding assistants to multi-agent frameworks that automate every stage of an attack. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/07/27/botnet.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "ハッカーが大規模な認証情報窃取のためにAIフレームワークを構築",
+      "summaryJa": "脅威アクターは、AIコーディングアシスタントから、攻撃の全段階を自動化するマルチエージェントフレームワークへと移行しつつあります。"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/research/2026/09/08/extortion-crews-have-their-eyes-on-high-value-ai-data-google-warns/5294640",
+      "source": "theregister",
+      "title": "Extortion crews have their eyes on high-value AI data, Google warns",
+      "url": "https://www.theregister.com/research/2026/09/08/extortion-crews-have-their-eyes-on-high-value-ai-data-google-warns/5294640",
+      "publishedAt": "2026-09-08T12:00:00.000Z",
+      "summary": "Companies 'don't want their IP exposed, so they're willing to pay'",
+      "thumbnail": "https://image.theregister.com/?imageId=1681127&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "Google警告：恐喝グループが価値の高いAIデータを標的に",
+      "summaryJa": "企業は知的財産の流出を避けるために身代金を支払う意欲があるため、恐喝グループの標的になっています。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2025-changes-may-cause-app-crashes/",
+      "source": "bleepingcomputer",
+      "title": "Microsoft: Windows Server 2025 changes causing app crashes",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2025-changes-may-cause-app-crashes/",
+      "publishedAt": "2026-09-08T11:57:51.000Z",
+      "summary": "Microsoft warned customers last week that they may experience application crashes on some Windows Server 2025 due to recent memory management changes. [...]",
+      "thumbnail": "https://www.bleepstatic.com/content/hl-images/2026/04/17/Windows_Server.jpg",
+      "author": "BleepingComputer",
+      "titleJa": "Microsoft：Windows Server 2025の変更によりアプリがクラッシュする問題",
+      "summaryJa": "Microsoftは先週、最近のメモリ管理の変更により、一部のWindows Server 2025でアプリケーションがクラッシュする可能性があると警告しました。"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/09/wechat-zero-click-worm-took-over.html",
+      "source": "thehackernews",
+      "title": "WeChat Zero-Click Worm Took Over Accounts on iPhone and Android via Incoming Calls",
+      "url": "https://thehackernews.com/2026/09/wechat-zero-click-worm-took-over.html",
+      "publishedAt": "2026-09-08T11:54:29.000Z",
+      "summary": "Researchers at the security firm Calif have built a worm that takes over a WeChat account via an incoming call and demonstrated it spreading among three test phones. The person being called does no…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMjSG5iYgxvsWLWeFe2E-z5UDx0S4Q6zBQjkFEiKuFxcfplz39pE90jWcuiV7NcYqT6t2l8j5WWVBHdV-upHuzQVoy-pt4nL4WP7l-Uz_9AYFqOw1Pn0yI8LzM6OThlXJZY8_b4RVK0WzZYIsjWL96-2O-HHY1SH2FCtrE5c6nV0QJ0aU1X8FVlIvOs3g/s1600/wechat.jpg",
+      "author": "The Hacker News",
+      "titleJa": "WeChatのゼロクリックワーム、着信のみでiPhoneとAndroidのアカウントを乗っ取り",
+      "summaryJa": "セキュリティ企業Califの研究者は、着信を通じてWeChatアカウントを乗っ取り、他の端末へ拡散するワームを作成しました。被害者は電話を受けるだけで感染します。"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/09/what-it-took-to-reach-1-billion-build.html",
+      "source": "thehackernews",
+      "title": "What It Took to Reach 1 Billion Build Manifests",
+      "url": "https://thehackernews.com/2026/09/what-it-took-to-reach-1-billion-build.html",
+      "publishedAt": "2026-09-08T11:49:02.000Z",
+      "summary": "In the last six months, Chainguard doubled its output from 500 million to more than 1 billion container build manifests. We also surpassed 3,000 unique container images and 675,000 image versions i…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqJEqJ_CCrFzLtmEtLrrIWQv80hyY6xtGfdsad0NgYCYSs-ur2ObfnMgE8uBWlZ7idJHbjDcOwpo8_ESTMpCAWAUHUwbqhVr-zqxV-oxUWmR3PMwBD_vrDziQFaeL0VTzX8NUQRFGRzVQCuTPrvflnepbKlCgqH84MRNTJUhZRNfqwEtmBUxhIB5a8MfeE/s1600/chainguard.jpg",
+      "author": "The Hacker News",
+      "titleJa": "ビルドマニフェスト10億件到達の軌跡",
+      "summaryJa": "Chainguardは過去6か月間で、コンテナビルドマニフェストの出力数を5億件から10億件以上に倍増させました。また、独自のコンテナイメージ数は3,000件、イメージバージョン数は67万5,000件を超えました。"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/09/freeipa-flaw-chain-lets-anonymous.html",
+      "source": "thehackernews",
+      "title": "FreeIPA Flaw Chain Lets Anonymous Clients Create Reusable Administrator Credentials",
+      "url": "https://thehackernews.com/2026/09/freeipa-flaw-chain-lets-anonymous.html",
+      "publishedAt": "2026-09-08T11:22:07.000Z",
+      "summary": "A flaw in FreeIPA lets a client that has never logged in create a Kerberos identity of its own choosing in the directory and end up in the administrators group, Red Hat says. FreeIPA is the system …",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSKAVaHcAsULrGXPVkGXRyf94eoG7Kv3X0wwK2lRC64l3Em-S4_H5iE8-poK04yzrAC18tuHqpZyHhJvFTgliu_z8jo4QR78Mi4ghhCA-cUVL4oj2zjoLGiWKmD16oV4i44VfY45DYll0Uij_Exf4U2JMSLJEyH8jZk_xXKq7O_7D73q7vTYCCc4hrTnQ/s1600/freeipa.jpg",
+      "author": "The Hacker News",
+      "titleJa": "FreeIPAの脆弱性連鎖、匿名クライアントが再利用可能な管理者権限を作成可能に",
+      "summaryJa": "Red Hatによると、FreeIPAの欠陥により、一度もログインしていないクライアントがディレクトリ内に任意のKerberos IDを作成し、管理者グループに加わることが可能になります。"
+    },
+    {
+      "id": "qiita-https://qiita.com/cruel_summer/items/ddb090fdc9f8c37e501e",
+      "source": "qiita",
+      "title": "機械は考えることができるのか",
+      "url": "https://qiita.com/cruel_summer/items/ddb090fdc9f8c37e501e",
+      "publishedAt": "2026-09-08T11:20:45.000Z",
+      "summary": "8月下旬の配信された報道。世界的な半導体大手企業・NVIDIAが、同社のAI半導体が搭載されたAIサーバの値上げを通達した、という内容である。値上げ幅は15%が予定されている。 値上げされる時期は2027年初頭。ハードウェア部品の歴史的な供給不足による煽りを大きく受けたと見る一方で、2027年以降も引き続きの大きな需要があるからこその値上げ通達とも見れるので。データセンター事業を展開する大手…",
+      "author": "@cruel_summer",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzNzk2Mjg0JTJGZWU2ZWZkZGZjYjVjODExMTdhNTllY2YzMmQ0NWZiOTdiY2FhYjFhYyUyRmxhcmdlLnBuZyUzRjE3MTYxNzUzMDM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWU5YmYyZjY5YWIzNTJjNTI3MDAxMWNmMjQ2ZTBmMDI4%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D9ac3d01202e8522900a444386e71b5fa?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU2JUE5JTlGJUU2JUEyJUIwJUUzJTgxJUFGJUU4JTgwJTgzJUUzJTgxJTg4JUUzJTgyJThCJUUzJTgxJTkzJUUzJTgxJUE4JUUzJTgxJThDJUUzJTgxJUE3JUUzJTgxJThEJUUzJTgyJThCJUUzJTgxJUFFJUUzJTgxJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZGJkYmJiZTlmMTI1NjFhNWE1Mjc1ZmY5MzE0OGMxNDU&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBjcnVlbF9zdW1tZXImdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1mNWY4NzkyZjlkMjk2NjExZmU2ODY2ZjY4MWJlM2Q0Yw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=c07ef28be5405ac4683350e272eeef0f"
+    },
+    {
+      "id": "zenn-https://zenn.dev/poyopuyo/articles/f94c46693b3b66",
+      "source": "zenn",
+      "title": "🐔CPU防御の一瞬を狙う新しい攻撃",
+      "url": "https://zenn.dev/poyopuyo/articles/f94c46693b3b66",
+      "publishedAt": "2026-09-08T11:00:05.000Z",
+      "summary": "今回のテーマは、 CPUのセキュリティ対策が終わった直後の、ごく短い隙を狙う攻撃 である。 CPUのセキュリティ研究を見ていると、ときどき時間感覚がおかしくなる。 今回狙われた区間は、あるCPUではわずか2命令分だった。それでも、その短い時間が攻撃に使えることを示した研究である。 攻撃名はTONTOUという。 1. CPUは答えを待たずに先へ進む 現在のCPUは、次に何が起きるかを予測しなが…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--AsM1w5VK--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%2520CPU%25E9%2598%25B2%25E5%25BE%25A1%25E3%2581%25AE%25E4%25B8%2580%25E7%259E%25AC%25E3%2582%2592%25E7%258B%2599%25E3%2581%2586%25E6%2596%25B0%25E3%2581%2597%25E3%2581%2584%25E6%2594%25BB%25E6%2592%2583%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25BD%25E3%2582%2588%25E3%2581%25B7%25E3%2582%2588%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzM4ZTQwMTVjZWQuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/tariki_yashiro/articles/na-20260908-192555",
+      "source": "zenn",
+      "title": "複雑なアラートの調査が70%速く　Figmaが誤検知を先に潰した順番",
+      "url": "https://zenn.dev/tariki_yashiro/articles/na-20260908-192555",
+      "publishedAt": "2026-09-08T10:53:58.000Z",
+      "summary": "アラートが来る。調べる。問題なし。この繰り返しをAIエージェントに任せたらどうなるか、という話です。 素直に考えると、調査レポートの生産量が増えるだけ、という結末もありえます。読む側の負荷は変わらない。 Figmaのセキュリティチームが、この領域の運用を公開しました。先に私の立場を書きます。この事例で持ち帰る価値があるのは70%という数字ではない。「精度を先に上げてから網羅性を上げる」という…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--izI3yboB--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E8%25A4%2587%25E9%259B%2591%25E3%2581%25AA%25E3%2582%25A2%25E3%2583%25A9%25E3%2583%25BC%25E3%2583%2588%25E3%2581%25AE%25E8%25AA%25BF%25E6%259F%25BB%25E3%2581%258C70%2525%25E9%2580%259F%25E3%2581%258F%25E3%2580%2580Figma%25E3%2581%258C%25E8%25AA%25A4%25E6%25A4%259C%25E7%259F%25A5%25E3%2582%2592%25E5%2585%2588%25E3%2581%25AB%25E6%25BD%25B0%25E3%2581%2597%25E3%2581%259F%25E9%25A0%2586%25E7%2595%25AA%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%259F%25E3%2582%258A%25E3%2581%258D%25E7%25A4%25BE%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzUwNzU4ZWZjNjcuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
     {
       "id": "qiita-https://qiita.com/tiga-ga/items/329e247493cb99a19e1d",
       "source": "qiita",
@@ -58,6 +364,26 @@
       "summaryJa": "サイバーセキュリティ研究者が、SEOポイズニングを用いた大規模なキャンペーンを明らかにしました。この攻撃は、マルウェアの配布やテクニカルサポート詐欺に悪用されています。"
     },
     {
+      "id": "zenn-https://zenn.dev/lumen/articles/five-minute-vuln-triage",
+      "source": "zenn",
+      "title": "その脆弱性、今すぐ直すべき?——1件を5分でトリアージする手順",
+      "url": "https://zenn.dev/lumen/articles/five-minute-vuln-triage",
+      "publishedAt": "2026-09-08T08:00:25.000Z",
+      "summary": "! 対象読者:脆弱性のニュースを見て「これ、うちは急ぐべき?」と毎回迷う方。この連載の1本目でClaude Desktopに繋いだCVE照会用のMCPサーバー(ClaudeにCVEの照会機能を足す外部連携ツール)を使いますが、考え方の部分は環境がなくても読めます。この記事は個人の学習として手元で組んだ手順の紹介で、特定の組織の運用ではありません。 結論から言うと、4つの数字が揃って高い/低い…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--LkxKLXcR--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2581%259D%25E3%2581%25AE%25E8%2584%2586%25E5%25BC%25B1%25E6%2580%25A7%25E3%2580%2581%25E4%25BB%258A%25E3%2581%2599%25E3%2581%2590%25E7%259B%25B4%25E3%2581%2599%25E3%2581%25B9%25E3%2581%258D%253F%25E2%2580%2594%25E2%2580%25941%25E4%25BB%25B6%25E3%2582%25925%25E5%2588%2586%25E3%2581%25A7%25E3%2583%2588%25E3%2583%25AA%25E3%2582%25A2%25E3%2583%25BC%25E3%2582%25B8%25E3%2581%2599%25E3%2582%258B%25E6%2589%258B%25E9%25A0%2586%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:lumen%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2IxNTY1ODhhZTQuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/miki_mini/articles/62efa5f2196205",
+      "source": "zenn",
+      "title": "攻撃元を通報しようとしたら、窓口にたどり着くまで7ステップかかった",
+      "url": "https://zenn.dev/miki_mini/articles/62efa5f2196205",
+      "publishedAt": "2026-09-08T08:00:05.000Z",
+      "summary": "美容系勤務独学初心者マリー・アントワネット系エンジニア目指してます！ 今回は 報告する窓口が無い なら 探せばいいじゃない 👸🍰です。 読了時間の目安：約 8分 ! 3行まとめ 自分のサーバーを攻撃してきたIPを 通報しようとした 窓口にたどり着くまで 7ステップ、しかも 2回とも配信失敗 調べたら、海外は窓口の登録が必須。日本はいまも任意 だった 📌 この記事でわかること：攻撃元の連…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--xetr-0YU--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E6%2594%25BB%25E6%2592%2583%25E5%2585%2583%25E3%2582%2592%25E9%2580%259A%25E5%25A0%25B1%25E3%2581%2597%25E3%2582%2588%25E3%2581%2586%25E3%2581%25A8%25E3%2581%2597%25E3%2581%259F%25E3%2582%2589%25E3%2580%2581%25E7%25AA%2593%25E5%258F%25A3%25E3%2581%25AB%25E3%2581%259F%25E3%2581%25A9%25E3%2582%258A%25E7%259D%2580%25E3%2581%258F%25E3%2581%25BE%25E3%2581%25A77%25E3%2582%25B9%25E3%2583%2586%25E3%2583%2583%25E3%2583%2597%25E3%2581%258B%25E3%2581%258B%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:miki-mini%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2FmNzU4ZmQ0ZjYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
       "id": "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/09/08/164634",
       "source": "hatenablog",
       "title": "Daily記事まとめ（人はリスクではなく資産という考え方、NCSCがシャドーAIのリスクへ注意喚起、スパイ天国返上への道）",
@@ -66,6 +392,16 @@
       "summary": "※直近に気になったセキュリティ関連の記事をまとめております（Excelファイルをサブスク配信）。 ※4月から本業にて新しいタスクが振られ、従来のペースで記事チェックが出来なってきています。暫く様子見でやってきましたが、一度9月末で現在作業負荷がかかっているExcel配信を止め、情報分析（発信）の方に軸足を移そうかと考えています。 ※Excel配信は9月末で停止予定ですが、日々の気になった記事…",
       "thumbnail": "https://cdn.image.st-hatena.com/image/scale/7b221222cb97e070a50c3832deaae388c691e197/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffoxcafelate%2F20260908%2F20260908164541.png",
       "author": "Fox on Security"
+    },
+    {
+      "id": "zenn-https://zenn.dev/kenjiakimoto/articles/talkingdrupal-567-security-cve-scanner",
+      "source": "zenn",
+      "title": "【非公式】Talking Drupal日本語解説 #567：AI時代の脆弱性津波とSecurity Scanner",
+      "url": "https://zenn.dev/kenjiakimoto/articles/talkingdrupal-567-security-cve-scanner",
+      "publishedAt": "2026-09-08T07:45:39.000Z",
+      "summary": "Talking Drupal 日本語解説 米国のDrupalコミュニティポッドキャスト Talking Drupal の公開エピソードをもとに、日本の開発現場目線で技術的論点を整理した非公式レポートです。 脆弱性の対応優先度をCVSS基本スコアだけで判断していると、現場のリソース配分が実態から乖離することがあります。 CVSSの基本評価基準 Base Metrics は最悪条件下を想定した理…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--o7eND_l9--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590%25E9%259D%259E%25E5%2585%25AC%25E5%25BC%258F%25E3%2580%2591Talking%2520Drupal%25E6%2597%25A5%25E6%259C%25AC%25E8%25AA%259E%25E8%25A7%25A3%25E8%25AA%25AC%2520%2523567%25EF%25BC%259AAI%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%25AE%25E8%2584%2586%25E5%25BC%25B1%25E6%2580%25A7%25E6%25B4%25A5%25E6%25B3%25A2%25E3%2581%25A8Security%2520Scanner%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:kenjiakimoto%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzI2ZmJiMjQzYmIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "hatenablog-https://piyolog.hatenadiary.jp/entry/2026/09/08/164128",
@@ -87,6 +423,16 @@
       "author": "BleepingComputer",
       "titleJa": "ベトナム関連のAPIS漏洩で2億2000万件の旅行者記録が流出",
       "summaryJa": "事前旅客情報システム（APIS）のデータベースが露呈し、乗客や乗務員の氏名、パスポート番号、生年月日、国籍、フライト情報など2億2000万件の記録が流出しました。"
+    },
+    {
+      "id": "zenn-https://zenn.dev/skillnote/articles/c6819db16c503f",
+      "source": "zenn",
+      "title": "JWTによる認証連携（iframe埋め込み・マルチテナント）",
+      "url": "https://zenn.dev/skillnote/articles/c6819db16c503f",
+      "publishedAt": "2026-09-08T07:32:16.000Z",
+      "summary": "! TL;DR JWTは初回認証だけの使い捨てトークンとして使い、認証後はSnAgent独自のセッション(Cookie)に切り替える設計にした iframe埋め込みのためSameSite=Noneが必須になる。その代わりにCSP frame-ancestors + XSRF-TOKEN + CHIPS(Partitioned)で多層防御している 現状は連携するサービスが少ないためJWT方式を…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--_mpkVftB--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:JWT%25E3%2581%25AB%25E3%2582%2588%25E3%2582%258B%25E8%25AA%258D%25E8%25A8%25BC%25E9%2580%25A3%25E6%2590%25BA%25EF%25BC%2588iframe%25E5%259F%258B%25E3%2582%2581%25E8%25BE%25BC%25E3%2581%25BF%25E3%2583%25BB%25E3%2583%259E%25E3%2583%25AB%25E3%2583%2581%25E3%2583%2586%25E3%2583%258A%25E3%2583%25B3%25E3%2583%2588%25EF%25BC%2589%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:takumi%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzk4ZTU3MWIzMWYuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Skillnote%2520%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTC11NEt5OTVfS2tzSVIwUE1BZGMxbW9VdFE3Tjh3eUlMNm95TTBKcFE5ZlF6VVBnPXMyNTAtYw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "qiita-https://qiita.com/carlotal/items/2f7b6df39c3986e09e87",
@@ -121,6 +467,16 @@
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMyLmdpdGh1YnVzZXJjb250ZW50LmNvbSUyRnUlMkYzMzgyNDE2JTNGdiUzRDQ_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTE5ZDNlYWEwMWMzNzUwZGE3MjU4MzllOTNmZGM3MThl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbfa58670740732465859d8d0df17b5c8?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODIlOTIlRTclQjUlODQlRTMlODElQkYlRTglQkUlQkMlRTMlODIlODAlRTMlODElQTglRTYlOTQlQkIlRTYlOTIlODMlRTklOUQlQTIlRTMlODElOEMlRTUlQTIlOTclRTMlODElODglRTMlODIlOEIlMjAlRTIlOTQlODAlRTIlOTQlODAlMjBBSSVFMyU4MiVCQiVFMyU4MiVBRCVFMyU4MyVBNSVFMyU4MyVBQSVFMyU4MyU4NiVFMyU4MiVBMyVFMyU4MiU5MjQlRTglQjElQTElRTklOTklOTAlRTMlODElQTclRTYlOTUlQjQlRTclOTAlODYlRTMlODElOTklRTMlODIlOEIlRTMlODAlOTBDeVNlYyVFNSVCRSVBOSVFNyVCRiU5MiVFMyU4MyVBRCVFMyU4MiVCMCUyMzEzJUUzJTgwJTkxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZmFjMjlmYTYwOTRkODI4ZGEwNjJiZjIzYzQ2ZTM5MmI&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBhbXUta3Vyb25la28mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz0wMjA3ZDk1ZDdhNzJhNjY1OGU2YmE3MTk1M2E4N2RiYg&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=0fa2779692b8f3848cdcc09c3ddd5b95"
     },
     {
+      "id": "zenn-https://zenn.dev/sun_asterisk/articles/e8a0cd15f175af",
+      "source": "zenn",
+      "title": "AIコーディングエージェントを狙う攻撃あるけど、なんかしたほうがいいの？",
+      "url": "https://zenn.dev/sun_asterisk/articles/e8a0cd15f175af",
+      "publishedAt": "2026-09-08T04:52:03.000Z",
+      "summary": "Claude Code や Codex みたいなAIコーディングエージェント使ってますか？ 細かく指示しないでも自律的にファイルを読んだり、コマンド実行したり、ネットにもアクセスして調査したりしてくれて超絶便利ですよね。 でも実は、攻撃者から見ると 「そのAIさえ乗っ取ってしまえばやりたい放題できる最高な環境」 でもあります。 この記事では、AIを狙う攻撃にどんなものがあるのか、そして主要ツ…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--OYfnX0qZ--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2587%25E3%2582%25A3%25E3%2583%25B3%25E3%2582%25B0%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2582%2592%25E7%258B%2599%25E3%2581%2586%25E6%2594%25BB%25E6%2592%2583%25E3%2581%2582%25E3%2582%258B%25E3%2581%2591%25E3%2581%25A9%25E3%2580%2581%25E3%2581%25AA%25E3%2582%2593%25E3%2581%258B%25E3%2581%2597%25E3%2581%259F%25E3%2581%25BB%25E3%2581%2586%25E3%2581%258C%25E3%2581%2584%25E3%2581%2584%25E3%2581%25AE%25EF%25BC%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E3%2581%2598%25E3%2581%25BE%25E3%2581%2595%25E3%2582%2593%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2M1YTU0ZjZiM2MuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Sun%252A%2520Developers%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSXhCNGtXbmtHWmpKcENLRUdQUWpaT2ZIWkluODliZWpOeVlNQXNyNm1Bd3hwVG9KST1zMjUwLWM=%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
       "id": "qiita-https://qiita.com/abkkk/items/9b0fc9f02a540178f8a4",
       "source": "qiita",
       "title": "ネット上の「本物」はどこまで信じられるか",
@@ -131,6 +487,26 @@
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0Mzk2NTcyJTJGNWMxOGEwYzI3ODUxMmJiOWU0OTg4NjQ5NDQ0YmI5YjdhMmMyNTQ3MSUyRmxhcmdlLnBuZyUzRjE3ODE2MDYzNjM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWZkNjFmMmE5YjI1ZGYzYzFiN2M4OGVlMzM4NTg4MTMw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D64a6f9f5cdad67d798b6095d4b5c11de?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgzJThEJUUzJTgzJTgzJUUzJTgzJTg4JUU0JUI4JThBJUUzJTgxJUFFJUUzJTgwJThDJUU2JTlDJUFDJUU3JTg5JUE5JUUzJTgwJThEJUUzJTgxJUFGJUUzJTgxJUE5JUUzJTgxJTkzJUUzJTgxJUJFJUUzJTgxJUE3JUU0JUJGJUExJUUzJTgxJTk4JUUzJTgyJTg5JUUzJTgyJThDJUUzJTgyJThCJUUzJTgxJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NzQ1Yjg0NDhjZDgyNDlhNzA5Y2Q0NWVjMGIxOGNkN2I&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBhYmtrayZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTdkZTMyZTk4MGFjNGE4OTM0OWQ1OGI4MTBhMjE3ZWVk&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=6ecb358f8eaf4e4396ccad1330ef0e85"
     },
     {
+      "id": "zenn-https://zenn.dev/acs_developer/articles/signed-cookie-one-time-link-paywall",
+      "source": "zenn",
+      "title": "session_start()をやめてペイウォールのアクセスを保つ — HMAC署名Cookieとワンタイムリンクの設計",
+      "url": "https://zenn.dev/acs_developer/articles/signed-cookie-one-time-link-paywall",
+      "publishedAt": "2026-09-08T04:17:35.000Z",
+      "summary": "前提：セッションはページキャッシュと共存できない アカウント登録なしで買える有料記事（ペイウォール）を作るとき、最初に決めるのは「この読者が購入者だと、次のリクエストでどう思い出すか」です。 筆者が保守していた旧実装は session_start() と $_SESSION でこれをやっていました。動きはしますが、2つの問題があります。 ブラウザを閉じると消える。 購入者が翌日に来ると、また…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--FPaZ9ZOz--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:session_start%2528%2529%25E3%2582%2592%25E3%2582%2584%25E3%2582%2581%25E3%2581%25A6%25E3%2583%259A%25E3%2582%25A4%25E3%2582%25A6%25E3%2582%25A9%25E3%2583%25BC%25E3%2583%25AB%25E3%2581%25AE%25E3%2582%25A2%25E3%2582%25AF%25E3%2582%25BB%25E3%2582%25B9%25E3%2582%2592%25E4%25BF%259D%25E3%2581%25A4%2520%25E2%2580%2594%2520HMAC%25E7%25BD%25B2%25E5%2590%258DCookie%25E3%2581%25A8%25E3%2583%25AF%25E3%2583%25B3%25E3%2582%25BF%25E3%2582%25A4%25E3%2583%25A0%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25AF%25E3%2581%25AE%25E8%25A8%25AD%25E8%25A8%2588%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:ACS%2520Developer%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2FkNWFhMzBhMTcuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/aozora_ai_dev/articles/f2bad6d461e4a4",
+      "source": "zenn",
+      "title": "LINE Messaging APIのWebhookをNext.jsで安全に受けるために実装した6項目",
+      "url": "https://zenn.dev/aozora_ai_dev/articles/f2bad6d461e4a4",
+      "publishedAt": "2026-09-08T03:17:00.000Z",
+      "summary": "LINE Messaging APIのWebhookをNext.js App Routerで受け、Google SheetsのFAQをClaudeへ渡して返信する小さなBotを作りました。機能自体は単純ですが、公開エンドポイントに外部APIと生成AIがつながるため、正常系より先に「どこまで受け付けるか」「壊れたときに何を返すか」を決めました。 この記事では、実装時に固定した6項目を紹介します…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--S5SVymuw--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:LINE%2520Messaging%2520API%25E3%2581%25AEWebhook%25E3%2582%2592Next.js%25E3%2581%25A7%25E5%25AE%2589%25E5%2585%25A8%25E3%2581%25AB%25E5%258F%2597%25E3%2581%2591%25E3%2582%258B%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E5%25AE%259F%25E8%25A3%2585%25E3%2581%2597%25E3%2581%259F6%25E9%25A0%2585%25E7%259B%25AE%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E9%259D%2592%25E7%25A9%25BA%25E6%2595%2599%25E5%25AE%25A4%25EF%25BD%259CAI%25E9%2596%258B%25E7%2599%25BA%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSzJudG4xUUVJdkloOXhTNnlUZGFydkI2bUZNRUg3Z1dDYmJReWI0c2ZNeXFuWTJRPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
       "id": "qiita-https://qiita.com/top_of_the_world_winter/items/6597c8010083d2353d67",
       "source": "qiita",
       "title": "AI生成曲が1日9万曲、しかもその再生の85%はボットだった",
@@ -139,6 +515,16 @@
       "summary": "はじめに 音楽配信サービスの Deezer に、AIが作った曲が1日9万曲アップロードされています。 2026年6月の数字で、ピークの日には新規アップロード全体の半分を超えました。 しかも、そのAI曲が集めた再生の85%は、人が聴いたものではありません。 ボットが自動で回した再生です。 最初は音楽業界のニュースとして読んでいたのですが、数字を追っていくうちに別の話だと分かってきました。 ボッ…",
       "author": "@top_of_the_world_winter",
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MTU1NDkyJTJGY2I5MzVmNGU2NjZlYTViMmRmZDMxZTU0NWI0ZDc3YTE3MDFlZTk0MCUyRnhfbGFyZ2UucG5nJTNGMTc4NTIxOTcwMz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MmEyOGRlOTZhM2E4ZTcwOWViZTY1NmZmZTVjNTMxNTI%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkYwYWVmN2VjZjU3ZDZiNzhjNzFmZjQ0NjIwMGRlMTdmNGUzNDI5Mjc5JTJGb3JpZ2luYWwuanBnJTNGMTc3ODY2NzU0Mj9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1hOTIwMzEwNTU4ZjhjZGY3YzJjNjMwNjZkMjUyNDdhYg%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D3bd8492521dda33cdc7ca40a00b4b45b?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTclOTQlOUYlRTYlODglOTAlRTYlOUIlQjIlRTMlODElOEMxJUU2JTk3JUE1OSVFNCVCOCU4NyVFNiU5QiVCMiVFMyU4MCU4MSVFMyU4MSU5NyVFMyU4MSU4QiVFMyU4MiU4MiVFMyU4MSU5RCVFMyU4MSVBRSVFNSU4NiU4RCVFNyU5NCU5RiVFMyU4MSVBRTg1JTI1JUUzJTgxJUFGJUUzJTgzJTlDJUUzJTgzJTgzJUUzJTgzJTg4JUUzJTgxJUEwJUUzJTgxJUEzJUUzJTgxJTlGJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ODc1ZDk3MzY3NjNlMGU0NWM3Y2FkMjIxYjVmYTE1ZTY&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB0b3Bfb2ZfdGhlX3dvcmxkX3dpbnRlciZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTg2NTQzMDQ3Nzk3Mjc4OGVhMjdiY2E3Mjk1YzFlM2Jm&amp;blend-x=242&amp;blend-y=454&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;txt64=5qCq5byP5Lya56S-44OK44OP44OI&amp;txt-x=242&amp;txt-y=539&amp;txt-width=838&amp;txt-clip=end%2Cellipsis&amp;txt-color=%231E2121&amp;txt-font=Hiragino%20Sans%20W6&amp;txt-size=28&amp;s=50c0e34f2cc5318dc55b63e8dfb95dfe"
+    },
+    {
+      "id": "zenn-https://zenn.dev/mkj/articles/fad8adf0586665",
+      "source": "zenn",
+      "title": "Kaggleコンペ紹介：AI Agent Security - Multi-Step Tool Attacks",
+      "url": "https://zenn.dev/mkj/articles/fad8adf0586665",
+      "publishedAt": "2026-09-08T02:50:05.000Z",
+      "summary": "はじめに こんにちは、松尾研究所 データサイエンティストの力岡です。 今回は、Kaggleで開催された「AI Agent Security - Multi-Step Tool Attacks」コンペに参加し、4,187チーム中4位（金メダル） を獲得することができました。本記事では、コンペの概要や攻略の考え方、私たちの取り組み、上位解法について紹介します。 本コンペは、「AIエージェントのセ…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--bxVAOzQQ--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Kaggle%25E3%2582%25B3%25E3%2583%25B3%25E3%2583%259A%25E7%25B4%25B9%25E4%25BB%258B%25EF%25BC%259AAI%2520Agent%2520Security%2520-%2520Multi-Step%2520Tool%2520Attacks%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:Rick%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2U2NGM3ZTBkMzIuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%259D%25BE%25E5%25B0%25BE%25E7%25A0%2594%25E7%25A9%25B6%25E6%2589%2580%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzZkMTQ1MDUyZWMuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "qiita-https://qiita.com/tanabata-kitajima/items/a5ef133e5fb605cdab74",
@@ -159,6 +545,16 @@
       "summary": "Microsoftの月例更新は2026年に206件・570件・421件と急増し、同社はAIによる脆弱性発見で今後も増えると公式に予告しました。CVSS降順のトリアージが破綻する前に、KEVとExploitedフラグで例外を抜き、残りをIntuneの更新リングと迅速化ポリシーで捌く2レーン運用へ再設計する手順を解説します。",
       "thumbnail": "https://blog.cloudnative.co.jp/assets/images/notion/52df39547d1f.webp",
       "author": "CloudNative BLOGs"
+    },
+    {
+      "id": "zenn-https://zenn.dev/box2box/articles/agent-untrusted-tool-results",
+      "source": "zenn",
+      "title": "エージェントにブラウザを触らせていたら、プロフィール欄に fork bomb が仕込まれていた",
+      "url": "https://zenn.dev/box2box/articles/agent-untrusted-tool-results",
+      "publishedAt": "2026-09-08T02:11:27.000Z",
+      "summary": "結論 / TL;DR X のフォロー先をエージェントに選ばせていたら、あるアカウントのプロフィール 1 行目に「AI へ向けた命令文 + fork bomb」が置いてありました。読ませるだけで実行させる狙いの、素朴ですが本物のプロンプトインジェクションです。 そこから確認したことを書きます。 エージェントから見ると、Web ページの中身もファイルの中身もエラーメッセージも、すべて「tool …",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--6u-lWcZg--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25AB%25E3%2583%2596%25E3%2583%25A9%25E3%2582%25A6%25E3%2582%25B6%25E3%2582%2592%25E8%25A7%25A6%25E3%2582%2589%25E3%2581%259B%25E3%2581%25A6%25E3%2581%2584%25E3%2581%259F%25E3%2582%2589%25E3%2580%2581%25E3%2583%2597%25E3%2583%25AD%25E3%2583%2595%25E3%2582%25A3%25E3%2583%25BC%25E3%2583%25AB%25E6%25AC%2584%25E3%2581%25AB%2520fork%2520bomb%2520%25E3%2581%258C%25E4%25BB%2595%25E8%25BE%25BC%25E3%2581%25BE%25E3%2582%258C%25E3%2581%25A6%25E3%2581%2584%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:box2box%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzIzN2RjMWM5MTYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "qiita-https://qiita.com/mooreyxia/items/3af33abfbc0d8bd85335",
@@ -751,6 +1147,16 @@
       "summary": "※直近に気になったセキュリティ関連の記事をまとめております（Excelファイルをサブスク配信）。 ※4月から本業にて新しいタスクが振られ、従来のペースで記事チェックが出来なってきています。暫く様子見でやってきましたが、一度9月末で現在作業負荷がかかっているExcel配信を止め、情報分析（発信）の方に軸足を移そうかと考えています。 ※Excel配信は9月末で停止予定ですが、日々の気になった記事…",
       "thumbnail": "https://cdn.image.st-hatena.com/image/scale/cb797a8b5ac0745add50e8b7826bd3d3b9bac2a0/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffoxcafelate%2F20260907%2F20260907160150.png",
       "author": "Fox on Security"
+    },
+    {
+      "id": "qiita-https://qiita.com/pds_siken/items/16d464cff4f7f518e856",
+      "source": "qiita",
+      "title": "ゼロトラストアーキテクチャをPD試験形式の問題で理解する【境界型との違いも解説】",
+      "url": "https://qiita.com/pds_siken/items/16d464cff4f7f518e856",
+      "publishedAt": "2026-09-07T06:23:22.000Z",
+      "summary": "ゼロトラストアーキテクチャをPD試験問題で理解する ゼロトラストはPD試験（システム区分）の重要テーマです。 従来の境界型セキュリティとの違いを明確に理解することが求められます。 従来の境界型セキュリティの問題点 従来の「境界型セキュリティ」は、社内ネットワーク内を信頼し、外部のみを検証する考え方です。 現代の問題点 リモートワークの普及： 社員が社外から社内システムにアクセスするケースが増…",
+      "author": "@pds_siken",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDg5NzczJTJGMjA3MmQ4NTc4MTRjMWFiNzI2NzA3NzhjYTY4MzYyNmQ3ZTYwZTdiNSUyRmxhcmdlLnBuZyUzRjE3ODczMjA2ODc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTI2N2UzNzNmZTZiN2IwNzEwMTQ3MTUwNGQzNzcxZDE3%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df085992c99013fc1329f9999d8851bdf?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUJDJUUzJTgzJUFEJUUzJTgzJTg4JUUzJTgzJUE5JUUzJTgyJUI5JUUzJTgzJTg4JUUzJTgyJUEyJUUzJTgzJUJDJUUzJTgyJUFEJUUzJTgzJTg2JUUzJTgyJUFGJUUzJTgzJTgxJUUzJTgzJUEzJUUzJTgyJTkyUEQlRTglQTklQTYlRTklQTglOTMlRTUlQkQlQTIlRTUlQkMlOEYlRTMlODElQUUlRTUlOTUlOEYlRTklQTElOEMlRTMlODElQTclRTclOTAlODYlRTglQTclQTMlRTMlODElOTklRTMlODIlOEIlRTMlODAlOTAlRTUlQTIlODMlRTclOTUlOEMlRTUlOUUlOEIlRTMlODElQTglRTMlODElQUUlRTklODElOTUlRTMlODElODQlRTMlODIlODIlRTglQTclQTMlRTglQUElQUMlRTMlODAlOTEmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0yMWMwOWZiZWIxNmVhODYxZmJkZTE4YjJlMjk5MDY4Nw&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwZHNfc2lrZW4mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1kYTdlMmUwOWM1MWEyNzQzM2FlMjhkMmM4ODc5MjQ0Nw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=a05431288586d91d9439dff53cc908d9"
     },
     {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/n-able-patches-max-severity-n-central-flaw-amid-ongoing-attacks/",
@@ -4226,6 +4632,16 @@
       "summaryJa": "インターネット上に公開されている約22,000台のMicrosoft Exchangeサーバーが、すべてのユーザーメールボックスの乗っ取りを可能にする深刻な認証回避の脆弱性を抱えたまま放置されています。"
     },
     {
+      "id": "qiita-https://qiita.com/asayan_mana/items/b7f23fa1dd6006b31b93",
+      "source": "qiita",
+      "title": "Google Cloudの責任共有モデルを、もう一段階踏み込んで見てみる",
+      "url": "https://qiita.com/asayan_mana/items/b7f23fa1dd6006b31b93",
+      "publishedAt": "2026-09-01T12:22:33.000Z",
+      "summary": "責任共有モデルの図はどこでも見かけます。下の層がクラウド事業者、上の層が利用者、と色分けされているあれです。ただ、あの図に署名した覚えはありません。署名しているのは利用規約とデータ処理の契約のほうです。 実際に何がどちらの責任なのかは、そちらに書かれています。読みに行くと、図では見えない境界がいくつも出てきます。バックアップは契約上も利用者の責任だとか、インシデント通知の対象になる「侵害」に…",
+      "author": "@asayan_mana",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDQzOTcwMiUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc4MDQ5OTk4OD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NDE0NDA0Nzc1YzY3YjJjZjcwMmI2NTAyMDdhNzNmZTk%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbb6a4d40be2ef8e7f91bf02d7d0038f7?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9R29vZ2xlJTIwQ2xvdWQlRTMlODElQUUlRTglQjIlQUMlRTQlQkIlQkIlRTUlODUlQjElRTYlOUMlODklRTMlODMlQTIlRTMlODMlODclRTMlODMlQUIlRTMlODIlOTIlRTMlODAlODElRTMlODIlODIlRTMlODElODYlRTQlQjglODAlRTYlQUUlQjUlRTklOUElOEUlRTglQjglOEYlRTMlODElQkYlRTglQkUlQkMlRTMlODIlOTMlRTMlODElQTclRTglQTYlOEIlRTMlODElQTYlRTMlODElQkYlRTMlODIlOEImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1kNTE4MmEwZGE5NTFkOWI0NjUyYmE2OGU4NjY0ZTAxZg&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBhc2F5YW5fbWFuYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTQ1MDZhM2NmZTdjMGI1Nzg3NjkxYmY1NDdlZGM5ODkw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=cafabbf0ca18a4baf2af487adbb1ef40"
+    },
+    {
       "id": "zenn-https://zenn.dev/neki/articles/3ab08d9c16ff16",
       "source": "zenn",
       "title": "Snowflakeで『個人情報のダウンロード禁止』をどこまで実現できるか",
@@ -6877,6 +7293,16 @@
       "summaryJa": "マイクロソフトは、Windows 11のバージョン25H2および24H2向けにプレビュー版の累積更新プログラム「KB5120998」をリリースしました。スタートメニューやタスクバー、検索機能など計35項目の改善が含まれています。"
     },
     {
+      "id": "zenn-https://zenn.dev/cybozu_psirt/articles/0595dbd8f144ae",
+      "source": "zenn",
+      "title": "OWASP Agentic Skills Top 10など: Cybozu PSIRT Monthly（2026年8月号）",
+      "url": "https://zenn.dev/cybozu_psirt/articles/0595dbd8f144ae",
+      "publishedAt": "2026-08-28T08:25:36.000Z",
+      "summary": "こんにちは。PSIRTの田口です。 はじめに PSIRTでは、各メンバーが気になったセキュリティに関する記事や話題を随時、社内のスレッドに投稿しています。本記事では、2026年8月にスレッド内で共有された記事や話題を紹介します。 共有された記事・話題 OWASP Top 10 for LLM Applications 2026 https://genai.owasp.org/resource…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--MxR581_Y--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:OWASP%2520Agentic%2520Skills%2520Top%252010%25E3%2581%25AA%25E3%2581%25A9%253A%2520Cybozu%2520PSIRT%2520Monthly%25EF%25BC%25882026%25E5%25B9%25B4...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:ibuki%2520taguchi%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzJhYzE0YjIxMzQuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2582%25B5%25E3%2582%25A4%25E3%2583%259C%25E3%2582%25A6%25E3%2582%25BA%2520PSIRT%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzUyM2Q2NmExNjEuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
       "id": "thehackernews-https://thehackernews.com/2026/08/papercut-zero-day-exploited-in-attacks.html",
       "source": "thehackernews",
       "title": "PaperCut Zero-Day Exploited in Attacks, Affecting All NG and MF Versions",
@@ -6887,16 +7313,6 @@
       "author": "The Hacker News",
       "titleJa": "PaperCutのゼロデイ脆弱性が攻撃に悪用、全NGおよびMFバージョンが対象",
       "summaryJa": "PaperCutは、同社のプリント管理ソフト「PaperCut NG」および「PaperCut MF」の全バージョンにおいて、ゼロデイ攻撃に悪用されている脆弱性が存在すると警告しました。"
-    },
-    {
-      "id": "zenn-https://zenn.dev/cybozu_psirt/articles/0595dbd8f144ae",
-      "source": "zenn",
-      "title": "OWASP Agentic Skills Top 10など: Cybozu PSIRT Monthly（2026年8月号）",
-      "url": "https://zenn.dev/cybozu_psirt/articles/0595dbd8f144ae",
-      "publishedAt": "2026-08-28T08:25:36.000Z",
-      "summary": "こんにちは。PSIRTの田口です。 はじめに PSIRTでは、各メンバーが気になったセキュリティに関する記事や話題を随時、社内のスレッドに投稿しています。本記事では、2026年8月にスレッド内で共有された記事や話題を紹介します。 共有された記事・話題 OWASP Top 10 for LLM Applications 2026 https://genai.owasp.org/resource…",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--MxR581_Y--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:OWASP%2520Agentic%2520Skills%2520Top%252010%25E3%2581%25AA%25E3%2581%25A9%253A%2520Cybozu%2520PSIRT%2520Monthly%25EF%25BC%25882026%25E5%25B9%25B4...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:ibuki%2520taguchi%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzJhYzE0YjIxMzQuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2582%25B5%25E3%2582%25A4%25E3%2583%259C%25E3%2582%25A6%25E3%2582%25BA%2520PSIRT%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzUyM2Q2NmExNjEuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
-      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "zenn-https://zenn.dev/relightks/articles/d2651a785c174b",
@@ -27825,7 +28241,20 @@
       "qiita-https://qiita.com/abkkk/items/9b0fc9f02a540178f8a4": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0Mzk2NTcyJTJGNWMxOGEwYzI3ODUxMmJiOWU0OTg4NjQ5NDQ0YmI5YjdhMmMyNTQ3MSUyRmxhcmdlLnBuZyUzRjE3ODE2MDYzNjM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWZkNjFmMmE5YjI1ZGYzYzFiN2M4OGVlMzM4NTg4MTMw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D64a6f9f5cdad67d798b6095d4b5c11de?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgzJThEJUUzJTgzJTgzJUUzJTgzJTg4JUU0JUI4JThBJUUzJTgxJUFFJUUzJTgwJThDJUU2JTlDJUFDJUU3JTg5JUE5JUUzJTgwJThEJUUzJTgxJUFGJUUzJTgxJUE5JUUzJTgxJTkzJUUzJTgxJUJFJUUzJTgxJUE3JUU0JUJGJUExJUUzJTgxJTk4JUUzJTgyJTg5JUUzJTgyJThDJUUzJTgyJThCJUUzJTgxJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NzQ1Yjg0NDhjZDgyNDlhNzA5Y2Q0NWVjMGIxOGNkN2I&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBhYmtrayZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTdkZTMyZTk4MGFjNGE4OTM0OWQ1OGI4MTBhMjE3ZWVk&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=6ecb358f8eaf4e4396ccad1330ef0e85",
       "hatenablog-https://piyolog.hatenadiary.jp/entry/2026/09/08/164128": "https://ogimage.blog.st-hatena.com/10257846132616586766/14945776032075206814/1788853288",
       "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/09/08/164634": "https://cdn.image.st-hatena.com/image/scale/7b221222cb97e070a50c3832deaae388c691e197/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffoxcafelate%2F20260908%2F20260908164541.png",
-      "qiita-https://qiita.com/amu-kuroneko/items/f92563de61419a9e301d": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMyLmdpdGh1YnVzZXJjb250ZW50LmNvbSUyRnUlMkYzMzgyNDE2JTNGdiUzRDQ_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTE5ZDNlYWEwMWMzNzUwZGE3MjU4MzllOTNmZGM3MThl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbfa58670740732465859d8d0df17b5c8?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODIlOTIlRTclQjUlODQlRTMlODElQkYlRTglQkUlQkMlRTMlODIlODAlRTMlODElQTglRTYlOTQlQkIlRTYlOTIlODMlRTklOUQlQTIlRTMlODElOEMlRTUlQTIlOTclRTMlODElODglRTMlODIlOEIlMjAlRTIlOTQlODAlRTIlOTQlODAlMjBBSSVFMyU4MiVCQiVFMyU4MiVBRCVFMyU4MyVBNSVFMyU4MyVBQSVFMyU4MyU4NiVFMyU4MiVBMyVFMyU4MiU5MjQlRTglQjElQTElRTklOTklOTAlRTMlODElQTclRTYlOTUlQjQlRTclOTAlODYlRTMlODElOTklRTMlODIlOEIlRTMlODAlOTBDeVNlYyVFNSVCRSVBOSVFNyVCRiU5MiVFMyU4MyVBRCVFMyU4MiVCMCUyMzEzJUUzJTgwJTkxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZmFjMjlmYTYwOTRkODI4ZGEwNjJiZjIzYzQ2ZTM5MmI&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBhbXUta3Vyb25la28mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz0wMjA3ZDk1ZDdhNzJhNjY1OGU2YmE3MTk1M2E4N2RiYg&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=0fa2779692b8f3848cdcc09c3ddd5b95"
+      "qiita-https://qiita.com/amu-kuroneko/items/f92563de61419a9e301d": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMyLmdpdGh1YnVzZXJjb250ZW50LmNvbSUyRnUlMkYzMzgyNDE2JTNGdiUzRDQ_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTE5ZDNlYWEwMWMzNzUwZGE3MjU4MzllOTNmZGM3MThl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbfa58670740732465859d8d0df17b5c8?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODIlOTIlRTclQjUlODQlRTMlODElQkYlRTglQkUlQkMlRTMlODIlODAlRTMlODElQTglRTYlOTQlQkIlRTYlOTIlODMlRTklOUQlQTIlRTMlODElOEMlRTUlQTIlOTclRTMlODElODglRTMlODIlOEIlMjAlRTIlOTQlODAlRTIlOTQlODAlMjBBSSVFMyU4MiVCQiVFMyU4MiVBRCVFMyU4MyVBNSVFMyU4MyVBQSVFMyU4MyU4NiVFMyU4MiVBMyVFMyU4MiU5MjQlRTglQjElQTElRTklOTklOTAlRTMlODElQTclRTYlOTUlQjQlRTclOTAlODYlRTMlODElOTklRTMlODIlOEIlRTMlODAlOTBDeVNlYyVFNSVCRSVBOSVFNyVCRiU5MiVFMyU4MyVBRCVFMyU4MiVCMCUyMzEzJUUzJTgwJTkxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZmFjMjlmYTYwOTRkODI4ZGEwNjJiZjIzYzQ2ZTM5MmI&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBhbXUta3Vyb25la28mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz0wMjA3ZDk1ZDdhNzJhNjY1OGU2YmE3MTk1M2E4N2RiYg&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=0fa2779692b8f3848cdcc09c3ddd5b95",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/august-updates-trigger-0xc0000409-errors-on-windows-server-2016/": "https://www.bleepstatic.com/content/hl-images/2025/03/27/Windows_Server.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/sap-warns-of-maximum-severity-overpass-kernel-vulnerability/": "https://www.bleepstatic.com/content/hl-images/2026/08/14/SAP.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-gpt-6-astra-can-find-zero-days-but-is-also-harder-to-monitor/": "https://www.bleepstatic.com/content/hl-images/2026/07/29/openai-cyberattack.jpg",
+      "qiita-https://qiita.com/Kerdy/items/677bf9dc8c81ca086948": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjk1MjkyNSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTczMzA2NjEzOT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NjU4ZmRhZmFhN2MwYTlhZTJlMzhmYjNmNDI0NzcyNGY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df672aad81a7384f0de68f42e53607ac2?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9OSUyRjglRTMlODAlODElRTQlQkIlOEElRTYlOTclQTUlRTMlODElQUUlRTMlODIlQkIlRTMlODIlQUQlRTMlODMlQTUlRTMlODMlQUElRTMlODMlODYlRTMlODIlQTMlRTMlODMlOEIlRTMlODMlQTUlRTMlODMlQkMlRTMlODIlQjkmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1jODA1YmE4NmNkNWEwZWVmNTI5MTk1MjJjZTNlYjJhZg&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBLZXJkeSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTZlZmEyOGNiOTU1MjliZGQxNWExY2NkNzA3Yzg0YmY4&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=8a3be21e36c5094ebd5b552c0d4df341",
+      "qiita-https://qiita.com/securoi_koyama/items/d7d74a822686280e2978": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjE5Mjk0NDk3NyUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0wYzQ2ZjBlYzE4MTUxN2FhZmU3YTI4ODc4MzI3NWQxMw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dccf715ff03089ff41f3fb7405d1ec437?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU0JUJBJTg4JUU3JUFFJTk3JUUzJTgyJTkyJUUzJTgxJThCJUUzJTgxJTkxJUUzJTgxJTlBJUUzJTgxJUFCJUUzJTgwJThDJUU2JTk0JUI5JUUzJTgxJTk2JUUzJTgyJTkzJUUzJTgxJUE3JUUzJTgxJThEJUUzJTgxJUFBJUUzJTgxJTg0JUUzJTgwJThEJUUzJTgzJUFEJUUzJTgyJUIwJUU0JUJGJTlEJUU1JTg1JUE4JUUzJTgyJTkyJUU0JUJEJTlDJUUzJTgyJThCJUUyJTgwJTk0JUUyJTgwJTk0JUU2JTlDJTgwJUU1JUIwJThGJUU2JUE3JThCJUU2JTg4JTkwJUUzJTgxJUE4JUUzJTgwJTgxJUUzJTgxJTlEJUUzJTgxJUFFJUU5JTk5JTkwJUU3JTk1JThDJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZjM5ZjEwMjAxZTk3ZDRmMmZjYmQzMmEwY2M4OGUwYmM&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzZWN1cm9pX2tveWFtYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTE1ZTJjYjFjOTZlODg0YWRmNzc2OGZjYWVjYjYxMTlh&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=319f0a7c0bd4b0fded308f4f10e47744",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/adobe-fixes-critical-magento-zero-day-exploited-to-backdoor-servers/": "https://www.bleepstatic.com/content/hl-images/2026/04/13/Adobe.jpg",
+      "qiita-https://qiita.com/itbibouroku/items/353d3f402ba843cf2e65": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnBicy50d2ltZy5jb20lMkZwcm9maWxlX2ltYWdlcyUyRjE5MTk3NjA0ODk4ODgwMDYxNDQlMkZWcnFaSmVrRF9iaWdnZXIuanBnP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz00YTA5ZWZmNmExMThmM2EzZDFkZDI2YmE1OTdkNWM0Ng%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db09f8131d1d3deb7313ea76e5682c439?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9TWVzc2FnZSUyMFRyYWNlJUUzJTgxJUE3JUU5JTk5JTkwJUU3JTk1JThDJUUzJTgyJTkyJUU2JTg0JTlGJUUzJTgxJTk4JUUzJTgxJTlGJUUzJTgyJTg5JUUzJTgwJTgyQWR2YW5jZWQlMjBIdW50aW5nJUUzJTgxJUE4S1FMJUUzJTgxJUE3JUU0JUI4JTgwJUU2JUFEJUE5JUU4JUI4JThGJUUzJTgxJUJGJUU4JUJFJUJDJUUzJTgyJTkzJUUzJTgxJUEwJUUzJTgzJUExJUUzJTgzJUJDJUUzJTgzJUFCJUU4JUFBJUJGJUU2JTlGJUJCJUUzJTgyJTkyJUUzJTgxJTk5JUUzJTgyJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZDQ4Mjg1MzYzMmEyNmNiMzY4NGE1ZjUwNmE3NTM2ZjE&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBpdGJpYm91cm9rdSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTVkODc2ZWRhNTg0ZTgwNzgxNGI1OTRiODBhYWI5N2Nj&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=5737063192b1e7caf0de540e6d65ce4e",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/webinar-the-forgotten-google-workspace-access-that-can-lead-to-a-breach/": "https://www.bleepstatic.com/content/hl-images/2026/09/08/google-workspace-hacker.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2025-changes-may-cause-app-crashes/": "https://www.bleepstatic.com/content/hl-images/2026/04/17/Windows_Server.jpg",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/hackers-build-ai-frameworks-for-widescale-credential-theft/": "https://www.bleepstatic.com/content/hl-images/2026/07/27/botnet.jpg",
+      "qiita-https://qiita.com/cruel_summer/items/ddb090fdc9f8c37e501e": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzNzk2Mjg0JTJGZWU2ZWZkZGZjYjVjODExMTdhNTllY2YzMmQ0NWZiOTdiY2FhYjFhYyUyRmxhcmdlLnBuZyUzRjE3MTYxNzUzMDM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWU5YmYyZjY5YWIzNTJjNTI3MDAxMWNmMjQ2ZTBmMDI4%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D9ac3d01202e8522900a444386e71b5fa?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU2JUE5JTlGJUU2JUEyJUIwJUUzJTgxJUFGJUU4JTgwJTgzJUUzJTgxJTg4JUUzJTgyJThCJUUzJTgxJTkzJUUzJTgxJUE4JUUzJTgxJThDJUUzJTgxJUE3JUUzJTgxJThEJUUzJTgyJThCJUUzJTgxJUFFJUUzJTgxJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZGJkYmJiZTlmMTI1NjFhNWE1Mjc1ZmY5MzE0OGMxNDU&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBjcnVlbF9zdW1tZXImdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1mNWY4NzkyZjlkMjk2NjExZmU2ODY2ZjY4MWJlM2Q0Yw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=c07ef28be5405ac4683350e272eeef0f",
+      "qiita-https://qiita.com/pds_siken/items/16d464cff4f7f518e856": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDg5NzczJTJGMjA3MmQ4NTc4MTRjMWFiNzI2NzA3NzhjYTY4MzYyNmQ3ZTYwZTdiNSUyRmxhcmdlLnBuZyUzRjE3ODczMjA2ODc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTI2N2UzNzNmZTZiN2IwNzEwMTQ3MTUwNGQzNzcxZDE3%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df085992c99013fc1329f9999d8851bdf?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUJDJUUzJTgzJUFEJUUzJTgzJTg4JUUzJTgzJUE5JUUzJTgyJUI5JUUzJTgzJTg4JUUzJTgyJUEyJUUzJTgzJUJDJUUzJTgyJUFEJUUzJTgzJTg2JUUzJTgyJUFGJUUzJTgzJTgxJUUzJTgzJUEzJUUzJTgyJTkyUEQlRTglQTklQTYlRTklQTglOTMlRTUlQkQlQTIlRTUlQkMlOEYlRTMlODElQUUlRTUlOTUlOEYlRTklQTElOEMlRTMlODElQTclRTclOTAlODYlRTglQTclQTMlRTMlODElOTklRTMlODIlOEIlRTMlODAlOTAlRTUlQTIlODMlRTclOTUlOEMlRTUlOUUlOEIlRTMlODElQTglRTMlODElQUUlRTklODElOTUlRTMlODElODQlRTMlODIlODIlRTglQTclQTMlRTglQUElQUMlRTMlODAlOTEmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0yMWMwOWZiZWIxNmVhODYxZmJkZTE4YjJlMjk5MDY4Nw&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwZHNfc2lrZW4mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1kYTdlMmUwOWM1MWEyNzQzM2FlMjhkMmM4ODc5MjQ0Nw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=a05431288586d91d9439dff53cc908d9",
+      "qiita-https://qiita.com/asayan_mana/items/b7f23fa1dd6006b31b93": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDQzOTcwMiUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc4MDQ5OTk4OD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NDE0NDA0Nzc1YzY3YjJjZjcwMmI2NTAyMDdhNzNmZTk%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbb6a4d40be2ef8e7f91bf02d7d0038f7?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9R29vZ2xlJTIwQ2xvdWQlRTMlODElQUUlRTglQjIlQUMlRTQlQkIlQkIlRTUlODUlQjElRTYlOUMlODklRTMlODMlQTIlRTMlODMlODclRTMlODMlQUIlRTMlODIlOTIlRTMlODAlODElRTMlODIlODIlRTMlODElODYlRTQlQjglODAlRTYlQUUlQjUlRTklOUElOEUlRTglQjglOEYlRTMlODElQkYlRTglQkUlQkMlRTMlODIlOTMlRTMlODElQTclRTglQTYlOEIlRTMlODElQTYlRTMlODElQkYlRTMlODIlOEImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1kNTE4MmEwZGE5NTFkOWI0NjUyYmE2OGU4NjY0ZTAxZg&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBhc2F5YW5fbWFuYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTQ1MDZhM2NmZTdjMGI1Nzg3NjkxYmY1NDdlZGM5ODkw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=cafabbf0ca18a4baf2af487adbb1ef40"
     },
     "xLinkCards": {},
     "translations": {
@@ -31548,6 +31977,78 @@
       "thehackernews-https://thehackernews.com/2026/09/grindr-to-pay-26-million-to-settle-uk.html": {
         "titleJa": "Grindr、HIVステータス情報の共有を巡る英国での訴訟で2600万ポンドの和解金支払いへ",
         "summaryJa": "マッチングアプリのGrindrは、ユーザーのHIVステータスを含む個人情報を第三者と共有したという英国での訴訟に対し、2600万ポンド（約3510万ドル）を支払うことで和解しました。"
+      },
+      "theregister-https://www.theregister.com/security/2026/09/08/bigbear-phishing-crew-nets-thousands-of-microsoft-365-credentials/5294944": {
+        "titleJa": "フィッシング集団「BigBear」、数千件のMicrosoft 365認証情報を窃取",
+        "summaryJa": "研究者が攻撃者の管理パネルに侵入した結果、461組織に関連する5,137件の盗難データが発見されました。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/webinar-the-forgotten-google-workspace-access-that-can-lead-to-a-breach/": {
+        "titleJa": "ウェビナー：侵害につながるGoogle Workspaceの忘れられたアクセス権",
+        "summaryJa": "Google Workspaceに接続されたサードパーティ製アプリは、本来の目的が終わった後もアクセス権を保持し続けることがあります。本ウェビナーでは、過度な権限付与がどのように侵害を招くかを解説します。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/hackers-build-ai-frameworks-for-widescale-credential-theft/": {
+        "titleJa": "ハッカーが大規模な認証情報窃取のためにAIフレームワークを構築",
+        "summaryJa": "脅威アクターは、AIコーディングアシスタントから、攻撃の全段階を自動化するマルチエージェントフレームワークへと移行しつつあります。"
+      },
+      "theregister-https://www.theregister.com/research/2026/09/08/extortion-crews-have-their-eyes-on-high-value-ai-data-google-warns/5294640": {
+        "titleJa": "Google警告：恐喝グループが価値の高いAIデータを標的に",
+        "summaryJa": "企業は知的財産の流出を避けるために身代金を支払う意欲があるため、恐喝グループの標的になっています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2025-changes-may-cause-app-crashes/": {
+        "titleJa": "Microsoft：Windows Server 2025の変更によりアプリがクラッシュする問題",
+        "summaryJa": "Microsoftは先週、最近のメモリ管理の変更により、一部のWindows Server 2025でアプリケーションがクラッシュする可能性があると警告しました。"
+      },
+      "thehackernews-https://thehackernews.com/2026/09/wechat-zero-click-worm-took-over.html": {
+        "titleJa": "WeChatのゼロクリックワーム、着信のみでiPhoneとAndroidのアカウントを乗っ取り",
+        "summaryJa": "セキュリティ企業Califの研究者は、着信を通じてWeChatアカウントを乗っ取り、他の端末へ拡散するワームを作成しました。被害者は電話を受けるだけで感染します。"
+      },
+      "thehackernews-https://thehackernews.com/2026/09/what-it-took-to-reach-1-billion-build.html": {
+        "titleJa": "ビルドマニフェスト10億件到達の軌跡",
+        "summaryJa": "Chainguardは過去6か月間で、コンテナビルドマニフェストの出力数を5億件から10億件以上に倍増させました。また、独自のコンテナイメージ数は3,000件、イメージバージョン数は67万5,000件を超えました。"
+      },
+      "thehackernews-https://thehackernews.com/2026/09/freeipa-flaw-chain-lets-anonymous.html": {
+        "titleJa": "FreeIPAの脆弱性連鎖、匿名クライアントが再利用可能な管理者権限を作成可能に",
+        "summaryJa": "Red Hatによると、FreeIPAの欠陥により、一度もログインしていないクライアントがディレクトリ内に任意のKerberos IDを作成し、管理者グループに加わることが可能になります。"
+      },
+      "theregister-https://www.theregister.com/security/2026/09/08/boston-scientific-left-nursing-its-bottom-line-after-cyberattack/5295026": {
+        "titleJa": "ボストン・サイエンティフィック、サイバー攻撃の影響で業績に打撃",
+        "summaryJa": "医療機器大手のボストン・サイエンティフィックは、8月に発生したシステム侵入の影響により、第3四半期および通期の売上高と利益が減少する見通しであると警告しました。復旧作業が長引いています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/august-updates-trigger-0xc0000409-errors-on-windows-server-2016/": {
+        "titleJa": "8月の更新プログラムがWindows Server 2016で0xc0000409エラーを引き起こす",
+        "summaryJa": "Microsoftは、2026年8月のセキュリティ更新プログラムを適用した際、Compatibility Appraiser診断サービスが有効なWindows Server 2016環境で0xc0000409エラーが発生する可能性があると発表しました。"
+      },
+      "theregister-https://www.theregister.com/security/2026/09/08/sponsored-how-to-secure-hybrid-meeting-rooms-without-sacrificing-user-experience/5294440": {
+        "titleJa": "ユーザー体験を損なわずにハイブリッド会議室を保護する方法",
+        "summaryJa": "規制の強化と攻撃対象の拡大に伴い、会議室用機器には、ユーザーが回避策を講じる必要のない、セキュリティが組み込まれた設計が求められています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/sap-warns-of-maximum-severity-overpass-kernel-vulnerability/": {
+        "titleJa": "SAPが最大深刻度のカーネル脆弱性「OVERPASS」について警告",
+        "summaryJa": "SAPは9月のセキュリティ更新で、SAPカーネルコードの深刻なメモリ破損の欠陥を含む、製品群の20件の脆弱性を修正しました。"
+      },
+      "thehackernews-https://thehackernews.com/2026/09/liquid-hackers-return-3400-bitcoin.html": {
+        "titleJa": "Liquidのハッカーが盗んだ3,400ビットコインを返還、依然として4,700万ドル相当を保持",
+        "summaryJa": "9月6日にLiquidネットワークから約4,000ビットコインが盗まれた事件で、翌日に3,400ビットコインが返還されました。約598.5ビットコインは未返還のままです。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-gpt-6-astra-can-find-zero-days-but-is-also-harder-to-monitor/": {
+        "titleJa": "OpenAI、GPT-6 Astraはゼロデイ攻撃を発見できるが監視も困難と明かす",
+        "summaryJa": "OpenAIは、GPT-6 Astraがサイバーセキュリティ能力において「クリティカルレベル」に達した初のモデルであることを確認しました。"
+      },
+      "thehackernews-https://thehackernews.com/2026/09/chatgpt-flaw-let-planted-prompt-send.html": {
+        "titleJa": "ChatGPTの欠陥により、仕込まれたプロンプトでGmailデータが他アカウントへ送信される恐れ",
+        "summaryJa": "Check Point Researchの報告によると、ChatGPTの会話に単一の指示を埋め込むことで、攻撃者がユーザーの質問に回答する過程でChatGPTを密かに操作できることが判明しました。"
+      },
+      "theregister-https://www.theregister.com/security/2026/09/08/lg-accused-of-egregious-invasion-of-privacy-over-tv-data-collection/5294956": {
+        "titleJa": "LG、テレビのデータ収集をめぐり「甚だしいプライバシー侵害」と非難される",
+        "summaryJa": "ユーザーの同意なしにモニターへアドウェアをインストールする行為が精査されたことを受け、プライバシー侵害の疑いが浮上しています。"
+      },
+      "thehackernews-https://thehackernews.com/2026/09/autonomous-ai-agents-compromise.html": {
+        "titleJa": "自律型AIエージェントが6時間以内に数千件の認証情報を侵害",
+        "summaryJa": "金銭目的のハッカー集団が、自律的なマルチエージェント攻撃フレームワークを採用し、AIを活用して攻撃活動を効率化させています。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/adobe-fixes-critical-magento-zero-day-exploited-to-backdoor-servers/": {
+        "titleJa": "Adobe、Magentoで悪用されていた深刻なゼロデイ脆弱性を修正",
+        "summaryJa": "Adobeは、MagentoおよびAdobe Commerceの複数バージョンに影響を与える、悪用が確認された深刻なゼロデイ脆弱性「StyleSmuggler（CVE-2026-75650）」に対する緊急修正プログラムを公開しました。"
       }
     },
     "enrichVersion": "5"
