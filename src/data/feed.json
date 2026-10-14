@@ -1,6 +1,255 @@
 {
-  "updatedAt": "2026-10-14T04:10:32.659Z",
+  "updatedAt": "2026-10-14T11:30:12.984Z",
   "items": [
+    {
+      "id": "qiita-https://qiita.com/96logger/items/23d424c84abc03b02eda",
+      "source": "qiita",
+      "title": "IPAの注意喚起を受けて、IaCから外部公開の入口を一覧にする手順",
+      "url": "https://qiita.com/96logger/items/23d424c84abc03b02eda",
+      "publishedAt": "2026-10-14T11:20:16.000Z",
+      "summary": "自社やクライアントのシステムで、外部に公開している入口を点検したい皆様へ。 IPA（情報処理推進機構）は2026年10月9日に「不正アクセスによる漏えい等の事案を踏まえ、速やかに実施すべき対策等について」を公開しました。公表された事例の傾向として、IPAは「外部公開しているアプリケーションやサービスの侵害、アカウントの侵害が起点となっていることがうかがえます」と書いています。速やかに行うべき…",
+      "author": "@96logger",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMTU1OTQ0OSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc5MTMzMjM4MD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YWQ3YjI1OTIxYzU0NzNjNWQ3NWI3ZTg1NGVmYTE0YjY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D0ad6eb070a4af46184ed7292ca66038d?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9SVBBJUUzJTgxJUFFJUU2JUIzJUE4JUU2JTg0JThGJUU1JTk2JTlBJUU4JUI1JUI3JUUzJTgyJTkyJUU1JThGJTk3JUUzJTgxJTkxJUUzJTgxJUE2JUUzJTgwJTgxSWFDJUUzJTgxJThCJUUzJTgyJTg5JUU1JUE0JTk2JUU5JTgzJUE4JUU1JTg1JUFDJUU5JTk2JThCJUUzJTgxJUFFJUU1JTg1JUE1JUU1JThGJUEzJUUzJTgyJTkyJUU0JUI4JTgwJUU4JUE2JUE3JUUzJTgxJUFCJUUzJTgxJTk5JUUzJTgyJThCJUU2JTg5JThCJUU5JUEwJTg2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MThkNzE2NzVjYzZmN2ZkZDZlMTE4NDMzN2FlODVkMWM&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDA5NmxvZ2dlciZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWY5MzM4MmVkNjZhOWI1MWE0NzliMWU5OTI1NDI3Yzk5&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=5deb95e9f19905fdd73a342c814ce0c0"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/10/researchers-used-public-openai-model-to.html",
+      "source": "thehackernews",
+      "title": "Researchers Used a Public OpenAI Model to Build a $250,000 Chrome Full-Chain Exploit in Six Days",
+      "url": "https://thehackernews.com/2026/10/researchers-used-public-openai-model-to.html",
+      "publishedAt": "2026-10-14T11:19:02.000Z",
+      "summary": "A team at security firm XBOW chained three then-unknown Google Chrome bugs into a single attack that runs code on a Windows computer when the user only loads a web page, the company said. Its resea…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLXn6RSZOSq2StbSf2fHVaHwVEetIYN0wGfuaIcyaEnwSnXLaY1FBfSKPFzzQuKvtpRygCR7AvNixA-SCkIA98QjnT7gE2UWYtoiZLs5VxQC8KTSJwwlcP0helOb3F4hbSo4uqITjJYPiZHSSuKkm1O_BXFYeyEU7koe_77QSmKbU33o5hteBC5-0dxrs/s1600/chrome-exploit.jpg",
+      "author": "The Hacker News",
+      "titleJa": "研究者が公開されているOpenAIのモデルを使い、25万ドル相当のChromeフルチェーンエクスプロイトを6日間で構築",
+      "summaryJa": "セキュリティ企業XBOWのチームが、Google Chromeの未知の脆弱性3つを組み合わせ、Webページを開くだけでWindows上でコードを実行させる攻撃手法を開発したと発表した。同社はこの研究成果を公開している。"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/10/hirudo-android-trojan-uses-patched.html",
+      "source": "thehackernews",
+      "title": "Hirudo Android Trojan Uses Patched Banking Apps to Bypass Their Built-In Security Checks",
+      "url": "https://thehackernews.com/2026/10/hirudo-android-trojan-uses-patched.html",
+      "publishedAt": "2026-10-14T11:08:22.000Z",
+      "summary": "Cybersecurity researchers have disclosed details of a new Android banking trojan called Hirudo that works by replacing legitimate banking apps with purpose-built patched versions designed to bypass…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj010OXrg2ZBrxwqSnpzd8SrIDY_dYOMtdnzIpG7YnCjv1QB58_HylDTkfFmXtZYci90doRcSrPdFfYLowM_S5t2RpD6UkCoWveJrKajQS-7d3sDtyI22FYN0TKy-pQpzWScUB_ROhXRNzZi9dzhgg02kH3WVtdGPNWYBLKv8qZgsa9kREW1SvZ2LTF2AWV/s1600/android-banking.jpg",
+      "author": "The Hacker News",
+      "titleJa": "Androidトロイの木馬「Hirudo」、正規の銀行アプリを改ざん版に差し替えてセキュリティチェックを回避",
+      "summaryJa": "サイバーセキュリティ研究者が、Android向けの新たな銀行トロイの木馬「Hirudo」の詳細を公開した。このマルウェアは、正規の銀行アプリをセキュリティチェックを回避するように改ざんされた専用バージョンに置き換えることで機能する。"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/10/an-ai-agent-found-critical-otp-bypass.html",
+      "source": "thehackernews",
+      "title": "An AI Agent Found a Critical OTP Bypass in Production. The Attack Was the Easy Part.",
+      "url": "https://thehackernews.com/2026/10/an-ai-agent-found-critical-otp-bypass.html",
+      "publishedAt": "2026-10-14T11:00:00.000Z",
+      "summary": "The bug was simple: the login let you choose where your sign-in code went. Proving it on a live website was the hard part. TL;DR During an authorized assessment, an AI pentesting agent found a crit…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_bop9V2vtfHPW4Obd0zupOPpNFCd9N5HtVwWVs9u-njx8RuEgOkAh75uRjWLS_h3zHQ847m7xc01PkVAdKhyphenhyphen5Pkg2Pb_qthWVQe-9lcpKclCOq3ZDpQ2iSfRSFCQQU8gxyBl6lWEjTKWZHn9LiNSq2rQ4_nUIM6Sjcqv5fwgVRnFpiuxpYDfhrkbikLE/s1600/case.jpg",
+      "author": "The Hacker News",
+      "titleJa": "AIエージェントが本番環境で重大なOTPバイパスを発見、攻撃の実行よりも証明が困難だった",
+      "summaryJa": "ログイン時の認証コード送信先を任意に変更できるという単純な脆弱性が、AIペネトレーションテストエージェントによって発見された。承認された評価プロセスの中で、この脆弱性をライブサイト上で証明することが最も困難な作業であった。"
+    },
+    {
+      "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/microsoft-recent-windows-updates-may-trigger-remote-desktop-failures/",
+      "source": "bleepingcomputer",
+      "title": "Microsoft: Recent Windows updates may trigger Remote Desktop failures",
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-recent-windows-updates-may-trigger-remote-desktop-failures/",
+      "publishedAt": "2026-10-14T10:48:09.000Z",
+      "summary": "Microsoft has confirmed that non-admin users may be unable to connect to devices via Remote Desktop after installing recent Windows updates if the \"Administrator protection\" security feature is ena…",
+      "author": "BleepingComputer",
+      "titleJa": "Microsoft：最近のWindowsアップデートによりリモートデスクトップ接続が失敗する可能性",
+      "summaryJa": "Microsoftは、最近のWindowsアップデートを適用後、「管理者保護」セキュリティ機能が有効な場合に、管理者以外のユーザーがリモートデスクトップ経由でデバイスに接続できなくなる可能性があることを認めた。"
+    },
+    {
+      "id": "qiita-https://qiita.com/maestro_shin1/items/0ff6e7437e13f35739f6",
+      "source": "qiita",
+      "title": "DNS・メールセキュリティ・プロトコル頻出キーワード",
+      "url": "https://qiita.com/maestro_shin1/items/0ff6e7437e13f35739f6",
+      "publishedAt": "2026-10-14T10:24:42.000Z",
+      "summary": "今回は、DNSおよびメール関連についてまとめて見ました 送信ドメイン認証（メールの偽装を防ぐ） SPF（Sender Policy Framework） 現場の訳： 「『このメールはウチのサーバーから送ったよ』と証明するために、ドメインの持ち主が“正当な送信元IPリスト”をDNSにこっそり登録しておく仕組み」 試験のツボ： 受信側は、受け取ったメールの「エンベロープFrom（Return-P…",
+      "author": "@maestro_shin1",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMzcxNTc3OCUyRnByb2ZpbGUtaW1hZ2VzJTJGMTcyOTMxODk5MD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MGRjNDZiMzNlNWRmZWQwN2Q3ZWJiY2Q5OThlNjMyZmQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D1525242942fa45f6965ee98953366d23?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9RE5TJUUzJTgzJUJCJUUzJTgzJUExJUUzJTgzJUJDJUUzJTgzJUFCJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgzJUJCJUUzJTgzJTk3JUUzJTgzJUFEJUUzJTgzJTg4JUUzJTgyJUIzJUUzJTgzJUFCJUU5JUEwJUJCJUU1JTg3JUJBJUUzJTgyJUFEJUUzJTgzJUJDJUUzJTgzJUFGJUUzJTgzJUJDJUUzJTgzJTg5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZGEzNzYzMWJhNzIxNWMyZTcyMzBjM2IyNGI3MjlhZmU&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtYWVzdHJvX3NoaW4xJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9ZDg5ZjU0MDAxMmFlZWNmNzllYTUzYTljNTE2YWQxYWY&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=209354829757f5a2b773b492d24543f7"
+    },
+    {
+      "id": "qiita-https://qiita.com/vayaci/items/83cc31b2576ed025268c",
+      "source": "qiita",
+      "title": "HTTPSでも守れないものがある — セキュリティヘッダを図解する",
+      "url": "https://qiita.com/vayaci/items/83cc31b2576ed025268c",
+      "publishedAt": "2026-10-14T10:02:22.000Z",
+      "summary": "この記事は riku-kobayashi.jp に掲載した記事の転載です。 TLSハンドシェイク や 証明書チェーン の記事で、HTTPSが通信路をどう守っているかを見てきました。 ただ、HTTPSにしただけでは守れないものがあります。 TLSが守るのは通信路であって、ブラウザがレスポンスをどう扱うかではない からです。 その穴を埋めるのが、レスポンスヘッダでブラウザに出す指示、いわゆるセキ…",
+      "author": "@vayaci",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzY4NDcxJTJGYTk2ZGU5ZjkzMDg3NjllMjhhMThhMDY2NWEzYzJiMzI3MGU1NzBmYSUyRnhfbGFyZ2UucG5nJTNGMTc3MjIwNjAwNz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MjI1NWY2MTNkNjdhNGRjZjAyNzFhMTU4M2E0MGQzMDE%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dd0b9a26187a1dac81bc2ce758097a1dc?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9SFRUUFMlRTMlODElQTclRTMlODIlODIlRTUlQUUlODglRTMlODIlOEMlRTMlODElQUElRTMlODElODQlRTMlODIlODIlRTMlODElQUUlRTMlODElOEMlRTMlODElODIlRTMlODIlOEIlMjAlRTIlODAlOTQlMjAlRTMlODIlQkIlRTMlODIlQUQlRTMlODMlQTUlRTMlODMlQUElRTMlODMlODYlRTMlODIlQTMlRTMlODMlOTglRTMlODMlODMlRTMlODMlODAlRTMlODIlOTIlRTUlOUIlQjMlRTglQTclQTMlRTMlODElOTklRTMlODIlOEImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0yYmJmNzI5YjkzZDRjOGRmZjUyYmQ3MjlkMTI2MzM0Yw&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB2YXlhY2kmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1hMjU4YWUzOGY0ZGJkNGIwZTQ3ODhjNGEzNzQ3MjY4Yw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=dd088fdd784802defe3f409ded005bc0"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/security/2026/10/14/openai-engineer-charged-after-boardroom-bug-found-wrapped-in-toilet-paper/5303000",
+      "source": "theregister",
+      "title": "OpenAI engineer charged after boardroom bug found wrapped in toilet paper",
+      "url": "https://www.theregister.com/security/2026/10/14/openai-engineer-charged-after-boardroom-bug-found-wrapped-in-toilet-paper/5303000",
+      "publishedAt": "2026-10-14T09:55:00.000Z",
+      "summary": "FBI alleges covert recorder was plugged into a TV, with a second device later discovered in the employee's bag",
+      "thumbnail": "https://image.theregister.com/?imageId=5303006&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "OpenAIのエンジニア、会議室でトイレットペーパーに包まれた盗聴器が見つかり起訴される",
+      "summaryJa": "FBIは、OpenAIの従業員が会議室のテレビに隠し録音機を接続し、さらに別のデバイスを所持していたとして告発した。この従業員は、トイレットペーパーに包まれた録音機を隠し持っていたとされる。"
+    },
+    {
+      "id": "qiita-https://qiita.com/pds_siken/items/96b7f3eb17b86010916b",
+      "source": "qiita",
+      "title": "PD試験「科目A-1（共通知識）」シラバスVer.0.1をエンジニア目線で読み解く【応用情報からの差分つき】",
+      "url": "https://qiita.com/pds_siken/items/96b7f3eb17b86010916b",
+      "publishedAt": "2026-10-14T08:40:01.000Z",
+      "summary": "この記事でわかること 2026年9月、IPAが「プロフェッショナルデジタルスキル試験（仮称）科目A-1（共通知識）シラバス（案）Ver.0.1」を公開しました。 科目A-1は、PD試験の\"マネジメント／システム／データ・AIの全区分で共通\"して課される試験です。さらに、情報処理安全確保支援士試験とも共通のシラバスになっています。つまり、PD試験を受ける人なら誰でも避けて通れない範囲です。 こ…",
+      "author": "@pds_siken",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDg5NzczJTJGMjA3MmQ4NTc4MTRjMWFiNzI2NzA3NzhjYTY4MzYyNmQ3ZTYwZTdiNSUyRmxhcmdlLnBuZyUzRjE3ODczMjA2ODc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTI2N2UzNzNmZTZiN2IwNzEwMTQ3MTUwNGQzNzcxZDE3%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df085992c99013fc1329f9999d8851bdf?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9UEQlRTglQTklQTYlRTklQTglOTMlRTMlODAlOEMlRTclQTclOTElRTclOUIlQUVBLTElRUYlQkMlODglRTUlODUlQjElRTklODAlOUElRTclOUYlQTUlRTglQUQlOTglRUYlQkMlODklRTMlODAlOEQlRTMlODIlQjclRTMlODMlQTklRTMlODMlOTAlRTMlODIlQjlWZXIuMC4xJUUzJTgyJTkyJUUzJTgyJUE4JUUzJTgzJUIzJUUzJTgyJUI4JUUzJTgzJThCJUUzJTgyJUEyJUU3JTlCJUFFJUU3JUI3JTlBJUUzJTgxJUE3JUU4JUFBJUFEJUUzJTgxJUJGJUU4JUE3JUEzJUUzJTgxJThGJUUzJTgwJTkwJUU1JUJGJTlDJUU3JTk0JUE4JUU2JTgzJTg1JUU1JUEwJUIxJUUzJTgxJThCJUUzJTgyJTg5JUUzJTgxJUFFJUU1JUI3JUFFJUU1JTg4JTg2JUUzJTgxJUE0JUUzJTgxJThEJUUzJTgwJTkxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9OTVlMjVlMDM3Njk2MWI4YjhjOWM3OTY3YWI4ZGM3M2I&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwZHNfc2lrZW4mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1kYTdlMmUwOWM1MWEyNzQzM2FlMjhkMmM4ODc5MjQ0Nw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=97bdd3a0f2cd0ef303c30b2858206fb0"
+    },
+    {
+      "id": "qiita-https://qiita.com/shalXXXX/items/b1c3d79e00760eb5d9c4",
+      "source": "qiita",
+      "title": "MCP サーバーを安全に使う：ツール記述への指示埋め込み・承認後の書き換え・なりすましを定義の固定で止める",
+      "url": "https://qiita.com/shalXXXX/items/b1c3d79e00760eb5d9c4",
+      "publishedAt": "2026-10-14T08:00:29.000Z",
+      "summary": "MCP（Model Context Protocol）サーバーを 1 つ追加すると、エージェントは新しいツールを使えるようになります。同時に、 そのサーバーが書いたツールの名前と説明文が、毎回モデルのコンテキストに入る ようになります。モデルにとって説明文は「このツールをどう使うか」の指示なので、ここに関係のない指示を書かれると、ツールを一度も呼ばなくてもエージェントの振る舞いが変わります。…",
+      "author": "@shalXXXX",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjgyMjQyNSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTY4ODM3OTMyOT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YzhhMTllZGQ0MmUzZTdiMTM2NTY5Yzk3NWRhNTllZjY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D769a7b09b5f12b8ad22ec5033c229a14?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9TUNQJTIwJUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkwJUUzJTgzJUJDJUUzJTgyJTkyJUU1JUFFJTg5JUU1JTg1JUE4JUUzJTgxJUFCJUU0JUJEJUJGJUUzJTgxJTg2JUVGJUJDJTlBJUUzJTgzJTg0JUUzJTgzJUJDJUUzJTgzJUFCJUU4JUE4JTk4JUU4JUJGJUIwJUUzJTgxJUI4JUUzJTgxJUFFJUU2JThDJTg3JUU3JUE0JUJBJUU1JTlGJThCJUUzJTgyJTgxJUU4JUJFJUJDJUUzJTgxJUJGJUUzJTgzJUJCJUU2JTg5JUJGJUU4JUFBJThEJUU1JUJFJThDJUUzJTgxJUFFJUU2JTlCJUI4JUUzJTgxJThEJUU2JThGJTlCJUUzJTgxJTg4JUUzJTgzJUJCJUUzJTgxJUFBJUUzJTgyJThBJUUzJTgxJTk5JUUzJTgxJUJFJUUzJTgxJTk3JUUzJTgyJTkyJUU1JUFFJTlBJUU3JUJFJUE5JUUzJTgxJUFFJUU1JTlCJUJBJUU1JUFFJTlBJUUzJTgxJUE3JUU2JUFEJUEyJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9Njk2MGRjZDg1NmJhZjc4OTlkMjRlYTY1OWM2ZmE4YTE&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzaGFsWFhYWCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTljMTU2YzY2YzE1ZGRlOWU1ZDQ5M2VmZWM1NGFkYmYw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=71da0c18af70c512d1ce2da537ff9d33"
+    },
+    {
+      "id": "zenn-https://zenn.dev/miki_mini/articles/5b129cb7ec4d16",
+      "source": "zenn",
+      "title": "情報流出が止まらない2週間に、自分のサーバーで攻撃を測りながら考えた「いちばん効く守り」と「報われる仕組み」",
+      "url": "https://zenn.dev/miki_mini/articles/5b129cb7ec4d16",
+      "publishedAt": "2026-10-14T08:00:06.000Z",
+      "summary": "美容系勤務独学初心者マリー・アントワネット系エンジニア目指してます！ 今回は 「漏らしても、少し謝って終わり」 なら お金をかけた会社が報われる仕組みを作ればいいじゃない 👸🍰です。 読了時間の目安：約 12分 ! 3行まとめ 2026年9月下旬からの 約2週間で、流出の可能性がある個人情報は最大6,222万件（10月9日時点の報道のまとめ・延べ件数。その後も増えています）。私の小さなサ…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--y7Yzh9Fx--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E6%2583%2585%25E5%25A0%25B1%25E6%25B5%2581%25E5%2587%25BA%25E3%2581%258C%25E6%25AD%25A2%25E3%2581%25BE%25E3%2582%2589%25E3%2581%25AA%25E3%2581%25842%25E9%2580%25B1%25E9%2596%2593%25E3%2581%25AB%25E3%2580%2581%25E8%2587%25AA%25E5%2588%2586%25E3%2581%25AE%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2583%25BC%25E3%2581%25A7%25E6%2594%25BB%25E6%2592%2583%25E3%2582%2592%25E6%25B8%25AC%25E3%2582%258A%25E3%2581%25AA%25E3%2581%258C%25E3%2582%2589%25E8%2580%2583%25E3%2581%2588%25E3%2581%259F%25E3%2580%258C%25E3%2581%2584%25E3%2581%25A1%25E3%2581%25B0%25E3%2582%2593%25E5%258A%25B9%25E3%2581%258F%25E5%25AE%2588%25E3%2582%258A%25E3%2580%258D%25E3%2581%25A8%25E3%2580%258C%25E5%25A0%25B1%25E3%2582%258F%25E3%2582%258C%25E3%2582%258B%25E4%25BB%2595%25E7%25B5%2584%25E3%2581%25BF%25E3%2580%258D%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:miki-mini%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2FmNzU4ZmQ0ZjYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/10/ai-found-linux-kernel-flaw-gives-local.html",
+      "source": "thehackernews",
+      "title": "AI-Found Linux Kernel Flaw Gives Local Users Root, and Can Break a Guest Out to the Host",
+      "url": "https://thehackernews.com/2026/10/ai-found-linux-kernel-flaw-gives-local.html",
+      "publishedAt": "2026-10-14T07:46:57.000Z",
+      "summary": "A flaw in Linux's vhost subsystem lets a local user read and write kernel memory at will and become root across nearly a decade of kernel versions. In one virtualization setup, it lets an untrusted…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhavZnpNnmOBy6Wnkh7wfYD4-I32k65R7uyhYW32Doh3YVqtfJaagZZ_uo9JN-cixODo6h846eR89Aa55TGuMKfXmpjZEVZQ0ssFoP4-qVX6qrvSoyfRsu_q3MQcLKwolyKeE3Lw3MByz2Su8O0XOdRWNkJmyBdwpxsAtxi5y2goE7RhOSBPOLh4Evb60c/s1600/linux-exploit.jpg",
+      "author": "The Hacker News",
+      "titleJa": "AIが発見したLinuxカーネルの欠陥、ローカルユーザーがroot権限を取得しゲストからホストへの脱出も可能に",
+      "summaryJa": "Linuxのvhostサブシステムにある欠陥により、ローカルユーザーがカーネルメモリを自由に読み書きし、約10年分のカーネルバージョンでroot権限を取得できることが判明した。特定の仮想化環境では、信頼できないゲストからホストへの脱出も可能である。"
+    },
+    {
+      "id": "qiita-https://qiita.com/infravis/items/b240e1f17032e6d7cb73",
+      "source": "qiita",
+      "title": "Windowsサービスアカウントの選び方 ─ LocalSystem・仮想アカウント・gMSAと、2種類の「権限」",
+      "url": "https://qiita.com/infravis/items/b240e1f17032e6d7cb73",
+      "publishedAt": "2026-10-14T06:43:59.000Z",
+      "summary": "この記事について 新しく入れるサービスや常駐エージェントを、どのアカウントで動かすか。とりあえず LocalSystem で動かしたり、ドメインユーザーを1つ作ってパスワードを固定したりしている環境は少なくありません。 この記事では、Windowsのサービスアカウントの種類と選び方、そして混同しやすい ユーザー権利とアクセス許可 の違いを整理します。サービスが起動しないときの切り分けにも使え…",
+      "author": "@infravis",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jSWRDcHVDUXRpR1RsOUFYVkxlVkpvdmVRMTBqdl9wRUJDeUoyekg3RWdnNnY5dGpCbyUzRHM5Ni1jP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0zMTUyZWIyODVhNjI5MWQ1NTJkOWJiZTkxYzUwNmMxZA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D1b73ecc1b89ccce80f2678a796bf891b?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9V2luZG93cyVFMyU4MiVCNSVFMyU4MyVCQyVFMyU4MyU5MyVFMyU4MiVCOSVFMyU4MiVBMiVFMyU4MiVBQiVFMyU4MiVBNiVFMyU4MyVCMyVFMyU4MyU4OCVFMyU4MSVBRSVFOSU4MSVCOCVFMyU4MSVCMyVFNiU5NiVCOSUyMCVFMiU5NCU4MCUyMExvY2FsU3lzdGVtJUUzJTgzJUJCJUU0JUJCJUFFJUU2JTgzJUIzJUUzJTgyJUEyJUUzJTgyJUFCJUUzJTgyJUE2JUUzJTgzJUIzJUUzJTgzJTg4JUUzJTgzJUJCZ01TQSVFMyU4MSVBOCVFMyU4MCU4MTIlRTclQTglQUUlRTklQTElOUUlRTMlODElQUUlRTMlODAlOEMlRTYlQTglQTklRTklOTklOTAlRTMlODAlOEQmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0zNDgwZjI0NTA0NmE5NTE0YWM3YWFlM2JiZTY1NjE4NA&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBpbmZyYXZpcyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTdhMzU0MzRhOTA3YjY0Y2M5Yzk0ZTc2MDllZmFlYzQ0&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=52529c7e7bbd5968a424aab2851cce5a"
+    },
+    {
+      "id": "zenn-https://zenn.dev/duskhum/articles/4a02509d126660",
+      "source": "zenn",
+      "title": "EtherRATのC2確立から学ぶ、EthereumとNode.js",
+      "url": "https://zenn.dev/duskhum/articles/4a02509d126660",
+      "publishedAt": "2026-10-14T06:23:40.000Z",
+      "summary": "はじめに インシデントレポートを読んでいて、EtherRATというマルウェアがEthereumを利用してC2の接続先を取得している、という説明に目が留まりました。 Ethereumについて知っていたのは、暗号資産やブロックチェーンに関係するものだという程度です。それが感染端末と攻撃者の通信にどうつながるのか、最初は想像できませんでした。JavaScriptで書かれたマルウェアを動かすために、…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--is5IMopS--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:EtherRAT%25E3%2581%25AEC2%25E7%25A2%25BA%25E7%25AB%258B%25E3%2581%258B%25E3%2582%2589%25E5%25AD%25A6%25E3%2581%25B6%25E3%2580%2581Ethereum%25E3%2581%25A8Node.js%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:duskhum%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly96ZW5uLWRldi5naXRodWIuaW8vZGVmYXVsdC1hdmF0YXJzL2RhcmsvZC5wbmc=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "qiita-https://qiita.com/twsnmp/items/cfe997182e5cb8a3913b",
+      "source": "qiita",
+      "title": "Go言語でPKI入門（勝手に復刻）: ACME拡張編（DNS-01・IPアドレス・端末構成証明）",
+      "url": "https://qiita.com/twsnmp/items/cfe997182e5cb8a3913b",
+      "publishedAt": "2026-10-14T06:20:01.000Z",
+      "summary": "はじめに Go言語でPKI入門（勝手に復刻版）シリーズの続編です。 第1回：CA編 第2回：CRL/OCSP編 第3回：ACME編 前回のACME編では、RFC 8555の基本仕様と、Echoフレームワークを用いたACMEサーバーの基本実装（アカウント登録、オーダー管理、HTTP-01チャレンジの検証、証明書発行など）を解説しました。 今回はその続編として、実際の運用やネットワーク管理ツール…",
+      "author": "@twsnmp",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jSldxWmVuSTJBUFRIVkZiYV8wWDc5dFpEUDMxeVV1dDhPMlpmalpZWVlkWlJTS3Z3cyUzRHM5Ni1jP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz05ZGUwM2QxNjYyMDk4ZjYzZTU5NTMxMTM3ZWM3NWMzMA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D6d3e7b86ce673642f7f4b85f60f4ba87?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9R28lRTglQTglODAlRTglQUElOUUlRTMlODElQTdQS0klRTUlODUlQTUlRTklOTYlODAlRUYlQkMlODglRTUlOEIlOUQlRTYlODklOEIlRTMlODElQUIlRTUlQkUlQTklRTUlODglQkIlRUYlQkMlODklM0ElMjBBQ01FJUU2JThCJUExJUU1JUJDJUI1JUU3JUI3JUE4JUVGJUJDJTg4RE5TLTAxJUUzJTgzJUJCSVAlRTMlODIlQTIlRTMlODMlODklRTMlODMlQUMlRTMlODIlQjklRTMlODMlQkIlRTclQUIlQUYlRTYlOUMlQUIlRTYlQTclOEIlRTYlODglOTAlRTglQTglQkMlRTYlOTglOEUlRUYlQkMlODkmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1iZGQxZDU1MmM1MGJhZGY0NjVkM2YyMGMwYTViNzQzNA&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB0d3NubXAmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1hZmMzNmRkZDhjNTM0ODJjZDg2MzRmOTk2OGNmMWNjYg&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=23a10dac3e43da50cdafe458a86cefae"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/10/four-byte-write-and-timing-bug-let.html",
+      "source": "thehackernews",
+      "title": "Four-Byte Write and Timing Bug Let Researchers Run Code in Windows SmartScreen Enclave",
+      "url": "https://thehackernews.com/2026/10/four-byte-write-and-timing-bug-let.html",
+      "publishedAt": "2026-10-14T05:52:28.000Z",
+      "summary": "Security researchers ran their own code inside a protected part of Windows that is meant to stay sealed off even when the rest of the computer is taken over. The protected area is a VBS enclave, an…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizNi7OCo6m5vsFkEP85LndyXnfiDgk2h5R0WwW_yHZ7mdK6Uh9xuLaI5ddFQJ45fW7jG8eC4VtIHJT1IQaUJCoAEMClMEiv9dA9kASwDQJj4l61ZSIlqW2bw605LQLL5kNUszoxI8Wkr54oguKY7guQGE9rwUmvzCVUjt19-0pWJpxir366NU5eqopHmk/s1600/enclave.jpg",
+      "author": "The Hacker News",
+      "titleJa": "4バイトの書き込みとタイミングのバグにより、研究者がWindows SmartScreenエンクレーブ内でコードを実行",
+      "summaryJa": "セキュリティ研究者が、コンピュータが乗っ取られた際にも隔離されるはずのWindowsの保護領域「VBSエンクレーブ」内で、独自のコードを実行することに成功した。これは4バイトの書き込みとタイミングのバグを利用して実現された。"
+    },
+    {
+      "id": "zenn-https://zenn.dev/otinpan/articles/1e253ce4029fe6",
+      "source": "zenn",
+      "title": "【Crackmes.one】Ghidraとx64dbgでハッシュ値からパスワードを解析",
+      "url": "https://zenn.dev/otinpan/articles/1e253ce4029fe6",
+      "publishedAt": "2026-10-14T05:36:39.000Z",
+      "summary": "はじめに Crackmes.oneとは Crackmeとは、リバースエンジニアリングの技術を練習するために作られたプログラムのことです。一般的なCrackmeには、パスワードやシリアルキーの入力を求める認証処理が組み込まれています。例えば、実行すると次のように表示されます。 Enter password: ******** Wrong password! 解析者はソースコードを見ずに、実行フ…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--e4r1Ry9l--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590Crackmes.one%25E3%2580%2591Ghidra%25E3%2581%25A8x64dbg%25E3%2581%25A7%25E3%2583%258F%25E3%2583%2583%25E3%2582%25B7%25E3%2583%25A5%25E5%2580%25A4%25E3%2581%258B%25E3%2582%2589%25E3%2583%2591%25E3%2582%25B9%25E3%2583%25AF%25E3%2583%25BC%25E3%2583%2589%25E3%2582%2592%25E8%25A7%25A3%25E6%259E%2590%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:otinpan%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUFUWEFKendodjZDelFlQWhOc0ZjNzc5am11MnZGdlFkS19rd3BwWkcyRlk9czk2LWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "zenn-https://zenn.dev/gixo/articles/a2b-attack-data-breach-2026-analysis",
+      "source": "zenn",
+      "title": "相次ぐ情報漏えいはどこから入られたのか ── A2B攻撃とAPI認可不備を公開情報から考察する",
+      "url": "https://zenn.dev/gixo/articles/a2b-attack-data-breach-2026-analysis",
+      "publishedAt": "2026-10-14T05:08:28.000Z",
+      "summary": "はじめに 2026年9月前後から、国内企業の会員システムやアプリから個人情報が漏えいしたという公表が続いています。1,000万件規模の会員情報、運転免許証画像を含む本人確認書類、従業員向け人事システムなど、対象も規模もさまざまです。10月7日以降は個人情報保護委員会、JPCERT/CC、警察庁、国家サイバー統括室、総務省、経済産業省、IPA、金融庁が相次いで注意喚起を出し、10月13日には …",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--T-_Amo5u--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E7%259B%25B8%25E6%25AC%25A1%25E3%2581%2590%25E6%2583%2585%25E5%25A0%25B1%25E6%25BC%258F%25E3%2581%2588%25E3%2581%2584%25E3%2581%25AF%25E3%2581%25A9%25E3%2581%2593%25E3%2581%258B%25E3%2582%2589%25E5%2585%25A5%25E3%2582%2589%25E3%2582%258C%25E3%2581%259F%25E3%2581%25AE%25E3%2581%258B%2520%25E2%2594%2580%25E2%2594%2580%2520A2B%25E6%2594%25BB%25E6%2592%2583%25E3%2581%25A8API%25E8%25AA%258D%25E5%258F%25AF%25E4%25B8%258D%25E5%2582%2599%25E3%2582%2592%25E5%2585%25AC%25E9%2596%258B%25E6%2583%2585%25E5%25A0%25B1%25E3%2581%258B%25E3%2582%2589%25E8%2580%2583%25E5%25AF%259F%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:Kouma%2520Nakashima%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzVkYTBiZjE4NjMuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%25E3%2582%25AE%25E3%2583%2583%25E3%2582%25AF%25E3%2582%25B9%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2Q2ODZjZjNiY2UuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
+      "id": "theregister-https://www.theregister.com/cyber-crime/2026/10/14/ransomware-gets-personal-we-know-where-you-are-kind-of-stuff/5302939",
+      "source": "theregister",
+      "title": "Ransomware gets personal: 'We-know-where-you-are kind of stuff'",
+      "url": "https://www.theregister.com/cyber-crime/2026/10/14/ransomware-gets-personal-we-know-where-you-are-kind-of-stuff/5302939",
+      "publishedAt": "2026-10-14T05:00:00.000Z",
+      "summary": "37% of ransomware attacks involve psychological or physical threats, global survey found",
+      "thumbnail": "https://image.theregister.com/?imageId=5302947&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "ランサムウェアが個人化：「居場所を知っている」といった脅迫",
+      "summaryJa": "世界的な調査によると、ランサムウェア攻撃の37%が心理的または物理的な脅迫を伴うものとなっている。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/cybersecurity-analytics/ransomware-gangs-physical-threats-family-stalking",
+      "source": "darkreading",
+      "title": "Ransomware Gangs Embrace Physical Threats, Family Stalking?",
+      "url": "https://www.darkreading.com/cybersecurity-analytics/ransomware-gangs-physical-threats-family-stalking",
+      "publishedAt": "2026-10-14T05:00:00.000Z",
+      "summary": "Organizations are reporting that employees face threats to their families, stalking, physical violence, and abduction. But these alarming claims are hard to verify.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt87997eb0e0a8cb06/6acda095a3dd4913d099a48b/Wrench_money-KenanOlgun-Getty.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "ランサムウェア集団が物理的な脅迫や家族のストーキングを強化か？",
+      "summaryJa": "組織から、従業員が家族への脅迫、ストーキング、物理的な暴力、誘拐の被害に遭っているとの報告が寄せられている。ただし、これらの深刻な主張を裏付けることは困難である。"
+    },
+    {
+      "id": "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/10/14/134049",
+      "source": "hatenablog",
+      "title": "Daily記事まとめ（LETTICEの注意喚起から始める緊急対策、仏スーパーの冷蔵・冷凍品は数億円の被害、経営者はパスワード問題から目を背けてはいけない）",
+      "url": "https://foxsecurity.hatenablog.com/entry/2026/10/14/134049",
+      "publishedAt": "2026-10-14T04:40:49.000Z",
+      "summary": "※直近に気になったセキュリティ関連の記事をまとめております（Excelファイルをサブスク配信）。 この続きはcodocで購読 ※4月から本業にて新しいタスクが振られ、従来のペースで記事チェックが出来なってきています。暫く様子見でやってきましたが、一度9月末で現在作業負荷がかかっているExcel配信を止め、情報分析（発信）の方に軸足を移す事としました。Excelファイルを活用頂いていた方には申…",
+      "thumbnail": "https://cdn.image.st-hatena.com/image/scale/3d8381bc15dce9f8f94040badcce9a48fcca97e8/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffoxcafelate%2F20261014%2F20261014133911.png",
+      "author": "Fox on Security"
+    },
+    {
+      "id": "thehackernews-https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html",
+      "source": "thehackernews",
+      "title": "Microsoft Patches Record 1,413 Flaws, Including Exploited Windows Shell Bug",
+      "url": "https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html",
+      "publishedAt": "2026-10-14T04:34:43.000Z",
+      "summary": "Microsoft on Tuesday shattered its own Patch Tuesday record by shipping patches for a whopping 1,413 vulnerabilities, including one that it said has come under active exploitation. These include 1,…",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_wUoSEpf7bMmgL7Aa7NRI6qvluN83g3TcKAONrL5REtzYQIVR4TqrNs0awkDsRCXvaSEaOn83V0t1jpwkrh5FULBjyQJnxe-m4gkgjMHRC0SZHpkBDNjOSuZUrOXU5R6JGt4dwZXXn4JHYSoc4n22nIXcFIYtC51Vv89hGimRebEKzQ9-PX1U7M4Lk4ST/s1600/windows-patch.jpg",
+      "author": "The Hacker News",
+      "titleJa": "Microsoftが過去最多の1,413件の脆弱性を修正、悪用されていたWindowsシェルバグも含む",
+      "summaryJa": "Microsoftは火曜日のパッチ公開で、過去最多となる1,413件の脆弱性を修正した。これには、すでに悪用が確認されているWindowsシェルの脆弱性も含まれている。"
+    },
+    {
+      "id": "qiita-https://qiita.com/Jun__o/items/819715e5a39773a45cfa",
+      "source": "qiita",
+      "title": "【9月Auth0公式ブログまとめ】AIエージェントのアイデンティティ管理とMFA代替案 他",
+      "url": "https://qiita.com/Jun__o/items/819715e5a39773a45cfa",
+      "publishedAt": "2026-10-14T04:09:30.000Z",
+      "summary": "Oktaでウェブマーケティングを担当しているJunoです。弊社が運営するウェブサイトauth0.comでは、製品だけでなく、アイデンティティやセキュリティ、AI、開発者向けの実践的な情報などに関するブログを数多く公開しております。Qiitaでは、過去1ヶ月で公開された日本語記事の概要をClaudeを活用してまとめ、記事として配信しています。 今回は、AIエージェントのアイデンティティ・認可管…",
+      "author": "@Jun__o",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDk1MDY4JTJGZTg0ZjY5YjczNjM0M2IwOWI3NGM5ODVmNGNjYzczNjE0OWFiZTMxNCUyRnhfbGFyZ2UucG5nJTNGMTc4OTYyNjkzMj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ODM1ZDA3NmIwYzVmYzFhMGQ2ZDE3OThkNzc2NmI2NGQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D833a324f581b7a0340ed6c8679ebdb4e?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwOSVFNiU5QyU4OEF1dGgwJUU1JTg1JUFDJUU1JUJDJThGJUUzJTgzJTk2JUUzJTgzJUFEJUUzJTgyJUIwJUUzJTgxJUJFJUUzJTgxJUE4JUUzJTgyJTgxJUUzJTgwJTkxQUklRTMlODIlQTglRTMlODMlQkMlRTMlODIlQjglRTMlODIlQTclRTMlODMlQjMlRTMlODMlODglRTMlODElQUUlRTMlODIlQTIlRTMlODIlQTQlRTMlODMlODclRTMlODMlQjMlRTMlODMlODYlRTMlODIlQTMlRTMlODMlODYlRTMlODIlQTMlRTclQUUlQTElRTclOTAlODYlRTMlODElQThNRkElRTQlQkIlQTMlRTYlOUIlQkYlRTYlQTElODglMjAlRTQlQkIlOTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz03NTZiYWRjMzg0YjE2MGFjMTM4YmQ2YTg5MjgwMzNiYQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBKdW5fX28mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz01MDg1MWE5OTNjOGRjOGNkZDQxYzY4NjRiNTRjNDkwNw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=3c9078fb5c35783d576cc8b2cc25db47"
+    },
     {
       "id": "qiita-https://qiita.com/gitmeshi/items/5a97cdfcfc9f25a8f854",
       "source": "qiita",
@@ -10,6 +259,26 @@
       "summary": "業務上の課題 Firefoxをチームや自分用に設定する際、トラッキング対策やフィンガープリンティング対策をどこまで行うかは悩ましい判断です。設定を強化しすぎると表示が崩れたり機能が使えなくなったりする一方、何もしなければ既定のまま多くの情報が外部に渡ってしまいます。この種の判断材料として参照されることがあるのが、arkenfoxが公開しているuser.jsというテンプレートです。 arken…",
       "author": "@gitmeshi",
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDg1OTExJTJGZGQwMTVkMWZlY2MzMDhmNmQ4MDdlMjcwMmI5Mjg3YTZhOGExYjJkNiUyRnhfbGFyZ2UucG5nJTNGMTc4Nzc0NjU3NT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MDM2M2Y0ODRlZjkxY2QwZDNiY2E0YmNmMDk4ZGY3ODA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dfa5b85364b8fdd50f3df9561ca5b7c9f?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9YXJrZW5mb3glMjB1c2VyLmpzJUUzJTgxJUFFJUU0JUJEJThEJUU3JUJEJUFFJUUzJTgxJUE1JUUzJTgxJTkxJUUzJTgxJUE4RmlyZWZveCVFOCVBOCVBRCVFNSVBRSU5QSVFNSVCQyVCNyVFNSU4QyU5NiVFMyU4MiU5MiVFNiVBNCU5QyVFOCVBOCU4RSVFMyU4MSU5OSVFMyU4MiU4QiVFOCVBNiU5NiVFNyU4MiVCOSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWQ3M2U2NmI2ZTVlYmQwMmQ3NWZkNTU3MTA2MmM5YjUx&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBnaXRtZXNoaSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTJiNWVlN2E3MDEwODRiNjQ1YmM3YzgxYWRhNTYyZDNj&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=ab547729bde94dd03a2e38d588a2a0c7"
+    },
+    {
+      "id": "qiita-https://qiita.com/kenimo49/items/d4274c52cee211b4caa0",
+      "source": "qiita",
+      "title": "Grafana公式MCPは、適当に作ったIDだけで誰でもツールを実行できた",
+      "url": "https://qiita.com/kenimo49/items/d4274c52cee211b4caa0",
+      "publishedAt": "2026-10-14T02:59:20.000Z",
+      "summary": "Grafana 公式の MCP サーバー、mcp-grafana。Docker Hub で190万回以上ダウンロードされているこのサーバーに、2026年8月、こんな弱点が報告されました。 自分で適当に作ったセッションIDを付けるだけで、ログインなしにツールを呼べた。 呼ばれたツールは、サーバーに設定された Grafana のサービスアカウントの権限で動きます。そのアカウントに許された操作は、…",
+      "author": "@kenimo49",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzYwMDIxJTJGMGJhMTg4MDA1NDA2MWQ4MWI5YWY2ZmFiN2FhY2E2YmRmYzNkNWYyNCUyRnhfbGFyZ2UucG5nJTNGMTc3MTI4ODM2Mj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ZDBmZjQ4MzU4OThhN2ZjYjZkYjY3MTAyYmNiNGY5MTA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D50e4dd7e0d970dcd5d1f7aeead6faf85?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9R3JhZmFuYSVFNSU4NSVBQyVFNSVCQyU4Rk1DUCVFMyU4MSVBRiVFMyU4MCU4MSVFOSU4MSVBOSVFNSVCRCU5MyVFMyU4MSVBQiVFNCVCRCU5QyVFMyU4MSVBMyVFMyU4MSU5RklEJUUzJTgxJUEwJUUzJTgxJTkxJUUzJTgxJUE3JUU4JUFBJUIwJUUzJTgxJUE3JUUzJTgyJTgyJUUzJTgzJTg0JUUzJTgzJUJDJUUzJTgzJUFCJUUzJTgyJTkyJUU1JUFFJTlGJUU4JUExJThDJUUzJTgxJUE3JUUzJTgxJThEJUUzJTgxJTlGJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NjNkMGY1NDI2ZDY3Mzk2ZmNjNmQ5ZGVjYzI2M2IyNTk&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrZW5pbW80OSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTA3MzQwYjA2MzcxM2ZjYWUxYWUxMDM3NGM4YTkxMmFh&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=dcea2ad032f67978300c367c9c16e78e"
+    },
+    {
+      "id": "zenn-https://zenn.dev/softbank/articles/22c8e3f9ab8945",
+      "source": "zenn",
+      "title": "新卒エンジニア3人でAWS Summit Japan 2026へ！ 現地で見つけた「気になる技術」を紹介します",
+      "url": "https://zenn.dev/softbank/articles/22c8e3f9ab8945",
+      "publishedAt": "2026-10-14T02:06:16.000Z",
+      "summary": "はじめに こんにちは！ ソフトバンク株式会社 AI・クラウドプラットフォーム本部の新卒エンジニアの鈴木、伊澤、戸崎です。 2026年6月25日・26日に幕張メッセで開催された「AWS Summit Japan 2026」に、同期3人で参加してきました！ 本記事では、熱気あふれる会場の様子と、私たち3人がそれぞれ気になった展示やセッションを紹介します。鈴木は「AIが継続的に関わる相棒になるため…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--HhLRD92v--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E6%2596%25B0%25E5%258D%2592%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A23%25E4%25BA%25BA%25E3%2581%25A7AWS%2520Summit%2520Japan%25202026%25E3%2581%25B8%25EF%25BC%2581%2520%25E7%258F%25BE%25E5%259C%25B0%25E3%2581%25A7%25E8%25A6%258B%25E3%2581%25A4%25E3%2581%2591%25E3%2581%259F%25E3%2580%258C%25E6%25B0%2597%25E3%2581%25AB%25E3%2581%25AA%25E3%2582%258B%25E6%258A%2580%25E8%25A1%2593%25E3%2580%258D%25E3%2582%2592%25E7%25B4%25B9%25E4%25BB%258B%25E3%2581%2597%25E3%2581%25BE%25E3%2581%2599%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E6%2588%25B8%25E5%25B4%258E%25E5%258F%258B%25E8%25BC%2594%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzg5M2YzODNlZDIuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2582%25BD%25E3%2583%2595%25E3%2583%2588%25E3%2583%2590%25E3%2583%25B3%25E3%2582%25AF%2520%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%25EF%25BC%2588%25E5%2585%25AC%25E5%25BC%258F%25EF%25BC%2589%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSUVDRTVrM3lpN1NfSzZwODRjUm4xLTE3YWhpY1loSmROR2JDSDdlelRXM2laMEtRPXMyNTAtYw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "thehackernews-https://thehackernews.com/2026/10/openai-employee-arrested-for-allegedly.html",
@@ -22,6 +291,16 @@
       "author": "The Hacker News",
       "titleJa": "OpenAIの従業員、役員会議室に隠し録音機を仕掛けた疑いで逮捕",
       "summaryJa": "OpenAIのサウジアラビア人従業員が、サンフランシスコのオフィスにある役員会議室に隠し録音機を仕掛け、機密情報を盗聴しようとした疑いで逮捕されました。"
+    },
+    {
+      "id": "zenn-https://zenn.dev/thashi_30/articles/d843dfc343579a",
+      "source": "zenn",
+      "title": "LLMのプロンプトインジェクション耐性は、どう評価する? 再現性・試行回数・条件の3観点(Ollama / qwen3:8b)",
+      "url": "https://zenn.dev/thashi_30/articles/d843dfc343579a",
+      "publishedAt": "2026-10-14T01:43:24.000Z",
+      "summary": "LLMアプリの診断で、プロンプトインジェクション(PI)の攻撃文字列(攻撃プロンプト。この記事では「聞き方」とも呼びます)を試すとき、何を観点にして、どう考えればよいのか。自作の検証環境で測りながら、基礎から整理してみました。 通常のソフトウェアのテストは、同じ入力なら同じ結果になることを前提にします。ところがLLMは、同じ聞き方でも「漏れた」「漏れない」が揺れます。この違いが、検証の考え方…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--lxETa0yL--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:LLM%25E3%2581%25AE%25E3%2583%2597%25E3%2583%25AD%25E3%2583%25B3%25E3%2583%2597%25E3%2583%2588%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25B8%25E3%2582%25A7%25E3%2582%25AF%25E3%2582%25B7%25E3%2583%25A7%25E3%2583%25B3%25E8%2580%2590%25E6%2580%25A7%25E3%2581%25AF%25E3%2580%2581%25E3%2581%25A9%25E3%2581%2586%25E8%25A9%2595%25E4%25BE%25A1%25E3%2581%2599%25E3%2582%258B%253F%2520%25E5%2586%258D%25E7%258F%25BE%25E6%2580%25A7%25E3%2583%25BB%25E8%25A9%25A6%25E8%25A1%258C%25E5%259B%259E%25E6%2595%25B0%25E3%2583%25BB%25E6%259D%25A1%25E4%25BB%25B6%25E3%2581%25AE3%25E8%25A6%25B3%25E7%2582%25B9%2528Ollama%2520%252F%2520qwe...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2582%2586%25E3%2582%258B%25E3%2581%258F%25E6%25A4%259C%25E8%25A8%25BC%25E3%2581%2599%25E3%2582%258B%25E4%25BA%25BA%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2YyMWUwZWQyYjYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "qiita-https://qiita.com/kusarikakemron/items/542488f29a799f2ce96e",
@@ -44,6 +323,16 @@
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYxMjE5NTY1JTJGZTZkNDZiM2MxZjY3NTQ4NDJlNzM5YWU2YjI0NWMwNzQ0YTVlZTYyYiUyRmxhcmdlLnBuZyUzRjE3OTA0MjcxNzM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWMzZjA5MWFmM2Q1MmQ0NjIzMmJkNjY2OWI2YjYzZjNi%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D76a2279fe7281a656cbea0395501e054?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q1NJUlQlRTMlODElQUUlRTclQUIlOEIlRTMlODElQTElRTQlQjglOEElRTMlODElOTIlRTMlODIlOTIlRTQlQkIlQkIlRTMlODElOTUlRTMlODIlOEMlRTMlODElOUYlRTMlODElOEMlRTQlQkQlOTUlRTMlODElOEIlRTMlODIlODklRTYlODklOEIlRTMlODIlOTIlRTMlODElQTQlRTMlODElOTElRTMlODIlOEMlRTMlODElQjAlRTMlODElODQlRTMlODElODQlRTMlODElOEIlRTUlODglODYlRTMlODElOEIlRTMlODIlODklRTMlODElQUElRTMlODElODQlRTQlQkElQkElRTMlODElQjglRTMlODAlODIlRTclQjUlODQlRTclQjklOTQlRTMlODIlOTIlRTUlQUUlODglRTMlODIlOEIlRTQlQkQlOTMlRTUlODglQjYlRTMlODElQTUlRTMlODElOEYlRTMlODIlOEElRTMlODIlOTIlRTQlQkElOEIlRTQlQkUlOEIlRTMlODElQTclRTUlQUQlQTYlRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz04Nzc0NzA2NTNmYmNmZWM4ZGRhZjZiNzhjZTJhYWE0Nw&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB5YXN1MTEwOSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWVmNDk3NzM5NDdjMWRiNzBhNzQwNTEyNjY3OTRlMTQx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=74ff3f959f7d15b9af6b351126cad0c8"
     },
     {
+      "id": "zenn-https://zenn.dev/cyberheatradar/articles/7d5b3d446e0b4c",
+      "source": "zenn",
+      "title": "判断特化AI『Jev』にセキュリティ分析業務をさせてみた",
+      "url": "https://zenn.dev/cyberheatradar/articles/7d5b3d446e0b4c",
+      "publishedAt": "2026-10-14T00:28:18.000Z",
+      "summary": "はじめに 以前、判断特化AI「Jev」の実用例を前回の記事で紹介しました。今回はjev-1.13.0に実際のセキュリティ情報を与え、どのような判断をするのかを検証しました。 検証したのは、公開PoCの悪用処理・不審処理の判定、CVEの対応優先順位付け、攻撃主体の推定、Windowsイベントログの分類、フィッシングメールの判定の5分野です。 実験環境：jev-1.13.0／typesafe-s…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--eDVIZqC9--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%2588%25A4%25E6%2596%25AD%25E7%2589%25B9%25E5%258C%2596AI%25E3%2580%258EJev%25E3%2580%258F%25E3%2581%25AB%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3%25E5%2588%2586%25E6%259E%2590%25E6%25A5%25AD%25E5%258B%2599%25E3%2582%2592%25E3%2581%2595%25E3%2581%259B%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Cyber%2520Heat%2520Radar%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSVF5dkpCR2RYTldYZHRYSkRsU1RVVTkyelFxV1U3NVFWWU5ncnBkdTREV2s5bTlMQT1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
       "id": "qiita-https://qiita.com/bpr_prot/items/737b00640527aba10dc2",
       "source": "qiita",
       "title": "【30分点検】.gitignoreに入れたはずの.envが漏れていないか、5か所で確かめる手順",
@@ -52,6 +341,16 @@
       "summary": "秘密の鍵が漏れる経路を5か所に分けて、点検するコマンドと、見つかったときの順番をまとめました。 GitHubでコードを管理し、Next.jsをVercelなどへ載せている個人開発者を想定しています。SupabaseやFirebase、Stripe、OpenAIやAnthropicの鍵を使っている人なら、30分ほどで一通り点検できます。 この記事は、 【2026年版】Webアプリ公開前チェック…",
       "author": "@bpr_prot",
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NTAzNzgyJTJGZGRiMWEyYzQ1YTQzNmY3ZGE3YzVlZjRmNjY0YzkyZjgyZTJiNDJkNiUyRnhfbGFyZ2UucG5nJTNGMTc4OTcxNTU0MT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NGVhMTA3NWI2ZTc1NTkzYmY0NTc1NDRhZTQ2ZDZkM2E%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dc614e868278924e73e5843f3157ed352?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwMzAlRTUlODglODYlRTclODIlQjklRTYlQTQlOUMlRTMlODAlOTEuZ2l0aWdub3JlJUUzJTgxJUFCJUU1JTg1JUE1JUUzJTgyJThDJUUzJTgxJTlGJUUzJTgxJUFGJUUzJTgxJTlBJUUzJTgxJUFFLmVudiVFMyU4MSU4QyVFNiVCQyU4RiVFMyU4MiU4QyVFMyU4MSVBNiVFMyU4MSU4NCVFMyU4MSVBQSVFMyU4MSU4NCVFMyU4MSU4QiVFMyU4MCU4MTUlRTMlODElOEIlRTYlODklODAlRTMlODElQTclRTclQTIlQkElRTMlODElOEIlRTMlODIlODElRTMlODIlOEIlRTYlODklOEIlRTklQTAlODYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1kMDRjZWY4YzVkNGQ5NjM3MjQxMGQzNWE3NzBmODcyYQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBicHJfcHJvdCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTY5OWY1N2QwYjZiOTBmN2FiOWI3NDViYzA0YzZiNTU2&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=f3b6392b45e4b34af48db4012666f756"
+    },
+    {
+      "id": "zenn-https://zenn.dev/masafumi_ai/articles/00005-agent-guards-before-request",
+      "source": "zenn",
+      "title": "エージェントに任せる前の守り3つ｜読ませない・戻せる・入れる前に見る",
+      "url": "https://zenn.dev/masafumi_ai/articles/00005-agent-guards-before-request",
+      "publishedAt": "2026-10-14T00:05:15.000Z",
+      "summary": "依頼の3行を書いても、エージェントが .env を開けるなら、禁止は気持ちのままだ。壊れた変更を戻す手と、入れる前に見る手も、依頼の前に決めておく。ここでは、その設定側の守りを3つに絞る。 想定読者: Cursor や Claude Code で、エージェントに実装を任せ始めたエンジニア 接続: エージェント依頼の完了定義3行｜範囲・禁止・完了条件 書かないこと: 未確認の速度や精度の話。画…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Wa1XJYa_--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25AB%25E4%25BB%25BB%25E3%2581%259B%25E3%2582%258B%25E5%2589%258D%25E3%2581%25AE%25E5%25AE%2588%25E3%2582%258A3%25E3%2581%25A4%25EF%25BD%259C%25E8%25AA%25AD%25E3%2581%25BE%25E3%2581%259B%25E3%2581%25AA%25E3%2581%2584%25E3%2583%25BB%25E6%2588%25BB%25E3%2581%259B%25E3%2582%258B%25E3%2583%25BB%25E5%2585%25A5%25E3%2582%258C%25E3%2582%258B%25E5%2589%258D%25E3%2581%25AB%25E8%25A6%258B%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E5%258B%259D%25E6%2596%2587%25E3%2581%25AEAI%25E7%258F%25BE%25E5%25A0%25B4%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTDRZQmVnOUlOZGc4bm9tZHgwOXhiM2V5QW8tWGFLVHJldW10Mk11T09aZjJSZWdnPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "cloudnative-https://blog.cloudnative.co.jp/articles/phishing-training-advance-notice/",
@@ -82,6 +381,16 @@
       "summary": "三行もまともに読めないネット民のために簡潔にしたかったのですが、無理でした。 各トピックの冒頭（または要所）に結論をまとめているので、ポイントだけでも拾い読みしていただけると嬉しいです。 忙しい人のためのQ&A Q. 誹謗中傷を行わなければ対策は不要なのでは？ A. 「アホすぎて草」「やっぱ○○ゴミだわ」という短文の投稿で開示請求された事例もある。人生で一度もその程度の暴言すら口にしないと言…",
       "author": "@nologvpnisgod",
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkYyY2U4MzcyYzA2ZDAyNTVjYzI0NTlmOTFhODZlOGI4MT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NTcwMWI0YjFkMjA0ZmM0YzA4ZjM1ZDc5ZjExYTFlMzg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D621a439c4df3b98b00e140453c227722?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU3JUI1JUI2JUU1JUFGJUJFJUUzJTgxJUFCJUU5JTk2JThCJUU3JUE0JUJBJUUzJTgxJTk1JUUzJTgyJThDJUUzJTgxJUFBJUUzJTgxJTg0JUU4JTg3JUFBJUU1JUI3JUIxJUU5JTk4JUIyJUU4JUExJTlCJUU4JUExJTkzJUVGJUJDJTg4VlBOJUUzJTgzJUJCJUU0JUJCJUFFJUU2JTgzJUIzT1MlRTMlODMlQkIlRTQlQkQlOEYlRTUlQUUlODUlRTclOTQlQTglRTMlODMlOTclRTMlODMlQUQlRTMlODIlQUQlRTMlODIlQjclRUYlQkMlODkmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz02NmU3NjBlMmM3ODQwZGU2ZjQ3OTU4NzgzZDdiNWViMw&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBub2xvZ3ZwbmlzZ29kJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NzdkMjEyNDhjMTcwYTY3M2FmZGJkNWZmMjlkYWFkNDg&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=d557b6381cdb708430f453b8fafa9f0d"
+    },
+    {
+      "id": "zenn-https://zenn.dev/akinori901/articles/20260917-plan025",
+      "source": "zenn",
+      "title": "パブリック/プライベートサブネットの設計と使い分け",
+      "url": "https://zenn.dev/akinori901/articles/20260917-plan025",
+      "publishedAt": "2026-10-13T23:25:22.000Z",
+      "summary": "パブリック/プライベートサブネットの設計と使い分け 概要 AWS で VPC を設計するとき、最初に迷うのが「サブネットをどう分けるか」です。とくに パブリックサブネット と プライベートサブネット の違いと使い分けは、セキュリティにもコストにも直結する基本設計です。 この記事では、両者の違いを「ルートテーブルの中身」というレベルまで掘り下げつつ、実際にどうリソースを配置するのかを入門者向け…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--e7KW_MBa--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%2591%25E3%2583%2596%25E3%2583%25AA%25E3%2583%2583%25E3%2582%25AF%252F%25E3%2583%2597%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2599%25E3%2583%25BC%25E3%2583%2588%25E3%2582%25B5%25E3%2583%2596%25E3%2583%258D%25E3%2583%2583%25E3%2583%2588%25E3%2581%25AE%25E8%25A8%25AD%25E8%25A8%2588%25E3%2581%25A8%25E4%25BD%25BF%25E3%2581%2584%25E5%2588%2586%25E3%2581%2591%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Akinori901%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTEx5WU00czh1TEhKUmM3dllzS3UwdEZGWnRjejZpNWFzY3g3Y1dWWGdwTFBJb2pTUks9czI1MC1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "qiita-https://qiita.com/Kerdy/items/3de08578fdb4752b9bd9",
@@ -158,6 +467,16 @@
       "author": "Fox on Security"
     },
     {
+      "id": "zenn-https://zenn.dev/taichiendoh/articles/attacker-ai-threat-model-medical-device-network",
+      "source": "zenn",
+      "title": "攻撃する側もAIを使う時代 ― 医療機器ネットワークの脅威モデルをどう更新するか",
+      "url": "https://zenn.dev/taichiendoh/articles/attacker-ai-threat-model-medical-device-network",
+      "publishedAt": "2026-10-13T22:20:21.000Z",
+      "summary": "これまで、「漏れた」と決める前にやること ― 情報漏洩対応は、まず\"範囲の特定\"から、「システムが止まった」とき、医療機器はどう動き続けるべきかという2本を書きました。どちらも「漏れた後」「止まった後」に、守る側がどう対応するかという話でした。 今回は少し前提を変えた話をしたいと思います。Anthropicが2026年9月に公開した脅威インテリジェンスレポート「Detecting and c…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--ajrSshzg--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E6%2594%25BB%25E6%2592%2583%25E3%2581%2599%25E3%2582%258B%25E5%2581%25B4%25E3%2582%2582AI%25E3%2582%2592%25E4%25BD%25BF%25E3%2581%2586%25E6%2599%2582%25E4%25BB%25A3%2520%25E2%2580%2595%2520%25E5%258C%25BB%25E7%2599%2582%25E6%25A9%259F%25E5%2599%25A8%25E3%2583%258D%25E3%2583%2583%25E3%2583%2588%25E3%2583%25AF%25E3%2583%25BC%25E3%2582%25AF%25E3%2581%25AE%25E8%2584%2585%25E5%25A8%2581%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB%25E3%2582%2592%25E3%2581%25A9%25E3%2581%2586%25E6%259B%25B4%25E6%2596%25B0%25E3%2581%2599%25E3%2582%258B%25E3%2581%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E9%2581%25A0%25E8%2597%25A4%25E5%25A4%25AA%25E4%25B8%2580%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzA1ZjNmMTY4MjUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
+    },
+    {
       "id": "qiita-https://qiita.com/lhjjjk4/items/80c66582508bca8bc59b",
       "source": "qiita",
       "title": "AI Daily Digest 2026年10月14日：GoogleがGemini 4 Argon発表、Character.AIがChapter 11申請、ロッテルダムAI Gigafactoryに最初のテナント",
@@ -202,6 +521,16 @@
       "author": "BleepingComputer",
       "titleJa": "Anthropicが警告、自己複製AIがスマートデバイスに拡散する可能性",
       "summaryJa": "Anthropicは、小型AIモデルがAndroid TVボックスやスマートオーブンなどのIoTデバイス間で自己複製し、AIを実行可能な分散型ボットネットを形成する可能性があると警告しています。"
+    },
+    {
+      "id": "zenn-https://zenn.dev/yoshinn/articles/transport_security_layer",
+      "source": "zenn",
+      "title": "通信のセキュリティを向上させるプロトコルTLS",
+      "url": "https://zenn.dev/yoshinn/articles/transport_security_layer",
+      "publishedAt": "2026-10-13T20:58:25.000Z",
+      "summary": "インターネット黎明期は通信の安全性ということがしっかり考えられていませんでした。 そのため、常にデータの内容が盗み見られるリスクがついて回っていた訳です。 そんな通信のリスクを改善したプロトコルがTLSと呼ばれるものです。 本日はそんなTLSについて説明していきます。 概要 TLS（Transport Layer Security）は、インターネット上でデータを 「盗み見られない」「途中で改…",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--87sjSMwp--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E9%2580%259A%25E4%25BF%25A1%25E3%2581%25AE%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3%25E3%2582%2592%25E5%2590%2591%25E4%25B8%258A%25E3%2581%2595%25E3%2581%259B%25E3%2582%258B%25E3%2583%2597%25E3%2583%25AD%25E3%2583%2588%25E3%2582%25B3%25E3%2583%25ABTLS%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:yoshishinnze%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2EyMDYyNmU3YzAuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "darkreading-https://www.darkreading.com/perimeter/anthropic-ingredients-future-ai-worms",
@@ -15026,18 +15355,6 @@
       "author": "Zennの「Security」のフィード"
     },
     {
-      "id": "darkreading-https://www.darkreading.com/application-security/prompt-injection-bug-agentic-ai-app-manus",
-      "source": "darkreading",
-      "title": "Prompt-Injection Bug Hits $4B Agentic AI App 'Manus'",
-      "url": "https://www.darkreading.com/application-security/prompt-injection-bug-agentic-ai-app-manus",
-      "publishedAt": "2026-09-24T13:00:00.000Z",
-      "summary": "AI apps that interpret external data (read: most AI apps) need exceptionally rigorous security filters, or attackers can take advantage.",
-      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6cc4d4a12e6b7c68/6ab0590fdb2c1e1226ff0b0f/Hand_snap-Viktar_Sarkisian-Getty.jpg?width=720&quality=80&disable=upscale",
-      "author": "darkreading",
-      "titleJa": "40億ドル規模のAIエージェントアプリ「Manus」にプロンプトインジェクションのバグ",
-      "summaryJa": "外部データを解釈するほとんどのAIアプリには、非常に厳格なセキュリティフィルタが不可欠です。対策が不十分だと攻撃者に悪用されるリスクがあります。"
-    },
-    {
       "id": "theregister-https://www.theregister.com/security/2026/09/24/google-to-critical-infra-orgs-our-ai-scanners-wont-be-evil-promise/5298685",
       "source": "theregister",
       "title": "Google to critical infra orgs: Our AI scanners won't be evil, promise",
@@ -15048,6 +15365,18 @@
       "author": "www.theregister.com - Articles",
       "titleJa": "Googleが重要インフラ組織へ声明：AIスキャナーは悪用しない",
       "summaryJa": "Googleの「Gemini 3.8 Flash Cyber」とWizの「Red Agent」チームが協力し、病院や公共交通機関、テクノロジー企業を保護するための取り組みを開始します。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/application-security/prompt-injection-bug-agentic-ai-app-manus",
+      "source": "darkreading",
+      "title": "Prompt-Injection Bug Hits $4B Agentic AI App 'Manus'",
+      "url": "https://www.darkreading.com/application-security/prompt-injection-bug-agentic-ai-app-manus",
+      "publishedAt": "2026-09-24T13:00:00.000Z",
+      "summary": "AI apps that interpret external data (read: most AI apps) need exceptionally rigorous security filters, or attackers can take advantage.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6cc4d4a12e6b7c68/6ab0590fdb2c1e1226ff0b0f/Hand_snap-Viktar_Sarkisian-Getty.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "40億ドル規模のAIエージェントアプリ「Manus」にプロンプトインジェクションのバグ",
+      "summaryJa": "外部データを解釈するほとんどのAIアプリには、非常に厳格なセキュリティフィルタが不可欠です。対策が不十分だと攻撃者に悪用されるリスクがあります。"
     },
     {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5124010-update-released-with-46-changes-and-fixes/",
@@ -24573,18 +24902,6 @@
       "summaryJa": "Anthropicは、同社のAIモデルが第三者のシステムに不正侵入した4件目の事例を公表しました。これにより、AIの安全性と管理体制に対する懸念がさらに高まっています。"
     },
     {
-      "id": "darkreading-https://www.darkreading.com/cybersecurity-operations/eu-cyber-resilience-act-reporting-requirements",
-      "source": "darkreading",
-      "title": "EU Cyber Resilience Act to Enforce New Reporting Requirements",
-      "url": "https://www.darkreading.com/cybersecurity-operations/eu-cyber-resilience-act-reporting-requirements",
-      "publishedAt": "2026-09-10T07:00:00.000Z",
-      "summary": "Starting Friday, businesses operating in the EU will have just 24 hours to notify the government any time they discover serious product security incidents.",
-      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltba41cd0488eb4d89/6aa1a2aa145a18d222181a6c/EU_lock-Alexey_Krukovsky-Getty.jpg?width=720&quality=80&disable=upscale",
-      "author": "darkreading",
-      "titleJa": "EUサイバーレジリエンス法、新たな報告義務を施行へ",
-      "summaryJa": "金曜日より、EUで事業を行う企業は、重大な製品セキュリティインシデントを発見した場合、24時間以内に政府へ報告することが義務付けられます。"
-    },
-    {
       "id": "theregister-https://www.theregister.com/security/2026/09/10/dental-contractor-set-up-secret-account-with-access-to-4000-patient-records-then-left-the-company/5295361",
       "source": "theregister",
       "title": "Dental contractor set up secret account with access to 4,000 patient records then left the company",
@@ -24595,6 +24912,18 @@
       "author": "www.theregister.com - Articles",
       "titleJa": "歯科業者が4,000人分の患者記録にアクセスできる秘密アカウントを作成し退職",
       "summaryJa": "歯科関連の請負業者が4,000人分の患者情報にアクセス可能な秘密アカウントを作成し、そのまま会社を去るというセキュリティ上の不備が発生しました。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/cybersecurity-operations/eu-cyber-resilience-act-reporting-requirements",
+      "source": "darkreading",
+      "title": "EU Cyber Resilience Act to Enforce New Reporting Requirements",
+      "url": "https://www.darkreading.com/cybersecurity-operations/eu-cyber-resilience-act-reporting-requirements",
+      "publishedAt": "2026-09-10T07:00:00.000Z",
+      "summary": "Starting Friday, businesses operating in the EU will have just 24 hours to notify the government any time they discover serious product security incidents.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltba41cd0488eb4d89/6aa1a2aa145a18d222181a6c/EU_lock-Alexey_Krukovsky-Getty.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "EUサイバーレジリエンス法、新たな報告義務を施行へ",
+      "summaryJa": "金曜日より、EUで事業を行う企業は、重大な製品セキュリティインシデントを発見した場合、24時間以内に政府へ報告することが義務付けられます。"
     },
     {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/trezor-warns-users-of-email-provider-breach-phishing-attacks/",
@@ -25984,18 +26313,6 @@
       "summaryJa": "脅威アクターは、AIコーディングアシスタントから、攻撃の全段階を自動化するマルチエージェントフレームワークへと移行しつつあります。"
     },
     {
-      "id": "darkreading-https://www.darkreading.com/threat-intelligence/cybercriminals-hack-brazilian-government-servers-host-phishing-sites",
-      "source": "darkreading",
-      "title": "Cybercriminals Hack Brazilian Government Servers to Host Phishing Sites",
-      "url": "https://www.darkreading.com/threat-intelligence/cybercriminals-hack-brazilian-government-servers-host-phishing-sites",
-      "publishedAt": "2026-09-08T12:00:00.000Z",
-      "summary": "A Chinese-language group is compromising government and education sites to create a reverse-proxy network with gambling-themed sites.",
-      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt144603b4435c3485/6aa07bc8ecfebc8277684236/brazil-gambling-currency-Mehaniq-shutterstock.jpg?width=720&quality=80&disable=upscale",
-      "author": "darkreading",
-      "titleJa": "サイバー犯罪者がブラジル政府のサーバーをハッキングし、フィッシングサイトを設置",
-      "summaryJa": "中国語を話すグループが、政府や教育機関のサイトを侵害し、ギャンブルをテーマにしたサイトへのリバースプロキシネットワークを構築しています。"
-    },
-    {
       "id": "theregister-https://www.theregister.com/research/2026/09/08/extortion-crews-have-their-eyes-on-high-value-ai-data-google-warns/5294640",
       "source": "theregister",
       "title": "Extortion crews have their eyes on high-value AI data, Google warns",
@@ -26006,6 +26323,18 @@
       "author": "www.theregister.com - Articles",
       "titleJa": "Google警告：恐喝グループが価値の高いAIデータを標的に",
       "summaryJa": "企業は知的財産の流出を避けるために身代金を支払う意欲があるため、恐喝グループの標的になっています。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/threat-intelligence/cybercriminals-hack-brazilian-government-servers-host-phishing-sites",
+      "source": "darkreading",
+      "title": "Cybercriminals Hack Brazilian Government Servers to Host Phishing Sites",
+      "url": "https://www.darkreading.com/threat-intelligence/cybercriminals-hack-brazilian-government-servers-host-phishing-sites",
+      "publishedAt": "2026-09-08T12:00:00.000Z",
+      "summary": "A Chinese-language group is compromising government and education sites to create a reverse-proxy network with gambling-themed sites.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt144603b4435c3485/6aa07bc8ecfebc8277684236/brazil-gambling-currency-Mehaniq-shutterstock.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "サイバー犯罪者がブラジル政府のサーバーをハッキングし、フィッシングサイトを設置",
+      "summaryJa": "中国語を話すグループが、政府や教育機関のサイトを侵害し、ギャンブルをテーマにしたサイトへのリバースプロキシネットワークを構築しています。"
     },
     {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2025-changes-may-cause-app-crashes/",
@@ -31625,16 +31954,6 @@
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDQ4NzQyOCUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc4ODEzODUzMT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YWVkMTZkOTJjYmU2ZGNjM2FhZjgyMGFhNTNiMWZjNDQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D3d72152d9bb575c6f9d2ec51ab6d3af6?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9VVJMJUU3JTlGJUFEJUU3JUI4JUFFJUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkzJUUzJTgyJUI5JUUzJTgyJTkyJUU1JTgwJThCJUU0JUJBJUJBJUU5JTk2JThCJUU3JTk5JUJBJUUzJTgxJTk5JUUzJTgyJThCJUU2JTk5JTgyJUUzJTgxJUFCJUU4JTgwJTgzJUUzJTgxJTg4JUUzJTgxJTlGJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUU1JUFGJUJFJUU3JUFEJTk2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZjFlMTIwNDMzYzE1ODkzZGQyZGU1M2RhNGE0MDBjYzQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBubHlrciZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTEzZjE1ODNiODA4ZDZlZjRlZmQ0NDQ1MmY1NGM1N2Yx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=8d1c80465bbe24695ccd9758185200ec"
     },
     {
-      "id": "qiita-https://qiita.com/lykuro/items/80fb5f7f917a89245013",
-      "source": "qiita",
-      "title": "Lykuro.ai API サンプル: APIキーを安全に扱うサンプル (2026-08-31)",
-      "url": "https://qiita.com/lykuro/items/80fb5f7f917a89245013",
-      "publishedAt": "2026-08-31T01:00:11.000Z",
-      "summary": "Lykuro.ai API サンプル: APIキーを安全に扱うサンプル (2026-08-31) はじめに この記事では、日本の開発者向け AI Gateway プラットフォーム Lykuro.ai を紹介します。 Lykuro.ai は OpenAI 互換 API を提供しており、DeepSeek / Alibaba Qwen 系列モデルなど、複数の AI モデルをひとつの API 形式で…",
-      "author": "@lykuro",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jSXRWR2FJNmhCaFVuTzRIR2tOTWpGVThjclZPOXM4M0VLVHg4TkRBMG5LQjB3MmNBJTNEczk2LWM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTA1Zjk5ZGMzNDMyNzU0YmZlYzk2YjlhN2U1Njg0MTBl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Daee98cd95915f82b77beccd17c6577b5?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9THlrdXJvLmFpJTIwQVBJJTIwJUUzJTgyJUI1JUUzJTgzJUIzJUUzJTgzJTk3JUUzJTgzJUFCJTNBJTIwQVBJJUUzJTgyJUFEJUUzJTgzJUJDJUUzJTgyJTkyJUU1JUFFJTg5JUU1JTg1JUE4JUUzJTgxJUFCJUU2JTg5JUIxJUUzJTgxJTg2JUUzJTgyJUI1JUUzJTgzJUIzJUUzJTgzJTk3JUUzJTgzJUFCJTIwJTI4MjAyNi0wOC0zMSUyOSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTZlOTUyZmI3ZDljY2Q4M2NkNmM0N2JkNjUxYTA2ZDY1&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBseWt1cm8mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz0yZjkwMmY5MWMyNjRmZmNhMTNlZGYyYWJmYzI4NTFlMQ&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=c587675530c170a8ba4b233ea2310d9e"
-    },
-    {
       "id": "zenn-https://zenn.dev/clopy/articles/claude-sandbox-credential-mask-extract-fallback",
       "source": "zenn",
       "title": "Claude Codeのsandbox credential mask、extractが不一致だと平文が漏れる",
@@ -31645,16 +31964,6 @@
       "author": "Zennの「Security」のフィード"
     },
     {
-      "id": "qiita-https://qiita.com/blinkgroup_jp/items/2d841a6eef5ce0aa2a90",
-      "source": "qiita",
-      "title": "Amazon S3の意図しない公開を防ぐための設定確認チェックリストとIAM・バケットポリシー設定例",
-      "url": "https://qiita.com/blinkgroup_jp/items/2d841a6eef5ce0aa2a90",
-      "publishedAt": "2026-08-31T00:22:05.000Z",
-      "summary": "Amazon S3（以下、S3）は、静的ファイルの配信やバックアップ、データレイクなど多用途に利用される非常に便利なストレージサービスです。しかし、設定ミスによる意図しないデータの外部公開（情報漏洩）が後を絶ちません。 本記事では、実務でS3バケットを安全に運用するために、公開設定ミスを防ぐための具体的なチェックリスト、安全なバケットポリシーの設定例、および設定確認のためのAWS CLIコマ…",
-      "author": "@blinkgroup_jp",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDcyNTc2JTJGNDBiZTViMjA3MmFhYWE2NjMwOTEyMjJjZWZkZTNlOGJiYzFmMjYxYyUyRnhfbGFyZ2UucG5nJTNGMTc4NDc5MzM0Nz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ZjY0OGY3MTdiMDMzYjY1Y2EzZWMxYWI4MTgzNWNmNjM%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D9b1bf1d9cc7ed2925bc924055a22dd24?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QW1hem9uJTIwUzMlRTMlODElQUUlRTYlODQlOEYlRTUlOUIlQjMlRTMlODElOTclRTMlODElQUElRTMlODElODQlRTUlODUlQUMlRTklOTYlOEIlRTMlODIlOTIlRTklOTglQjIlRTMlODElOTAlRTMlODElOUYlRTMlODIlODElRTMlODElQUUlRTglQTglQUQlRTUlQUUlOUElRTclQTIlQkElRTglQUElOEQlRTMlODMlODElRTMlODIlQTclRTMlODMlODMlRTMlODIlQUYlRTMlODMlQUElRTMlODIlQjklRTMlODMlODglRTMlODElQThJQU0lRTMlODMlQkIlRTMlODMlOTAlRTMlODIlQjElRTMlODMlODMlRTMlODMlODglRTMlODMlOUQlRTMlODMlQUElRTMlODIlQjclRTMlODMlQkMlRTglQTglQUQlRTUlQUUlOUElRTQlQkUlOEImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0wZjZkMDViNTQwNDQ2NDMwMzhmY2Q1MzcxYzI3NjVmMw&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBibGlua2dyb3VwX2pwJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9N2UwY2VjMTdkOTNhNjYyZDZhZTc4NzU5ZWQwY2NhYWM&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=2ea8d6ef52a0bc7fe0e31b2bd8b00bbe"
-    },
-    {
       "id": "zenn-https://zenn.dev/ament3/articles/ai-digest-2026-08-31-0016",
       "source": "zenn",
       "title": "AIクローラー急増からサーバーを守る！Kernel.orgの事例と対策",
@@ -31663,16 +31972,6 @@
       "summary": "近年、生成AIの急速な発展に伴い、LLM（大規模言語モデル）の学習データを収集するAIクローラーやWebスクレイパーが急増しています。 今回は、Linuxカーネルの公式リポジトリをホストする kernel.org のインフラエンジニアが公開した記事「Creepy Crawlies」をベースに、現在オープンソース界隈やWebサービスで深刻化しているAIクローラー問題の背景と、現場で使える具体的…",
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--0jio84DM--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%25AF%25E3%2583%25AD%25E3%2583%25BC%25E3%2583%25A9%25E3%2583%25BC%25E6%2580%25A5%25E5%25A2%2597%25E3%2581%258B%25E3%2582%2589%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2583%25BC%25E3%2582%2592%25E5%25AE%2588%25E3%2582%258B%25EF%25BC%2581Kernel.org%25E3%2581%25AE%25E4%25BA%258B%25E4%25BE%258B%25E3%2581%25A8%25E5%25AF%25BE%25E7%25AD%2596%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E7%2594%25B0%25E4%25B8%25AD%25E6%25A0%25B9%25E5%25B0%258F%25E4%25BB%258B%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS2ZJTlVWMXNGNFFjSFpoSkNrbTBOMGJENEo3Y2dMNHZMMjRvdjJIam01akRnNXlLeHU9czI1MC1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
       "author": "Zennの「Security」のフィード"
-    },
-    {
-      "id": "qiita-https://qiita.com/bon_eng/items/718a25ba8ae1e4d5c945",
-      "source": "qiita",
-      "title": "「隔離したはずのAI」が700体で結託しHugging Faceを陥落させた ― METR/Redwood独立ポストモーテムに学ぶ、AIエージェントを本番投入する前に潰すべき5つの穴",
-      "url": "https://qiita.com/bon_eng/items/718a25ba8ae1e4d5c945",
-      "publishedAt": "2026-08-31T00:07:06.000Z",
-      "summary": "この記事の立ち位置 2026年7月、OpenAIの社内評価環境の中でAIエージェントが集団で暴走し、Hugging Faceの本番システムに侵入した事件はすでに国内でも報じられた。当時の日本語記事の多くは、OpenAIが7月に出した初報や、4日半で17,600回の操作といった数字を軸にまとめたものだった。 本記事はそこから一歩踏み込む。8月26日に公開された、独立系のAI安全評価団体METR…",
-      "author": "@bon_eng",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY4ODc1NTklMkZkZjMwYWNhY2I5MTQzYTg0YmIyMzQ0MGViNWY5NjdjMDY3ODYwYmJiJTJGeF9sYXJnZS5wbmclM0YxNzQ3MjkxNjM5P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1jMzgwYThkZmViNzc2MzU2NTI5NDNiOTIzMzg1MDU2OQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D0e7d6388cdec7936c694aa9c76cd1c3c?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJThDJUU5JTlBJTk0JUU5JTlCJUEyJUUzJTgxJTk3JUUzJTgxJTlGJUUzJTgxJUFGJUUzJTgxJTlBJUUzJTgxJUFFQUklRTMlODAlOEQlRTMlODElOEM3MDAlRTQlQkQlOTMlRTMlODElQTclRTclQjUlOTAlRTglQTglOTclRTMlODElOTdIdWdnaW5nJTIwRmFjZSVFMyU4MiU5MiVFOSU5OSVBNSVFOCU5MCVCRCVFMyU4MSU5NSVFMyU4MSU5QiVFMyU4MSU5RiUyMCVFMiU4MCU5NSUyME1FVFIlMkZSZWR3b29kJUU3JThCJUFDJUU3JUFCJThCJUUzJTgzJTlEJUUzJTgyJUI5JUUzJTgzJTg4JUUzJTgzJUEyJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NTE1MDYzNjhhNTYyYWNhZGRkZGMxZjVlNDhiNDU2ODg&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBib25fZW5nJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OWRkOTFhNjE3ZGY5NzBiMmU1NTAzNTNlMTJlZGE5YzA&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=1fc7c087d44e9aa6976ec9d43fec0c68"
     },
     {
       "id": "zenn-https://zenn.dev/gangy/articles/256ca7762134ee",
@@ -31695,26 +31994,6 @@
       "author": "Zennの「Security」のフィード"
     },
     {
-      "id": "qiita-https://qiita.com/jiis-sasaki/items/fbb3b44cdf20ea247b81",
-      "source": "qiita",
-      "title": "Avadaテーマ(販売100万件)の未認証RCE CVE-2026-18431──7.16.1更新と改ざん確認",
-      "url": "https://qiita.com/jiis-sasaki/items/fbb3b44cdf20ea247b81",
-      "publishedAt": "2026-08-30T22:30:00.000Z",
-      "summary": "WordPress の商用テーマ Avada に、CVSS 9.8 の任意ファイル書き込み(結果として未認証のリモートコード実行)の脆弱性 CVE-2026-18431 が公表されました。 対象 : Avada テーマでサイトを制作・運用している Web 担当者・制作会社の方(子テーマ運用も含む) 解決すること : 自分のサイトが該当するかの判定 → 修正版への更新 → すでに侵害されていな…",
-      "author": "@jiis-sasaki",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDQzNjQwJTJGNTFlMTk3MTk0Mzg0YjhlYmE3ZmE5M2JjOGRhZTE3ZjA4ZWZjM2IzZSUyRnhfbGFyZ2UucG5nJTNGMTc4MDYzOTY2ND9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NWI3ZGMyMWNjN2MyNjVjZGZkNmE4MTc0NDk5Y2M2NGI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D683aa7ed29701ffb01177d4edbd11507?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QXZhZGElRTMlODMlODYlRTMlODMlQkMlRTMlODMlOUUlMjglRTglQjIlQTklRTUlQTMlQjIxMDAlRTQlQjglODclRTQlQkIlQjYlMjklRTMlODElQUUlRTYlOUMlQUElRTglQUElOEQlRTglQTglQkNSQ0UlMjBDVkUtMjAyNi0xODQzMSVFMiU5NCU4MCVFMiU5NCU4MDcuMTYuMSVFNiU5QiVCNCVFNiU5NiVCMCVFMyU4MSVBOCVFNiU5NCVCOSVFMyU4MSU5NiVFMyU4MiU5MyVFNyVBMiVCQSVFOCVBQSU4RCZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWZiZTI2NDM4OWNjMGQ0Zjg4N2M1MzQ2MDk0YmVkNzlj&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBqaWlzLXNhc2FraSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWRjZDE3ZmZiZDY4ZjIxN2Q2MTQ5YjExYTlmNjE0ODFk&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=7dd73351492fc5450963347d17f59fff"
-    },
-    {
-      "id": "qiita-https://qiita.com/Kerdy/items/5eefbd55c9bf4490893b",
-      "source": "qiita",
-      "title": "8/31、今日のセキュリティニュース",
-      "url": "https://qiita.com/Kerdy/items/5eefbd55c9bf4490893b",
-      "publishedAt": "2026-08-30T22:09:04.000Z",
-      "summary": "この記事は、 note掲載記事 の転載です。 おはようございます、かーでぃです。 本記事は、様々なネットニュースサイトからセキュリティ記事を集めて提供している” セキュリティ関連ニュースRSS ”から、気になったニュースをピックアップして紹介しています。 情シスさんやサイバーセキュリティを担当されている方、逆に私のようにセキュリティ商材を取り扱う営業の皆様などに活用頂けると幸いです。 40秒…",
-      "author": "@Kerdy",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjk1MjkyNSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTczMzA2NjEzOT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NjU4ZmRhZmFhN2MwYTlhZTJlMzhmYjNmNDI0NzcyNGY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df672aad81a7384f0de68f42e53607ac2?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9OCUyRjMxJUUzJTgwJTgxJUU0JUJCJThBJUU2JTk3JUE1JUUzJTgxJUFFJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgzJThCJUUzJTgzJUE1JUUzJTgzJUJDJUUzJTgyJUI5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MjQ1NTU4MDc4ZjEwOWYzZGU3YzY1MDEyN2FhM2FmNGQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBLZXJkeSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTZlZmEyOGNiOTU1MjliZGQxNWExY2NkNzA3Yzg0YmY4&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=b5ea5191c104a215f8d0077453813882"
-    },
-    {
       "id": "zenn-https://zenn.dev/taichiendoh/articles/jsonl-log-data-governance",
       "source": "zenn",
       "title": "AIに“自分のログ”を分析させる前に、必ずやる「データの線引き」",
@@ -31733,16 +32012,6 @@
       "summary": "複数のAI CLIとローカルLLMにタスクを振り分ける仕組みを自分用に作って運用しています。 その「ローカル専用モード」に穴が2つ空いていたのを見つけたので、設計の話として残します。 確認できる範囲では、実害を示す証拠はありませんでした。 保存されているログを走査し、既知の経路では一度も踏んでいないことを確認しています。 ただし、後述する通りログに残らないファイル本文までは断定できません。 …",
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Zfs8V9dF--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25AB%25E5%25B0%2582%25E7%2594%25A8%25E3%2581%25AE%25E3%2581%25AF%25E3%2581%259A%25E3%2581%25AEAI%25E5%25A7%2594%25E8%25AD%25B2%25E3%2581%258C%25E3%2580%2581%25E6%2596%2587%25E5%25AD%2597%25E5%2588%2597%25E3%2581%25B2%25E3%2581%25A8%25E3%2581%25A4%25E3%2581%25A7%25E3%2582%25AF%25E3%2583%25A9%25E3%2582%25A6%25E3%2583%2589%25E3%2581%25AB%25E5%2587%25BA%25E3%2581%25A6%25E3%2581%2584%25E3%2581%258F%25E7%258A%25B6%25E6%2585%258B%25E3%2581%25A0%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:MRL%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2RmNGE1NTE5MzIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
       "author": "Zennの「Security」のフィード"
-    },
-    {
-      "id": "qiita-https://qiita.com/pitopito/items/8688641a7c7d612d9795",
-      "source": "qiita",
-      "title": "2026/8/31主にITとかセキュリティの記事",
-      "url": "https://qiita.com/pitopito/items/8688641a7c7d612d9795",
-      "publishedAt": "2026-08-30T19:30:32.000Z",
-      "summary": "PaperCut、印刷管理ソフトのゼロデイ脆弱性が活発に攻撃されていると警告(8/29) https://finance.biggo.jp/news/0d148cfc-0010-4c05-ae9e-a505c1031c52 SlowMist、GitHub上のStealCを含む偽Qwenについて警告(8/28) https://portalcripto.com.br/ja/slowmist-g…",
-      "author": "@pitopito",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZkMzAxZWM0MjcyODUyNDU0ODNjZmY2ZDFjOGY0ZmIzYz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MDBhODNkNGNhZTViMjZjY2Y4ZTg3ZWRjNzhjM2MxN2U%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db26a49cd4e665ea23e67fdfa079183e5?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9MjAyNiUyRjglMkYzMSVFNCVCOCVCQiVFMyU4MSVBQklUJUUzJTgxJUE4JUUzJTgxJThCJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgxJUFFJUU4JUE4JTk4JUU0JUJBJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NzVkMzc1YTI4NmI2MGUwODZmY2MxYjY4ZDFjOTAzMmY&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwaXRvcGl0byZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTRiOTYyYWNlZTBhODcyODhkYWViZDVlNzVmNWI3MDkx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=dd67f39290fb0ea91795aaaa1c7eedb4"
     },
     {
       "id": "zenn-https://zenn.dev/junf/articles/x-forwarded-headers-trust",
@@ -31765,16 +32034,6 @@
       "author": "Zennの「Security」のフィード"
     },
     {
-      "id": "qiita-https://qiita.com/fukumuraryota0724/items/6f2703e602de362b04d6",
-      "source": "qiita",
-      "title": "Claude Code の承認プロンプト、rm が無くても消えることがある",
-      "url": "https://qiita.com/fukumuraryota0724/items/6f2703e602de362b04d6",
-      "publishedAt": "2026-08-30T16:49:54.000Z",
-      "summary": "Claude Code を使っていると、こういう確認が出ます。 Bash command cp .env.example .env Do you want to proceed? ❯ 1. Yes 2. No rm も delete も出てきません。押しますか。 押すと、 手元の .env は消えます。 cp が確認なしで上書きするからです。 気になったので、使い捨てのディレクトリで試しまし…",
-      "author": "@fukumuraryota0724",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jS3p6VTJ1MW50azdtVTN5TW0wS0JwR2V4ekYzT3ctUlkxeVI2bk1xWEFzdVpUeTJCbWJXdyUzRHM5Ni1jP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0yYjE0Njc0NGM5ZGExN2EwYjQxZmJlYzQ2MmNmZmY1Ng%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D0a06b745c220e58fca613088f4fba2f9?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MSVBRSVFNiU4OSVCRiVFOCVBQSU4RCVFMyU4MyU5NyVFMyU4MyVBRCVFMyU4MyVCMyVFMyU4MyU5NyVFMyU4MyU4OCVFMyU4MCU4MXJtJTIwJUUzJTgxJThDJUU3JTg0JUExJUUzJTgxJThGJUUzJTgxJUE2JUUzJTgyJTgyJUU2JUI2JTg4JUUzJTgxJTg4JUUzJTgyJThCJUUzJTgxJTkzJUUzJTgxJUE4JUUzJTgxJThDJUUzJTgxJTgyJUUzJTgyJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YmY0YWRmZGM1Y2Q4ZGFlNjk0MTQwNTFmM2ZiYmQ3ZWY&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBmdWt1bXVyYXJ5b3RhMDcyNCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWJkOWM4ODhmM2ZjYmNlMDYzMTViNzFkZTkwMjZjZTli&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=8502a868fec22b67a1dfe66dcc8180a3"
-    },
-    {
       "id": "zenn-https://zenn.dev/toukadc/articles/b15195ce3afb31",
       "source": "zenn",
       "title": "「セキュリティ設定画面」を作らなかった — マルチテナント PaaS が既定で何を止めているか",
@@ -31793,16 +32052,6 @@
       "summary": "! この記事は自サイト デジタル署名をPythonで実装する｜RSAで「改ざん」を見抜くしくみ の再掲（クロス投稿）です。図をインタラクティブに動かせる版は元記事でどうぞ。 「このメッセージは本人が書いた」「途中で書き換えられていない」——これを保証するのがデジタル署名です。HTTPSもソフトウェア配布もこの仕組みで守られています。この記事ではPythonのcryptographyライブラリ…",
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--DIKIwQOV--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%2587%25E3%2582%25B8%25E3%2582%25BF%25E3%2583%25AB%25E7%25BD%25B2%25E5%2590%258D%25E3%2582%2592Python%25E3%2581%25A7%25E5%25AE%259F%25E8%25A3%2585%25E3%2581%2599%25E3%2582%258B%25EF%25BD%259CRSA%25E3%2581%25A7%25E3%2580%258C%25E6%2594%25B9%25E3%2581%2596%25E3%2582%2593%25E3%2580%258D%25E3%2582%2592%25E8%25A6%258B%25E6%258A%259C%25E3%2581%258F%25E3%2581%2597%25E3%2581%258F%25E3%2581%25BF%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25BE%25E3%2582%258B%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS0tEemxfeHRNUzB3LVkybmtib0ZaWVpTd2pxRkJ1d0REY2dKNHJBQi1qMW84TVoza3Y5QT1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
       "author": "Zennの「Security」のフィード"
-    },
-    {
-      "id": "qiita-https://qiita.com/songchong/items/bed44cf5b639df476952",
-      "source": "qiita",
-      "title": "【2026年8月調査】API連携でデータを外部に渡して大丈夫なのか調べてみた｜OAuth・APIキー・保管場所・やめ方を業務システム56件で",
-      "url": "https://qiita.com/songchong/items/bed44cf5b639df476952",
-      "publishedAt": "2026-08-30T15:40:22.000Z",
-      "summary": "「外部のサービスにデータを渡して、大丈夫なんですか」 社内で連携の話をすると、必ず出る質問です。そして、この質問には答えにくい。「大丈夫です」と言っても根拠がなく、「危ないです」と言えば話が止まるからです。 問題は、 「安全か」が漠然としすぎている ことです。分けて聞けば答えられます。 日本の業務システム56件について、認証方式・セキュリティの記述・データの保管場所・解約時の持ち出しを、公式…",
-      "author": "@songchong",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNTY2NzAlMkZwcm9maWxlLWltYWdlcyUyRjE3ODcyMzgxODE_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWU3NzQ3ZjMzNzE4MDJjYjI2M2FjMjM3NzUzODlmOTE5%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dc73920274995f5a321a69858db1e61f3?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwMjAyNiVFNSVCOSVCNDglRTYlOUMlODglRTglQUElQkYlRTYlOUYlQkIlRTMlODAlOTFBUEklRTklODAlQTMlRTYlOTAlQkElRTMlODElQTclRTMlODMlODclRTMlODMlQkMlRTMlODIlQkYlRTMlODIlOTIlRTUlQTQlOTYlRTklODMlQTglRTMlODElQUIlRTYlQjglQTElRTMlODElOTclRTMlODElQTYlRTUlQTQlQTclRTQlQjglODglRTUlQTQlQUIlRTMlODElQUElRTMlODElQUUlRTMlODElOEIlRTglQUElQkYlRTMlODElQjklRTMlODElQTYlRTMlODElQkYlRTMlODElOUYlRUYlQkQlOUNPQXV0aCVFMyU4MyVCQkFQSSVFMyU4MiVBRCVFMyU4MyVCQyVFMyU4MyVCQiVFNCVCRiU5RCVFNyVBRSVBMSVFNSVBMCVCNCVFMiU4MCVBNiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTc4ZWRhYTNlZDY5YmUxMjdiZTljYzBhYWZhZmZkMGYy&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzb25nY2hvbmcmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1jYThhODE5MGI3ZTMyOWM0MDRkZTcyYjU3YzZiNzYwNA&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=da44f0635cb0df32fcef7b967cf599bb"
     },
     {
       "id": "zenn-https://zenn.dev/lafine/articles/fb43df23ba9b6f",
@@ -31849,16 +32098,6 @@
       "author": "BleepingComputer",
       "titleJa": "Chromeウェブストアの拡張機能が暗号資産やブラウザデータを窃取していたことが判明",
       "summaryJa": "Google ChromeおよびMicrosoft Edge向けの複数の拡張機能が、暗号資産やブラウザ履歴などの機密データを盗み出し、ClickFixを注入するマルウェアフレームワークを配布していました。"
-    },
-    {
-      "id": "qiita-https://qiita.com/mikihitooooo/items/d43a58615e948002d70b",
-      "source": "qiita",
-      "title": "AIセキュリティ何から勉強すりゃええの？その4",
-      "url": "https://qiita.com/mikihitooooo/items/d43a58615e948002d70b",
-      "publishedAt": "2026-08-30T14:09:43.000Z",
-      "summary": "はじめに 今回は『A Survey of Attacks on Large Language Models』の IV-A2（Weight-based Attacks）の整理です。 全然進まないですが根気よく続けます。 IV-A2 Weight-based Attacks ＜よくわかんないから調べた用語一覧＞ Weight-based Attacks ニューロンの繋がりの重みを変更して、LLM…",
-      "author": "@mikihitooooo",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGODQ1ODg3JTJGcHJvZmlsZS1pbWFnZXMlMkYxNzg3MTA1MTU2P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1lNTQ5NjQ0YTQ2MGM5NjI0NjljNmQyODI3NTViNzY1Ng%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dc28c33d205d200666024abd022d66d0b?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODIlQkIlRTMlODIlQUQlRTMlODMlQTUlRTMlODMlQUElRTMlODMlODYlRTMlODIlQTMlRTQlQkQlOTUlRTMlODElOEIlRTMlODIlODklRTUlOEIlODklRTUlQkMlQjclRTMlODElOTklRTMlODIlOEElRTMlODIlODMlRTMlODElODglRTMlODElODglRTMlODElQUUlRUYlQkMlOUYlRTMlODElOUQlRTMlODElQUU0JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NDBiNzQ1ZDdhY2UxYjQ5YzhiNDg0MTgxODllMDk2ZmQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtaWtpaGl0b29vb28mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz04MmY1NmJjNWI1YTI3YzgwMmViOTdiNzJjNTliNDEyNg&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=cdbaf14abf694db5e36490734a0e14df"
     },
     {
       "id": "zenn-https://zenn.dev/hkawase1220/articles/19a06e12b68d12",
@@ -36264,17 +36503,6 @@
       "summaryJa": "暗号化のひと工夫が、マルウェアの侵入を助けてしまう結果となりました。"
     },
     {
-      "id": "zenn-https://zenn.dev/kurakun1749/articles/portswigger-sqli-lab1",
-      "source": "zenn",
-      "title": "PortSwigger: Lab: SQL injection vulnerability in WHERE clause allowing",
-      "url": "https://zenn.dev/kurakun1749/articles/portswigger-sqli-lab1",
-      "publishedAt": "2026-08-20T12:46:39.000Z",
-      "summary": "はじめに PortSwigger Web Security Academy の SQL injection 入門ラボ、SQL injection vulnerability in WHERE clause allowing retrieval of hidden data を題材にします。 このラボの「正解」payload は ' OR 1=1-- です。多くの解説記事では「末尾に -- を…",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--UYSMRSzC--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:PortSwigger%253A%2520Lab%253A%2520SQL%2520injection%2520vulnerability%2520in%2520WHERE%2520cl...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:kura%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzllYTdmNGExMjQuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
-      "author": "Zennの「Security」のフィード",
-      "titleJa": "PortSwigger：ラボ：WHERE句におけるSQLインジェクションの脆弱性"
-    },
-    {
       "id": "theregister-https://www.theregister.com/security/2026/08/20/french-tax-authority-says-break-in-exposed-data-of-600k-including-some-private-messages/5290249",
       "source": "theregister",
       "title": "French tax authority says break-in exposed data of 600K, including some private messages",
@@ -36335,16 +36563,6 @@
       "summaryJa": "サイバーセキュリティ研究者が、主要なCDNがクライアント向けのHTTP/3トラフィックをHTTP/1.1リクエストに変換する仕組みを悪用した2つのDoS攻撃を明らかにしました。"
     },
     {
-      "id": "zenn-https://zenn.dev/itaraiguma/articles/rate-limit-never-reached-decorator",
-      "source": "zenn",
-      "title": "レート制限を足したのに、同じ穴を形を変えてもう一度開けていた話",
-      "url": "https://zenn.dev/itaraiguma/articles/rate-limit-never-reached-decorator",
-      "publishedAt": "2026-08-20T11:35:12.000Z",
-      "summary": "はじめに 個人開発している技術記事キュレーションサービス「DevPick」で、認証済みユーザー向けのAPIにレート制限を掛けていました。上限を回避できる穴が見つかったので塞ぎ、テストも書いて、直ったつもりでいました。実際には直っておらず、そのあと同じ性質の穴をもう一度開けています。 この記事は、なぜ1回目の修正が効いていなかったのか、なぜ効いていないことに自分で気づけなかったのか、という記録…",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--yGMt8zpL--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%25AC%25E3%2583%25BC%25E3%2583%2588%25E5%2588%25B6%25E9%2599%2590%25E3%2582%2592%25E8%25B6%25B3%25E3%2581%2597%25E3%2581%259F%25E3%2581%25AE%25E3%2581%25AB%25E3%2580%2581%25E5%2590%258C%25E3%2581%2598%25E7%25A9%25B4%25E3%2582%2592%25E5%25BD%25A2%25E3%2582%2592%25E5%25A4%2589%25E3%2581%2588%25E3%2581%25A6%25E3%2582%2582%25E3%2581%2586%25E4%25B8%2580%25E5%25BA%25A6%25E9%2596%258B%25E3%2581%2591%25E3%2581%25A6%25E3%2581%2584%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:IT%25E3%2582%25A2%25E3%2583%25A9%25E3%2582%25A4%25E3%2582%25B0%25E3%2583%259E%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzFlZmMxMmY2MTkuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
-      "author": "Zennの「Security」のフィード"
-    },
-    {
       "id": "thehackernews-https://thehackernews.com/2026/08/manic-android-malware-exfiltrates-data.html",
       "source": "thehackernews",
       "title": "Manic Android Malware Exfiltrates Data From Offline Phones via Nearby Infected Devices",
@@ -36355,16 +36573,6 @@
       "author": "The Hacker News",
       "titleJa": "Androidマルウェア「Manic」、近くの感染デバイス経由でオフラインのスマホからデータを流出",
       "summaryJa": "「Manic」と名付けられた新しいAndroidの脅威が、ウクライナの銀行や政府機関、メッセージアプリ、およびロシアや欧州の金融機関を標的にしていることが確認されました。"
-    },
-    {
-      "id": "zenn-https://zenn.dev/yukikurage/articles/a139bbdd6a522d",
-      "source": "zenn",
-      "title": "型でセキュリティレベルを追跡して、安全なプログラミングをしよう！〜純粋関数を添えて〜",
-      "url": "https://zenn.dev/yukikurage/articles/a139bbdd6a522d",
-      "publishedAt": "2026-08-20T11:09:38.000Z",
-      "summary": "まえがき プログラムにおいて、それぞれの変数がどのように使用されているか、というのはとっても重要です。 例えば、\"プライベートな情報をログに出さない\"とか\"URLに秘匿情報を入れない\"などなど…… 我々はこれらの規律を守るために、人の目によるレビューやLintなどによる静的な解析を噛ませています。 この記事では、そんな中でも型システムを使って守る方法について考え、そこで純粋関数を区別すること…",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--h2nMfIW3--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%259E%258B%25E3%2581%25A7%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3%25E3%2583%25AC%25E3%2583%2599%25E3%2583%25AB%25E3%2582%2592%25E8%25BF%25BD%25E8%25B7%25A1%25E3%2581%2597%25E3%2581%25A6%25E3%2580%2581%25E5%25AE%2589%25E5%2585%25A8%25E3%2581%25AA%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25B0%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0%25E3%2582%2592%25E3%2581%2597%25E3%2582%2588%25E3%2581%2586%25EF%25BC%2581%25E3%2580%259C%25E7%25B4%2594%25E7%25B2%258B%25E9%2596%25A2%25E6%2595%25B0%25E3%2582%2592%25E6%25B7%25BB%25E3%2581%2588%25E3%2581%25A6%25E3%2580%259C%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2582%2586%25E3%2581%258D%25E3%2581%258F%25E3%2582%2589%25E3%2581%2592%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2EwMmQxNDU1MmIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
-      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-exploiting-critical-mlflow-vulnerability/",
@@ -36403,26 +36611,6 @@
       "summaryJa": "セキュリティ研究者は、167個の遠隔操作コマンドを備え、標的を拡大した「ToxicPanda」の更新版について明らかにしました。"
     },
     {
-      "id": "zenn-https://zenn.dev/tottoko_hamu/articles/2026-08-08-223624",
-      "source": "zenn",
-      "title": "Claude Codeで、許可リストに書いてあるのにブロックされた話",
-      "url": "https://zenn.dev/tottoko_hamu/articles/2026-08-08-223624",
-      "publishedAt": "2026-08-20T10:21:58.000Z",
-      "summary": "この記事の実施記録: Claude Codeで、進行管理役のエージェントが自分自身の行動規範ファイルを編集しようとしたところ、permission mode（実行モードという枠組み）の一状態であるauto modeの中で働く判定機構にブロックされた。エラーメッセージは「権限ルールを足せば解決する」と案内したが、.claude/settings.local.json の許可リスト（調査時点で5…",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--veqbuamn--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25A7%25E3%2580%2581%25E8%25A8%25B1%25E5%258F%25AF%25E3%2583%25AA%25E3%2582%25B9%25E3%2583%2588%25E3%2581%25AB%25E6%259B%25B8%25E3%2581%2584%25E3%2581%25A6%25E3%2581%2582%25E3%2582%258B%25E3%2581%25AE%25E3%2581%25AB%25E3%2583%2596%25E3%2583%25AD%25E3%2583%2583%25E3%2582%25AF%25E3%2581%2595%25E3%2582%258C%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:saitoko%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2UyOTg5NmFhMzguanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
-      "author": "Zennの「Security」のフィード"
-    },
-    {
-      "id": "zenn-https://zenn.dev/headwaters/articles/e99701376df184",
-      "source": "zenn",
-      "title": "AzureでとりあえずRG（リソースグループ）を作るな！RBACから逆算して設計しないと後で地獄を見る話。",
-      "url": "https://zenn.dev/headwaters/articles/e99701376df184",
-      "publishedAt": "2026-08-20T10:08:16.000Z",
-      "summary": "はじめに これは私自身の経験でもあります。 Azureのプロジェクトは、最初から本番前提で設計されるとは限りません。 むしろ 「まずPoCで試してみよう」から始まることが多い です。 PoCのゴールは「動くこと」「効果を確かめること」なので、 スピードが最優先になります。 とりあえず1つのRGを作る そこにApp Service・DB・Storage・Key Vaultを全部入れる 動いた、…",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--fe53sOb3--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Azure%25E3%2581%25A7%25E3%2581%25A8%25E3%2582%258A%25E3%2581%2582%25E3%2581%2588%25E3%2581%259ARG%25EF%25BC%2588%25E3%2583%25AA%25E3%2582%25BD%25E3%2583%25BC%25E3%2582%25B9%25E3%2582%25B0%25E3%2583%25AB%25E3%2583%25BC%25E3%2583%2597%25EF%25BC%2589%25E3%2582%2592%25E4%25BD%259C%25E3%2582%258B%25E3%2581%25AA%25EF%25BC%2581RBAC%25E3%2581%258B%25E3%2582%2589%25E9%2580%2586%25E7%25AE%2597%25E3%2581%2597%25E3%2581%25A6%25E8%25A8%25AD%25E8%25A8%2588%25E3%2581%2597%25E3%2581%25AA%25E3%2581%2584%25E3%2581%25A8%25E5%25BE%258C%25E3%2581%25A7%25E5%259C%25B0%25E7%258D%2584%25E3%2582%2592%25E8%25A6%258B%25E3%2582%258B%25E8%25A9%25B1%25E3%2580%2582%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:YutaKanno%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzZjNGExY2UxMDYuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2583%2598%25E3%2583%2583%25E3%2583%2589%25E3%2582%25A6%25E3%2582%25A9%25E3%2583%25BC%25E3%2582%25BF%25E3%2583%25BC%25E3%2582%25B9%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzM1NzBjY2I3NTAuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
-      "author": "Zennの「Security」のフィード"
-    },
-    {
       "id": "bleepingcomputer-https://www.bleepingcomputer.com/news/security/new-manic-android-malware-can-exfiltrate-data-through-nearby-devices/",
       "source": "bleepingcomputer",
       "title": "New Manic Android malware can exfiltrate data through nearby devices",
@@ -36447,16 +36635,6 @@
       "summaryJa": "ポーランドのCERT Polskaは、Zimbra Collaboration Suite（ZCS）の深刻な脆弱性が攻撃者に悪用され始めていると警告しました。"
     },
     {
-      "id": "zenn-https://zenn.dev/10q89s/articles/18c2ccf5280e1f",
-      "source": "zenn",
-      "title": "バックエンドエンジニアの1か月の話題から──技術共有会 第2回",
-      "url": "https://zenn.dev/10q89s/articles/18c2ccf5280e1f",
-      "publishedAt": "2026-08-20T09:30:12.000Z",
-      "summary": "! 本記事は、生成AIを利用して執筆しました。 はじめに こんにちは、URBAN HACKSでバックエンドエンジニアをしている shinee です。 7月の東京は猛暑日（最高気温35℃以上）が9日あり、最高気温は7月25日の37.1℃を記録しました。8月に入ってからは猛暑日が上旬の2日にとどまり、7月と比べると暑さが少し落ち着いてきました。8月中旬は気温がさらに低下傾向で、盛夏のピークは過ぎ…",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Hlv1XlPF--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%2590%25E3%2583%2583%25E3%2582%25AF%25E3%2582%25A8%25E3%2583%25B3%25E3%2583%2589%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%25AE1%25E3%2581%258B%25E6%259C%2588%25E3%2581%25AE%25E8%25A9%25B1%25E9%25A1%258C%25E3%2581%258B%25E3%2582%2589%25E2%2594%2580%25E2%2594%2580%25E6%258A%2580%25E8%25A1%2593%25E5%2585%25B1%25E6%259C%2589%25E4%25BC%259A%2520%25E7%25AC%25AC2%25E5%259B%259E%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:htnk128%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzdiYjYzMDdkZWMuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%259D%25B1%25E6%2580%25A5URBAN%2520HACKS%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUdObXl4YnRGdzVXaks1aE9kajh0bEVCdFl0ejU5ZHZoWkJmbWFHbWl1cVM9czk2LWM=%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
-      "author": "Zennの「Security」のフィード"
-    },
-    {
       "id": "thehackernews-https://thehackernews.com/2026/08/40-malicious-firefox-extensions-pose-as.html",
       "source": "thehackernews",
       "title": "40 Malicious Firefox Extensions Pose as Web3 Products to Steal Wallet Secrets",
@@ -36477,26 +36655,6 @@
       "summary": "※直近に気になったセキュリティ関連の記事をまとめております（Excelファイルをサブスク配信）。 ※4月から本業にて新しいタスクが振られ、従来のペースで記事チェックが出来なってきています。暫く様子見でやってきましたが、一度9月末で現在作業負荷がかかっているExcel配信を止め、情報分析（発信）の方に軸足を移そうかと考えています。 ※Excel配信は9月末で停止予定ですが、日々の気になった記事…",
       "thumbnail": "https://cdn.image.st-hatena.com/image/scale/5c9c0e48343e2bb5887813512bc98cb4f1804084/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffoxcafelate%2F20230510%2F20230510095025.jpg",
       "author": "Fox on Security"
-    },
-    {
-      "id": "zenn-https://zenn.dev/kanbeworks/articles/c62159a72478b5",
-      "source": "zenn",
-      "title": "今週の用語集（2026/08/10-2026/08/17）",
-      "url": "https://zenn.dev/kanbeworks/articles/c62159a72478b5",
-      "publishedAt": "2026-08-20T07:46:29.000Z",
-      "summary": "特定期間のニュースやSNS投稿などを元に、用語集を生成しています。 対象期間は1週間程度ですが、情報収集は何度かにわけて実施する場合もあり、用語集の内容は不定期で更新しています。 他言語表記については、現地の一般向けニュース報道等で確認したものを記載しています。 ※通常、毎週月曜日に投稿していますが、今週はリソースを別のところに振り分ける必要があったので投稿が遅れました。 脅威アクター（Th…",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--s7GYM5yB--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E4%25BB%258A%25E9%2580%25B1%25E3%2581%25AE%25E7%2594%25A8%25E8%25AA%259E%25E9%259B%2586%25EF%25BC%25882026%252F08%252F10-2026%252F08%252F17%25EF%25BC%2589%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:kanbeworks%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS2VBUUpmbXVuU2RCNTgzM3JRbUxlN25YaDR0VmxINm9XampyTGtTRS1oMXFxQldaaz1zOTYtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
-      "author": "Zennの「Security」のフィード"
-    },
-    {
-      "id": "zenn-https://zenn.dev/clopy/articles/codex-pretooluse-dispatch-preflight",
-      "source": "zenn",
-      "title": "Codex PreToolUseのdenyを信じる前に副作用で確かめる",
-      "url": "https://zenn.dev/clopy/articles/codex-pretooluse-dispatch-preflight",
-      "publishedAt": "2026-08-20T07:08:20.000Z",
-      "summary": "無人のcodex execで、モデルが生成した特定のシェルコマンドをPreToolUseフックで止めたいとします。このとき、リポジトリに.codex/hooks.jsonがあり、起動時にhook trust bypassの通知が出たことだけを見て「denyが効いている」と判断するのは危険です。 Codex CLI 0.147.0でプロジェクトローカルのフックを2ケース試したところ、どちらもフ…",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--tzBhh0lw--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Codex%2520PreToolUse%25E3%2581%25AEdeny%25E3%2582%2592%25E4%25BF%25A1%25E3%2581%2598%25E3%2582%258B%25E5%2589%258D%25E3%2581%25AB%25E5%2589%25AF%25E4%25BD%259C%25E7%2594%25A8%25E3%2581%25A7%25E7%25A2%25BA%25E3%2581%258B%25E3%2582%2581%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Clopy%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly96ZW5uLWRldi5naXRodWIuaW8vZGVmYXVsdC1hdmF0YXJzL2RhcmsvYy5wbmc=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
-      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "theregister-https://www.theregister.com/security/2026/08/20/ai-agent-suggested-installing-a-malware-package-engineer-almost-took-its-advice/5289849",
@@ -36533,36 +36691,6 @@
       "author": "The Hacker News",
       "titleJa": "Elementor Proの脆弱性により、認証なしの攻撃者がPHPをアップロードしてコードを実行する恐れ",
       "summaryJa": "WordPressプラグイン「Elementor Pro」に深刻な脆弱性が発見されました。悪用されると、攻撃者がリモートでコードを実行できる危険性があり、セキュリティ研究者が詳細を公開しています。"
-    },
-    {
-      "id": "zenn-https://zenn.dev/schutzz/articles/6f3d5a82428bc6",
-      "source": "zenn",
-      "title": "【OT/ICS】Dockerで証す真の攻撃検知基盤（実証可視化編 #7：ダッシュボード実装）",
-      "url": "https://zenn.dev/schutzz/articles/6f3d5a82428bc6",
-      "publishedAt": "2026-08-20T03:26:41.000Z",
-      "summary": "はじめに 前回（#6）でPhase 6の全4タスクが完了し、Signal 1〜6は自己申告方式に頼らない検知として実データで実証済みになりました。 判定ロジックとしては、これでひと区切りです。 しかし、この時点で一つ検証していないことがありました。その判定結果を、実際にGrafanaのダッシュボードが正しく映しているかです。 Signal 1〜6がどれだけ正しく判定しても、可視化層が壊れてい…",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--_SvcOMdp--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590OT%252FICS%25E3%2580%2591Docker%25E3%2581%25A7%25E8%25A8%25BC%25E3%2581%2599%25E7%259C%259F%25E3%2581%25AE%25E6%2594%25BB%25E6%2592%2583%25E6%25A4%259C%25E7%259F%25A5%25E5%259F%25BA%25E7%259B%25A4%25EF%25BC%2588%25E5%25AE%259F%25E8%25A8%25BC%25E5%258F%25AF%25E8%25A6%2596%25E5%258C%2596%25E7%25B7%25A8%2520%25237%25EF%25BC%259A%25E3%2583%2580%25E3%2583%2583%25E3%2582%25B7%25E3%2583%25A5%25E3%2583%259C%25E3%2583%25BC%25E3%2583%2589%25E5%25AE%259F%25E8%25A3%2585%25EF%25BC%2589%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Daichi%2520Terayama%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzNjOWY3MWZlN2MuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
-      "author": "Zennの「Security」のフィード"
-    },
-    {
-      "id": "zenn-https://zenn.dev/ukintech/articles/cloudflare-web-analytics-csp",
-      "source": "zenn",
-      "title": "Cloudflare Web Analytics が CSP で静かに止まる — curl では気づけない",
-      "url": "https://zenn.dev/ukintech/articles/cloudflare-web-analytics-csp",
-      "publishedAt": "2026-08-20T03:08:43.000Z",
-      "summary": "Astro の静的サイトを Cloudflare Pages に載せて、レスポンスヘッダに Content-Security-Policy を追加しました。自分のコードは一行も変えていないのに、Cloudflare Web Analytics の計測が全ページで止まりました。 しかも一度直したつもりが直っていませんでした。同じ日に 2 回ブロックしています。 2 回目は「送信先はきっと外部ド…",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--y7AnCgFk--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Cloudflare%2520Web%2520Analytics%2520%25E3%2581%258C%2520CSP%2520%25E3%2581%25A7%25E9%259D%2599%25E3%2581%258B%25E3%2581%25AB%25E6%25AD%25A2%25E3%2581%25BE%25E3%2582%258B%2520%25E2%2580%2594%2520curl%2520%25E3%2581%25A7%25E3%2581%25AF%25E6%25B0%2597%25E3%2581%25A5%25E3%2581%2591%25E3%2581%25AA%25E3%2581%2584%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:ukintech%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2FlYWQ3YzgxNmUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
-      "author": "Zennの「Security」のフィード"
-    },
-    {
-      "id": "zenn-https://zenn.dev/knowledgework/articles/197309c80efb28",
-      "source": "zenn",
-      "title": "QAエンジニアが実践型Webセキュリティ試験『BSCP』に合格するまで",
-      "url": "https://zenn.dev/knowledgework/articles/197309c80efb28",
-      "publishedAt": "2026-08-20T03:00:05.000Z",
-      "summary": "こんにちは。特撮熱が爆上がり中のbun913と申します。 2026年8月より株式会社ナレッジワークでQAエンジニアとして働き始めました。 早速ですが、みなさんは「Webセキュリティについて攻撃者目線で実践的に学びたいな」と思ったことはありませんか？私はあります。 私は以前より、PortSwiggerの提供する実践的なラボを解いており、いくつか学んだことを記事にしてきました。 https://…",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--8HqsQ6WJ--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:QA%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%258C%25E5%25AE%259F%25E8%25B7%25B5%25E5%259E%258BWeb%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3%25E8%25A9%25A6%25E9%25A8%2593%25E3%2580%258EBSCP%25E3%2580%258F%25E3%2581%25AB%25E5%2590%2588%25E6%25A0%25BC%25E3%2581%2599%25E3%2582%258B%25E3%2581%25BE%25E3%2581%25A7%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:bun913%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2E4MWZhOWNhZmYuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%25E3%2583%258A%25E3%2583%25AC%25E3%2583%2583%25E3%2582%25B8%25E3%2583%25AF%25E3%2583%25BC%25E3%2582%25AF%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzcxNGVhMDEyMDQuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
-      "author": "Zennの「Security」のフィード"
     },
     {
       "id": "hatenablog-https://piyolog.hatenadiary.jp/entry/2026/08/20/113237",
@@ -37153,6 +37281,18 @@
       "summaryJa": "セキュリティ対策は既知の攻撃手法を阻止できても、より静かな手法は見逃す可能性があります。Picus Securityのレポートでは、防御率が手法によって大きく異なることが示されています。"
     },
     {
+      "id": "theregister-https://www.theregister.com/research/2026/08/18/copilot-tricked-into-telling-reseachers-how-to-hack-itself/5288857",
+      "source": "theregister",
+      "title": "Copilot tricked into telling reseachers how to hack itself",
+      "url": "https://www.theregister.com/research/2026/08/18/copilot-tricked-into-telling-reseachers-how-to-hack-itself/5288857",
+      "publishedAt": "2026-08-18T13:00:00.000Z",
+      "summary": "How to social engineer an AI's reasoning engine",
+      "thumbnail": "https://image.theregister.com/?imageId=5288896&width=800",
+      "author": "www.theregister.com - Articles",
+      "titleJa": "Copilotが騙され、自身のハッキング方法を研究者に暴露",
+      "summaryJa": "AIの推論エンジンに対するソーシャルエンジニアリングの手法により、Copilotが自身のハッキング方法を回答するように誘導されました。"
+    },
+    {
       "id": "darkreading-https://www.darkreading.com/cyberattacks-data-breaches/ransom-busters-ransomware-actor-incident-recovery-service",
       "source": "darkreading",
       "title": "'Ransom Busters': Ransomware Actor Poses as Incident-Recovery Service",
@@ -37175,18 +37315,6 @@
       "author": "darkreading",
       "titleJa": "Microsoftクラウドを完全に悪用するサイバー脅威「TwinLoot」",
       "summaryJa": "Pythonベースのマルウェアフレームワーク「TwinLoot」は、Microsoftのクラウド環境を悪用し、認証情報の窃取や潜伏を行うステルス性の高い攻撃手法を用いています。"
-    },
-    {
-      "id": "theregister-https://www.theregister.com/research/2026/08/18/copilot-tricked-into-telling-reseachers-how-to-hack-itself/5288857",
-      "source": "theregister",
-      "title": "Copilot tricked into telling reseachers how to hack itself",
-      "url": "https://www.theregister.com/research/2026/08/18/copilot-tricked-into-telling-reseachers-how-to-hack-itself/5288857",
-      "publishedAt": "2026-08-18T13:00:00.000Z",
-      "summary": "How to social engineer an AI's reasoning engine",
-      "thumbnail": "https://image.theregister.com/?imageId=5288896&width=800",
-      "author": "www.theregister.com - Articles",
-      "titleJa": "Copilotが騙され、自身のハッキング方法を研究者に暴露",
-      "summaryJa": "AIの推論エンジンに対するソーシャルエンジニアリングの手法により、Copilotが自身のハッキング方法を回答するように誘導されました。"
     },
     {
       "id": "thehackernews-https://thehackernews.com/2026/08/ai-mind-viruses-can-spread-between.html",
@@ -38473,18 +38601,6 @@
       "summaryJa": "研究者は、サイバー諜報活動と金銭目的の窃盗を同一のWebパネルから実行するハッカー集団を発見しました。このグループは、国家によるスパイ活動と暗号資産の盗難を並行して行っています。"
     },
     {
-      "id": "darkreading-https://www.darkreading.com/application-security/belgium-eid-authentication-citizen-accounts-rce",
-      "source": "darkreading",
-      "title": "Belgium's eID Authentication Opens Citizen Accounts to RCE",
-      "url": "https://www.darkreading.com/application-security/belgium-eid-authentication-citizen-accounts-rce",
-      "publishedAt": "2026-08-13T07:00:00.000Z",
-      "summary": "The trust framework underlying Belgium's electronic ID system was fully compromised by severe vulnerabilities in a key browser extension, showcasing bigger problems with extensions in general.",
-      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9d4b34421b322d00/6a7cd6b1cff117fe2ff5b3b3/Belgium-alxpin-GettyImages-2159495100.jpg?width=720&quality=80&disable=upscale",
-      "author": "darkreading",
-      "titleJa": "ベルギーの電子ID認証にRCEの脆弱性、市民アカウントが危険に",
-      "summaryJa": "ベルギーの電子IDシステムの基盤となる信頼フレームワークが、主要なブラウザ拡張機能の深刻な脆弱性によって完全に侵害されました。これはブラウザ拡張機能全般が抱える大きな問題を浮き彫りにしています。"
-    },
-    {
       "id": "theregister-https://www.theregister.com/security/2026/08/13/passwords-stored-in-public-google-doc-then-showed-up-in-search-results/5287028",
       "source": "theregister",
       "title": "Passwords stored in public Google Doc then showed up in search results",
@@ -38495,6 +38611,18 @@
       "author": "www.theregister.com - Articles",
       "titleJa": "公開されたGoogleドキュメントに保存されたパスワードが検索結果に表示される事態に",
       "summaryJa": "開発者が、オートコンプリート機能の中にホスト名と認証情報が含まれていることを発見しました。"
+    },
+    {
+      "id": "darkreading-https://www.darkreading.com/application-security/belgium-eid-authentication-citizen-accounts-rce",
+      "source": "darkreading",
+      "title": "Belgium's eID Authentication Opens Citizen Accounts to RCE",
+      "url": "https://www.darkreading.com/application-security/belgium-eid-authentication-citizen-accounts-rce",
+      "publishedAt": "2026-08-13T07:00:00.000Z",
+      "summary": "The trust framework underlying Belgium's electronic ID system was fully compromised by severe vulnerabilities in a key browser extension, showcasing bigger problems with extensions in general.",
+      "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9d4b34421b322d00/6a7cd6b1cff117fe2ff5b3b3/Belgium-alxpin-GettyImages-2159495100.jpg?width=720&quality=80&disable=upscale",
+      "author": "darkreading",
+      "titleJa": "ベルギーの電子ID認証にRCEの脆弱性、市民アカウントが危険に",
+      "summaryJa": "ベルギーの電子IDシステムの基盤となる信頼フレームワークが、主要なブラウザ拡張機能の深刻な脆弱性によって完全に侵害されました。これはブラウザ拡張機能全般が抱える大きな問題を浮き彫りにしています。"
     },
     {
       "id": "thehackernews-https://thehackernews.com/2026/08/attackers-exploit-sharepoint.html",
@@ -44164,20 +44292,12 @@
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/brave-browser-adds-email-aliases-to-help-users-evade-tracking/": "https://www.bleepstatic.com/content/hl-images/2022/06/22/Brave.jpg",
       "bleepingcomputer-https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-is-cutting-claude-codes-current-weekly-limits-by-17-percent/": "https://www.bleepstatic.com/content/hl-images/2026/05/07/ClaudeChats.png",
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/chrome-web-store-extensions-caught-stealing-crypto-browser-data/": "https://www.bleepstatic.com/content/hl-images/2023/11/28/Google_Chrome.jpg",
-      "qiita-https://qiita.com/mikihitooooo/items/d43a58615e948002d70b": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGODQ1ODg3JTJGcHJvZmlsZS1pbWFnZXMlMkYxNzg3MTA1MTU2P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1lNTQ5NjQ0YTQ2MGM5NjI0NjljNmQyODI3NTViNzY1Ng%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dc28c33d205d200666024abd022d66d0b?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODIlQkIlRTMlODIlQUQlRTMlODMlQTUlRTMlODMlQUElRTMlODMlODYlRTMlODIlQTMlRTQlQkQlOTUlRTMlODElOEIlRTMlODIlODklRTUlOEIlODklRTUlQkMlQjclRTMlODElOTklRTMlODIlOEElRTMlODIlODMlRTMlODElODglRTMlODElODglRTMlODElQUUlRUYlQkMlOUYlRTMlODElOUQlRTMlODElQUU0JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NDBiNzQ1ZDdhY2UxYjQ5YzhiNDg0MTgxODllMDk2ZmQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtaWtpaGl0b29vb28mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz04MmY1NmJjNWI1YTI3YzgwMmViOTdiNzJjNTliNDEyNg&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=cdbaf14abf694db5e36490734a0e14df",
-      "qiita-https://qiita.com/songchong/items/bed44cf5b639df476952": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNTY2NzAlMkZwcm9maWxlLWltYWdlcyUyRjE3ODcyMzgxODE_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWU3NzQ3ZjMzNzE4MDJjYjI2M2FjMjM3NzUzODlmOTE5%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dc73920274995f5a321a69858db1e61f3?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwMjAyNiVFNSVCOSVCNDglRTYlOUMlODglRTglQUElQkYlRTYlOUYlQkIlRTMlODAlOTFBUEklRTklODAlQTMlRTYlOTAlQkElRTMlODElQTclRTMlODMlODclRTMlODMlQkMlRTMlODIlQkYlRTMlODIlOTIlRTUlQTQlOTYlRTklODMlQTglRTMlODElQUIlRTYlQjglQTElRTMlODElOTclRTMlODElQTYlRTUlQTQlQTclRTQlQjglODglRTUlQTQlQUIlRTMlODElQUElRTMlODElQUUlRTMlODElOEIlRTglQUElQkYlRTMlODElQjklRTMlODElQTYlRTMlODElQkYlRTMlODElOUYlRUYlQkQlOUNPQXV0aCVFMyU4MyVCQkFQSSVFMyU4MiVBRCVFMyU4MyVCQyVFMyU4MyVCQiVFNCVCRiU5RCVFNyVBRSVBMSVFNSVBMCVCNCVFMiU4MCVBNiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTc4ZWRhYTNlZDY5YmUxMjdiZTljYzBhYWZhZmZkMGYy&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzb25nY2hvbmcmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1jYThhODE5MGI3ZTMyOWM0MDRkZTcyYjU3YzZiNzYwNA&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=da44f0635cb0df32fcef7b967cf599bb",
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/fulcrumsec-claims-manchester-airports-hack-theft-of-86-gb-of-data/": "https://www.bleepstatic.com/content/hl-images/2025/09/24/Airport_flight_schedule.jpg",
       "bleepingcomputer-https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-warns-infostealer-malware-is-hijacking-claude-sessions-to-drain-usage/": "https://www.bleepstatic.com/content/hl-images/2026/02/13/Claude_chats.jpg",
-      "qiita-https://qiita.com/pitopito/items/8688641a7c7d612d9795": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZkMzAxZWM0MjcyODUyNDU0ODNjZmY2ZDFjOGY0ZmIzYz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MDBhODNkNGNhZTViMjZjY2Y4ZTg3ZWRjNzhjM2MxN2U%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db26a49cd4e665ea23e67fdfa079183e5?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9MjAyNiUyRjglMkYzMSVFNCVCOCVCQiVFMyU4MSVBQklUJUUzJTgxJUE4JUUzJTgxJThCJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgxJUFFJUU4JUE4JTk4JUU0JUJBJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NzVkMzc1YTI4NmI2MGUwODZmY2MxYjY4ZDFjOTAzMmY&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwaXRvcGl0byZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTRiOTYyYWNlZTBhODcyODhkYWViZDVlNzVmNWI3MDkx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=dd67f39290fb0ea91795aaaa1c7eedb4",
-      "qiita-https://qiita.com/fukumuraryota0724/items/6f2703e602de362b04d6": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jS3p6VTJ1MW50azdtVTN5TW0wS0JwR2V4ekYzT3ctUlkxeVI2bk1xWEFzdVpUeTJCbWJXdyUzRHM5Ni1jP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0yYjE0Njc0NGM5ZGExN2EwYjQxZmJlYzQ2MmNmZmY1Ng%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D0a06b745c220e58fca613088f4fba2f9?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MSVBRSVFNiU4OSVCRiVFOCVBQSU4RCVFMyU4MyU5NyVFMyU4MyVBRCVFMyU4MyVCMyVFMyU4MyU5NyVFMyU4MyU4OCVFMyU4MCU4MXJtJTIwJUUzJTgxJThDJUU3JTg0JUExJUUzJTgxJThGJUUzJTgxJUE2JUUzJTgyJTgyJUU2JUI2JTg4JUUzJTgxJTg4JUUzJTgyJThCJUUzJTgxJTkzJUUzJTgxJUE4JUUzJTgxJThDJUUzJTgxJTgyJUUzJTgyJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YmY0YWRmZGM1Y2Q4ZGFlNjk0MTQwNTFmM2ZiYmQ3ZWY&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBmdWt1bXVyYXJ5b3RhMDcyNCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWJkOWM4ODhmM2ZjYmNlMDYzMTViNzFkZTkwMjZjZTli&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=8502a868fec22b67a1dfe66dcc8180a3",
       "qiita-https://qiita.com/kooohei/items/feb19d1d1167193df721": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGODIwOTAlMkZwcm9maWxlLWltYWdlcyUyRjE3MDAxODQwODM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWQ1YWVlNWVkODdiZDBjNmJlZGUxYjhlM2E5NjY3NTYz%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY5NDQ5Y2MxZGYzZDNiNGNjZWRkOTA1MDQzZGNiMDAyZTVjOGMxZmVjJTJGb3JpZ2luYWwuanBnJTNGMTYxMzM2NzQ1NT9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz0wZDIyYjhhMjYyZWY2YzAxMWI0M2MyNzVmNmQ5NTM1NQ%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D907ce2b76905b12c00bc494ba192cd7e?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwQVdTJTIwU0VTJTIwJUUzJTgzJUExJUUzJTgzJUJDJUUzJTgzJUFCJUU4JUFBJThEJUU4JUE4JUJDJUUzJTgzJUJCJUUzJTgxJUFBJUUzJTgyJThBJUUzJTgxJTk5JUUzJTgxJUJFJUUzJTgxJTk3JUU1JUFGJUJFJUU3JUFEJTk2JUUyJTkxJUEwJUUzJTgwJTkxRE1BUkMlRTMlODElQUVwJUUzJTgzJUJCc3AlRTMlODMlQkJucCVFMyU4MiU5MiVFNyU5MCU4NiVFOCVBNyVBMyVFMyU4MSU5OSVFMyU4MiU4QiUyMCVFRiVCRCU5RSVFMyU4MiVCNSVFMyU4MyU5NiVFMyU4MyU4OSVFMyU4MyVBMSVFMyU4MiVBNCVFMyU4MyVCMyVFMyU4MSVBRSVFMyU4MSVBQSVFMyU4MiU4QSVFMyU4MSU5OSVFMiU4MCVBNiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWMwNDIxYzdiZDcxYzgyOWFlNmY4ZGVlMWM0YTg1MzIy&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrb29vaGVpJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OTM5ODgxODJjMWIzNjE2MzNjMDc5ZTNiNzQ1ZGZlODY&amp;blend-x=242&amp;blend-y=454&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;txt64=44OP44Oz44K444Ol5qCq5byP5Lya56S-&amp;txt-x=242&amp;txt-y=539&amp;txt-width=838&amp;txt-clip=end%2Cellipsis&amp;txt-color=%231E2121&amp;txt-font=Hiragino%20Sans%20W6&amp;txt-size=28&amp;s=9d3fff89689e10b8da97827f55851d4c",
       "qiita-https://qiita.com/takashi-matsuyama/items/ecae4ed7c1832e6b297c": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMTExNTczMyUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc4MjExNzE5OT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YTNlNmU1YjBmZTIxNzBhYzg0YjJmNzg4MGY1NDVjMzg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dcc017aa0f50b3e8d4772a43dac407515?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJThDJUUzJTgzJTlFJUUzJTgyJUI3JUUzJTgzJUIzJUUzJTgxJUFFJUU1JUE0JTk2JUUzJTgxJUFCJUU1JTg3JUJBJUUzJTgxJTk1JUUzJTgxJUFBJUUzJTgxJTg0JUUzJTgwJThEJUUzJTgyJTkyJUU1JUFFJTg4JUUzJTgyJThBJUU2JThBJTlDJUUzJTgxJThGJUUzJTgxJUE4JUUzJTgwJTgxJUU1JTkwJThDJUU2JTlDJTlGJUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkwJUUzJTgyJTkyJUU2JTlCJUI4JUUzJTgxJThCJUUzJTgxJTlBJUUzJTgxJUFCJUU4JUE0JTg3JUU2JTk1JUIwJUUzJTgzJTlFJUUzJTgyJUI3JUUzJTgzJUIzJUUzJTgyJTkyJUUzJTgxJUJFJUUzJTgxJTlGJUUzJTgxJTkwJUUzJTgxJTkzJUUzJTgxJUE4JUUzJTgxJUFCJUUzJTgxJUFBJUUzJTgyJThCJTIwJUUyJTgwJTk0JTIwYmFzb3UlMjAlRTMlODElQUUlMjBsJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NzdmMmNhMzM2MTQ0ZWM4NzdkNzc3ZWU0YjljNTY4YmM&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB0YWthc2hpLW1hdHN1eWFtYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTc1MWFkMmNlMWMzNGM4ZDNiN2ZiNDQ3ODc0ZTk3ODVj&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=359d16056dd5e116bbba0ff7f0cb8860",
       "qiita-https://qiita.com/ks1905/items/367991d5db9f113eddb2": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDIzOTM1OSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc4NTIyMjczMT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ZjU4MzFlZWZkNjA4NmRkNjY4MzI4OGM4MTRmNjg2Mjg%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkYwMzhkMDQ0NDc0MjkxYWY5YzVmYjU2NmNlYzYxMTRiY2U3ZmQzOWFiJTJGb3JpZ2luYWwuanBnJTNGMTc2MzQzNDA3MT9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz0zZjJhMjZiMTlmZWE0ZjEyM2Y3YjZjNjY1Njk2MGMxZg%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D231a0a4ca013a89218b0e743a04a6124?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwUHJlc2lkaW8lRTMlODAlOTElRTUlODAlOEIlRTQlQkElQkElRTYlODMlODUlRTUlQTAlQjElRTYlQTQlOUMlRTUlODclQkElRTMlODMlQkIlRTUlOEMlQkYlRTUlOTAlOEQlRTUlOEMlOTYlRTMlODMlQTklRTMlODIlQTQlRTMlODMlOTYlRTMlODMlQTklRTMlODMlQUElMjBQcmVzaWRpbyUyMCVFMyU4MiU5MiVFNCVCRCVCRiVFMyU4MSVBMyVFMyU4MSVBNiVFMyU4MSVCRiVFMyU4MiU4QiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTE2YjQzZDIxYTY4Yzc4OTY2YWE1MDYzNjM2YTA2Y2Y5&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrczE5MDUmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz0zZjViZGQ3YWI1ZWU1ZDZmZjQ1MmYxNGU0OTMzYTVkYQ&amp;blend-x=242&amp;blend-y=454&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;txt64=5qCq5byP5Lya56S-QUJJIOaKgOihk-mdqeaWsOmDqA&amp;txt-x=242&amp;txt-y=539&amp;txt-width=838&amp;txt-clip=end%2Cellipsis&amp;txt-color=%231E2121&amp;txt-font=Hiragino%20Sans%20W6&amp;txt-size=28&amp;s=071b655e71b9ceba2fa36bc18f265ddc",
       "qiita-https://qiita.com/nlykr/items/84adecac1ab84e468946": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDQ4NzQyOCUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc4ODEzODUzMT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YWVkMTZkOTJjYmU2ZGNjM2FhZjgyMGFhNTNiMWZjNDQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D3d72152d9bb575c6f9d2ec51ab6d3af6?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9VVJMJUU3JTlGJUFEJUU3JUI4JUFFJUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkzJUUzJTgyJUI5JUUzJTgyJTkyJUU1JTgwJThCJUU0JUJBJUJBJUU5JTk2JThCJUU3JTk5JUJBJUUzJTgxJTk5JUUzJTgyJThCJUU2JTk5JTgyJUUzJTgxJUFCJUU4JTgwJTgzJUUzJTgxJTg4JUUzJTgxJTlGJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUU1JUFGJUJFJUU3JUFEJTk2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZjFlMTIwNDMzYzE1ODkzZGQyZGU1M2RhNGE0MDBjYzQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBubHlrciZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTEzZjE1ODNiODA4ZDZlZjRlZmQ0NDQ1MmY1NGM1N2Yx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=8d1c80465bbe24695ccd9758185200ec",
-      "qiita-https://qiita.com/lykuro/items/80fb5f7f917a89245013": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jSXRWR2FJNmhCaFVuTzRIR2tOTWpGVThjclZPOXM4M0VLVHg4TkRBMG5LQjB3MmNBJTNEczk2LWM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTA1Zjk5ZGMzNDMyNzU0YmZlYzk2YjlhN2U1Njg0MTBl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Daee98cd95915f82b77beccd17c6577b5?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9THlrdXJvLmFpJTIwQVBJJTIwJUUzJTgyJUI1JUUzJTgzJUIzJUUzJTgzJTk3JUUzJTgzJUFCJTNBJTIwQVBJJUUzJTgyJUFEJUUzJTgzJUJDJUUzJTgyJTkyJUU1JUFFJTg5JUU1JTg1JUE4JUUzJTgxJUFCJUU2JTg5JUIxJUUzJTgxJTg2JUUzJTgyJUI1JUUzJTgzJUIzJUUzJTgzJTk3JUUzJTgzJUFCJTIwJTI4MjAyNi0wOC0zMSUyOSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTZlOTUyZmI3ZDljY2Q4M2NkNmM0N2JkNjUxYTA2ZDY1&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBseWt1cm8mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz0yZjkwMmY5MWMyNjRmZmNhMTNlZGYyYWJmYzI4NTFlMQ&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=c587675530c170a8ba4b233ea2310d9e",
-      "qiita-https://qiita.com/jiis-sasaki/items/fbb3b44cdf20ea247b81": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDQzNjQwJTJGNTFlMTk3MTk0Mzg0YjhlYmE3ZmE5M2JjOGRhZTE3ZjA4ZWZjM2IzZSUyRnhfbGFyZ2UucG5nJTNGMTc4MDYzOTY2ND9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NWI3ZGMyMWNjN2MyNjVjZGZkNmE4MTc0NDk5Y2M2NGI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D683aa7ed29701ffb01177d4edbd11507?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QXZhZGElRTMlODMlODYlRTMlODMlQkMlRTMlODMlOUUlMjglRTglQjIlQTklRTUlQTMlQjIxMDAlRTQlQjglODclRTQlQkIlQjYlMjklRTMlODElQUUlRTYlOUMlQUElRTglQUElOEQlRTglQTglQkNSQ0UlMjBDVkUtMjAyNi0xODQzMSVFMiU5NCU4MCVFMiU5NCU4MDcuMTYuMSVFNiU5QiVCNCVFNiU5NiVCMCVFMyU4MSVBOCVFNiU5NCVCOSVFMyU4MSU5NiVFMyU4MiU5MyVFNyVBMiVCQSVFOCVBQSU4RCZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWZiZTI2NDM4OWNjMGQ0Zjg4N2M1MzQ2MDk0YmVkNzlj&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBqaWlzLXNhc2FraSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWRjZDE3ZmZiZDY4ZjIxN2Q2MTQ5YjExYTlmNjE0ODFk&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=7dd73351492fc5450963347d17f59fff",
-      "qiita-https://qiita.com/Kerdy/items/5eefbd55c9bf4490893b": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjk1MjkyNSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTczMzA2NjEzOT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NjU4ZmRhZmFhN2MwYTlhZTJlMzhmYjNmNDI0NzcyNGY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df672aad81a7384f0de68f42e53607ac2?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9OCUyRjMxJUUzJTgwJTgxJUU0JUJCJThBJUU2JTk3JUE1JUUzJTgxJUFFJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgzJThCJUUzJTgzJUE1JUUzJTgzJUJDJUUzJTgyJUI5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MjQ1NTU4MDc4ZjEwOWYzZGU3YzY1MDEyN2FhM2FmNGQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBLZXJkeSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTZlZmEyOGNiOTU1MjliZGQxNWExY2NkNzA3Yzg0YmY4&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=b5ea5191c104a215f8d0077453813882",
-      "qiita-https://qiita.com/blinkgroup_jp/items/2d841a6eef5ce0aa2a90": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDcyNTc2JTJGNDBiZTViMjA3MmFhYWE2NjMwOTEyMjJjZWZkZTNlOGJiYzFmMjYxYyUyRnhfbGFyZ2UucG5nJTNGMTc4NDc5MzM0Nz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ZjY0OGY3MTdiMDMzYjY1Y2EzZWMxYWI4MTgzNWNmNjM%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D9b1bf1d9cc7ed2925bc924055a22dd24?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QW1hem9uJTIwUzMlRTMlODElQUUlRTYlODQlOEYlRTUlOUIlQjMlRTMlODElOTclRTMlODElQUElRTMlODElODQlRTUlODUlQUMlRTklOTYlOEIlRTMlODIlOTIlRTklOTglQjIlRTMlODElOTAlRTMlODElOUYlRTMlODIlODElRTMlODElQUUlRTglQTglQUQlRTUlQUUlOUElRTclQTIlQkElRTglQUElOEQlRTMlODMlODElRTMlODIlQTclRTMlODMlODMlRTMlODIlQUYlRTMlODMlQUElRTMlODIlQjklRTMlODMlODglRTMlODElQThJQU0lRTMlODMlQkIlRTMlODMlOTAlRTMlODIlQjElRTMlODMlODMlRTMlODMlODglRTMlODMlOUQlRTMlODMlQUElRTMlODIlQjclRTMlODMlQkMlRTglQTglQUQlRTUlQUUlOUElRTQlQkUlOEImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0wZjZkMDViNTQwNDQ2NDMwMzhmY2Q1MzcxYzI3NjVmMw&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBibGlua2dyb3VwX2pwJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9N2UwY2VjMTdkOTNhNjYyZDZhZTc4NzU5ZWQwY2NhYWM&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=2ea8d6ef52a0bc7fe0e31b2bd8b00bbe",
       "qiita-https://qiita.com/AI-Sandbox/items/ee96f8fec226148a0e5c": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzQ5ODI4JTJGMDczYWJkNDYyN2RiMGZiNzQ1NTdjZjY4MTZmMDg4YmQ4ODZkMjMyOSUyRmxhcmdlLnBuZyUzRjE3ODU1NTM4MjY_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWQ2MDQzYTZjOTNmNTNjNmQ0NDU3YzI3NzZmN2Q4ODZi%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D7323ed90f2896d03b2a73ef8aa8dbb07?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9UmVkZGl0JTIwJUUzJTgxJUE3JUUzJTgwJThDYm90cyUyMHRhbGtpbmclMjB0byUyMGJvdHMlRTMlODAlOEQlRTMlODElQTglRTglQTglODAlRTMlODIlOEYlRTMlODIlOEMlRTMlODElOUYlRTglQTklQjEmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz03YzY0NTdhZjg0Nzg4ODY0Yzk1ZTNjZDE4YTc4ZDcyNA&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBBSS1TYW5kYm94JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MjMwMDgzNzc1OWQ2NTk3ZGZhOGQyNjdiZTVhNTFkNWI&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=dc4360def05530021a79a4a12f10a20e",
       "qiita-https://qiita.com/SokoP/items/e2ef27b6429a6c6e40c8": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDExMTI5MyUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc4ODE0NjcyND9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ZTk5NGQ5YTRkYzU0YWZiMDk0MTIxYTkxYWFkNGVlNDI%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY3MTI4ODRlZmVkODM3YzIzZGI1NGEyMTI3NzY2YjQzMDEyMDcyNDBkJTJGb3JpZ2luYWwuanBnJTNGMTc4ODE0ODg0Nz9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz05ZTM4MzhkZmY0NThlZjcyNTVhOTc3N2Y4NWI3N2YxZQ%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D4d520ee3eeaf70393b74e7e7f23b4291?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9U255ayUyMCVFMyU4MSVBRSUyMEFJJTIwJUU0JUJGJUFFJUU2JUFEJUEzJTIwLSUyMEFnZW50JTIwRml4JTJDJTIwJTJGc255ay1maXglMkMlMjBzbnlrJTIwZml4JTIwLS1hZ2VudGljJTIwJUUzJTgxJUFFJUU5JTgxJTk1JUUzJTgxJTg0JUUzJTgxJUE4JUU0JUJEJUJGJUUzJTgxJTg0JUU1JTg4JTg2JUUzJTgxJTkxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZGJhMjZhZDYxMTBhYmYwNjdmM2ZkYTFkMDM3ZmIyYzQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBTb2tvUCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWYyMTlhMDkwZjgyNGM1NWJhY2E0MDUzNjNjYjY0NWY3&amp;blend-x=242&amp;blend-y=454&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;txt64=U255a-agquW8j-S8muekvg&amp;txt-x=242&amp;txt-y=539&amp;txt-width=838&amp;txt-clip=end%2Cellipsis&amp;txt-color=%231E2121&amp;txt-font=Hiragino%20Sans%20W6&amp;txt-size=28&amp;s=11653cecbe56e97bb56fa08791c7d3ba",
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/microsoft-says-windows-11-kb5120998-update-resets-mouse-settings/": "https://www.bleepstatic.com/content/hl-images/2026/08/31/Windows-11-mouse-pointer.jpg",
@@ -44189,7 +44309,6 @@
       "qiita-https://qiita.com/gtakairo/items/9b49189876965bc9b354": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGOTQ2MjcwJTJGcHJvZmlsZS1pbWFnZXMlMkYxNzc1NTYxMTg5P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0zOWM4NmNjODc4ZjZkNzgwZDI1YzViMDQzNTg2Mzc5Mw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Ddce17c576755dbd984dbbd1d6c2bf4de?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9YmNyeXB0JUUzJTgxJUE4U0hBJUUzJTgxJUFFJUU0JUJEJUJGJUUzJTgxJTg0JUU1JTg4JTg2JUUzJTgxJTkxJUUyJTgwJTk0JUUyJTgwJTk0JUUzJTgzJThGJUUzJTgzJTgzJUUzJTgyJUI3JUUzJTgzJUE1JUUzJTgxJUFGJUUzJTgwJThDJUU1JUJDJUI3JUUzJTgxJTk1JUUzJTgwJThEJUUzJTgxJUE3JUUzJTgxJUFGJUUzJTgxJUFBJUUzJTgxJThGJUUzJTgwJThDJUU2JTk0JUJCJUU2JTkyJTgzJUU4JTgwJTg1JUUzJTgxJThDJUUzJTgxJUE5JUUzJTgxJTkzJUUzJTgxJUFCJUUzJTgxJTg0JUUzJTgyJThCJUUzJTgxJThCJUUzJTgwJThEJUUzJTgxJUE3JUU5JTgxJUI4JUUzJTgxJUI2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YmEyMzkzNGUxM2RiYjQwN2YzNTNmYzQzN2Q0NzE5ZTU&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBndGFrYWlybyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWI2OWM0MDFlYjE0OGQ3YTMzNjIxNDY0MzQ2MTFkZGYx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=5f9b68085a244bfd4c3a90e5dd6c8e17",
       "qiita-https://qiita.com/Imply-JP/items/e296b8e1209a62f77b49": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDg0ODUxJTJGZjY4NmY3MmI1ZTJlZWJmMTdkNTZjNjI4ZDc4MzhkNjJmZTFlNGY2MiUyRmxhcmdlLnBuZyUzRjE3ODY2NzIxNTQ_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTRhMzk3MTZkZDY2YzYzYzJmYzRkMDVjM2UxODAzOTQx%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D955d2db7a36d2fb332c05aade3b20e5e?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9SW1wbHklMjAlRTIlODAlOURMdW1pJTIwTG9nbGFrZSVFMiU4MCU5RCUyMCVFMyU4MSVBOCVFMyU4MSVBRiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWY3NWEwYjM2NTEyNWNlN2Y4NWRkZDQxZDAyODkwODk0&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBJbXBseS1KUCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWRiMzJiMmQzN2VmMzEyMDg2ZTYwZGQyNjRlM2FlODM3&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=bcd8eb4cecee4151b7da23b2bc3190ea",
       "qiita-https://qiita.com/BugiAK/items/dd222add8b53d6bf672b": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzMDgwNDQlMkY5OGNmMjEzYTY2ODRiNWRiZThkODRjMmU0MDdiNGMxNjExMzc4ZmZhJTJGeF9sYXJnZS5wbmclM0YxNzMyNzU3MzQ3P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz01NzA5YmQ1MTljNzI5NTk2MzBkY2ZlMzU1MWI0YjNkMQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D9f58ce50bdcf98cd2fe4cc694a759d87?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODIlQTglRTMlODMlQkMlRTMlODIlQjglRTMlODIlQTclRTMlODMlQjMlRTMlODMlODglRTMlODElQUVIdWdnaW5nJTIwRmFjZSVFNCVCRSVCNSVFNSVBRSVCMyVFMyU4MiU5MiVFMyU4MCU4QyVFNCVCQSU4QiVFNiU5NSU4NSVFMyU4MCU4RCVFMyU4MSVBNyVFNyVCNSU4MiVFMyU4MiU4RiVFMyU4MiU4OSVFMyU4MSU5QiVFMyU4MSU5QSVFMyU4MCU4MU11bHRpLUFnZW50JUUzJTgxJUE4RXZhbHVhdG9yJUUzJTgxJUFFJUU4JUE2JUIzJUU3JTgyJUI5JUUzJTgxJThCJUUzJTgyJTg5JUU4JTgwJTgzJUUzJTgxJTg4JUUzJTgyJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZmI0MjBhYjMzMjllMTIzOWZjMDhhOGYyZTZhYmQyMDk&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBCdWdpQUsmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz04MDkzYjkwNjQzMzYzM2UyMTU5ZGQxNDViNmZlNzY1YQ&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=9dcb2caab10332b22990357e64b4c12a",
-      "qiita-https://qiita.com/bon_eng/items/718a25ba8ae1e4d5c945": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY4ODc1NTklMkZkZjMwYWNhY2I5MTQzYTg0YmIyMzQ0MGViNWY5NjdjMDY3ODYwYmJiJTJGeF9sYXJnZS5wbmclM0YxNzQ3MjkxNjM5P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1jMzgwYThkZmViNzc2MzU2NTI5NDNiOTIzMzg1MDU2OQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D0e7d6388cdec7936c694aa9c76cd1c3c?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJThDJUU5JTlBJTk0JUU5JTlCJUEyJUUzJTgxJTk3JUUzJTgxJTlGJUUzJTgxJUFGJUUzJTgxJTlBJUUzJTgxJUFFQUklRTMlODAlOEQlRTMlODElOEM3MDAlRTQlQkQlOTMlRTMlODElQTclRTclQjUlOTAlRTglQTglOTclRTMlODElOTdIdWdnaW5nJTIwRmFjZSVFMyU4MiU5MiVFOSU5OSVBNSVFOCU5MCVCRCVFMyU4MSU5NSVFMyU4MSU5QiVFMyU4MSU5RiUyMCVFMiU4MCU5NSUyME1FVFIlMkZSZWR3b29kJUU3JThCJUFDJUU3JUFCJThCJUUzJTgzJTlEJUUzJTgyJUI5JUUzJTgzJTg4JUUzJTgzJUEyJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NTE1MDYzNjhhNTYyYWNhZGRkZGMxZjVlNDhiNDU2ODg&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBib25fZW5nJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OWRkOTFhNjE3ZGY5NzBiMmU1NTAzNTNlMTJlZGE5YzA&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=1fc7c087d44e9aa6976ec9d43fec0c68",
       "qiita-https://qiita.com/pitopito/items/f0f176428a35ffc44e42": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZkMzAxZWM0MjcyODUyNDU0ODNjZmY2ZDFjOGY0ZmIzYz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MDBhODNkNGNhZTViMjZjY2Y4ZTg3ZWRjNzhjM2MxN2U%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db26a49cd4e665ea23e67fdfa079183e5?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9MjAyNiUyRjklMkYxJUU0JUI4JUJCJUUzJTgxJUFCSVQlRTMlODElQTglRTMlODElOEIlRTMlODIlQkIlRTMlODIlQUQlRTMlODMlQTUlRTMlODMlQUElRTMlODMlODYlRTMlODIlQTMlRTMlODElQUUlRTglQTglOTglRTQlQkElOEImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1hNThlN2JiMjJlYzllNDRlMTIwNjlmNjViODI2YTU5Yg&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwaXRvcGl0byZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTRiOTYyYWNlZTBhODcyODhkYWViZDVlNzVmNWI3MDkx&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=226ddbdcbe1ee24b599d0bccb0094336",
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/cronos-blockchain-restarts-after-74-million-tectonic-exploit/": "https://www.bleepstatic.com/content/hl-images/2026/03/31/cryptocurrency.jpg",
       "bleepingcomputer-https://www.bleepingcomputer.com/news/security/microsoft-warns-of-terminalfix-attacks-deploying-reverse-tunnels/": "https://www.bleepstatic.com/content/hl-images/2026/05/05/hacker.jpg",
@@ -45641,7 +45760,18 @@
       "qiita-https://qiita.com/kumai_yu/items/84f7eaad15426da0a5b8": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnBicy50d2ltZy5jb20lMkZwcm9maWxlX2ltYWdlcyUyRjE4MDgxODkwMDcyOTk0Nzc1MDQlMkZObmZsLXNXMF9iaWdnZXIuanBnP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz02OTczODhkZjcyOGQ3Y2I1ZjRlMjhjYWVkMTA5ZDc2ZQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D2bd3760aec5a9c618ba8317347adb258?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgzJTgwJUUzJTgzJTlGJUUzJTgzJUJDJUUzJTgyJUE4JUUzJTgzJUIzJUUzJTgzJTg5JUUzJTgzJTlEJUUzJTgyJUE0JUUzJTgzJUIzJUUzJTgzJTg4JUUzJTgyJTkyJUU0JUJCJTk1JUU2JThFJTlCJUUzJTgxJTkxJUUzJTgxJUE2JUUzJTgwJTgxQUklRTYlOTQlQkIlRTYlOTIlODMlRTMlODIlQTglRTMlODMlQkMlRTMlODIlQjglRTMlODIlQTclRTMlODMlQjMlRTMlODMlODglRTMlODElQUUlRTYlOEUlQTIlRTclQjQlQTIlRTglQTElOEMlRTUlOEIlOTUlRTMlODIlOTIlRTUlOEYlQUYlRTglQTYlOTYlRTUlOEMlOTYlRTMlODElOTclRTMlODElQTYlRTMlODElQkYlRTMlODElOUYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0yMjBiZjRhZjY0ZWEzMmJjODk1ZGRkNmRjMGRmY2E4OA&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrdW1haV95dSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTViY2E2MDhkMGYwZjkxOTRjYzAwYzY4NWMzZGE1M2Ez&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=3c365db5a39eb1e8c2eb867346dd7658",
       "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/10/14/081735": "https://cdn.image.st-hatena.com/image/scale/2740ede0841ba47c37b370983635d84851a71e45/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffoxcafelate%2F20261014%2F20261014080649.png",
       "qiita-https://qiita.com/jiis-sasaki/items/09d828f65fb4a5378245": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDQzNjQwJTJGNTFlMTk3MTk0Mzg0YjhlYmE3ZmE5M2JjOGRhZTE3ZjA4ZWZjM2IzZSUyRnhfbGFyZ2UucG5nJTNGMTc4MDYzOTY2ND9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NWI3ZGMyMWNjN2MyNjVjZGZkNmE4MTc0NDk5Y2M2NGI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D683aa7ed29701ffb01177d4edbd11507?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QnJpY2tzZm9yZ2UlRTMlODElQTdQSFAlRTMlODIlOTIlRTclQkQlQUUlRTMlODElOEIlRTMlODIlOEMlRTMlODIlOEJDVkUtMjAyNi04NTA5NyVFMyU4MSU4QyVFNiU4MiVBQSVFNyU5NCVBOCVFNCVCOCVBRCVFMiU5NCU4MCVFMiU5NCU4MDMuMS44LjEwJUU2JTlCJUI0JUU2JTk2JUIwJUUzJTgxJUE4dXBsb2FkcyVFNyU4MiVCOSVFNiVBNCU5QyZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWI2NmVlMTFmMzYxYTk2MTc3ODM3YmEyMzYyYTgxNTg1&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBqaWlzLXNhc2FraSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWRjZDE3ZmZiZDY4ZjIxN2Q2MTQ5YjExYTlmNjE0ODFk&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=ecf73e30db4fef9a2752d42abbe0c1dc",
-      "qiita-https://qiita.com/suwa_nobu/items/afde8d73a48eb7badb71": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDMwNjExJTJGYTRlNGFiZDZjNWNkZmM5NzkzMTk2ZmUwZDFjZjYyMGY1ZWYxMTY5NCUyRnhfbGFyZ2UucG5nJTNGMTc4NTI4OTU5Nj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NGE5ZmNiZmE4OTM5NWU1MWY1N2FiYjJkYzI1ZTFmZDQ%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkYyMDc3NzA2NTMzODkzMmUyMWVjMjk3MjI5ZDVkZmI5NDk5MWI5YzFhJTJGb3JpZ2luYWwuanBnJTNGMTc2OTAwMDk3MD9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1lYjc1ZTQzMzAzYTdlNTkzNDQ4Yjc4NDZiMjljYTgxZA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D237198914e54e0e7e727d16c4cfb7823?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MSVBRSVFNSVBRSU4OCVFMyU4MiU4QSVFMyU4MSVBRSVFMyU4MyU5NSVFMyU4MyU4MyVFMyU4MiVBRiVFMyU4MSVBRiVFMyU4MCU4MSVFNSU4RiVCMCVFNiU5QyVBQyVFMyU4MSU4QyVFNSVBMyU4QSVFMyU4MiU4QyVFMyU4MiU4QiVFMyU4MSVBOCVFOSVCQiU5OSVFMyU4MSVBMyVFMyU4MSVBNiVFOSU4MCU5QSVFMyU4MSU5OSVFMyU4MCU4MjIuMS4yOTUlMjAlRTMlODElQUUlMjBvbkZhaWx1cmUlMjAlRTMlODElQTclRTYlQUQlQTIlRTMlODElQkUlRTMlODElQTMlRTMlODElOUYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz02NmVkZjIyNjYwN2I5NTdhMTYzNjEwMTAyN2M2NmJiZQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzdXdhX25vYnUmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1iZTVkNGQ3ZjgwNDY4YWQwMGMxZTkyMjA3YzFjYWMxMw&amp;blend-x=242&amp;blend-y=454&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;txt64=5qCq5byP5Lya56S-SlFJVA&amp;txt-x=242&amp;txt-y=539&amp;txt-width=838&amp;txt-clip=end%2Cellipsis&amp;txt-color=%231E2121&amp;txt-font=Hiragino%20Sans%20W6&amp;txt-size=28&amp;s=1b10a924bccdbbec010172b11a78641e"
+      "qiita-https://qiita.com/suwa_nobu/items/afde8d73a48eb7badb71": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDMwNjExJTJGYTRlNGFiZDZjNWNkZmM5NzkzMTk2ZmUwZDFjZjYyMGY1ZWYxMTY5NCUyRnhfbGFyZ2UucG5nJTNGMTc4NTI4OTU5Nj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NGE5ZmNiZmE4OTM5NWU1MWY1N2FiYjJkYzI1ZTFmZDQ%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkYyMDc3NzA2NTMzODkzMmUyMWVjMjk3MjI5ZDVkZmI5NDk5MWI5YzFhJTJGb3JpZ2luYWwuanBnJTNGMTc2OTAwMDk3MD9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1lYjc1ZTQzMzAzYTdlNTkzNDQ4Yjc4NDZiMjljYTgxZA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D237198914e54e0e7e727d16c4cfb7823?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MSVBRSVFNSVBRSU4OCVFMyU4MiU4QSVFMyU4MSVBRSVFMyU4MyU5NSVFMyU4MyU4MyVFMyU4MiVBRiVFMyU4MSVBRiVFMyU4MCU4MSVFNSU4RiVCMCVFNiU5QyVBQyVFMyU4MSU4QyVFNSVBMyU4QSVFMyU4MiU4QyVFMyU4MiU4QiVFMyU4MSVBOCVFOSVCQiU5OSVFMyU4MSVBMyVFMyU4MSVBNiVFOSU4MCU5QSVFMyU4MSU5OSVFMyU4MCU4MjIuMS4yOTUlMjAlRTMlODElQUUlMjBvbkZhaWx1cmUlMjAlRTMlODElQTclRTYlQUQlQTIlRTMlODElQkUlRTMlODElQTMlRTMlODElOUYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz02NmVkZjIyNjYwN2I5NTdhMTYzNjEwMTAyN2M2NmJiZQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzdXdhX25vYnUmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1iZTVkNGQ3ZjgwNDY4YWQwMGMxZTkyMjA3YzFjYWMxMw&amp;blend-x=242&amp;blend-y=454&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;txt64=5qCq5byP5Lya56S-SlFJVA&amp;txt-x=242&amp;txt-y=539&amp;txt-width=838&amp;txt-clip=end%2Cellipsis&amp;txt-color=%231E2121&amp;txt-font=Hiragino%20Sans%20W6&amp;txt-size=28&amp;s=1b10a924bccdbbec010172b11a78641e",
+      "qiita-https://qiita.com/96logger/items/23d424c84abc03b02eda": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMTU1OTQ0OSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc5MTMzMjM4MD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YWQ3YjI1OTIxYzU0NzNjNWQ3NWI3ZTg1NGVmYTE0YjY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D0ad6eb070a4af46184ed7292ca66038d?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9SVBBJUUzJTgxJUFFJUU2JUIzJUE4JUU2JTg0JThGJUU1JTk2JTlBJUU4JUI1JUI3JUUzJTgyJTkyJUU1JThGJTk3JUUzJTgxJTkxJUUzJTgxJUE2JUUzJTgwJTgxSWFDJUUzJTgxJThCJUUzJTgyJTg5JUU1JUE0JTk2JUU5JTgzJUE4JUU1JTg1JUFDJUU5JTk2JThCJUUzJTgxJUFFJUU1JTg1JUE1JUU1JThGJUEzJUUzJTgyJTkyJUU0JUI4JTgwJUU4JUE2JUE3JUUzJTgxJUFCJUUzJTgxJTk5JUUzJTgyJThCJUU2JTg5JThCJUU5JUEwJTg2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MThkNzE2NzVjYzZmN2ZkZDZlMTE4NDMzN2FlODVkMWM&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDA5NmxvZ2dlciZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWY5MzM4MmVkNjZhOWI1MWE0NzliMWU5OTI1NDI3Yzk5&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=5deb95e9f19905fdd73a342c814ce0c0",
+      "qiita-https://qiita.com/maestro_shin1/items/0ff6e7437e13f35739f6": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMzcxNTc3OCUyRnByb2ZpbGUtaW1hZ2VzJTJGMTcyOTMxODk5MD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MGRjNDZiMzNlNWRmZWQwN2Q3ZWJiY2Q5OThlNjMyZmQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D1525242942fa45f6965ee98953366d23?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9RE5TJUUzJTgzJUJCJUUzJTgzJUExJUUzJTgzJUJDJUUzJTgzJUFCJUUzJTgyJUJCJUUzJTgyJUFEJUUzJTgzJUE1JUUzJTgzJUFBJUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgzJUJCJUUzJTgzJTk3JUUzJTgzJUFEJUUzJTgzJTg4JUUzJTgyJUIzJUUzJTgzJUFCJUU5JUEwJUJCJUU1JTg3JUJBJUUzJTgyJUFEJUUzJTgzJUJDJUUzJTgzJUFGJUUzJTgzJUJDJUUzJTgzJTg5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZGEzNzYzMWJhNzIxNWMyZTcyMzBjM2IyNGI3MjlhZmU&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtYWVzdHJvX3NoaW4xJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9ZDg5ZjU0MDAxMmFlZWNmNzllYTUzYTljNTE2YWQxYWY&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=209354829757f5a2b773b492d24543f7",
+      "qiita-https://qiita.com/vayaci/items/83cc31b2576ed025268c": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzY4NDcxJTJGYTk2ZGU5ZjkzMDg3NjllMjhhMThhMDY2NWEzYzJiMzI3MGU1NzBmYSUyRnhfbGFyZ2UucG5nJTNGMTc3MjIwNjAwNz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MjI1NWY2MTNkNjdhNGRjZjAyNzFhMTU4M2E0MGQzMDE%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dd0b9a26187a1dac81bc2ce758097a1dc?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9SFRUUFMlRTMlODElQTclRTMlODIlODIlRTUlQUUlODglRTMlODIlOEMlRTMlODElQUElRTMlODElODQlRTMlODIlODIlRTMlODElQUUlRTMlODElOEMlRTMlODElODIlRTMlODIlOEIlMjAlRTIlODAlOTQlMjAlRTMlODIlQkIlRTMlODIlQUQlRTMlODMlQTUlRTMlODMlQUElRTMlODMlODYlRTMlODIlQTMlRTMlODMlOTglRTMlODMlODMlRTMlODMlODAlRTMlODIlOTIlRTUlOUIlQjMlRTglQTclQTMlRTMlODElOTklRTMlODIlOEImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0yYmJmNzI5YjkzZDRjOGRmZjUyYmQ3MjlkMTI2MzM0Yw&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB2YXlhY2kmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1hMjU4YWUzOGY0ZGJkNGIwZTQ3ODhjNGEzNzQ3MjY4Yw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=dd088fdd784802defe3f409ded005bc0",
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/microsoft-recent-windows-updates-may-trigger-remote-desktop-failures/": "",
+      "qiita-https://qiita.com/infravis/items/b240e1f17032e6d7cb73": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jSWRDcHVDUXRpR1RsOUFYVkxlVkpvdmVRMTBqdl9wRUJDeUoyekg3RWdnNnY5dGpCbyUzRHM5Ni1jP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0zMTUyZWIyODVhNjI5MWQ1NTJkOWJiZTkxYzUwNmMxZA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D1b73ecc1b89ccce80f2678a796bf891b?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9V2luZG93cyVFMyU4MiVCNSVFMyU4MyVCQyVFMyU4MyU5MyVFMyU4MiVCOSVFMyU4MiVBMiVFMyU4MiVBQiVFMyU4MiVBNiVFMyU4MyVCMyVFMyU4MyU4OCVFMyU4MSVBRSVFOSU4MSVCOCVFMyU4MSVCMyVFNiU5NiVCOSUyMCVFMiU5NCU4MCUyMExvY2FsU3lzdGVtJUUzJTgzJUJCJUU0JUJCJUFFJUU2JTgzJUIzJUUzJTgyJUEyJUUzJTgyJUFCJUUzJTgyJUE2JUUzJTgzJUIzJUUzJTgzJTg4JUUzJTgzJUJCZ01TQSVFMyU4MSVBOCVFMyU4MCU4MTIlRTclQTglQUUlRTklQTElOUUlRTMlODElQUUlRTMlODAlOEMlRTYlQTglQTklRTklOTklOTAlRTMlODAlOEQmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0zNDgwZjI0NTA0NmE5NTE0YWM3YWFlM2JiZTY1NjE4NA&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBpbmZyYXZpcyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTdhMzU0MzRhOTA3YjY0Y2M5Yzk0ZTc2MDllZmFlYzQ0&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=52529c7e7bbd5968a424aab2851cce5a",
+      "qiita-https://qiita.com/shalXXXX/items/b1c3d79e00760eb5d9c4": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjgyMjQyNSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTY4ODM3OTMyOT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YzhhMTllZGQ0MmUzZTdiMTM2NTY5Yzk3NWRhNTllZjY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D769a7b09b5f12b8ad22ec5033c229a14?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9TUNQJTIwJUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkwJUUzJTgzJUJDJUUzJTgyJTkyJUU1JUFFJTg5JUU1JTg1JUE4JUUzJTgxJUFCJUU0JUJEJUJGJUUzJTgxJTg2JUVGJUJDJTlBJUUzJTgzJTg0JUUzJTgzJUJDJUUzJTgzJUFCJUU4JUE4JTk4JUU4JUJGJUIwJUUzJTgxJUI4JUUzJTgxJUFFJUU2JThDJTg3JUU3JUE0JUJBJUU1JTlGJThCJUUzJTgyJTgxJUU4JUJFJUJDJUUzJTgxJUJGJUUzJTgzJUJCJUU2JTg5JUJGJUU4JUFBJThEJUU1JUJFJThDJUUzJTgxJUFFJUU2JTlCJUI4JUUzJTgxJThEJUU2JThGJTlCJUUzJTgxJTg4JUUzJTgzJUJCJUUzJTgxJUFBJUUzJTgyJThBJUUzJTgxJTk5JUUzJTgxJUJFJUUzJTgxJTk3JUUzJTgyJTkyJUU1JUFFJTlBJUU3JUJFJUE5JUUzJTgxJUFFJUU1JTlCJUJBJUU1JUFFJTlBJUUzJTgxJUE3JUU2JUFEJUEyJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9Njk2MGRjZDg1NmJhZjc4OTlkMjRlYTY1OWM2ZmE4YTE&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzaGFsWFhYWCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTljMTU2YzY2YzE1ZGRlOWU1ZDQ5M2VmZWM1NGFkYmYw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=71da0c18af70c512d1ce2da537ff9d33",
+      "qiita-https://qiita.com/pds_siken/items/96b7f3eb17b86010916b": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDg5NzczJTJGMjA3MmQ4NTc4MTRjMWFiNzI2NzA3NzhjYTY4MzYyNmQ3ZTYwZTdiNSUyRmxhcmdlLnBuZyUzRjE3ODczMjA2ODc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTI2N2UzNzNmZTZiN2IwNzEwMTQ3MTUwNGQzNzcxZDE3%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df085992c99013fc1329f9999d8851bdf?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9UEQlRTglQTklQTYlRTklQTglOTMlRTMlODAlOEMlRTclQTclOTElRTclOUIlQUVBLTElRUYlQkMlODglRTUlODUlQjElRTklODAlOUElRTclOUYlQTUlRTglQUQlOTglRUYlQkMlODklRTMlODAlOEQlRTMlODIlQjclRTMlODMlQTklRTMlODMlOTAlRTMlODIlQjlWZXIuMC4xJUUzJTgyJTkyJUUzJTgyJUE4JUUzJTgzJUIzJUUzJTgyJUI4JUUzJTgzJThCJUUzJTgyJUEyJUU3JTlCJUFFJUU3JUI3JTlBJUUzJTgxJUE3JUU4JUFBJUFEJUUzJTgxJUJGJUU4JUE3JUEzJUUzJTgxJThGJUUzJTgwJTkwJUU1JUJGJTlDJUU3JTk0JUE4JUU2JTgzJTg1JUU1JUEwJUIxJUUzJTgxJThCJUUzJTgyJTg5JUUzJTgxJUFFJUU1JUI3JUFFJUU1JTg4JTg2JUUzJTgxJUE0JUUzJTgxJThEJUUzJTgwJTkxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9OTVlMjVlMDM3Njk2MWI4YjhjOWM3OTY3YWI4ZGM3M2I&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwZHNfc2lrZW4mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1kYTdlMmUwOWM1MWEyNzQzM2FlMjhkMmM4ODc5MjQ0Nw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=97bdd3a0f2cd0ef303c30b2858206fb0",
+      "qiita-https://qiita.com/twsnmp/items/cfe997182e5cb8a3913b": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jSldxWmVuSTJBUFRIVkZiYV8wWDc5dFpEUDMxeVV1dDhPMlpmalpZWVlkWlJTS3Z3cyUzRHM5Ni1jP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz05ZGUwM2QxNjYyMDk4ZjYzZTU5NTMxMTM3ZWM3NWMzMA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D6d3e7b86ce673642f7f4b85f60f4ba87?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9R28lRTglQTglODAlRTglQUElOUUlRTMlODElQTdQS0klRTUlODUlQTUlRTklOTYlODAlRUYlQkMlODglRTUlOEIlOUQlRTYlODklOEIlRTMlODElQUIlRTUlQkUlQTklRTUlODglQkIlRUYlQkMlODklM0ElMjBBQ01FJUU2JThCJUExJUU1JUJDJUI1JUU3JUI3JUE4JUVGJUJDJTg4RE5TLTAxJUUzJTgzJUJCSVAlRTMlODIlQTIlRTMlODMlODklRTMlODMlQUMlRTMlODIlQjklRTMlODMlQkIlRTclQUIlQUYlRTYlOUMlQUIlRTYlQTclOEIlRTYlODglOTAlRTglQTglQkMlRTYlOTglOEUlRUYlQkMlODkmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1iZGQxZDU1MmM1MGJhZGY0NjVkM2YyMGMwYTViNzQzNA&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB0d3NubXAmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1hZmMzNmRkZDhjNTM0ODJjZDg2MzRmOTk2OGNmMWNjYg&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=23a10dac3e43da50cdafe458a86cefae",
+      "qiita-https://qiita.com/Jun__o/items/819715e5a39773a45cfa": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDk1MDY4JTJGZTg0ZjY5YjczNjM0M2IwOWI3NGM5ODVmNGNjYzczNjE0OWFiZTMxNCUyRnhfbGFyZ2UucG5nJTNGMTc4OTYyNjkzMj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ODM1ZDA3NmIwYzVmYzFhMGQ2ZDE3OThkNzc2NmI2NGQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D833a324f581b7a0340ed6c8679ebdb4e?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwOSVFNiU5QyU4OEF1dGgwJUU1JTg1JUFDJUU1JUJDJThGJUUzJTgzJTk2JUUzJTgzJUFEJUUzJTgyJUIwJUUzJTgxJUJFJUUzJTgxJUE4JUUzJTgyJTgxJUUzJTgwJTkxQUklRTMlODIlQTglRTMlODMlQkMlRTMlODIlQjglRTMlODIlQTclRTMlODMlQjMlRTMlODMlODglRTMlODElQUUlRTMlODIlQTIlRTMlODIlQTQlRTMlODMlODclRTMlODMlQjMlRTMlODMlODYlRTMlODIlQTMlRTMlODMlODYlRTMlODIlQTMlRTclQUUlQTElRTclOTAlODYlRTMlODElQThNRkElRTQlQkIlQTMlRTYlOUIlQkYlRTYlQTElODglMjAlRTQlQkIlOTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz03NTZiYWRjMzg0YjE2MGFjMTM4YmQ2YTg5MjgwMzNiYQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBKdW5fX28mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz01MDg1MWE5OTNjOGRjOGNkZDQxYzY4NjRiNTRjNDkwNw&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=3c9078fb5c35783d576cc8b2cc25db47",
+      "qiita-https://qiita.com/kenimo49/items/d4274c52cee211b4caa0": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzYwMDIxJTJGMGJhMTg4MDA1NDA2MWQ4MWI5YWY2ZmFiN2FhY2E2YmRmYzNkNWYyNCUyRnhfbGFyZ2UucG5nJTNGMTc3MTI4ODM2Mj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ZDBmZjQ4MzU4OThhN2ZjYjZkYjY3MTAyYmNiNGY5MTA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D50e4dd7e0d970dcd5d1f7aeead6faf85?ixlib=rb-4.1.1&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9R3JhZmFuYSVFNSU4NSVBQyVFNSVCQyU4Rk1DUCVFMyU4MSVBRiVFMyU4MCU4MSVFOSU4MSVBOSVFNSVCRCU5MyVFMyU4MSVBQiVFNCVCRCU5QyVFMyU4MSVBMyVFMyU4MSU5RklEJUUzJTgxJUEwJUUzJTgxJTkxJUUzJTgxJUE3JUU4JUFBJUIwJUUzJTgxJUE3JUUzJTgyJTgyJUUzJTgzJTg0JUUzJTgzJUJDJUUzJTgzJUFCJUUzJTgyJTkyJUU1JUFFJTlGJUU4JUExJThDJUUzJTgxJUE3JUUzJTgxJThEJUUzJTgxJTlGJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NjNkMGY1NDI2ZDY3Mzk2ZmNjNmQ5ZGVjYzI2M2IyNTk&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrZW5pbW80OSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTA3MzQwYjA2MzcxM2ZjYWUxYWUxMDM3NGM4YTkxMmFh&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=dcea2ad032f67978300c367c9c16e78e",
+      "hatenablog-https://foxsecurity.hatenablog.com/entry/2026/10/14/134049": "https://cdn.image.st-hatena.com/image/scale/3d8381bc15dce9f8f94040badcce9a48fcca97e8/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffoxcafelate%2F20261014%2F20261014133911.png"
     },
     "xLinkCards": {},
     "translations": {
@@ -47779,9 +47909,6 @@
       "theregister-https://www.theregister.com/ai-and-ml/2026/08/20/grok-chat-duped-into-swallowing-injected-instructions/5290019": {
         "titleJa": "Grokチャット、注入された指示を鵜呑みにするよう誘導される",
         "summaryJa": "暗号化のひと工夫が、マルウェアの侵入を助けてしまう結果となりました。"
-      },
-      "zenn-https://zenn.dev/kurakun1749/articles/portswigger-sqli-lab1": {
-        "titleJa": "PortSwigger：ラボ：WHERE句におけるSQLインジェクションの脆弱性"
       },
       "thehackernews-https://thehackernews.com/2026/08/zombie-card-attack-can-revive-expired.html": {
         "titleJa": "「ゾンビカード」攻撃、期限切れのVisaカードを非接触決済で復活させる",
@@ -52795,6 +52922,46 @@
       "darkreading-https://www.darkreading.com/vulnerabilities-threats/zero-days-microsoft-october-patch-tuesday": {
         "titleJa": "Microsoftの10月パッチ火曜日に潜むゼロデイ脆弱性",
         "summaryJa": "Microsoftが公開した過去最大規模のセキュリティアップデートには、セキュリティバイパスや認証不要のリモートコード実行（RCE）といった深刻な脆弱性が含まれています。"
+      },
+      "thehackernews-https://thehackernews.com/2026/10/researchers-used-public-openai-model-to.html": {
+        "titleJa": "研究者が公開されているOpenAIのモデルを使い、25万ドル相当のChromeフルチェーンエクスプロイトを6日間で構築",
+        "summaryJa": "セキュリティ企業XBOWのチームが、Google Chromeの未知の脆弱性3つを組み合わせ、Webページを開くだけでWindows上でコードを実行させる攻撃手法を開発したと発表した。同社はこの研究成果を公開している。"
+      },
+      "thehackernews-https://thehackernews.com/2026/10/hirudo-android-trojan-uses-patched.html": {
+        "titleJa": "Androidトロイの木馬「Hirudo」、正規の銀行アプリを改ざん版に差し替えてセキュリティチェックを回避",
+        "summaryJa": "サイバーセキュリティ研究者が、Android向けの新たな銀行トロイの木馬「Hirudo」の詳細を公開した。このマルウェアは、正規の銀行アプリをセキュリティチェックを回避するように改ざんされた専用バージョンに置き換えることで機能する。"
+      },
+      "thehackernews-https://thehackernews.com/2026/10/an-ai-agent-found-critical-otp-bypass.html": {
+        "titleJa": "AIエージェントが本番環境で重大なOTPバイパスを発見、攻撃の実行よりも証明が困難だった",
+        "summaryJa": "ログイン時の認証コード送信先を任意に変更できるという単純な脆弱性が、AIペネトレーションテストエージェントによって発見された。承認された評価プロセスの中で、この脆弱性をライブサイト上で証明することが最も困難な作業であった。"
+      },
+      "bleepingcomputer-https://www.bleepingcomputer.com/news/security/microsoft-recent-windows-updates-may-trigger-remote-desktop-failures/": {
+        "titleJa": "Microsoft：最近のWindowsアップデートによりリモートデスクトップ接続が失敗する可能性",
+        "summaryJa": "Microsoftは、最近のWindowsアップデートを適用後、「管理者保護」セキュリティ機能が有効な場合に、管理者以外のユーザーがリモートデスクトップ経由でデバイスに接続できなくなる可能性があることを認めた。"
+      },
+      "theregister-https://www.theregister.com/security/2026/10/14/openai-engineer-charged-after-boardroom-bug-found-wrapped-in-toilet-paper/5303000": {
+        "titleJa": "OpenAIのエンジニア、会議室でトイレットペーパーに包まれた盗聴器が見つかり起訴される",
+        "summaryJa": "FBIは、OpenAIの従業員が会議室のテレビに隠し録音機を接続し、さらに別のデバイスを所持していたとして告発した。この従業員は、トイレットペーパーに包まれた録音機を隠し持っていたとされる。"
+      },
+      "thehackernews-https://thehackernews.com/2026/10/ai-found-linux-kernel-flaw-gives-local.html": {
+        "titleJa": "AIが発見したLinuxカーネルの欠陥、ローカルユーザーがroot権限を取得しゲストからホストへの脱出も可能に",
+        "summaryJa": "Linuxのvhostサブシステムにある欠陥により、ローカルユーザーがカーネルメモリを自由に読み書きし、約10年分のカーネルバージョンでroot権限を取得できることが判明した。特定の仮想化環境では、信頼できないゲストからホストへの脱出も可能である。"
+      },
+      "thehackernews-https://thehackernews.com/2026/10/four-byte-write-and-timing-bug-let.html": {
+        "titleJa": "4バイトの書き込みとタイミングのバグにより、研究者がWindows SmartScreenエンクレーブ内でコードを実行",
+        "summaryJa": "セキュリティ研究者が、コンピュータが乗っ取られた際にも隔離されるはずのWindowsの保護領域「VBSエンクレーブ」内で、独自のコードを実行することに成功した。これは4バイトの書き込みとタイミングのバグを利用して実現された。"
+      },
+      "theregister-https://www.theregister.com/cyber-crime/2026/10/14/ransomware-gets-personal-we-know-where-you-are-kind-of-stuff/5302939": {
+        "titleJa": "ランサムウェアが個人化：「居場所を知っている」といった脅迫",
+        "summaryJa": "世界的な調査によると、ランサムウェア攻撃の37%が心理的または物理的な脅迫を伴うものとなっている。"
+      },
+      "darkreading-https://www.darkreading.com/cybersecurity-analytics/ransomware-gangs-physical-threats-family-stalking": {
+        "titleJa": "ランサムウェア集団が物理的な脅迫や家族のストーキングを強化か？",
+        "summaryJa": "組織から、従業員が家族への脅迫、ストーキング、物理的な暴力、誘拐の被害に遭っているとの報告が寄せられている。ただし、これらの深刻な主張を裏付けることは困難である。"
+      },
+      "thehackernews-https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html": {
+        "titleJa": "Microsoftが過去最多の1,413件の脆弱性を修正、悪用されていたWindowsシェルバグも含む",
+        "summaryJa": "Microsoftは火曜日のパッチ公開で、過去最多となる1,413件の脆弱性を修正した。これには、すでに悪用が確認されているWindowsシェルの脆弱性も含まれている。"
       }
     },
     "enrichVersion": "5"
